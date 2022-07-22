@@ -1,14 +1,30 @@
 import VeldtLogo from '../../../assets/images/veldt-logo.svg';
-const { useState } = wp.element;
+const { useState, useEffect } = wp.element;
 
 const Header = () => {
-	const [ menuOpenClose, setMenuOpenClose] = useState(false)
+	const [ menuOpenClose, setMenuOpenClose] = useState(false);
+	const [ menuData, setMenuData ] = useState();
+	const [ load, setLoad ] = useState(false);
+	const [ titleList, setTitleList ] = useState()
 	const openMenu = () => {
 		setMenuOpenClose(true)
+		setTitleList(menuData.map((data) => {
+			if (data.type === 'custom') { 
+				return data.title
+			}}
+		))
+	
+		setLoad(true)
 	}
 	const closeMenu = () => {
 		setMenuOpenClose(false)
 	}
+
+	useEffect(() => {
+		fetch("http://localhost:8080/essai/wp-json/myroutes/menu")
+    .then(response => response.json())
+    .then(data => setMenuData(data))
+	}, []);
   return (
 		<header className="configurator-header">
 			<div className="header-configurator">
@@ -36,9 +52,9 @@ const Header = () => {
 							name="add"
 							className="header-configurator-right-priceZone-buy"
 						>
-								<span>
-									Buy it
-								</span>
+							<span>
+								Buy it
+							</span>
 						</button>
 					</div>
 					<div className="header-configurator-right-comment">Free delivery 10 weeks</div>
@@ -50,6 +66,14 @@ const Header = () => {
 				<svg version="1.1" id="closeLogo" className="closeLogo" viewBox="0 0 41 41" onClick={closeMenu}>
 					<polygon className="cross" points="28.3,14.1 26.9,12.7 20.5,19.1 14.1,12.7 12.7,14.1 19.1,20.5 12.7,26.9 14.1,28.3 20.5,21.9   26.9,28.3 28.3,26.9 21.9,20.5 "></polygon>
 				</svg>
+			 	<nav className='first_menu-configurator-nav'>
+					<ul className='sub-menu menu-depth-1'>
+					
+					{load && titleList.map((title, i) =>  (
+					<li key={i}>{title}</li>
+					))}
+				</ul>
+				</nav>
 				</div>
 					</div>
 			</header>

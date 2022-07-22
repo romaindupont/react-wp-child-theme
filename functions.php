@@ -22,3 +22,9 @@ function remove_admin_login_header() {
 add_action('get_header', 'remove_admin_login_header');
 
 add_filter( 'show_admin_bar', '__return_false' );
+
+function get_menu() { 
+	return wp_get_nav_menu_items('main-menu');
+} 
+
+add_action( 'rest_api_init', function () { register_rest_route( 'myroutes', '/menu', array( 'methods' => 'GET', 'callback' => 'get_menu', ) ); } );
