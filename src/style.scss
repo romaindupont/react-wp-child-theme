@@ -1,10 +1,7 @@
 .mc0{fill:#233658;}
 .mc1{fill:#FFFFFF;}
 
-header {
-	background-color: red;
-	width: 100vw;
-	height: 50vh;
-}
-
 .lv0{fill:#233658;}
+
+@import './components/header/header.scss';
+
