@@ -1,25 +1,38 @@
 import VeldtLogo from '../../../assets/images/veldt-logo.svg';
+import Menu from './menu';
 const { useState, useEffect } = wp.element;
 
 const Header = () => {
 	const [ menuOpenClose, setMenuOpenClose] = useState(false);
 	const [ menuData, setMenuData ] = useState();
 	const [ load, setLoad ] = useState(false);
-	const [ titleList, setTitleList ] = useState()
+	const [ titleList, setTitleList ] = useState();
+	const [ subMenuList, setSubMenuList ] = useState();
+
 	const openMenu = () => {
 		setMenuOpenClose(true)
-		setTitleList(menuData.map((data) => {
-			if (data.type === 'custom') { 
-				return data.title
-			}}
-		))
-	
+		let list;
+		let subMenu2List;
+		list = menuData.map((data) => {
+			if (data.classes[0] === 'mainMenu') { 
+				let ensemble = [data.title, data.url]
+				return ensemble
+			}
+		}
+		)
+		subMenu2List = menuData.map((data) => {
+			if (data.classes[0] !== 'mainMenu') { 
+				let ensemble = [data.title, data.url, data.classes[0], data.classes[1]]
+				return ensemble
+			}
+		}
+		)
+		list = list.filter((x) => { return x !== undefined})
+		subMenu2List = subMenu2List.filter((x) => { return x !== undefined})
+		setTitleList(list)
 		setLoad(true)
+		setSubMenuList(subMenu2List)
 	}
-	const closeMenu = () => {
-		setMenuOpenClose(false)
-	}
-
 	useEffect(() => {
 		fetch("http://localhost:8080/essai/wp-json/myroutes/menu")
     .then(response => response.json())
@@ -40,7 +53,7 @@ const Header = () => {
 						</svg>
 					</div>
 					<div className="header-configurator-left-title">
-							<img className="configurator-header__heading-menu" src={VeldtLogo} alt="logo-veldt"/>
+						<img className="configurator-header__heading-menu" src={VeldtLogo} alt="logo-veldt"/>
 						<h2 className="header-configurator-left-title-2"></h2>
 					</div>
 				</div>
@@ -60,23 +73,8 @@ const Header = () => {
 					<div className="header-configurator-right-comment">Free delivery 10 weeks</div>
 				</div>
 			</div>
-			<div className={menuOpenClose ? "first_menu-configurator first_menu-configurator--open" : "first_menu-configurator"}>
-				<div className="first_menu-configurator-nav-title">
-				<img className="configurator-header__heading-menu" src={VeldtLogo} alt="logo-veldt"/>
-				<svg version="1.1" id="closeLogo" className="closeLogo" viewBox="0 0 41 41" onClick={closeMenu}>
-					<polygon className="cross" points="28.3,14.1 26.9,12.7 20.5,19.1 14.1,12.7 12.7,14.1 19.1,20.5 12.7,26.9 14.1,28.3 20.5,21.9   26.9,28.3 28.3,26.9 21.9,20.5 "></polygon>
-				</svg>
-			 	<nav className='first_menu-configurator-nav'>
-					<ul className='sub-menu menu-depth-1'>
-					
-					{load && titleList.map((title, i) =>  (
-					<li key={i}>{title}</li>
-					))}
-				</ul>
-				</nav>
-				</div>
-					</div>
-			</header>
+			<Menu menuOpenClose={menuOpenClose} load={load} titleList={titleList} setMenuOpenClose={setMenuOpenClose} subMenuList={subMenuList}/>
+		</header>
   );
 };
 
