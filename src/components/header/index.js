@@ -8,30 +8,27 @@ const Header = () => {
 	const [ load, setLoad ] = useState(false);
 	const [ titleList, setTitleList ] = useState();
 	const [ subMenuList, setSubMenuList ] = useState();
-
 	const openMenu = () => {
 		setMenuOpenClose(true)
 		let list;
 		let subMenu2List;
 		list = menuData.map((data) => {
 			if (data.classes[0] === 'mainMenu') { 
-				let ensemble = [data.title, data.url]
-				return ensemble
+				let ensemble = [data.title, data.url];
+				return ensemble;
 			}
-		}
-		)
+		})
 		subMenu2List = menuData.map((data) => {
 			if (data.classes[0] !== 'mainMenu') { 
-				let ensemble = [data.title, data.url, data.classes[0], data.classes[1]]
-				return ensemble
+				let ensemble = [data.title, data.url, data.classes[0], data.classes[1]];
+				return ensemble;
 			}
-		}
-		)
+		})
 		list = list.filter((x) => { return x !== undefined})
-		subMenu2List = subMenu2List.filter((x) => { return x !== undefined})
-		setTitleList(list)
-		setLoad(true)
-		setSubMenuList(subMenu2List)
+		subMenu2List = subMenu2List.filter((x) => { return x !== undefined});
+		setTitleList(list);
+		setLoad(true);
+		setSubMenuList(subMenu2List);
 	}
 	useEffect(() => {
 		fetch("http://localhost:8080/essai/wp-json/myroutes/menu")

@@ -13,7 +13,11 @@ const SubMenu = ({subMenuList, subMenuOpenName, setSubMenuOpen}) => {
 		titleMenu = 'Mark 2';
 	}
 	const closeSubMenu = () => {
-		setSubMenuOpen({name: '', open: false})
+		setSubMenuOpen({name: '', open: false});
+		const select = document.querySelector('.select');
+		if (select) {
+			select.classList.remove('select');
+		}
 	}
 	return (
 		<nav className='first_menu-configurator-nav--2'>
