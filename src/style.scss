@@ -49,5 +49,15 @@ table {
 a {
 	text-decoration: none;
 }
+#site-content {
+	overflow: hidden;
+}
+.veldtConfig {
+	overflow: hidden;
+	width: 100vw;
+	height: 100vh;
+}
+
 @import './components/header/header.scss';
 
+@import './components/body/body.scss';
