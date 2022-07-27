@@ -51,6 +51,8 @@ a {
 }
 #site-content {
 	overflow: hidden;
+	width: 100vw;
+	height: 100vh;
 }
 .veldtConfig {
 	overflow: hidden;
@@ -61,3 +63,5 @@ a {
 @import './components/header/header.scss';
 
 @import './components/body/body.scss';
+
+@import './components/footer/footer.scss';

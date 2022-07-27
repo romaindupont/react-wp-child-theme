@@ -1,0 +1,126 @@
+{
+	"helmetElement" :{
+		"aeration": {
+			"title": "aeration",
+			"file": "aeration",
+			"helpMessage" : "Choose if you want aeration or not"
+			},
+		"screw and rivets": {
+			"title": "screw and rivets",
+			"file":"screw",
+			"helpMessage" : "Choose screw and rivets position"
+		},
+		"pattern": {
+			"title": "pattern",
+			"file":"pattern",
+			"helpMessage" : "Choose the pattern style you want"
+		},
+		"main-color": {
+			"title": "main color",
+			"file":"main-color",
+			"helpMessage" : "Choose the main color"
+		},
+		"pattern-color": {
+			"title": "pattern color",
+			"file": "pattern-color",
+			"helpMessage" : "Choose the pattern color and finishing"
+		},
+		"varnish": {
+			"title": "varnish",
+			"file":"varnish",
+			"helpMessage" : "Choose the finishing varnish"
+		},
+		"right-number": {
+			"title": "right number",
+			"file":"right-number",
+			"helpMessage" : "Apply a number on right of the helmet, choose the number and the style"
+		},
+		"left-number": {
+			"title": "left number",
+			"file":"left-number",
+			"helpMessage" : "Apply a number on left of the helmet, choose the number and the style"
+		},
+		"back-number": {
+			"title": "back number",
+			"file":"back-number",
+			"helpMessage" : "Apply a number on back of the helmet, choose the number and the style"
+		},
+		"logo": {
+			"title": "logo",
+			"file":"logo",
+			"helpMessage" : "Choose between several Logo your best one and select the color"
+		},
+		"interior": {
+			"title": "interior",
+			"file":"interior",
+			"helpMessage" : "Choose the material interior for your helmet"
+		},
+		"rush": {
+			"title": "trim",
+			"file":"trim",
+			"helpMessage" : "Choose color and trim material"
+		},
+		"metal-parts": {
+			"title": "metal parts",
+			"file":"metal-parts",
+			"helpMessage" : "Choose the color of the metal parts"
+		},
+		"zippers": {
+			"title": "zippers",
+			"file":"zippers",
+			"helpMessage" : "Choose the zippers between two technologies"
+		},
+		"engraving": {
+			"title": "engraving",
+			"file":"engraving",
+			"helpMessage" : "Choose the message behind"
+		},
+		"size": {
+			"title": "size and certification",
+			"file":"size",
+			"helpMessage" : "Choose the helmet size and the certification"
+		}	
+	},
+	"chinguardElement" : {
+		"aeration": {
+			"title": "aeration",
+			"file": "aeration",
+			"helpMessage" : "Choose if you want aeration or not"
+			},
+			"pattern": {
+				"title": "pattern",
+				"file":"pattern",
+				"helpMessage" : "Choose the pattern style you want"
+			},
+			"main-color": {
+				"title": "main color",
+				"file":"main-color",
+				"helpMessage" : "Choose the main color"
+			},
+			"pattern-color": {
+				"title": "pattern color",
+				"file": "pattern-color",
+				"helpMessage" : "Choose the pattern color and finishing"
+			},
+			"varnish": {
+				"title": "varnish",
+				"file":"varnish",
+				"helpMessage" : "Choose the finishing varnish"
+			},
+			"interior": {
+				"title": "interior",
+				"file":"interior",
+				"helpMessage" : "Choose the material interior for your helmet"
+			},
+			"rush": {
+				"title": "trim",
+				"file":"trim",
+				"helpMessage" : "Choose color and trim material"
+			},
+			"metal-parts": {
+				"title": "metal parts",
+				"file":"metal-parts",
+				"helpMessage" : "Choose the color of the metal parts"
+			}
+	}
+}

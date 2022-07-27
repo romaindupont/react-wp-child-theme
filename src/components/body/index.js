@@ -1,6 +1,6 @@
 const Body = () => {
 	return (
-		<main class="configurator" id="configurator"></main>
+		<main className="configurator" id="configurator"></main>
 	)
 }
 
