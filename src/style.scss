@@ -2,6 +2,8 @@
 .mc1{fill:#FFFFFF;}
 
 .lv0{fill:#233658;}
+.st0{fill:#FFFFFF;stroke:#231F20;stroke-width:0.4956;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+.st1{fill:#231F20;stroke:#231F20;stroke-width:0.4956;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -65,3 +67,4 @@ a {
 @import './components/body/body.scss';
 
 @import './components/footer/footer.scss';
+@import './components/footer/tabs/svg/svgConfigurator.scss';
