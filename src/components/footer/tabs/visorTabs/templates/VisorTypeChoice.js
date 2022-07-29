@@ -1,17 +1,7 @@
 const VisorTypeChoice = ({setTypeChoice}) => {
 	const clickChoice = (e) => {
-		e.preventDefault();
+/* 		e.preventDefault(); */
 		setTypeChoice(e.target.value);
-		const active = document.querySelectorAll(".inputVisor");
-		if (active) {
-			active.forEach(doc => doc.classList.remove('activeButton'))
-			const select = document.querySelector(`#${e.target.value}`);
-			select.classList.add('activeButton');
-		}
-		else {
-			const select = document.querySelector(`#${e.target.value}`);
-			select.classList.add('activeButton');
-		}
 	}
 	return (
 		<form className="inputVisorChoice" onChange={clickChoice}>

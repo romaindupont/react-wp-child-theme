@@ -89,7 +89,6 @@
   border-radius: 0 0 5px 5px;
 	overflow-x: hidden;
 	overflow-y: auto;
-	/* height: 15vh; */
 	transition: all 1s ease-in-out;
 }
 
@@ -109,7 +108,6 @@
   overflow: hidden;
   position: relative;
   font-size: 1rem;
-  /* flex: 1 1 0%; */
 	text-transform: uppercase;
 	font-weight: 600;
 }
@@ -426,6 +424,7 @@ svg#menu_option {
 	}
 	.sd-tabs > .sd-tab-content {
 		height: 230px;
+		
 	}
 /* 	.export {
 		top: 75%;
@@ -695,6 +694,11 @@ and (min-width : 1824px) {
   color:  var(--color-second);
 }
 .inputVisorChoice input[type="radio"]:checked + label {
+	background:var(--color-second);
+  color: var(--color-principal);
+	border: 2px solid var(--color-principal);
+}
+.colorListType input[type="radio"]:checked + label {
 	background:var(--color-second);
   color: var(--color-principal);
 	border: 2px solid var(--color-principal);
@@ -1085,7 +1089,7 @@ input#textSelection {
 	justify-content: center;
 }
 
-.inputVisor {
+.inputVisor, .inputVisor_peak {
 	position: absolute;
 	opacity: 0;
 }

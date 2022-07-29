@@ -2,10 +2,14 @@ const VisorPeakPage = () => {
 	return (
 		<div className="peak_visor_page">
 			<div className="colorListType">
-				<span className="buttonChoice">Plain</span>
-				<span className="buttonChoice">Metallic</span>
-				<span className="buttonChoice">Glitter</span>
-				<span className="buttonChoice">Sheathing</span>
+				<input className="inputVisor_peak" type="radio" name="peak_visor" id="plain" value="plain" />
+				<label className="buttonChoice" htmlFor="plain">Plain</label>
+				<input className="inputVisor_peak" type="radio" name="peak_visor" id="metallic" value="metallic" />
+				<label className="buttonChoice" htmlFor="metallic">Metallic</label>
+				<input className="inputVisor_peak" type="radio" name="peak_visor" id="glitter" value="glitter" />
+				<label className="buttonChoice" htmlFor="glitter">Glitter</label>
+				<input className="inputVisor_peak" type="radio" name="peak_visor" id="sheathing" value="sheathing" />
+				<label className="buttonChoice" htmlFor="sheathing">Sheathing</label>
 			</div>
 			<div className="colorList">
 				<div className="colorP"><div className="roundColor carbon"></div><span className="textAction">Carbon</span></div>

@@ -5,12 +5,12 @@ const Tabs = () => {
 	const [ tabsChoice, setTabsChoice ] = useState({
 		helmet: true,
 		chin: false,
-		visor: false,
+		visor: false
 	});
 	const [ tabsCheck, setTabsCheck ] = useState({
 		helmetCheck: true,
 		chinCheck: false,
-		visorCheck: false,
+		visorCheck: false
 	});
 	return (
 		<div className="sd-tabs">
