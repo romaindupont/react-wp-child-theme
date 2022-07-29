@@ -5,52 +5,69 @@ import ChinTabs from "./chinTabs";
 const radioTabs = ({id, eyeType, title, setTabsChoice, checked, setTabsCheck, tabsChoice, tabsCheck}) => {
 	const changeCheck = (e) => {
 		e.preventDefault();
-		if (title === 'Helmet') {
-			setTabsCheck({
-				helmetCheck: !checked,
-				chinCheck: tabsCheck.chinCheck,
-				visorCheck: tabsCheck.visorCheck,
-			})
-		}
-		if (title === 'Chinguard') {
-			setTabsCheck({
-				chinCheck: !checked,
-				helmetCheck: tabsCheck.helmetCheck,
-				visorCheck: tabsCheck.visorCheck
-			})
-		}
-		if (title === 'Visor') {
-			setTabsCheck({
-				visorCheck: !checked,
-				helmetCheck: tabsCheck.helmetCheck,
-				chinCheck: tabsCheck.chinCheck
-			})
+		switch(title) {
+			case 'Helmet':
+				setTabsCheck({
+					helmetCheck: !checked,
+					chinCheck: tabsCheck.chinCheck,
+					visorCheck: tabsCheck.visorCheck
+				});
+				break;
+			case 'Chinguard':
+				setTabsCheck({
+					chinCheck: !checked,
+					helmetCheck: tabsCheck.helmetCheck,
+					visorCheck: tabsCheck.visorCheck
+				});
+				break;
+			case 'Visor':
+				setTabsCheck({
+					visorCheck: !checked,
+					helmetCheck: tabsCheck.helmetCheck,
+					chinCheck: tabsCheck.chinCheck
+				});
+				break;
+			default:
+				setTabsCheck({
+					visorCheck: true,
+					helmetCheck: false,
+					chinCheck: false
+				});
+				break;
 		}
 	}
 	const openEyeClic = () => {
-		if (title === 'Helmet') {
-			setTabsChoice({
-				helmet: !eyeType,
-				chin: tabsChoice.chin,
-				visor: tabsChoice.visor,
-			})
-		}
-		if (title === 'Chinguard') {
-			setTabsChoice({
-				chin: !eyeType,
-				helmet: tabsChoice.helmet,
-				visor: tabsChoice.visor
-			})
-		}
-		if (title === 'Visor') {
-			setTabsChoice({
-				visor: !eyeType,
-				helmet: tabsChoice.helmet,
-				chin: tabsChoice.chin
-			})
+		switch(title) {
+			case 'Helmet':
+				setTabsChoice({
+					helmet: !eyeType,
+					chin: tabsChoice.chin,
+					visor: tabsChoice.visor
+				});
+				break;
+			case 'Chinguard':
+				setTabsChoice({
+					chin: !eyeType,
+					helmet: tabsChoice.helmet,
+					visor: tabsChoice.visor
+				});
+				break;
+			case 'Visor':
+				setTabsChoice({
+					visor: !eyeType,
+					helmet: tabsChoice.helmet,
+					chin: tabsChoice.chin
+				});
+				break;
+			default:
+				setTabsChoice({
+					helmet: true,
+					chin: false,
+					visor: false
+				});
+				break;
 		}
 	}
-
 	return (
 		<>
 			<input className="sd-tab-radio" name="tabs" tabIndex="1" type="radio" id={id} checked={checked} onChange={changeCheck} value={title}/>
@@ -78,4 +95,4 @@ const radioTabs = ({id, eyeType, title, setTabsChoice, checked, setTabsCheck, ta
 	)
 }
 
-export default radioTabs
+export default radioTabs;

@@ -37,25 +37,25 @@ const VisorLongBlue = () => {
 			<path className="long_blue_st2" d="M75.3,31.5c0.1-1.2-0.9-2.2-2.1-2.2c-1.2,0-2.2,0.9-2.3,2.1c-0.1,1.2,0.9,2.2,2.1,2.2
 				C74.2,33.6,75.2,32.6,75.3,31.5z"/>
 			<linearGradient id="long_blueSVGID_1_" gradientUnits="userSpaceOnUse" x1="10.9158" y1="35.609" x2="58.5688" y2="63.1215">
-				<stop  offset="0" style="stop-color:#32113B"/>
-				<stop  offset="0.1047" style="stop-color:#34143D"/>
-				<stop  offset="0.1737" style="stop-color:#3C1D44"/>
-				<stop  offset="0.2324" style="stop-color:#492C51"/>
-				<stop  offset="0.2854" style="stop-color:#5B4162"/>
-				<stop  offset="0.3345" style="stop-color:#735C79"/>
-				<stop  offset="0.3807" style="stop-color:#907E95"/>
-				<stop  offset="0.4248" style="stop-color:#B3A6B6"/>
-				<stop  offset="0.4659" style="stop-color:#DAD3DB"/>
-				<stop  offset="0.5" style="stop-color:#FFFFFF"/>
-				<stop  offset="0.5261" style="stop-color:#DDDDE8"/>
-				<stop  offset="0.5645" style="stop-color:#B2B2CA"/>
-				<stop  offset="0.6061" style="stop-color:#8C8CAF"/>
-				<stop  offset="0.6501" style="stop-color:#6C6B99"/>
-				<stop  offset="0.6975" style="stop-color:#525187"/>
-				<stop  offset="0.7494" style="stop-color:#3E3D79"/>
-				<stop  offset="0.8082" style="stop-color:#302F6F"/>
-				<stop  offset="0.8798" style="stop-color:#27276A"/>
-				<stop  offset="1" style="stop-color:#252468"/>
+				<stop  offset="0" style={{stopColor:"#32113B"}}/>
+				<stop  offset="0.1047" style={{stopColor:"#34143D"}}/>
+				<stop  offset="0.1737" style={{stopColor:"#3C1D44"}}/>
+				<stop  offset="0.2324" style={{stopColor:"#492C51"}}/>
+				<stop  offset="0.2854" style={{stopColor:"#5B4162"}}/>
+				<stop  offset="0.3345" style={{stopColor:"#735C79"}}/>
+				<stop  offset="0.3807" style={{stopColor:"#907E95"}}/>
+				<stop  offset="0.4248" style={{stopColor:"#B3A6B6"}}/>
+				<stop  offset="0.4659" style={{stopColor:"#DAD3DB"}}/>
+				<stop  offset="0.5" style={{stopColor:"#FFFFFF"}}/>
+				<stop  offset="0.5261" style={{stopColor:"#DDDDE8"}}/>
+				<stop  offset="0.5645" style={{stopColor:"#B2B2CA"}}/>
+				<stop  offset="0.6061" style={{stopColor:"#8C8CAF"}}/>
+				<stop  offset="0.6501" style={{stopColor:"#6C6B99"}}/>
+				<stop  offset="0.6975" style={{stopColor:"#525187"}}/>
+				<stop  offset="0.7494" style={{stopColor:"#3E3D79"}}/>
+				<stop  offset="0.8082" style={{stopColor:"#302F6F"}}/>
+				<stop  offset="0.8798" style={{stopColor:"#27276A"}}/>
+				<stop  offset="1" style={{stopColor:"#252468"}}/>
 			</linearGradient>
 			<path className="long_blue_st3" d="M72.1,39.6c-4.3-0.5-7.5-4.2-7.3-8.5c0.2-3.9,3.1-7.1,6.9-7.8c-1.9-0.1-3.7-0.3-5.6-0.5
 				c-3.3-0.5-6.5-1.3-9.6-2.6c-3.5-1.5-5.5-2.8-8.6-5c-2.3-1.7-4.7-3.3-7-5c-1.2-0.8-2.3-1.7-3.5-2.5c-0.6-0.4-1.2-0.8-1.8-1.3

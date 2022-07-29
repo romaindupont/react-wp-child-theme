@@ -3,14 +3,14 @@ import LightFrame from "../../svg/Frame/LightFrame";
 
 const VisorFrame = () => {
 	return (
-		<div class="frame">
-			<div class="allScrew">
+		<div className="frame">
+			<div className="allScrew">
 				<FullFrame />
-				<span class="textAction">Full</span>
+				<span className="textAction">Full</span>
 			</div>
-			<div class="allScrew">
+			<div className="allScrew">
 				<LightFrame />
-				<span class="textAction">Light</span>
+				<span className="textAction">Light</span>
 			</div>
 		</div>
 	)

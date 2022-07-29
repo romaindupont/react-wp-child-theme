@@ -6,26 +6,26 @@ import VisorLongTransparent from "../../svg/VisorLong/VisorLongTransparent";
 
 const VisorLongPage = () => {
 	return (
-<div class="long_visor_page">
-	<div class="allScrew">
+<div className="long_visor_page">
+	<div className="allScrew">
 		<VisorLongTransparent />
-		<span class="textAction">Transparant</span>
+		<span className="textAction">Transparant</span>
 	</div>
-	<div class="allScrew">
+	<div className="allScrew">
 		<VisorLongBlack />
-		<span class="textAction">Black</span>
+		<span className="textAction">Black</span>
 	</div>
-	<div class="allScrew">
+	<div className="allScrew">
 		<VisorLongBlue />
-		<span class="textAction">Blue</span>
+		<span className="textAction">Blue</span>
 	</div>
-	<div class="allScrew">
+	<div className="allScrew">
 		<VisorLongChrome />
-		<span class="textAction">Chrome</span>
+		<span className="textAction">Chrome</span>
 	</div>
-	<div class="allScrew">
+	<div className="allScrew">
 		<VisorLongSemi />
-		<span class="textAction">Semi</span>
+		<span className="textAction">Semi</span>
 	</div>
 </div>
 	)

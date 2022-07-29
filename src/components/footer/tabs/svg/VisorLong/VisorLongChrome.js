@@ -37,9 +37,9 @@ const VisorLongChrome = () => {
 			<path className="long_chrome_st2" d="M75.3,31.5c0.1-1.2-0.9-2.2-2.1-2.2c-1.2,0-2.2,0.9-2.3,2.1c-0.1,1.2,0.9,2.2,2.1,2.2
 				C74.2,33.6,75.2,32.6,75.3,31.5z"/>
 			<linearGradient id="long_chromeSVGID_1_" gradientUnits="userSpaceOnUse" x1="10.9158" y1="35.609" x2="58.5688" y2="63.1215">
-				<stop  offset="0" style="stop-color:#010101"/>
-				<stop  offset="0.5" style="stop-color:#FFFFFF"/>
-				<stop  offset="1" style="stop-color:#010101"/>
+				<stop  offset="0" style={{stopColor:"#010101"}}/>
+				<stop  offset="0.5" style={{stopColor:"#FFFFFF"}}/>
+				<stop  offset="1" style={{stopColor:"#010101"}}/>
 			</linearGradient>
 			<path className="long_chrome_st3" d="M72.1,39.6c-4.3-0.5-7.5-4.2-7.3-8.5c0.2-3.9,3.1-7.1,6.9-7.8c-1.9-0.1-3.7-0.3-5.6-0.5
 				c-3.3-0.5-6.5-1.3-9.6-2.6c-3.5-1.5-5.5-2.8-8.6-5c-2.3-1.7-4.7-3.3-7-5c-1.2-0.8-2.3-1.7-3.5-2.5c-0.6-0.4-1.2-0.8-1.8-1.3
