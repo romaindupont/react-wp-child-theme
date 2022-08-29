@@ -5,6 +5,7 @@ import Body from './components/body';
 import Footer from './components/footer';
 
 const Veldt = () => {
+
   return (
 		<div className='veldtConfig'>
 			<Header />
