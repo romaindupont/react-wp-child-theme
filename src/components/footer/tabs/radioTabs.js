@@ -70,7 +70,7 @@ const radioTabs = ({id, eyeType, title, setTabsChoice, checked, setTabsCheck, ta
 	}
 	return (
 		<>
-			<input className="sd-tab-radio" name="tabs" tabIndex="1" type="radio" id={id} checked={checked} onChange={changeCheck} value={title}/>
+			<input className="sd-tab-radio" name="tabs" tabIndex="1" type="radio" id={id} /* checked={checked} */ onChange={changeCheck} value={title}/>
 			<label className="sd-tab-label label1" htmlFor={id}>
 				<div className="sd-tab-desc">{title}</div>
 				{eyeType ?  
