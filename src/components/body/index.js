@@ -24,7 +24,7 @@ const Body = () => {
 								0, 0, 0, 1],
 								SKU: "helmet_noGroove"
 							},
-				/* 		 	{
+/* 						 	{
 								parentLocalId: 1,
 								localId: 3,
 								matrix: [1, 0, 0, 0,
@@ -42,7 +42,7 @@ const Body = () => {
 								0, 0, 0, 1],
 								SKU: "helmet_elements"
 							},
-							/*{
+/* 							{
 								parentLocalId: 1,
 								localId: 5,
 								matrix: [1, 0, 0, 0,
@@ -51,7 +51,7 @@ const Body = () => {
 								0, 0, 0, 1],
 								SKU: "helmetDesign_groove"
 							}, */
-/* 							{
+							{
 								parentLocalId: 1,
 								localId: 6,
 								matrix: [1, 0, 0, 0,
@@ -59,7 +59,7 @@ const Body = () => {
 								0, 0, 1, 0,
 								0, 0, 0, 1],
 								SKU: "helmetDesign_noGroove"
-							}, */
+							},
 /* 							{
 								parentLocalId: 1,
 								localId: 7,
@@ -78,7 +78,7 @@ const Body = () => {
 								0, 0, 0, 1],
 								SKU: "helmetCoating_noGroove"
 							}, */
-/* 							{
+							{
 								parentLocalId: 1,
 								localId: 9,
 								matrix: [1, 0, 0, 0,
@@ -86,7 +86,7 @@ const Body = () => {
 								0, 0, 1, 0,
 								0, 0, 0, 1],
 								SKU: "helmetTrim_rubber"
-							}, */
+							},
 				/* 			{
 								parentLocalId: 1,
 								localId: 10,
@@ -114,6 +114,15 @@ const Body = () => {
 								0, 0, 0, 1],
 								SKU: "pullingFlap_leather"
 							}, */
+													{
+								parentLocalId: 1,
+								localId: 17,
+								matrix: [1, 0, 0, 0,
+								0, 1, 0, 0,
+								0, 0, 1, 0,
+								0, 0, 0, 1],
+								SKU: "screwsBase_helmet"
+							},
 						],
 						localIdsToRemove :
 						[]

@@ -79,13 +79,13 @@ const radioTabs = ({id, eyeType, title, setTabsChoice, checked, setTabsCheck, ta
 						nodesToAdd :
 						[
 						{
-						parentLocalId: 1,
-						localId: 13,
-						matrix: [1, 0, 0, 0,
-						0, 1, 0, 0,
-						0, 0, 1, 0,
-						0, 0, 0, 1],
-						SKU: "chinguard_groove"
+							parentLocalId: 1,
+							localId: 13,
+							matrix: [1, 0, 0, 0,
+							0, 1, 0, 0,
+							0, 0, 1, 0,
+							0, 0, 0, 1],
+							SKU: "chinguard_groove"
 						},
 						{
 							parentLocalId: 1,
