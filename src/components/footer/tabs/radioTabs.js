@@ -3,6 +3,24 @@ import VisorTabs from "./visorTabs";
 import ChinTabs from "./chinTabs";
 
 const radioTabs = ({id, eyeType, title, setTabsChoice, checked, setTabsCheck, tabsChoice, tabsCheck}) => {
+	let viewerIframe = null;
+/* 	let viewerActive = false;
+	let viewerEventListener =  function(event){
+		if(event.data && event.data.action == 'onStateChange'){
+			console.log(event.data)
+		}}
+		window.addEventListener('load', function(event) {
+			viewerIframe = document.getElementById('emersyaIframe').contentWindow;  
+			window.removeEventListener('message', viewerEventListener ,false);
+			viewerIframe.postMessage({ 
+				action : "registerCallback" 
+				}, '*');
+			window.addEventListener('message', viewerEventListener, false);
+			viewerIframe.postMessage({
+				action : 'getViewerState'
+			}, '*');
+		
+	}, false); */
 	const changeCheck = (e) => {
 		/* e.preventDefault(); */
 		switch(e.target.value) {
@@ -37,7 +55,10 @@ const radioTabs = ({id, eyeType, title, setTabsChoice, checked, setTabsCheck, ta
 		}
 	}
 	const openEyeClic = () => {
-		switch(title) {
+		viewerIframe = document.getElementById('emersyaIframe').contentWindow;
+		console.log(viewerIframe)
+/* 		viewerIframe.addEventListener('onStateChange', (e)=> {console.log(e)}, false); 
+ */		switch(title) {
 			case 'Helmet':
 				setTabsChoice({
 					helmet: !eyeType,
@@ -51,6 +72,75 @@ const radioTabs = ({id, eyeType, title, setTabsChoice, checked, setTabsCheck, ta
 					helmet: tabsChoice.helmet,
 					visor: tabsChoice.visor
 				});
+				if(!eyeType) {
+					viewerIframe.postMessage(
+						{
+						action : "updateProductNodesInstances",
+						nodesToAdd :
+						[
+						{
+						parentLocalId: 1,
+						localId: 13,
+						matrix: [1, 0, 0, 0,
+						0, 1, 0, 0,
+						0, 0, 1, 0,
+						0, 0, 0, 1],
+						SKU: "chinguard_groove"
+						},
+						{
+							parentLocalId: 1,
+							localId: 14,
+							matrix: [1, 0, 0, 0,
+							0, 1, 0, 0,
+							0, 0, 1, 0,
+							0, 0, 0, 1],
+							SKU: "chinguard_elements"
+						},
+						{
+							parentLocalId: 1,
+							localId: 15,
+							matrix: [1, 0, 0, 0,
+							0, 1, 0, 0,
+							0, 0, 1, 0,
+							0, 0, 0, 1],
+							SKU: "chinguardDesign_groove"
+						},
+						{
+							parentLocalId: 1,
+							localId: 16,
+							matrix: [1, 0, 0, 0,
+							0, 1, 0, 0,
+							0, 0, 1, 0,
+							0, 0, 0, 1],
+							SKU: "chinguardCoating_groove"
+						},
+						{
+							parentLocalId: 1,
+							localId: 17,
+							matrix: [1, 0, 0, 0,
+							0, 1, 0, 0,
+							0, 0, 1, 0,
+							0, 0, 0, 1],
+							SKU: "chinguardTrim_rubber"
+						},
+						],
+						localIdsToRemove :
+						[]
+						},
+						"*"
+						); 
+				}
+				if(eyeType) { 
+					 viewerIframe.postMessage(
+						{
+						action : "updateProductNodesInstances",
+						nodesToAdd :
+						[],
+						localIdsToRemove: [13, 14, 15, 16, 17]
+						},
+						"*"
+						); 
+				}
 				break;
 			case 'Visor':
 				setTabsChoice({
