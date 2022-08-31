@@ -4,22 +4,17 @@ import ChinTabs from "./chinTabs";
 
 const radioTabs = ({id, eyeType, title, setTabsChoice, checked, setTabsCheck, tabsChoice, tabsCheck}) => {
 	let viewerIframe = null;
-/* 	let viewerActive = false;
+/* 	let viewerActive = false;*/
 	let viewerEventListener =  function(event){
+		console.log(event)
 		if(event.data && event.data.action == 'onStateChange'){
-			console.log(event.data)
+			
 		}}
-		window.addEventListener('load', function(event) {
+	/* 	window.addEventListener('load', function(event) {
 			viewerIframe = document.getElementById('emersyaIframe').contentWindow;  
 			window.removeEventListener('message', viewerEventListener ,false);
-			viewerIframe.postMessage({ 
-				action : "registerCallback" 
-				}, '*');
 			window.addEventListener('message', viewerEventListener, false);
-			viewerIframe.postMessage({
-				action : 'getViewerState'
-			}, '*');
-		
+	
 	}, false); */
 	const changeCheck = (e) => {
 		/* e.preventDefault(); */
@@ -55,8 +50,9 @@ const radioTabs = ({id, eyeType, title, setTabsChoice, checked, setTabsCheck, ta
 		}
 	}
 	const openEyeClic = () => {
-		viewerIframe = document.getElementById('emersyaIframe').contentWindow;
-		console.log(viewerIframe)
+ 		viewerIframe = document.getElementById('emersyaIframe').contentWindow;
+		 window.removeEventListener('message', viewerEventListener ,false);
+		/*console.log(viewerIframe) */
 /* 		viewerIframe.addEventListener('onStateChange', (e)=> {console.log(e)}, false); 
  */		switch(title) {
 			case 'Helmet':
@@ -78,57 +74,31 @@ const radioTabs = ({id, eyeType, title, setTabsChoice, checked, setTabsCheck, ta
 						action : "updateProductNodesInstances",
 						nodesToAdd :
 						[
-						{
-							parentLocalId: 1,
-							localId: 13,
-							matrix: [1, 0, 0, 0,
-							0, 1, 0, 0,
-							0, 0, 1, 0,
-							0, 0, 0, 1],
-							SKU: "chinguard_groove"
-						},
-						{
-							parentLocalId: 1,
-							localId: 14,
-							matrix: [1, 0, 0, 0,
-							0, 1, 0, 0,
-							0, 0, 1, 0,
-							0, 0, 0, 1],
-							SKU: "chinguard_elements"
-						},
-						{
-							parentLocalId: 1,
-							localId: 15,
-							matrix: [1, 0, 0, 0,
-							0, 1, 0, 0,
-							0, 0, 1, 0,
-							0, 0, 0, 1],
-							SKU: "chinguardDesign_groove"
-						},
-						{
-							parentLocalId: 1,
-							localId: 16,
-							matrix: [1, 0, 0, 0,
-							0, 1, 0, 0,
-							0, 0, 1, 0,
-							0, 0, 0, 1],
-							SKU: "chinguardCoating_groove"
-						},
-						{
-							parentLocalId: 1,
-							localId: 17,
-							matrix: [1, 0, 0, 0,
-							0, 1, 0, 0,
-							0, 0, 1, 0,
-							0, 0, 0, 1],
-							SKU: "chinguardTrim_rubber"
-						},
+							{
+								parentLocalId: 1,
+								localId: 2,
+								matrix: [1, 0, 0, 0,
+								0, 1, 0, 0,
+								0, 0, 1, 0,
+								0, 0, 0, 1],
+								SKU: "helmet_noGroove"
+							},
+							{
+								parentLocalId: 1,
+								localId: 4,
+								matrix: [1, 0, 0, 0,
+								0, 1, 0, 0,
+								0, 0, 1, 0,
+								0, 0, 0, 1],
+								SKU: "helmet_elements"
+							},
 						],
 						localIdsToRemove :
 						[]
 						},
 						"*"
 						); 
+						window.addEventListener('message', viewerEventListener, false);
 				}
 				if(eyeType) { 
 					 viewerIframe.postMessage(
@@ -136,10 +106,11 @@ const radioTabs = ({id, eyeType, title, setTabsChoice, checked, setTabsCheck, ta
 						action : "updateProductNodesInstances",
 						nodesToAdd :
 						[],
-						localIdsToRemove: [13, 14, 15, 16, 17]
+						localIdsToRemove: [2, 4]
 						},
 						"*"
 						); 
+						window.addEventListener('message', viewerEventListener, false);
 				}
 				break;
 			case 'Visor':
@@ -160,7 +131,7 @@ const radioTabs = ({id, eyeType, title, setTabsChoice, checked, setTabsCheck, ta
 	}
 	return (
 		<>
-			<input className="sd-tab-radio" name="tabs" tabIndex="1" type="radio" id={id} /* checked={checked} */ onChange={changeCheck} value={title}/>
+			<input className="sd-tab-radio" name="tabs" tabIndex="1" type="radio" id={id} checked={checked} onChange={changeCheck} value={title}/>
 			<label className="sd-tab-label label1" htmlFor={id}>
 				<div className="sd-tab-desc">{title}</div>
 				{eyeType ?  
