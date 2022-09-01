@@ -2,14 +2,14 @@ import HelmetTabs from "./helmetTabs";
 import VisorTabs from "./visorTabs";
 import ChinTabs from "./chinTabs";
 
-const radioTabs = ({id, eyeType, title, setTabsChoice, checked, setTabsCheck, tabsChoice, tabsCheck}) => {
-	let viewerIframe = null;
+const radioTabs = ({id, eyeType, title, setTabsChoice, checked, setTabsCheck, tabsChoice, tabsCheck, viewerIframe}) => {
+/* 	let viewerIframe = null; */
 /* 	let viewerActive = false;*/
-	let viewerEventListener =  function(event){
+/* 	let viewerEventListener =  function(event){
 		console.log(event)
 		if(event.data && event.data.action == 'onStateChange'){
 			
-		}}
+		}} */
 	/* 	window.addEventListener('load', function(event) {
 			viewerIframe = document.getElementById('emersyaIframe').contentWindow;  
 			window.removeEventListener('message', viewerEventListener ,false);
@@ -50,8 +50,8 @@ const radioTabs = ({id, eyeType, title, setTabsChoice, checked, setTabsCheck, ta
 		}
 	}
 	const openEyeClic = () => {
- 		viewerIframe = document.getElementById('emersyaIframe').contentWindow;
-		 window.removeEventListener('message', viewerEventListener ,false);
+ 	/* 	viewerIframe = document.getElementById('emersyaIframe').contentWindow; */
+		/*  window.removeEventListener('message', viewerEventListener ,false); */
 		/*console.log(viewerIframe) */
 /* 		viewerIframe.addEventListener('onStateChange', (e)=> {console.log(e)}, false); 
  */		switch(title) {
@@ -73,24 +73,33 @@ const radioTabs = ({id, eyeType, title, setTabsChoice, checked, setTabsCheck, ta
 						{
 						action : "updateProductNodesInstances",
 						nodesToAdd :
+						[],
+						localIdsToRemove: [25, 24]
+						},
+						"*"
+						); 
+					viewerIframe.postMessage(
+						{
+						action : "updateProductNodesInstances",
+						nodesToAdd :
 						[
 							{
 								parentLocalId: 1,
-								localId: 2,
+								localId: 24,
 								matrix: [1, 0, 0, 0,
 								0, 1, 0, 0,
 								0, 0, 1, 0,
 								0, 0, 0, 1],
-								SKU: "helmet_noGroove"
+								SKU: "chinguard_noGroove"
 							},
 							{
 								parentLocalId: 1,
-								localId: 4,
+								localId: 25,
 								matrix: [1, 0, 0, 0,
 								0, 1, 0, 0,
 								0, 0, 1, 0,
 								0, 0, 0, 1],
-								SKU: "helmet_elements"
+								SKU: "chinguard_elements"
 							},
 						],
 						localIdsToRemove :
@@ -98,7 +107,7 @@ const radioTabs = ({id, eyeType, title, setTabsChoice, checked, setTabsCheck, ta
 						},
 						"*"
 						); 
-						window.addEventListener('message', viewerEventListener, false);
+						/* window.addEventListener('message', viewerEventListener, false); */
 				}
 				if(eyeType) { 
 					 viewerIframe.postMessage(
@@ -106,11 +115,11 @@ const radioTabs = ({id, eyeType, title, setTabsChoice, checked, setTabsCheck, ta
 						action : "updateProductNodesInstances",
 						nodesToAdd :
 						[],
-						localIdsToRemove: [2, 4]
+						localIdsToRemove: [25, 24]
 						},
 						"*"
 						); 
-						window.addEventListener('message', viewerEventListener, false);
+						/* window.addEventListener('message', viewerEventListener, false); */
 				}
 				break;
 			case 'Visor':
