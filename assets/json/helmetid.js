@@ -197,7 +197,7 @@ export default [
 				0, 0, 0, 1],
 				SKU: "screwsSide_chinguard"
 			},
-			screwsTop_noVisor:
+			screwsTopNoVisor:
 			{
 				parentLocalId: 1,
 				localId: 21,
@@ -219,31 +219,149 @@ export default [
 			}
 		},
 		chinguard: {
-			
+			chinguardGroove:
+			{
+				parentLocalId: 1,
+				localId: 23,
+				matrix: [1, 0, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1],
+				SKU: "chinguard_groove"
+			},
+			chinguardNoGroove:
+			{
+				parentLocalId: 1,
+				localId: 24,
+				matrix: [1, 0, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1],
+				SKU: "chinguard_noGroove"
+			},
+			chinguardElements:
+			{
+				parentLocalId: 1,
+				localId: 25,
+				matrix: [1, 0, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1],
+				SKU: "chinguard_elements"
+			},
+			chinguardDesignGroove:
+			{
+				parentLocalId: 1,
+				localId: 26,
+				matrix: [1, 0, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1],
+				SKU: "chinguardDesign_groove"
+			},
+			chinguardDesignNoGroove:
+			{
+				parentLocalId: 1,
+				localId: 27,
+				matrix: [1, 0, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1],
+				SKU: "chinguardDesign_noGroove"
+			},
+			chinguardCoatingGroove:
+			{
+				parentLocalId: 1,
+				localId: 28,
+				matrix: [1, 0, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1],
+				SKU: "chinguardCoating_groove"
+			},
+			chinguardCoatingNoGroove:
+			{
+				parentLocalId: 1,
+				localId: 29,
+				matrix: [1, 0, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1],
+				SKU: "chinguardCoating_noGroove"
+			},
+			chinguardTrimRubber:
+			{
+				parentLocalId: 1,
+				localId: 30,
+				matrix: [1, 0, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1],
+				SKU: "chinguardTrim_rubber"
+			},
+			chinguardTrimLeather:
+			{
+				parentLocalId: 1,
+				localId: 31,
+				matrix: [1, 0, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1],
+				SKU: "chinguardTrim_leather"
+			}
+		},
+		visor: {
+			visorPeak: 
+			{
+				parentLocalId: 1,
+				localId: 32,
+				matrix: [1, 0, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1],
+				SKU: "visor_peak"
+			},
+			visorPeakCoating:
+			{
+				parentLocalId: 1,
+				localId: 33,
+				matrix: [1, 0, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1],
+				SKU: "visor_peakCoating"
+			},
+			visorShortShield:
+			{
+				parentLocalId: 1,
+				localId: 34,
+				matrix: [1, 0, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1],
+				SKU: "visor_shortShield"
+			},
+			visorLongShield:
+			{
+				parentLocalId: 1,
+				localId: 35,
+				matrix: [1, 0, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1],
+				SKU: "visor_longShield"
+			},
+			visorElements:
+			{
+				parentLocalId: 1,
+				localId: 36,
+				matrix: [1, 0, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1],
+				SKU: "visor_elements"
+			}
 		}
 	}
 ]
-/*{
-		parentLocalId: 1,
-		localId: 15,
-		matrix: [1, 0, 0, 0,
-		0, 1, 0, 0,
-		0, 0, 1, 0,
-		0, 0, 0, 1],
-		SKU: "custom_numberingBack"
-	},*/
-	/*
-	chinguard_groove	23
-	chinguard_noGroove	24
-	chinguard_elements	25
-	chinguardDesign_groove	26
-	chinguardDesign_noGroove	27
-	chinguardCoating_groove	28
-	chinguardCoating_noGroove	29
-	chinguardTrim_rubber	30
-	chinguardTrim_leather	31
-	visor_peak	32
-	visor_peakCoating	33
-	visor_shortShield	34
-	visor_longShield	35
-	visor_elements	36
+		

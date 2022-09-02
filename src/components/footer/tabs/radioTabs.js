@@ -1,21 +1,10 @@
 import HelmetTabs from "./helmetTabs";
 import VisorTabs from "./visorTabs";
 import ChinTabs from "./chinTabs";
+import Data from "../../../../assets/json/helmetid";
 
 const radioTabs = ({id, eyeType, title, setTabsChoice, checked, setTabsCheck, tabsChoice, tabsCheck}) => {
 	let viewerIframe = null;
-/* 	let viewerActive = false;*/
-	let viewerEventListener =  function(event){
-		console.log(event)
-		if(event.data && event.data.action == 'onStateChange'){
-			
-		}}
-	/* 	window.addEventListener('load', function(event) {
-			viewerIframe = document.getElementById('emersyaIframe').contentWindow;  
-			window.removeEventListener('message', viewerEventListener ,false);
-			window.addEventListener('message', viewerEventListener, false);
-	
-	}, false); */
 	const changeCheck = (e) => {
 		/* e.preventDefault(); */
 		switch(e.target.value) {
@@ -51,10 +40,7 @@ const radioTabs = ({id, eyeType, title, setTabsChoice, checked, setTabsCheck, ta
 	}
 	const openEyeClic = () => {
  		viewerIframe = document.getElementById('emersyaIframe').contentWindow;
-		 window.removeEventListener('message', viewerEventListener ,false);
-		/*console.log(viewerIframe) */
-/* 		viewerIframe.addEventListener('onStateChange', (e)=> {console.log(e)}, false); 
- */		switch(title) {
+		switch(title) {
 			case 'Helmet':
 				setTabsChoice({
 					helmet: !eyeType,
@@ -69,36 +55,20 @@ const radioTabs = ({id, eyeType, title, setTabsChoice, checked, setTabsCheck, ta
 					visor: tabsChoice.visor
 				});
 				if(!eyeType) {
+					
 					viewerIframe.postMessage(
 						{
 						action : "updateProductNodesInstances",
 						nodesToAdd :
 						[
-							{
-								parentLocalId: 1,
-								localId: 2,
-								matrix: [1, 0, 0, 0,
-								0, 1, 0, 0,
-								0, 0, 1, 0,
-								0, 0, 0, 1],
-								SKU: "helmet_noGroove"
-							},
-							{
-								parentLocalId: 1,
-								localId: 4,
-								matrix: [1, 0, 0, 0,
-								0, 1, 0, 0,
-								0, 0, 1, 0,
-								0, 0, 0, 1],
-								SKU: "helmet_elements"
-							},
+							Data[0].screw.screwsBaseHelmet,
+
 						],
 						localIdsToRemove :
 						[]
 						},
 						"*"
 						); 
-						window.addEventListener('message', viewerEventListener, false);
 				}
 				if(eyeType) { 
 					 viewerIframe.postMessage(
@@ -106,12 +76,11 @@ const radioTabs = ({id, eyeType, title, setTabsChoice, checked, setTabsCheck, ta
 						action : "updateProductNodesInstances",
 						nodesToAdd :
 						[],
-						localIdsToRemove: [2, 4]
+						localIdsToRemove: [Data[0].screw.screwsBaseHelmet.localId]
 						},
 						"*"
 						); 
-						window.addEventListener('message', viewerEventListener, false);
-				}
+			}
 				break;
 			case 'Visor':
 				setTabsChoice({
