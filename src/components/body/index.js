@@ -1,9 +1,26 @@
 const { useEffect } = wp.element;
 import Noeud from '../../../assets/json/helmetid';
 
-const Body = () => {
+const Body = ({aerationHelmet}) => {
 	let viewerIframe = null;
 	let viewerActive = false;
+	let essai = (e) => {
+		console.log(aerationHelmet)
+		if(!aerationHelmet) {
+			viewerIframe.postMessage(
+				{
+					action : "updateProductNodesInstances",
+					nodesToAdd :
+					[
+						Noeud[0].helmet.helmetNoGroove
+					],
+					localIdsToRemove :
+						[Noeud[0].helmet.helmetNoGroove]
+				}, 
+				"*"
+				);
+		}
+	}
 	let firstConfiguration = (e) => {
 		if(e.data && e.data.action == 'onSuccess' && e.data.callAction == 'updateProductNodesInstances'){
 			viewerIframe.postMessage({
@@ -36,6 +53,7 @@ const Body = () => {
 						},
 					]
 			}, '*');
+			window.addEventListener('message', essai, false);
 		}
 	}
 	let viewerEventListener =  function(event){
@@ -56,7 +74,6 @@ const Body = () => {
 					[
 						Noeud[0].helmet.helmetGroove,
 						Noeud[0].helmet.helmetElements,
-						/* Noeud[0].helmet.helmetDesignNoGroove, */
 						Noeud[0].helmet.helmetCoatingGroove,
 						Noeud[0].helmet.helmetTrimRubber,
 						Noeud[0].flap.pullingFlapNylon,

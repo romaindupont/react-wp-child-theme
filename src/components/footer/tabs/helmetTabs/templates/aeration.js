@@ -1,12 +1,12 @@
 const { useState } = wp.element;
 
-const Aeration = () => {
-	const [ areation, setAreation] = useState(false);
+const Aeration = ({setAerationHelmet}) => {
+	/* const [ areation, setAreation] = useState(false); */
 	return (
 		<div className="aerationList">
 			<div className="aerationDisplay">
-				<span className="aerationWithout buttonChoice" onClick={()=>setAreation(false)}>Without</span>
-				<span className="aerationWith buttonChoice" onClick={()=>setAreation(true)}>With</span>
+				<span className="aerationWithout buttonChoice" onClick={()=>setAerationHelmet(false)}>Without</span>
+				<span className="aerationWith buttonChoice" onClick={()=>setAerationHelmet(true)}>With</span>
 			</div>
 		</div>
 	)

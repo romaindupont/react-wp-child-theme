@@ -3,7 +3,7 @@ import VisorTabs from "./visorTabs";
 import ChinTabs from "./chinTabs";
 import Data from "../../../../assets/json/helmetid";
 
-const radioTabs = ({id, eyeType, title, setTabsChoice, checked, setTabsCheck, tabsChoice, tabsCheck}) => {
+const radioTabs = ({id, eyeType, title, setTabsChoice, checked, setTabsCheck, tabsChoice, tabsCheck, setAerationHelmet}) => {
 	let viewerIframe = null;
 	const changeCheck = (e) => {
 		/* e.preventDefault(); */
@@ -55,7 +55,6 @@ const radioTabs = ({id, eyeType, title, setTabsChoice, checked, setTabsCheck, ta
 					visor: tabsChoice.visor
 				});
 				if(!eyeType) {
-					
 					viewerIframe.postMessage(
 						{
 						action : "updateProductNodesInstances",
@@ -121,7 +120,7 @@ const radioTabs = ({id, eyeType, title, setTabsChoice, checked, setTabsCheck, ta
 			</label>
 			<div className="sd-tab-content" tabIndex="1">
 				{
-					title === 'Helmet' ? <HelmetTabs /> : title === 'Chinguard' ? <ChinTabs /> : title === 'Visor' ? <VisorTabs /> :  ''
+					title === 'Helmet' ? <HelmetTabs setAerationHelmet={setAerationHelmet} /> : title === 'Chinguard' ? <ChinTabs /> : title === 'Visor' ? <VisorTabs /> :  ''
 				}
 			</div>
 		</>

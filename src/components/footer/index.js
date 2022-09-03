@@ -5,12 +5,12 @@ import MenuOption from './menuOption';
 import PopupHelp from './popupHelp';
 import ExportWindows from './exportWindows';
 
-const Footer = () => {
+const Footer = ({setAerationHelmet}) => {
 	const [ openOptionMenu, setOpenOptionMenu ] = useState({name: '', open: false});
 	return (
 		<footer className="footer-configurator">
 			<FooterHeader setOpenOptionMenu={setOpenOptionMenu} />
-			<Tabs />
+			<Tabs setAerationHelmet={setAerationHelmet}/>
 			{openOptionMenu.open && openOptionMenu.name === 'menuOption' && <MenuOption setOpenOptionMenu={setOpenOptionMenu} />}
 			{openOptionMenu.open && openOptionMenu.name === 'help' && <PopupHelp setOpenOptionMenu={setOpenOptionMenu} />}
 			{openOptionMenu.open && openOptionMenu.name === 'export' && <ExportWindows setOpenOptionMenu={setOpenOptionMenu} />}

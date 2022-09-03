@@ -19,7 +19,7 @@ import Trim from './templates/trim';
 import Varnish from './templates/varnish';
 import Zippers from './templates/zippers';
 
-const HelmetTabs = () => {
+const HelmetTabs = ({setAerationHelmet}) => {
 	const [ helmetTemplate ] = useState(ElementData);
 	const [ helmetPosition, setHelmetPosition ] = useState({
 		title: ElementData[0].title,
@@ -58,7 +58,7 @@ const HelmetTabs = () => {
 			</div>
 			<div className="template">
 				{
-					helmetPosition.fileName === 'aeration' ? <Aeration /> :  
+					helmetPosition.fileName === 'aeration' ? <Aeration setAerationHelmet={setAerationHelmet}/> :  
 					helmetPosition.fileName === 'back-number' ? <BackNumber /> :
 					helmetPosition.fileName === 'engraving' ? <Engraving /> :
 					helmetPosition.fileName === 'interior' ? <Interior /> :

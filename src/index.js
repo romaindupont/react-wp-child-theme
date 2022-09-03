@@ -5,12 +5,12 @@ import Body from './components/body';
 import Footer from './components/footer';
 
 const Veldt = () => {
-
+	const [ aerationHelmet, setAerationHelmet] = useState(true);
   return (
 		<div className='veldtConfig'>
 			<Header />
-			<Body />
-			<Footer />
+			<Body aerationHelmet={aerationHelmet} />
+			<Footer setAerationHelmet={setAerationHelmet} />
 		</div>
   );
 };
