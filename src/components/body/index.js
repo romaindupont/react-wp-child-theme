@@ -1,26 +1,21 @@
 const { useEffect } = wp.element;
 import Noeud from '../../../assets/json/helmetid';
+import Aeration from './Helmet/aeration';
+import Screw from './Helmet/screw';
 
-const Body = ({aerationHelmet}) => {
+const Body = ({aerationHelmet, screwPosition}) => {
+	
 	let viewerIframe = null;
 	let viewerActive = false;
-	let essai = (e) => {
-		console.log(aerationHelmet)
-		if(!aerationHelmet) {
-			viewerIframe.postMessage(
-				{
-					action : "updateProductNodesInstances",
-					nodesToAdd :
-					[
-						Noeud[0].helmet.helmetNoGroove
-					],
-					localIdsToRemove :
-						[Noeud[0].helmet.helmetNoGroove]
-				}, 
-				"*"
-				);
-		}
+	let helmetAereationListener = (e) => {
+		viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
+		Aeration(viewerIframe, aerationHelmet)
+		/* Screw(viewerIframe, screwPosition) */
 	}
+/* 	let screwPositionListener = (e) => {
+		viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
+		Screw(viewerIframe, screwPosition)
+	} */
 	let firstConfiguration = (e) => {
 		if(e.data && e.data.action == 'onSuccess' && e.data.callAction == 'updateProductNodesInstances'){
 			viewerIframe.postMessage({
@@ -53,12 +48,10 @@ const Body = ({aerationHelmet}) => {
 						},
 					]
 			}, '*');
-			window.addEventListener('message', essai, false);
 		}
 	}
 	let viewerEventListener =  function(event){
 		console.log(event.data.action, event, event.data.callAction)
-	
 		if(event.data && event.data.action == 'onStateChange'){
 			if(event.data.state.viewerState == 'loaded' || event.data.state.viewerState == 'fallbackloaded'){
 				viewerActive = true;
@@ -78,9 +71,11 @@ const Body = ({aerationHelmet}) => {
 						Noeud[0].helmet.helmetTrimRubber,
 						Noeud[0].flap.pullingFlapNylon,
 						Noeud[0].screw.screwsBaseHelmet,
-						Noeud[0].screw.screwsBaseChinguard,
+						/* Noeud[0].screw.screwsBaseChinguard, */
 						Noeud[0].screw.screwsSideChinguard,
-						Noeud[0].screw.screwsTopVisor,
+						/* Noeud[0].screw.screwsSideNoChinguard,*/
+						Noeud[0].screw.screwsTopVisor, 
+						/* Noeud[0].screw.screwsTopNoVisor, */
 						Noeud[0].visor.visorPeak
 						/* Noeud[0].custom.rearEngraving */
 					],
@@ -105,13 +100,23 @@ const Body = ({aerationHelmet}) => {
 		window.addEventListener('message', viewerEventListener, false);
 	}, false);
 	useEffect(() => {
-		
-	}, []);
+		helmetAereationListener()
+		/* screwPositionListener() */
+	}, [aerationHelmet, screwPosition]);
 	return (
 		<main className="configurator" id="configurator">
-			<iframe id="emersyaIframe" src="https://emersya.com/showcase/W3C2GS773F" frameBorder="0"
-width="100%" height="100%" allow="camera;gyroscope;accelerometer;magnetometer" webkitallowfullscreen="true"
-mozallowfullscreen="true" allowFullScreen={true} style={{display:"block", background: "#f2f2f2"}}></iframe>
+			<iframe
+				id="emersyaIframe"
+				src="https://emersya.com/showcase/W3C2GS773F"
+				frameBorder="0"
+				width="100%"
+				height="100%"
+				allow="camera;gyroscope;accelerometer;magnetometer"
+				webkitallowfullscreen="true"
+				mozallowfullscreen="true"
+				allowFullScreen={true}
+				style={{display:"block", background: "#f2f2f2"}}
+			></iframe>
 		</main>
 	)
 }

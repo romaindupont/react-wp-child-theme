@@ -3,22 +3,22 @@ import ScrewBottom from "../../svg/Screw/ScrewBottom";
 import ScrewNone from "../../svg/Screw/ScrewNone";
 import ScrewTop from "../../svg/Screw/ScrewTop";
 
-const Screw = () => {
+const Screw = ({setScrewPosition}) => {
 	return (
 		<div className="pickerScrew">
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setScrewPosition('none')}>
 				<ScrewNone />
 				<span className="textAction">None</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setScrewPosition('bottom')}>
 				<ScrewBottom />
 				<span className="textAction">Bottom</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setScrewPosition('top')}>
 				<ScrewTop />
 				<span className="textAction">Top</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setScrewPosition('all')}>
 				<ScrewAll />
 				<span className="textAction">All</span>
 			</div>
