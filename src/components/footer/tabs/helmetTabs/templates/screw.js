@@ -2,8 +2,11 @@ import ScrewAll from "../../svg/Screw/ScrewAll";
 import ScrewBottom from "../../svg/Screw/ScrewBottom";
 import ScrewNone from "../../svg/Screw/ScrewNone";
 import ScrewTop from "../../svg/Screw/ScrewTop";
+const { useEffect } = wp.element;
+import ScrewFunction from "../../../../body/Helmet/screw";
 
 const Screw = ({setScrewPosition}) => {
+
 	return (
 		<div className="pickerScrew">
 			<div className="allScrew" onClick={()=>setScrewPosition('none')}>

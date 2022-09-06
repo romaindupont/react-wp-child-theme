@@ -14,7 +14,6 @@ const radioTabs = ({
 	tabsCheck,
 	setAerationHelmet,
 	setScrewPosition
-
 }) => {
 	let viewerIframe = null;
 	const changeCheck = (e) => {

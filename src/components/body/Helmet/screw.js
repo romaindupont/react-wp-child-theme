@@ -1,6 +1,8 @@
 import Noeud from '../../../../assets/json/helmetid';
 
-const Screw = (viewerIframe, screwPosition) => {
+const ScrewFunction = (screwPosition) => {
+	let viewerIframe = null;
+	viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 	if(screwPosition === 'none') {
 		viewerIframe.postMessage(
 			{
@@ -25,7 +27,7 @@ const Screw = (viewerIframe, screwPosition) => {
 				action : "updateProductNodesInstances",
 				nodesToAdd :
 				[
-					/* Noeud[0].screw.screwsBaseChinguard, */
+					Noeud[0].screw.screwsBaseChinguard,
 					Noeud[0].screw.screwsSideChinguard,
 					Noeud[0].screw.screwsSideNoChinguard,
 				],
@@ -37,7 +39,7 @@ const Screw = (viewerIframe, screwPosition) => {
 					]
 			}, "*");
 	}
-	/*if(screwPosition === 'top') {
+	if(screwPosition === 'top') {
 		viewerIframe.postMessage(
 			{
 				action : "updateProductNodesInstances",
@@ -50,7 +52,7 @@ const Screw = (viewerIframe, screwPosition) => {
 					
 					]
 			}, "*");
-	}*/
+	}
 	if(screwPosition === 'all') {
 		viewerIframe.postMessage(
 			{
@@ -58,9 +60,9 @@ const Screw = (viewerIframe, screwPosition) => {
 				nodesToAdd :
 				[
 					Noeud[0].screw.screwsBaseChinguard,
-					/* Noeud[0].screw.screwsSideChinguard, */
+					Noeud[0].screw.screwsSideChinguard,
 					Noeud[0].screw.screwsSideNoChinguard,
-					/* Noeud[0].screw.screwsTopVisor, */
+					Noeud[0].screw.screwsTopVisor,
 					Noeud[0].screw.screwsTopNoVisor
 				],
 				localIdsToRemove :
@@ -71,4 +73,4 @@ const Screw = (viewerIframe, screwPosition) => {
 	}
 }
 
-export default Screw;
+export default ScrewFunction;

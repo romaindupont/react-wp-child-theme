@@ -12,7 +12,7 @@ const Veldt = () => {
 		<div className='veldtConfig'>
 			<Header />
 			<Body aerationHelmet={aerationHelmet} screwPosition={screwPosition} />
-			<Footer setAerationHelmet={setAerationHelmet} setScrewPosition={setScrewPosition}/>
+			<Footer setAerationHelmet={setAerationHelmet} setScrewPosition={setScrewPosition} screwPosition={screwPosition}/>
 		</div>
   );
 };

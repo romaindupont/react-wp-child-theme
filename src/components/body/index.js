@@ -1,15 +1,16 @@
 const { useEffect } = wp.element;
 import Noeud from '../../../assets/json/helmetid';
 import Aeration from './Helmet/aeration';
-import Screw from './Helmet/screw';
+import ScrewFunction from './Helmet/screw';
 
 const Body = ({aerationHelmet, screwPosition}) => {
 	
 	let viewerIframe = null;
 	let viewerActive = false;
 	let helmetAereationListener = (e) => {
-		viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
-		Aeration(viewerIframe, aerationHelmet)
+		console.log(e)
+		/* viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
+		Aeration(viewerIframe, aerationHelmet) */
 		/* Screw(viewerIframe, screwPosition) */
 	}
 /* 	let screwPositionListener = (e) => {
@@ -98,11 +99,14 @@ const Body = ({aerationHelmet, screwPosition}) => {
 			action : "registerCallback" 
 		}, '*');
 		window.addEventListener('message', viewerEventListener, false);
+		/* viewerIframe.addEventListener('onStateChange', helmetAereationListener, false); */
 	}, false);
 	useEffect(() => {
 		helmetAereationListener()
-		/* screwPositionListener() */
-	}, [aerationHelmet, screwPosition]);
+	}, [aerationHelmet]);
+	useEffect(() => {
+		ScrewFunction(screwPosition)
+	}, [screwPosition]);
 	return (
 		<main className="configurator" id="configurator">
 			<iframe
