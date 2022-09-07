@@ -19,7 +19,7 @@ import Trim from './templates/trim';
 import Varnish from './templates/varnish';
 import Zippers from './templates/zippers';
 
-const HelmetTabs = ({setAerationHelmet, setScrewPosition}) => {
+const HelmetTabs = ({setAerationHelmet, setScrewPosition, setStandardValue, standardValue}) => {
 	const [ helmetTemplate ] = useState(ElementData);
 	const [ helmetPosition, setHelmetPosition ] = useState({
 		title: ElementData[0].title,
@@ -67,7 +67,7 @@ const HelmetTabs = ({setAerationHelmet, setScrewPosition}) => {
 					helmetPosition.fileName === 'main-color' ? <MainColor /> :
 					helmetPosition.fileName === 'metal-parts' ? <MetalsParts /> :
 					helmetPosition.fileName === 'pattern-color' ? <PatternColor /> :
-					helmetPosition.fileName === 'pattern' ? <Pattern /> :
+					helmetPosition.fileName === 'pattern' ? <Pattern setStandardValue={setStandardValue} standardValue={standardValue} /> :
 					helmetPosition.fileName === 'right-number' ? <RightNumber /> :
 					helmetPosition.fileName === 'screw' ? <Screw setScrewPosition={setScrewPosition}/> :
 					helmetPosition.fileName === 'size' ? <Size /> :

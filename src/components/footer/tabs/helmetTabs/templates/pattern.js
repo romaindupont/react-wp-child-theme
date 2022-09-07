@@ -15,7 +15,7 @@ import PatternShellStars from "../../svg/PatternShell/PatternShellStars";
 import PatternShellVertical from "../../svg/PatternShell/PatternShellVertical";
 import { useHorizontalScroll } from "../../../../../../utils/useHorizontalScroll";
 
-const Pattern = () => {
+const Pattern = ({setStandardValue, standardValue}) => {
 	const scrollRef = useHorizontalScroll();
 	const scrollEffect = (e) => {
 		let ratio = 4.5;
@@ -31,63 +31,63 @@ const Pattern = () => {
 	}
 	return (
 		<div className="patternList" onScroll={scrollEffect} ref={scrollRef} style={{ overflow: "auto" }}>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Helmet_design:'band'})}>
 				<PatternShellBand />
 				<span className="textAction">Band</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Helmet_design:'checker'})}>
 				<PatternShellChecker />
 				<span className="textAction">Checker</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Helmet_design:'chester'})}>
 				<PatternShellChester />
 				<span className="textAction">Chester</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Helmet_design:'around'})}>
 				<PatternShellContour />
 				<span className="textAction">Around</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Helmet_design:'dots'})}>
 				<PatternShellDots />
 				<span className="textAction">Dots</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Helmet_design:'dual'})}>
 				<PatternShellDual />
 				<span className="textAction">Dual</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Helmet_design:'extend'})}>
 				<PatternShellExtend />
 				<span className="textAction">Extend</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Helmet_design:'gradient'})}>
 				<PatternShellGradient />
 				<span className="textAction">Gradient</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Helmet_design:'half'})}>
 				<PatternShellHalf />
 				<span className="textAction">Half</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Helmet_design:'horizontal'})}>
 				<PatternShellHorizontal />
 				<span className="textAction">Horizontal</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Helmet_design:'outline'})}>
 				<PatternShellOutline />
 				<span className="textAction">Outline</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Helmet_design:'parabol'})}>
 				<PatternShellParabol />
 				<span className="textAction">Parabol</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Helmet_design:'plain'})}>
 				<PatternShellPlain />
 				<span className="textAction">Plain</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Helmet_design:'stars'})}>
 				<PatternShellStars />
 				<span className="textAction">Stars</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Helmet_design:'vertical'})}>
 				<PatternShellVertical />
 				<span className="textAction">Vertical</span>
 			</div>

@@ -2,16 +2,17 @@ const { useEffect } = wp.element;
 import Noeud from '../../../assets/json/helmetid';
 import Aeration from './Helmet/aeration';
 import ScrewFunction from './Helmet/screw';
+import Pattern from './Helmet/pattern';
 
-const Body = ({aerationHelmet, screwPosition}) => {
-	
+const Body = ({aerationHelmet, screwPosition, standardValue}) => {
 	let viewerIframe = null;
 	let viewerActive = false;
 	let helmetAereationListener = (e) => {
-		console.log(e)
-		/* viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
-		Aeration(viewerIframe, aerationHelmet) */
-		/* Screw(viewerIframe, screwPosition) */
+		viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
+		Aeration(viewerIframe, aerationHelmet) 
+		viewerIframe.postMessage({
+			action : 'getCurrentMaterials'
+		}, '*');
 	}
 /* 	let screwPositionListener = (e) => {
 		viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
@@ -19,37 +20,41 @@ const Body = ({aerationHelmet, screwPosition}) => {
 	} */
 	let firstConfiguration = (e) => {
 		if(e.data && e.data.action == 'onSuccess' && e.data.callAction == 'updateProductNodesInstances'){
-			viewerIframe.postMessage({
-				action : 'setMaterialsGroups',
-				values : 
-					[
-						{
-							configurationName : 'plain|black',
-							groupName : 'Helmet_color'
-						},
-						{
-							configurationName : 'titanium',
-							groupName : 'Metal_pieces'
-						},
-						{
-							configurationName : 'V_Text|white',
-							groupName : 'Logo'
-						},
-						{
-							configurationName : 'suede|blue',
-							groupName : 'Interior'
-						},
-						/* {
-							configurationName : 'rubber|white',
-							groupName : 'Helmet_trim'
-						}, */
-						{
-							configurationName : 'ECE|M',
-							groupName : 'Rear_text'
-						},
-					]
-			}, '*');
+			
+				viewerIframe.postMessage({
+					action : 'setMaterialsGroups',
+					values : 
+						[
+							{
+								configurationName : standardValue.Helmet_color,
+								groupName : 'Helmet_color'
+							},
+							{
+								configurationName : standardValue.Metal_pieces,
+								groupName : 'Metal_pieces'
+							},
+							{
+								configurationName :standardValue.Logo,
+								groupName : 'Logo'
+							},
+							{
+								configurationName : standardValue.Interior,
+								groupName : 'Interior'
+							},
+							{
+								configurationName : standardValue.Helmet_trim,
+								groupName : 'Helmet_trim'
+							},
+							{
+								configurationName : standardValue.Rear_text,
+								groupName : 'Rear_text'
+							},
+							
+						]
+					}, '*');
+				
 		}
+
 	}
 	let viewerEventListener =  function(event){
 		console.log(event.data.action, event, event.data.callAction)
@@ -72,7 +77,8 @@ const Body = ({aerationHelmet, screwPosition}) => {
 						Noeud[0].helmet.helmetTrimRubber,
 						Noeud[0].flap.pullingFlapNylon,
 						Noeud[0].screw.screwsBaseHelmet,
-						/* Noeud[0].screw.screwsBaseChinguard, */
+						/* Noeud[0].helmet.helmetDesignNoGroove, */
+						/* Noeud[0].helmet.helmetDesignGroove ,*/
 						Noeud[0].screw.screwsSideChinguard,
 						/* Noeud[0].screw.screwsSideNoChinguard,*/
 						Noeud[0].screw.screwsTopVisor, 
@@ -85,6 +91,7 @@ const Body = ({aerationHelmet, screwPosition}) => {
 				}, 
 				"*"
 				);
+
 				window.addEventListener('message', firstConfiguration, false);
 			}
 		}
@@ -101,12 +108,16 @@ const Body = ({aerationHelmet, screwPosition}) => {
 		window.addEventListener('message', viewerEventListener, false);
 		/* viewerIframe.addEventListener('onStateChange', helmetAereationListener, false); */
 	}, false);
-	useEffect(() => {
+ 	useEffect(() => {
 		helmetAereationListener()
-	}, [aerationHelmet]);
+
+	}, [aerationHelmet, ]);
 	useEffect(() => {
 		ScrewFunction(screwPosition)
 	}, [screwPosition]);
+	useEffect(() => {
+		Pattern(standardValue, aerationHelmet)
+	}, [standardValue/* , aerationHelmet */]);
 	return (
 		<main className="configurator" id="configurator">
 			<iframe
