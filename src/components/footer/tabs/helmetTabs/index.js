@@ -19,7 +19,7 @@ import Trim from './templates/trim';
 import Varnish from './templates/varnish';
 import Zippers from './templates/zippers';
 
-const HelmetTabs = ({setAerationHelmet, setScrewPosition, setStandardValue, standardValue}) => {
+const HelmetTabs = ({setAerationHelmet, setScrewPosition, setStandardValue, standardValue, setVarnishHelmet}) => {
 	const [ helmetTemplate ] = useState(ElementData);
 	const [ helmetPosition, setHelmetPosition ] = useState({
 		title: ElementData[0].title,
@@ -64,15 +64,15 @@ const HelmetTabs = ({setAerationHelmet, setScrewPosition, setStandardValue, stan
 					helmetPosition.fileName === 'interior' ? <Interior /> :
 					helmetPosition.fileName === 'left-number' ? <LeftNumber /> :
 					helmetPosition.fileName === 'logo' ? <Logo /> :
-					helmetPosition.fileName === 'main-color' ? <MainColor /> :
+					helmetPosition.fileName === 'main-color' ? <MainColor setStandardValue={setStandardValue} standardValue={standardValue}/> :
 					helmetPosition.fileName === 'metal-parts' ? <MetalsParts /> :
-					helmetPosition.fileName === 'pattern-color' ? <PatternColor /> :
+					helmetPosition.fileName === 'pattern-color' ? <PatternColor setStandardValue={setStandardValue} standardValue={standardValue}/> :
 					helmetPosition.fileName === 'pattern' ? <Pattern setStandardValue={setStandardValue} standardValue={standardValue} /> :
 					helmetPosition.fileName === 'right-number' ? <RightNumber /> :
 					helmetPosition.fileName === 'screw' ? <Screw setScrewPosition={setScrewPosition}/> :
 					helmetPosition.fileName === 'size' ? <Size /> :
 					helmetPosition.fileName === 'trim' ? <Trim /> :
-					helmetPosition.fileName === 'varnish' ? <Varnish /> :
+					helmetPosition.fileName === 'varnish' ? <Varnish setVarnishHelmet={setVarnishHelmet}/> :
 					helmetPosition.fileName === 'zippers' ? <Zippers /> : ''
 				}
 			</div>

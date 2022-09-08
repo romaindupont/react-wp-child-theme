@@ -79,11 +79,11 @@ const Pattern = ({setStandardValue, standardValue}) => {
 				<PatternShellParabol />
 				<span className="textAction">Parabol</span>
 			</div>
-			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Helmet_design:'plain'})}>
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Helmet_design:''})}>
 				<PatternShellPlain />
 				<span className="textAction">Plain</span>
 			</div>
-			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Helmet_design:'stars'})}>
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Helmet_design:'star'})}>
 				<PatternShellStars />
 				<span className="textAction">Stars</span>
 			</div>

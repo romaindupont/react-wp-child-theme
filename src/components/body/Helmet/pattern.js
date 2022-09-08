@@ -3,10 +3,8 @@ import Noeud from '../../../../assets/json/helmetid';
 const Pattern = (standardValue, aerationHelmet) => {
 	let viewerIframe = null;
 	viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
-		if(aerationHelmet){
-
-			if(standardValue.Helmet_design === 'plain' || standardValue.Helmet_design === ''){
-				console.log('plain ou vide')
+		if (aerationHelmet) {
+			if (standardValue.Helmet_design === 'plain' || standardValue.Helmet_design === '') {
 				viewerIframe.postMessage(
 					{
 						action : "updateProductNodesInstances",
@@ -39,17 +37,19 @@ const Pattern = (standardValue, aerationHelmet) => {
 						values : 
 							[
 								{
-									configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_color}`,
+									configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
+									groupName : 'Helmet_color'
+								},
+									{
+									configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
 									groupName : 'Helmet_design_color'
 								},
 								
 							]
 						}, '*');
 				}
-			
-	} else {
-		
-		if(standardValue.Helmet_design === 'plain' || standardValue.Helmet_design === ''){
+	} else {	
+		if (standardValue.Helmet_design === 'plain' || standardValue.Helmet_design === '') {
 			viewerIframe.postMessage(
 				{
 					action : "updateProductNodesInstances",
@@ -77,22 +77,23 @@ const Pattern = (standardValue, aerationHelmet) => {
 								Noeud[0].helmet.helmetDesignGroove.localId
 							]
 					}, "*");
-					viewerIframe.postMessage({
-						action : 'setMaterialsGroups',
-						values : 
-							[
-								{
-									configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_color}`,
-									groupName : 'Helmet_design_color'
-								},
-								
-							]
-						}, '*');
+				viewerIframe.postMessage({
+					action : 'setMaterialsGroups',
+					values : 
+						[
+							{
+								configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
+								groupName : 'Helmet_color'
+							},
+							{
+								configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
+								groupName : 'Helmet_design_color'
+							},
+							
+						]
+				}, '*');
 			}
-		
 	}
-
-	
 }
 
 export default Pattern;

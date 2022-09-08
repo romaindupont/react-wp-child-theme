@@ -3,8 +3,10 @@ import Noeud from '../../../assets/json/helmetid';
 import Aeration from './Helmet/aeration';
 import ScrewFunction from './Helmet/screw';
 import Pattern from './Helmet/pattern';
+import MainColor from './Helmet/mainColor';
+import Varnish from './Helmet/varnish';
 
-const Body = ({aerationHelmet, screwPosition, standardValue}) => {
+const Body = ({aerationHelmet, screwPosition, standardValue, varnishHelmet}) => {
 	let viewerIframe = null;
 	let viewerActive = false;
 	let helmetAereationListener = (e) => {
@@ -14,10 +16,6 @@ const Body = ({aerationHelmet, screwPosition, standardValue}) => {
 			action : 'getCurrentMaterials'
 		}, '*');
 	}
-/* 	let screwPositionListener = (e) => {
-		viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
-		Screw(viewerIframe, screwPosition)
-	} */
 	let firstConfiguration = (e) => {
 		if(e.data && e.data.action == 'onSuccess' && e.data.callAction == 'updateProductNodesInstances'){
 			
@@ -26,7 +24,7 @@ const Body = ({aerationHelmet, screwPosition, standardValue}) => {
 					values : 
 						[
 							{
-								configurationName : standardValue.Helmet_color,
+								configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
 								groupName : 'Helmet_color'
 							},
 							{
@@ -117,7 +115,13 @@ const Body = ({aerationHelmet, screwPosition, standardValue}) => {
 	}, [screwPosition]);
 	useEffect(() => {
 		Pattern(standardValue, aerationHelmet)
-	}, [standardValue/* , aerationHelmet */]);
+	}, [standardValue.Helmet_design_color, standardValue.Helmet_design_type,standardValue.Helmet_design,standardValue.Helmet_color, standardValue.Helmet_color_type]);
+	useEffect(() => {
+		MainColor(standardValue)
+	}, [standardValue.Helmet_color, standardValue.Helmet_color_type]);
+	useEffect(() => {
+		Varnish(varnishHelmet, aerationHelmet)
+	}, [varnishHelmet]);
 	return (
 		<main className="configurator" id="configurator">
 			<iframe

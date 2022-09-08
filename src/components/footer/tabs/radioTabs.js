@@ -15,7 +15,8 @@ const radioTabs = ({
 	setAerationHelmet,
 	setScrewPosition,
 	setStandardValue,
-	standardValue
+	standardValue,
+	setVarnishHelmet
 }) => {
 	let viewerIframe = null;
 	const changeCheck = (e) => {
@@ -133,7 +134,7 @@ const radioTabs = ({
 			</label>
 			<div className="sd-tab-content" tabIndex="1">
 				{
-					title === 'Helmet' ? <HelmetTabs setAerationHelmet={setAerationHelmet} setScrewPosition={setScrewPosition} setStandardValue={setStandardValue} standardValue={standardValue} /> : title === 'Chinguard' ? <ChinTabs /> : title === 'Visor' ? <VisorTabs /> :  ''
+					title === 'Helmet' ? <HelmetTabs setAerationHelmet={setAerationHelmet} setScrewPosition={setScrewPosition} setStandardValue={setStandardValue} standardValue={standardValue} setVarnishHelmet={setVarnishHelmet} /> : title === 'Chinguard' ? <ChinTabs /> : title === 'Visor' ? <VisorTabs /> :  ''
 				}
 			</div>
 		</>
