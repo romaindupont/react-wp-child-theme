@@ -108,7 +108,6 @@ const Body = ({aerationHelmet, screwPosition, standardValue, varnishHelmet}) => 
 	}, false);
  	useEffect(() => {
 		helmetAereationListener()
-
 	}, [aerationHelmet, ]);
 	useEffect(() => {
 		ScrewFunction(screwPosition)

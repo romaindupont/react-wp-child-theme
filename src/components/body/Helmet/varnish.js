@@ -14,9 +14,9 @@ const Varnish = (varnishHelmet, aerationHelmet) => {
 						Noeud[0].helmet.helmetCoatingGroove
 					],
 					localIdsToRemove :
-						[
-							Noeud[0].helmet.helmetCoatingNoGroove.localId
-						]
+					[
+						Noeud[0].helmet.helmetCoatingNoGroove.localId
+					]
 				}, "*");
 		}
 		if (varnishHelmet && !aerationHelmet) {
@@ -27,12 +27,11 @@ const Varnish = (varnishHelmet, aerationHelmet) => {
 					nodesToAdd :
 					[
 						Noeud[0].helmet.helmetCoatingNoGroove
-						
 					],
 					localIdsToRemove :
-						[	
-							Noeud[0].helmet.helmetCoatingGroove.localId
-						]
+					[	
+						Noeud[0].helmet.helmetCoatingGroove.localId
+					]
 				}, "*");
 		}
 		if (!varnishHelmet) {
@@ -41,17 +40,14 @@ const Varnish = (varnishHelmet, aerationHelmet) => {
 				{
 					action : "updateProductNodesInstances",
 					nodesToAdd :
-					[
-						
-					],
+					[],
 					localIdsToRemove :
-						[	
-							Noeud[0].helmet.helmetCoatingGroove.localId,
-							Noeud[0].helmet.helmetCoatingNoGroove.localId
-						]
+					[	
+						Noeud[0].helmet.helmetCoatingGroove.localId,
+						Noeud[0].helmet.helmetCoatingNoGroove.localId
+					]
 				}, "*");
 		}
-		
 	}
 
 export default Varnish;
