@@ -10,56 +10,56 @@ import LogoText from "../../svg/Logo/LogoText";
 import LogoV from "../../svg/Logo/LogoV";
 import LogoVText from "../../svg/Logo/LogoVText";
 
-const Logo = () => {
+const Logo = ({setStandardValue, standardValue}) => {
 	return (
 		<>
 		<div className="sizeChoice">
-			<span className="buttonChoice">None</span>
-			<span className="buttonChoice">White</span>
-			<span className="buttonChoice">Black</span>
+			<span className="buttonChoice" onClick={()=>setStandardValue({...standardValue, Logo_color:'none'})}>None</span>
+			<span className="buttonChoice" onClick={()=>setStandardValue({...standardValue, Logo_color:'white'})}>White</span>
+			<span className="buttonChoice" onClick={()=>setStandardValue({...standardValue, Logo_color:'black'})}>Black</span>
 		</div>
 		<div className="patternList">
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Logo:'Boxed_Multiply'})}>
 				<LogoBoxedMultiply />
 				<span className="textAction">Boxed-Multiply</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Logo:'Boxed_Plus'})}>
 				<LogoBoxedPlus />
 				<span className="textAction">Boxed-Plus</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Logo:'Boxed_Text'})}>
 				<LogoBoxedText />
 				<span className="textAction">Boxed-text</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Logo:'Circle'})}>
 				<LogoCircle />
 				<span className="textAction">Circle</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Logo:'Heart'})}>
 				<LogoHeart />
 				<span className="textAction">Heart</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Logo:'Multiply'})}>
 				<LogoMultiply />
 				<span className="textAction">Multiply</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Logo:'Plus'})}>
 				<LogoPlus />
 				<span className="textAction">Plus</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Logo:'Square'})}>
 				<LogoSquare />
 				<span className="textAction">Square</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Logo:'Text'})}>
 				<LogoText />
 				<span className="textAction">Text</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Logo:'V'})}>
 				<LogoV />
 				<span className="textAction">V</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Logo:'V_Text'})}>
 				<LogoVText />
 				<span className="textAction">V-text</span>
 			</div>

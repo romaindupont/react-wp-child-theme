@@ -5,6 +5,7 @@ import ScrewFunction from './Helmet/screw';
 import Pattern from './Helmet/pattern';
 import MainColor from './Helmet/mainColor';
 import Varnish from './Helmet/varnish';
+import Logo from './Helmet/logo';
 
 const Body = ({aerationHelmet, screwPosition, standardValue, varnishHelmet}) => {
 	let viewerIframe = null;
@@ -32,7 +33,7 @@ const Body = ({aerationHelmet, screwPosition, standardValue, varnishHelmet}) => 
 								groupName : 'Metal_pieces'
 							},
 							{
-								configurationName :standardValue.Logo,
+								configurationName :`${standardValue.Logo}|${standardValue.Logo_color}`,
 								groupName : 'Logo'
 							},
 							{
@@ -104,7 +105,6 @@ const Body = ({aerationHelmet, screwPosition, standardValue, varnishHelmet}) => 
 			action : "registerCallback" 
 		}, '*');
 		window.addEventListener('message', viewerEventListener, false);
-		/* viewerIframe.addEventListener('onStateChange', helmetAereationListener, false); */
 	}, false);
  	useEffect(() => {
 		helmetAereationListener()
@@ -121,6 +121,10 @@ const Body = ({aerationHelmet, screwPosition, standardValue, varnishHelmet}) => 
 	useEffect(() => {
 		Varnish(varnishHelmet, aerationHelmet)
 	}, [varnishHelmet]);
+	useEffect(() => {
+		Logo(standardValue)
+	}, [standardValue.Logo_color, standardValue.Logo]);
+	
 	return (
 		<main className="configurator" id="configurator">
 			<iframe

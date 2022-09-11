@@ -8,13 +8,13 @@ const Aeration = (viewerIframe, aerationHelmet) => {
 				nodesToAdd :
 				[
 					Noeud[0].helmet.helmetNoGroove,
-					/* Noeud[0].helmet.helmetCoatingNoGroove, */
+					Noeud[0].helmet.helmetCoatingNoGroove,
 					/* Noeud[0].helmet.helmetDesignNoGroove */
 				],
 				localIdsToRemove :
 					[
 						Noeud[0].helmet.helmetGroove.localId,
-						/* Noeud[0].helmet.helmetCoatingGroove.localId, */
+						Noeud[0].helmet.helmetCoatingGroove.localId,
 						/* Noeud[0].helmet.helmetDesignGroove.localId */
 					]
 			}, "*");
@@ -26,13 +26,13 @@ const Aeration = (viewerIframe, aerationHelmet) => {
 				nodesToAdd :
 				[
 					Noeud[0].helmet.helmetGroove,
-					/* Noeud[0].helmet.helmetCoatingGroove, */
+					Noeud[0].helmet.helmetCoatingGroove,
 					/* Noeud[0].helmet.helmetDesignGroove */
 				],
 				localIdsToRemove :
 					[	
 						Noeud[0].helmet.helmetNoGroove.localId,
-						/* Noeud[0].helmet.helmetCoatingNoGroove.localId, */
+						Noeud[0].helmet.helmetCoatingNoGroove.localId,
 						/* Noeud[0].helmet.helmetDesignNoGroove.localId */
 					]
 			}, "*");

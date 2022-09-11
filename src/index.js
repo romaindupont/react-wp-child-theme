@@ -6,10 +6,11 @@ import Footer from './components/footer';
 
 const Veldt = () => {
 	const [ standardValue, setStandardValue ] = useState({
-		Helmet_color: 'estate blue',
+		Helmet_color: 'camel',
 		Helmet_color_type: 'metallic',
 		Metal_pieces: 'titanium',
-		Logo: 'V_Text|white',
+		Logo: 'V_Text',
+		Logo_color: 'white',
 		Interior: 'suede|blue',
 		Helmet_trim: 'rubber_black',
 		Rear_text: 'ECE|M',

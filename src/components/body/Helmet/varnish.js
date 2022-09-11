@@ -1,8 +1,7 @@
 import Noeud from '../../../../assets/json/helmetid';
 
 const Varnish = (varnishHelmet, aerationHelmet) => {
-	let viewerIframe = null;
-	viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
+	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 	console.log(varnishHelmet, aerationHelmet)
 	if (varnishHelmet && aerationHelmet) {
 			console.log('vernis avec aeration')
@@ -11,7 +10,7 @@ const Varnish = (varnishHelmet, aerationHelmet) => {
 					action : "updateProductNodesInstances",
 					nodesToAdd :
 					[
-						Noeud[0].helmet.helmetCoatingGroove
+						Noeud[0].helmet.helmetCoatingGroove,
 					],
 					localIdsToRemove :
 					[

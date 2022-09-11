@@ -63,7 +63,7 @@ const HelmetTabs = ({setAerationHelmet, setScrewPosition, setStandardValue, stan
 					helmetPosition.fileName === 'engraving' ? <Engraving /> :
 					helmetPosition.fileName === 'interior' ? <Interior /> :
 					helmetPosition.fileName === 'left-number' ? <LeftNumber /> :
-					helmetPosition.fileName === 'logo' ? <Logo /> :
+					helmetPosition.fileName === 'logo' ? <Logo setStandardValue={setStandardValue} standardValue={standardValue}/> :
 					helmetPosition.fileName === 'main-color' ? <MainColor setStandardValue={setStandardValue} standardValue={standardValue}/> :
 					helmetPosition.fileName === 'metal-parts' ? <MetalsParts /> :
 					helmetPosition.fileName === 'pattern-color' ? <PatternColor setStandardValue={setStandardValue} standardValue={standardValue}/> :
