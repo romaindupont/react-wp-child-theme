@@ -6,6 +6,9 @@ import Pattern from './Helmet/pattern';
 import MainColor from './Helmet/mainColor';
 import Varnish from './Helmet/varnish';
 import Logo from './Helmet/logo';
+import Interior from './Helmet/interior';
+import Trim from './Helmet/trim';
+import MetalParts from './Helmet/metalParts';
 
 const Body = ({aerationHelmet, screwPosition, standardValue, varnishHelmet}) => {
 	let viewerIframe = null;
@@ -124,7 +127,15 @@ const Body = ({aerationHelmet, screwPosition, standardValue, varnishHelmet}) => 
 	useEffect(() => {
 		Logo(standardValue)
 	}, [standardValue.Logo_color, standardValue.Logo]);
-	
+	useEffect(() => {
+		Interior(standardValue)
+	}, [standardValue.Interior]);
+	useEffect(() => {
+		Trim(standardValue)
+	}, [standardValue.Helmet_trim]);
+	useEffect(() => {
+		MetalParts(standardValue)
+	}, [standardValue.Metal_pieces]);
 	return (
 		<main className="configurator" id="configurator">
 			<iframe

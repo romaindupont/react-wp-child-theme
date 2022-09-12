@@ -1,4 +1,4 @@
-const { useState } = wp.element;
+const { useState, useEffect } = wp.element;
 import ArrowLeft from '../../../../../assets/images/arrow_left.svg';
 import ArrowRight from '../../../../../assets/images/arrow_right.svg';
 import ElementData from '../../../../../assets/json/elementHelmet';
@@ -18,6 +18,7 @@ import Size from './templates/size';
 import Trim from './templates/trim';
 import Varnish from './templates/varnish';
 import Zippers from './templates/zippers';
+import CameraPosition from '../../../body/Camera/CameraPosition';
 
 const HelmetTabs = ({setAerationHelmet, setScrewPosition, setStandardValue, standardValue, setVarnishHelmet}) => {
 	const [ helmetTemplate ] = useState(ElementData);
@@ -49,6 +50,9 @@ const HelmetTabs = ({setAerationHelmet, setScrewPosition, setStandardValue, stan
 			position: position
 		})
 	}
+	useEffect(() => {
+		CameraPosition(helmetPosition.fileName)
+	}, [helmetPosition]);
 	return (
 		<div className="infos helmet">
 			<div className="elementChoice">
@@ -61,17 +65,17 @@ const HelmetTabs = ({setAerationHelmet, setScrewPosition, setStandardValue, stan
 					helmetPosition.fileName === 'aeration' ? <Aeration setAerationHelmet={setAerationHelmet}/> :  
 					helmetPosition.fileName === 'back-number' ? <BackNumber /> :
 					helmetPosition.fileName === 'engraving' ? <Engraving /> :
-					helmetPosition.fileName === 'interior' ? <Interior /> :
+					helmetPosition.fileName === 'interior' ? <Interior setStandardValue={setStandardValue} standardValue={standardValue}/> :
 					helmetPosition.fileName === 'left-number' ? <LeftNumber /> :
 					helmetPosition.fileName === 'logo' ? <Logo setStandardValue={setStandardValue} standardValue={standardValue}/> :
 					helmetPosition.fileName === 'main-color' ? <MainColor setStandardValue={setStandardValue} standardValue={standardValue}/> :
-					helmetPosition.fileName === 'metal-parts' ? <MetalsParts /> :
+					helmetPosition.fileName === 'metal-parts' ? <MetalsParts setStandardValue={setStandardValue} standardValue={standardValue}/> :
 					helmetPosition.fileName === 'pattern-color' ? <PatternColor setStandardValue={setStandardValue} standardValue={standardValue}/> :
 					helmetPosition.fileName === 'pattern' ? <Pattern setStandardValue={setStandardValue} standardValue={standardValue} /> :
 					helmetPosition.fileName === 'right-number' ? <RightNumber /> :
 					helmetPosition.fileName === 'screw' ? <Screw setScrewPosition={setScrewPosition}/> :
 					helmetPosition.fileName === 'size' ? <Size /> :
-					helmetPosition.fileName === 'trim' ? <Trim /> :
+					helmetPosition.fileName === 'trim' ? <Trim setStandardValue={setStandardValue} standardValue={standardValue}/> :
 					helmetPosition.fileName === 'varnish' ? <Varnish setVarnishHelmet={setVarnishHelmet}/> :
 					helmetPosition.fileName === 'zippers' ? <Zippers /> : ''
 				}
