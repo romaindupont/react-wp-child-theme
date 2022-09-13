@@ -1,7 +1,21 @@
 import RadioTabs from "./radioTabs";
 const { useState } = wp.element;
 
-const Tabs = ({setAerationHelmet, setScrewPosition, setStandardValue, standardValue, setVarnishHelmet}) => {
+const Tabs = ({
+	setAerationHelmet,
+	setScrewPosition,
+	setStandardValue,
+	standardValue,
+	setVarnishHelmet,
+	setBackNumberWindow,
+	backNumberWindow,
+	leftNumberWindow,
+	setLeftNumberWindow,
+	rightNumberWindow,
+	setRightNumberWindow,
+	backEngraving,
+	setBackEngraving
+}) => {
 	const [ tabsChoice, setTabsChoice ] = useState({
 		helmet: true,
 		chin: false,
@@ -28,6 +42,14 @@ const Tabs = ({setAerationHelmet, setScrewPosition, setStandardValue, standardVa
 				setStandardValue = {setStandardValue}
 				standardValue = {standardValue}
 				setVarnishHelmet = {setVarnishHelmet}
+				setBackNumberWindow = {setBackNumberWindow}
+				backNumberWindow = {backNumberWindow}
+				leftNumberWindow = {leftNumberWindow}
+				rightNumberWindow = {rightNumberWindow}
+				setLeftNumberWindow = {setLeftNumberWindow}
+				setRightNumberWindow = {setRightNumberWindow} 
+				backEngraving = {backEngraving}
+				setBackEngraving = {setBackEngraving}
 			/>
 			<RadioTabs 
 				id = 'tabtwo'

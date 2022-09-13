@@ -1,17 +1,32 @@
+import CameraPositionChange from "../../../../assets/json/CameraPosition";
+
 const CameraPosition = (fileName) => {
 	let	viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
-	viewerIframe.postMessage({
-		action : 'getCamera'
-	},'*');
-	if (fileName === 'interior'){
-		viewerIframe.postMessage({
-			action : 'setCamera',
-			position : [-0.012,-2.13,3.18],
-			target : [0,1.171,-0.0731],
-			up : [0,1,0],
-			transitionTime : 500,
-			fov : 40
-		},'*');
+	switch (fileName) {
+		case 'interior':
+			viewerIframe.postMessage(CameraPositionChange[0].helmet.interior,'*');
+    	break;
+		case 'zippers':
+			viewerIframe.postMessage(CameraPositionChange[0].helmet.zippers,'*');
+   		break;	
+		case 'back-number'	:
+			viewerIframe.postMessage(CameraPositionChange[0].helmet.backNumber,'*');
+			break;
+		case 'left-number'	:
+			viewerIframe.postMessage(CameraPositionChange[0].helmet.leftNumber,'*');
+			break;
+		case 'right-number'	:
+			viewerIframe.postMessage(CameraPositionChange[0].helmet.rightNumber,'*');
+			break;
+		case 'size'	:
+			viewerIframe.postMessage(CameraPositionChange[0].helmet.size,'*');
+			break;
+		case 'engraving' :
+			viewerIframe.postMessage(CameraPositionChange[0].helmet.engraving,'*');
+			break;
+		default:
+			viewerIframe.postMessage({action : 'resetCamera'},'*');
+			viewerIframe.postMessage({action : 'play'},'*');
 	}
 }
 

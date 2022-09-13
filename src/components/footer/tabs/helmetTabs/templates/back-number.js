@@ -1,14 +1,21 @@
+const { useState } = wp.element;
 import Right from "../../svg/Right";
 import Wrong from "../../svg/Wrong";
 import ClassicNumber from "../../svg/Number/ClassicNumber";
 import DirtNumber from "../../svg/Number/DirtNumber";
 import PixelNumber from "../../svg/Number/PixelNumber";
 import RacingNumber from "../../svg/Number/RacingNumber";
-const BackNumber = () => {
+
+const BackNumber = ({backNumberWindow, setBackNumberWindow}) => {
+	console.log(backNumberWindow)
 	return (
 		<div className="numberChoice">
-			<button className="buttonAdd">&plus;Add</button>
-			<div className="numberWindows">
+			{
+				!backNumberWindow ? 
+					<button className="buttonAdd" onClick={()=>setBackNumberWindow(true)}>{`\u002B`} Add</button> :
+					<button className="buttonAdd" onClick={()=>setBackNumberWindow(false)}>{`\u002D`} Delete</button>
+			}
+			<div className={!backNumberWindow ? "numberWindows" : "openNumberWindows" }>
 				<p className="infosNumber">Choose your style and your number</p>
 				<div className="chooseWindows">
 					<div className="chooseWindows_input">

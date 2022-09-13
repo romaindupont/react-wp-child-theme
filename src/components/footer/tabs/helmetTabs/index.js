@@ -20,7 +20,21 @@ import Varnish from './templates/varnish';
 import Zippers from './templates/zippers';
 import CameraPosition from '../../../body/Camera/CameraPosition';
 
-const HelmetTabs = ({setAerationHelmet, setScrewPosition, setStandardValue, standardValue, setVarnishHelmet}) => {
+const HelmetTabs = ({
+	setAerationHelmet,
+	setScrewPosition,
+	setStandardValue,
+	standardValue,
+	setVarnishHelmet,
+	setBackNumberWindow,
+	backNumberWindow,
+	leftNumberWindow,
+	setLeftNumberWindow,
+	rightNumberWindow,
+	setRightNumberWindow,
+	backEngraving,
+	setBackEngraving
+}) => {
 	const [ helmetTemplate ] = useState(ElementData);
 	const [ helmetPosition, setHelmetPosition ] = useState({
 		title: ElementData[0].title,
@@ -62,22 +76,83 @@ const HelmetTabs = ({setAerationHelmet, setScrewPosition, setStandardValue, stan
 			</div>
 			<div className="template">
 				{
-					helmetPosition.fileName === 'aeration' ? <Aeration setAerationHelmet={setAerationHelmet}/> :  
-					helmetPosition.fileName === 'back-number' ? <BackNumber /> :
-					helmetPosition.fileName === 'engraving' ? <Engraving /> :
-					helmetPosition.fileName === 'interior' ? <Interior setStandardValue={setStandardValue} standardValue={standardValue}/> :
-					helmetPosition.fileName === 'left-number' ? <LeftNumber /> :
-					helmetPosition.fileName === 'logo' ? <Logo setStandardValue={setStandardValue} standardValue={standardValue}/> :
-					helmetPosition.fileName === 'main-color' ? <MainColor setStandardValue={setStandardValue} standardValue={standardValue}/> :
-					helmetPosition.fileName === 'metal-parts' ? <MetalsParts setStandardValue={setStandardValue} standardValue={standardValue}/> :
-					helmetPosition.fileName === 'pattern-color' ? <PatternColor setStandardValue={setStandardValue} standardValue={standardValue}/> :
-					helmetPosition.fileName === 'pattern' ? <Pattern setStandardValue={setStandardValue} standardValue={standardValue} /> :
-					helmetPosition.fileName === 'right-number' ? <RightNumber /> :
-					helmetPosition.fileName === 'screw' ? <Screw setScrewPosition={setScrewPosition}/> :
-					helmetPosition.fileName === 'size' ? <Size /> :
-					helmetPosition.fileName === 'trim' ? <Trim setStandardValue={setStandardValue} standardValue={standardValue}/> :
-					helmetPosition.fileName === 'varnish' ? <Varnish setVarnishHelmet={setVarnishHelmet}/> :
-					helmetPosition.fileName === 'zippers' ? <Zippers /> : ''
+					helmetPosition.fileName === 'aeration' ? 
+						<Aeration 
+							setAerationHelmet={setAerationHelmet}
+						/> :  
+					helmetPosition.fileName === 'back-number' ?
+						<BackNumber
+							setBackNumberWindow={setBackNumberWindow}
+							backNumberWindow={backNumberWindow}
+						/> :
+					helmetPosition.fileName === 'engraving' ?
+						<Engraving 
+							backEngraving = {backEngraving}
+							setBackEngraving = {setBackEngraving}
+						/> :
+					helmetPosition.fileName === 'interior' ?
+						<Interior
+							setStandardValue={setStandardValue}
+							standardValue={standardValue}
+						/> :
+					helmetPosition.fileName === 'left-number' ?
+						<LeftNumber 
+							leftNumberWindow = {leftNumberWindow}
+							setLeftNumberWindow = {setLeftNumberWindow}
+						/> :
+					helmetPosition.fileName === 'logo' ?
+						<Logo
+							setStandardValue={setStandardValue}
+							standardValue={standardValue}
+						/> :
+					helmetPosition.fileName === 'main-color' ?
+						<MainColor
+							setStandardValue={setStandardValue}
+							standardValue={standardValue}
+						/> :
+					helmetPosition.fileName === 'metal-parts' ?
+						<MetalsParts
+							setStandardValue={setStandardValue}
+							standardValue={standardValue}
+						/> :
+					helmetPosition.fileName === 'pattern-color' ?
+						<PatternColor
+							setStandardValue={setStandardValue}
+							standardValue={standardValue}
+						/> :
+					helmetPosition.fileName === 'pattern' ?
+						<Pattern
+							setStandardValue={setStandardValue}
+							standardValue={standardValue}
+						/> :
+					helmetPosition.fileName === 'right-number' ?
+						<RightNumber 
+							rightNumberWindow = {rightNumberWindow}
+							setRightNumberWindow = {setRightNumberWindow} 
+						/> :
+					helmetPosition.fileName === 'screw' ?
+						<Screw
+							setScrewPosition={setScrewPosition}
+						/> :
+					helmetPosition.fileName === 'size' ?
+						<Size 
+							setStandardValue={setStandardValue}
+							standardValue={standardValue}
+						/> :
+					helmetPosition.fileName === 'trim' ?
+						<Trim
+							setStandardValue={setStandardValue}
+							standardValue={standardValue}
+						/> :
+					helmetPosition.fileName === 'varnish' ?
+						<Varnish
+							setVarnishHelmet={setVarnishHelmet}
+						/> :
+					helmetPosition.fileName === 'zippers' ?
+						<Zippers
+							setStandardValue={setStandardValue}
+							standardValue={standardValue}
+						/> : ''
 				}
 			</div>
 		</div>

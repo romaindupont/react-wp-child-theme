@@ -9,8 +9,23 @@ import Logo from './Helmet/logo';
 import Interior from './Helmet/interior';
 import Trim from './Helmet/trim';
 import MetalParts from './Helmet/metalParts';
+import Zippers from './Helmet/zippers';
+import BackNumber from './Helmet/backNumber';
+import LeftNumber from './Helmet/leftNumber';
+import RightNumber from './Helmet/rightNumber';
+import Engraving from './Helmet/engraving';
+import RearText from './Helmet/rearText';
 
-const Body = ({aerationHelmet, screwPosition, standardValue, varnishHelmet}) => {
+const Body = ({
+	aerationHelmet, 
+	screwPosition, 
+	standardValue, 
+	varnishHelmet, 
+	backNumberWindow,
+	leftNumberWindow,
+	rightNumberWindow,
+	backEngraving
+}) => {
 	let viewerIframe = null;
 	let viewerActive = false;
 	let helmetAereationListener = (e) => {
@@ -48,7 +63,7 @@ const Body = ({aerationHelmet, screwPosition, standardValue, varnishHelmet}) => 
 								groupName : 'Helmet_trim'
 							},
 							{
-								configurationName : standardValue.Rear_text,
+								configurationName : `${standardValue.Rear_text_certification}|${standardValue.Rear_text_size}`,
 								groupName : 'Rear_text'
 							},
 							
@@ -79,17 +94,12 @@ const Body = ({aerationHelmet, screwPosition, standardValue, varnishHelmet}) => 
 						Noeud[0].helmet.helmetTrimRubber,
 						Noeud[0].flap.pullingFlapNylon,
 						Noeud[0].screw.screwsBaseHelmet,
-						/* Noeud[0].helmet.helmetDesignNoGroove, */
-						/* Noeud[0].helmet.helmetDesignGroove ,*/
 						Noeud[0].screw.screwsSideChinguard,
-						/* Noeud[0].screw.screwsSideNoChinguard,*/
 						Noeud[0].screw.screwsTopVisor, 
-						/* Noeud[0].screw.screwsTopNoVisor, */
 						Noeud[0].visor.visorPeak
-						/* Noeud[0].custom.rearEngraving */
 					],
 					localIdsToRemove :
-						[]
+					[]
 				}, 
 				"*"
 				);
@@ -136,6 +146,24 @@ const Body = ({aerationHelmet, screwPosition, standardValue, varnishHelmet}) => 
 	useEffect(() => {
 		MetalParts(standardValue)
 	}, [standardValue.Metal_pieces]);
+	useEffect(() => {
+		Zippers(standardValue)
+	}, [standardValue.flap]);
+	useEffect(() => {
+		BackNumber(backNumberWindow)
+	}, [backNumberWindow]);
+	useEffect(() => {
+		LeftNumber(leftNumberWindow)
+	}, [leftNumberWindow]);
+	useEffect(() => {
+		RightNumber(rightNumberWindow)
+	}, [rightNumberWindow]);
+	useEffect(() => {
+		Engraving(backEngraving)
+	}, [backEngraving]);
+	useEffect(() => {
+		RearText(standardValue)
+	}, [standardValue.Rear_text_certification, standardValue.Rear_text_size]);
 	return (
 		<main className="configurator" id="configurator">
 			<iframe

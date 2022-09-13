@@ -7,11 +7,15 @@ import Wrong from "../../svg/Wrong";
 
 
 
-const LeftNumber = () => {
+const LeftNumber = ({leftNumberWindow, setLeftNumberWindow}) => {
 	return (
 		<div className="numberChoice">
-			<button className="buttonAdd">&plus;Add</button>
-			<div className="numberWindows">
+			{
+				!leftNumberWindow ? 
+					<button className="buttonAdd" onClick={()=>setLeftNumberWindow(true)}>{`\u002B`} Add</button> :
+					<button className="buttonAdd" onClick={()=>setLeftNumberWindow(false)}>{`\u002D`} Delete</button>
+			}
+			<div className={!leftNumberWindow ? "numberWindows" : "openNumberWindows" }>
 				<p className="infosNumber">Choose your style and your number</p>
 				<div className="chooseWindows">
 					<div className="chooseWindows_input">

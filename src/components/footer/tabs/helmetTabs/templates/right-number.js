@@ -5,11 +5,15 @@ import RacingNumber from "../../svg/Number/RacingNumber";
 import Right from "../../svg/Right";
 import Wrong from "../../svg/Wrong";
 
-const RightNumber = () => {
+const RightNumber = ({rightNumberWindow, setRightNumberWindow}) => {
 	return (
 		<div className="numberChoice">
-			<button className="buttonAdd">&plus; Add</button>
-			<div className="numberWindows">
+			{
+				!rightNumberWindow ? 
+					<button className="buttonAdd" onClick={()=>setRightNumberWindow(true)}>{`\u002B`} Add</button> :
+					<button className="buttonAdd" onClick={()=>setRightNumberWindow(false)}>{`\u002D`} Delete</button>
+			}
+			<div className={!rightNumberWindow ? "numberWindows" : "openNumberWindows" }>
 				<p className="infosNumber">Choose your style and your number</p>
 				<div className="chooseWindows">
 					<div className="chooseWindows_input">
