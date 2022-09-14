@@ -16,6 +16,10 @@ import RightNumber from './Helmet/rightNumber';
 import Engraving from './Helmet/engraving';
 import RearText from './Helmet/rearText';
 
+import AerationChin from './Chinguard/aeration';
+import PatternChin from './Chinguard/pattern';
+import MainColorChin from './Chinguard/mainColor';
+
 const Body = ({
 	aerationHelmet, 
 	screwPosition, 
@@ -24,7 +28,8 @@ const Body = ({
 	backNumberWindow,
 	leftNumberWindow,
 	rightNumberWindow,
-	backEngraving
+	backEngraving,
+	aerationChin
 }) => {
 	let viewerIframe = null;
 	let viewerActive = false;
@@ -36,8 +41,7 @@ const Body = ({
 		}, '*');
 	}
 	let firstConfiguration = (e) => {
-		if(e.data && e.data.action == 'onSuccess' && e.data.callAction == 'updateProductNodesInstances'){
-			
+		if(e.data && e.data.action == 'onSuccess' && e.data.callAction == 'updateProductNodesInstances'){	
 				viewerIframe.postMessage({
 					action : 'setMaterialsGroups',
 					values : 
@@ -69,9 +73,7 @@ const Body = ({
 							
 						]
 					}, '*');
-				
 		}
-
 	}
 	let viewerEventListener =  function(event){
 		console.log(event.data.action, event, event.data.callAction)
@@ -121,13 +123,13 @@ const Body = ({
 	}, false);
  	useEffect(() => {
 		helmetAereationListener()
-	}, [aerationHelmet, ]);
+	}, [aerationHelmet]);
 	useEffect(() => {
 		ScrewFunction(screwPosition)
 	}, [screwPosition]);
 	useEffect(() => {
 		Pattern(standardValue, aerationHelmet)
-	}, [standardValue.Helmet_design_color, standardValue.Helmet_design_type,standardValue.Helmet_design,standardValue.Helmet_color, standardValue.Helmet_color_type]);
+	}, [standardValue.Helmet_design_type,standardValue.Helmet_design,standardValue.Helmet_color]);
 	useEffect(() => {
 		MainColor(standardValue)
 	}, [standardValue.Helmet_color, standardValue.Helmet_color_type]);
@@ -164,6 +166,15 @@ const Body = ({
 	useEffect(() => {
 		RearText(standardValue)
 	}, [standardValue.Rear_text_certification, standardValue.Rear_text_size]);
+	useEffect(() => {
+		AerationChin(aerationChin)
+	}, [aerationChin]);
+	useEffect(() => {
+		PatternChin(standardValue, aerationChin)
+	}, [standardValue.Chinguard_design_type,standardValue.Chinguard_design,standardValue.Chinguard_color]);
+	useEffect(() => {
+		MainColorChin(standardValue)
+	}, [standardValue.Chinguard_color,standardValue.Chinguard_color_type]);
 	return (
 		<main className="configurator" id="configurator">
 			<iframe

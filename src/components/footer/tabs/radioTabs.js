@@ -24,7 +24,8 @@ const radioTabs = ({
 	rightNumberWindow,
 	setRightNumberWindow,
 	backEngraving,
-	setBackEngraving
+	setBackEngraving,
+	setAerationChin
 }) => {
 	let viewerIframe = null;
 	const changeCheck = (e) => {
@@ -82,8 +83,9 @@ const radioTabs = ({
 						action : "updateProductNodesInstances",
 						nodesToAdd :
 						[
-							Data[0].screw.screwsBaseHelmet,
-
+							Data[0].chinguard.chinguardElements,
+							Data[0].chinguard.chinguardNoGroove,
+							Data[0].chinguard.chinguardCoatingNoGroove
 						],
 						localIdsToRemove :
 						[]
@@ -96,8 +98,13 @@ const radioTabs = ({
 						{
 						action : "updateProductNodesInstances",
 						nodesToAdd :
-						[],
-						localIdsToRemove: [Data[0].screw.screwsBaseHelmet.localId]
+						[
+						],
+						localIdsToRemove: [
+							Data[0].chinguard.chinguardElements.localId,
+							Data[0].chinguard.chinguardNoGroove.localId,
+							Data[0].chinguard.chinguardCoatingNoGroove.localId
+						]
 						},
 						"*"
 						); 
@@ -158,7 +165,13 @@ const radioTabs = ({
 							backEngraving = {backEngraving}
 							setBackEngraving = {setBackEngraving}
 						/> 
-					: title === 'Chinguard' ? <ChinTabs /> : title === 'Visor' ? <VisorTabs /> :  ''
+					: title === 'Chinguard' ? 
+						<ChinTabs 
+							setAerationChin = {setAerationChin}
+							setStandardValue = {setStandardValue}
+							standardValue = {standardValue}
+						/> 
+					: title === 'Visor' ? <VisorTabs /> :  ''
 				}
 			</div>
 		</>

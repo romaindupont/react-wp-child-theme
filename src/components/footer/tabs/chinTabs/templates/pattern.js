@@ -12,7 +12,7 @@ import PatternChinParabol from "../../svg/PatternChin/PatternChinParabol";
 import PatternChinPlain from "../../svg/PatternChin/PatternChinPlain";
 import PatternChinStars from "../../svg/PatternChin/PatternChinStars";
 
-const Pattern = () => {
+const Pattern = ({setStandardValue,	standardValue}) => {
 	const scrollRef = useHorizontalScroll();
 	const scrollEffect = (e) => {
 		let ratio = 4.5;
@@ -28,47 +28,47 @@ const Pattern = () => {
 	}
 	return (
 		<div className="patternList" onScroll={scrollEffect} ref={scrollRef} style={{ overflow: "auto" }}>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Chinguard_design:'band'})}>
 				<PatternChinBand />
 				<span className="textAction">Band</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Chinguard_design:'checker'})}>
 				<PatternChinChecker />
 				<span className="textAction">Checker</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Chinguard_design:'contour'})}>
 				<PatternChinContour />
 				<span className="textAction">Contour</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Chinguard_design:'dots'})}>
 				<PatternChinDots />
 				<span className="textAction">Dots</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Chinguard_design:'dual'})}>
 				<PatternChinDual />
 				<span className="textAction">Dual</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Chinguard_design:'extend'})}>
 				<PatternChinExtend />
 				<span className="textAction">Extend</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Chinguard_design:'half'})}>
 				<PatternChinHalf />
 				<span className="textAction">Half</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Chinguard_design:'outline'})}>
 				<PatternChinOutline />
 				<span className="textAction">Outline</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Chinguard_design:'parabol'})}>
 				<PatternChinParabol />
 				<span className="textAction">Parabol</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Chinguard_design:'plain'})}>
 				<PatternChinPlain />
 				<span className="textAction">Plain</span>
 			</div>
-			<div className="allScrew">
+			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Chinguard_design:'star'})}>
 				<PatternChinStars />
 				<span className="textAction">Stars</span>
 			</div>

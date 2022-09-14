@@ -1,8 +1,7 @@
 import Noeud from '../../../../assets/json/helmetid';
 
 const ScrewFunction = (screwPosition) => {
-	let viewerIframe = null;
-	viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
+	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 	if(screwPosition === 'none') {
 		viewerIframe.postMessage(
 			{

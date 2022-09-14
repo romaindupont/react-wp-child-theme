@@ -2,16 +2,16 @@ const { useState } = wp.element;
 import ArrowLeft from '../../../../../assets/images/arrow_left.svg';
 import ArrowRight from '../../../../../assets/images/arrow_right.svg';
 import ElementData from '../../../../../assets/json/elementChin';
-import Aeration from '../helmetTabs/templates/aeration';
-import Interior from '../helmetTabs/templates/interior';
-import MainColor from '../helmetTabs/templates/main-color';
-import MetalsParts from '../helmetTabs/templates/metal-parts';
-import Pattern from '../helmetTabs/templates/pattern';
-import PatternColor from '../helmetTabs/templates/pattern-color';
-import Trim from '../helmetTabs/templates/trim';
-import Varnish from '../helmetTabs/templates/varnish';
+import Aeration from './templates/aeration';
+import Interior from './templates/interior';
+import MainColor from './templates/main-color';
+import MetalsParts from './templates/metal-parts';
+import Pattern from './templates/pattern';
+import PatternColor from './templates/pattern-color';
+import Trim from './templates/trim';
+import Varnish from './templates/varnish';
 
-const ChinTabs = () => {
+const ChinTabs = ({setAerationChin, setStandardValue,	standardValue}) => {
 	const [ chinTemplate ] = useState(ElementData);
 	const [ chinPosition, setChinPosition ] = useState({
 		title: ElementData[0].title,
@@ -49,12 +49,12 @@ const ChinTabs = () => {
 			</div>
 			<div className="template">
 			{
-				chinPosition.fileName === 'aeration' ? <Aeration /> :  
+				chinPosition.fileName === 'aeration' ? <Aeration setAerationChin={setAerationChin} /> :  
 				chinPosition.fileName === 'interior' ? <Interior /> :
-				chinPosition.fileName === 'main-color' ? <MainColor /> :
+				chinPosition.fileName === 'main-color' ? <MainColor setStandardValue={setStandardValue} standardValue={standardValue}/> :
 				chinPosition.fileName === 'metal-parts' ? <MetalsParts /> :
-				chinPosition.fileName === 'pattern-color' ? <PatternColor /> :
-				chinPosition.fileName === 'pattern' ? <Pattern /> :
+				chinPosition.fileName === 'pattern-color' ? <PatternColor setStandardValue={setStandardValue} standardValue={standardValue}/> :
+				chinPosition.fileName === 'pattern' ? <Pattern setStandardValue={setStandardValue} standardValue={standardValue} /> :
 				chinPosition.fileName === 'trim' ? <Trim /> :
 				chinPosition.fileName === 'varnish' ? <Varnish /> : ''
 			}

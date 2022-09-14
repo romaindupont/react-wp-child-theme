@@ -18,7 +18,8 @@ const Footer = ({
 	rightNumberWindow,
 	setRightNumberWindow,
 	backEngraving,
-	setBackEngraving
+	setBackEngraving,
+	setAerationChin
 }) => {
 	const [ openOptionMenu, setOpenOptionMenu ] = useState({name: '', open: false});
 	return (
@@ -38,6 +39,7 @@ const Footer = ({
 				setRightNumberWindow = {setRightNumberWindow}
 				backEngraving = {backEngraving}
 				setBackEngraving = {setBackEngraving}
+				setAerationChin = {setAerationChin}
 			/>
 			{openOptionMenu.open && openOptionMenu.name === 'menuOption' && <MenuOption setOpenOptionMenu={setOpenOptionMenu} />}
 			{openOptionMenu.open && openOptionMenu.name === 'help' && <PopupHelp setOpenOptionMenu={setOpenOptionMenu} />}

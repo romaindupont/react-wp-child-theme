@@ -2,9 +2,7 @@ import Noeud from '../../../../assets/json/helmetid';
 
 const Varnish = (varnishHelmet, aerationHelmet) => {
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
-	console.log(varnishHelmet, aerationHelmet)
 	if (varnishHelmet && aerationHelmet) {
-			console.log('vernis avec aeration')
 			viewerIframe.postMessage(
 				{
 					action : "updateProductNodesInstances",
@@ -19,7 +17,6 @@ const Varnish = (varnishHelmet, aerationHelmet) => {
 				}, "*");
 		}
 		if (varnishHelmet && !aerationHelmet) {
-			console.log('vernis sans aeration')
 			viewerIframe.postMessage(
 				{
 					action : "updateProductNodesInstances",
@@ -34,7 +31,6 @@ const Varnish = (varnishHelmet, aerationHelmet) => {
 				}, "*");
 		}
 		if (!varnishHelmet) {
-			console.log('mat')
 			viewerIframe.postMessage(
 				{
 					action : "updateProductNodesInstances",

@@ -6,8 +6,8 @@ import Footer from './components/footer';
 
 const Veldt = () => {
 	const [ standardValue, setStandardValue ] = useState({
-		Helmet_color: 'camel',
-		Helmet_color_type: 'metallic',
+		Helmet_color: 'black',
+		Helmet_color_type: 'plain',
 		Metal_pieces: 'titanium',
 		Logo: 'V_Text',
 		Logo_color: 'white',
@@ -18,7 +18,13 @@ const Veldt = () => {
 		Helmet_design_color: 'white',
 		Helmet_design_type: 'plain',
 		Helmet_design: '',
-		flap: 'nylon'
+		flap: 'nylon',
+		Chinguard_color: 'black',
+		Chinguard_color_type: 'plain',
+		Chinguard_design_color: 'white',
+		Chinguard_design_type: 'plain',
+		Chinguard_design: '',
+		Chinguard_trim: 'rubber_black'
 	})
 	const [ aerationHelmet, setAerationHelmet] = useState(true);
 	const [ screwPosition, setScrewPosition ] = useState('all');
@@ -27,6 +33,8 @@ const Veldt = () => {
 	const [ leftNumberWindow, setLeftNumberWindow ] = useState(false);
 	const [ rightNumberWindow, setRightNumberWindow ] = useState(false);
 	const [ backEngraving, setBackEngraving ] = useState(false);
+	const [ aerationChin, setAerationChin ] = useState(true);
+	const [ varnishChin, setVarnishChin ] = useState(true);
   return (
 		<div className='veldtConfig'>
 			<Header />
@@ -39,6 +47,7 @@ const Veldt = () => {
 				leftNumberWindow ={ leftNumberWindow} 
 				rightNumberWindow = {rightNumberWindow} 
 				backEngraving = {backEngraving}
+				aerationChin = {aerationChin}
 			/>
 			<Footer
 				setAerationHelmet = {setAerationHelmet}
@@ -55,6 +64,7 @@ const Veldt = () => {
 				setRightNumberWindow = {setRightNumberWindow} 
 				backEngraving = {backEngraving}
 				setBackEngraving = {setBackEngraving}
+				setAerationChin = {setAerationChin}
 			/>
 		</div>
   );
