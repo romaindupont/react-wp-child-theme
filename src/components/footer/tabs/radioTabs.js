@@ -25,37 +25,40 @@ const radioTabs = ({
 	setRightNumberWindow,
 	backEngraving,
 	setBackEngraving,
-	setAerationChin
+	setAerationChin,
+	setVarnishChin
 }) => {
 	let viewerIframe = null;
 	const changeCheck = (e) => {
 		/* e.preventDefault(); */
+		console.log(e.target.value,	tabsChoice,
+			tabsCheck, )
 		switch(e.target.value) {
 			case 'Helmet':
 				setTabsCheck({
-					helmetCheck: !checked,
-					chinCheck: tabsCheck.chinCheck,
-					visorCheck: tabsCheck.visorCheck
+					helmetCheck: true,
+					chinCheck: false,
+					visorCheck: false
 				});
 				break;
 			case 'Chinguard':
 				setTabsCheck({
-					chinCheck: !checked,
-					helmetCheck: tabsCheck.helmetCheck,
-					visorCheck: tabsCheck.visorCheck
+					chinCheck: true,
+					helmetCheck: false,
+					visorCheck: false
 				});
 				break;
 			case 'Visor':
 				setTabsCheck({
-					visorCheck: !checked,
-					helmetCheck: tabsCheck.helmetCheck,
-					chinCheck: tabsCheck.chinCheck
+					visorCheck: true,
+					helmetCheck: false,
+					chinCheck: false
 				});
 				break;
 			default:
 				setTabsCheck({
-					visorCheck: true,
-					helmetCheck: false,
+					visorCheck: false,
+					helmetCheck: true,
 					chinCheck: false
 				});
 				break;
@@ -85,7 +88,8 @@ const radioTabs = ({
 						[
 							Data[0].chinguard.chinguardElements,
 							Data[0].chinguard.chinguardNoGroove,
-							Data[0].chinguard.chinguardCoatingNoGroove
+							Data[0].chinguard.chinguardCoatingNoGroove,
+							Data[0].chinguard.chinguardTrimRubber
 						],
 						localIdsToRemove :
 						[]
@@ -103,7 +107,8 @@ const radioTabs = ({
 						localIdsToRemove: [
 							Data[0].chinguard.chinguardElements.localId,
 							Data[0].chinguard.chinguardNoGroove.localId,
-							Data[0].chinguard.chinguardCoatingNoGroove.localId
+							Data[0].chinguard.chinguardCoatingNoGroove.localId,
+							Data[0].chinguard.chinguardTrimRubber.localId
 						]
 						},
 						"*"
@@ -170,6 +175,7 @@ const radioTabs = ({
 							setAerationChin = {setAerationChin}
 							setStandardValue = {setStandardValue}
 							standardValue = {standardValue}
+							setVarnishChin = {setVarnishChin}
 						/> 
 					: title === 'Visor' ? <VisorTabs /> :  ''
 				}

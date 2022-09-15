@@ -11,7 +11,7 @@ import PatternColor from './templates/pattern-color';
 import Trim from './templates/trim';
 import Varnish from './templates/varnish';
 
-const ChinTabs = ({setAerationChin, setStandardValue,	standardValue}) => {
+const ChinTabs = ({setAerationChin, setStandardValue,	standardValue, setVarnishChin}) => {
 	const [ chinTemplate ] = useState(ElementData);
 	const [ chinPosition, setChinPosition ] = useState({
 		title: ElementData[0].title,
@@ -55,8 +55,8 @@ const ChinTabs = ({setAerationChin, setStandardValue,	standardValue}) => {
 				chinPosition.fileName === 'metal-parts' ? <MetalsParts /> :
 				chinPosition.fileName === 'pattern-color' ? <PatternColor setStandardValue={setStandardValue} standardValue={standardValue}/> :
 				chinPosition.fileName === 'pattern' ? <Pattern setStandardValue={setStandardValue} standardValue={standardValue} /> :
-				chinPosition.fileName === 'trim' ? <Trim /> :
-				chinPosition.fileName === 'varnish' ? <Varnish /> : ''
+				chinPosition.fileName === 'trim' ? <Trim setStandardValue={setStandardValue} standardValue={standardValue}/> :
+				chinPosition.fileName === 'varnish' ? <Varnish setVarnishChin={setVarnishChin} /> : ''
 			}
 			</div>
 		</div>

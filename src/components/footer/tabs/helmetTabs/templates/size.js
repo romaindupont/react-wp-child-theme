@@ -1,5 +1,6 @@
 const Size = ({setStandardValue,	standardValue}) => {
-	return (
+/* 	console.log(standardValue)
+ */	return (
 		<>
 			<div className="sizeChoice">
 				<span className="SizebuttonChoice" onClick={()=>setStandardValue({...standardValue, Rear_text_size:'S'})}>XS-S</span>

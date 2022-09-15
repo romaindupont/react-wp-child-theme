@@ -19,6 +19,8 @@ import RearText from './Helmet/rearText';
 import AerationChin from './Chinguard/aeration';
 import PatternChin from './Chinguard/pattern';
 import MainColorChin from './Chinguard/mainColor';
+import VarnishChin from './Chinguard/varnish';
+import TrimChin from './Chinguard/trim';
 
 const Body = ({
 	aerationHelmet, 
@@ -29,7 +31,8 @@ const Body = ({
 	leftNumberWindow,
 	rightNumberWindow,
 	backEngraving,
-	aerationChin
+	aerationChin,
+	varnishChin
 }) => {
 	let viewerIframe = null;
 	let viewerActive = false;
@@ -175,7 +178,13 @@ const Body = ({
 	useEffect(() => {
 		MainColorChin(standardValue)
 	}, [standardValue.Chinguard_color,standardValue.Chinguard_color_type]);
-	return (
+	useEffect(() => {
+		VarnishChin(varnishChin, aerationChin)
+	}, [varnishChin]);
+	useEffect(() => {
+		TrimChin(standardValue)
+	}, [standardValue.Chinguard_trim]);
+		return (
 		<main className="configurator" id="configurator">
 			<iframe
 				id="emersyaIframe"

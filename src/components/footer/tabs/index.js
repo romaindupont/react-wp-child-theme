@@ -15,7 +15,8 @@ const Tabs = ({
 	setRightNumberWindow,
 	backEngraving,
 	setBackEngraving,
-	setAerationChin
+	setAerationChin,
+	setVarnishChin
 }) => {
 	const [ tabsChoice, setTabsChoice ] = useState({
 		helmet: true,
@@ -64,6 +65,7 @@ const Tabs = ({
 				setAerationChin = {setAerationChin}
 				setStandardValue = {setStandardValue}
 				standardValue = {standardValue}
+				setVarnishChin = {setVarnishChin}
 			/>
 			<RadioTabs 
 				id = 'tabthree'

@@ -48,6 +48,7 @@ const Veldt = () => {
 				rightNumberWindow = {rightNumberWindow} 
 				backEngraving = {backEngraving}
 				aerationChin = {aerationChin}
+				varnishChin = {varnishChin}
 			/>
 			<Footer
 				setAerationHelmet = {setAerationHelmet}
@@ -65,6 +66,7 @@ const Veldt = () => {
 				backEngraving = {backEngraving}
 				setBackEngraving = {setBackEngraving}
 				setAerationChin = {setAerationChin}
+				setVarnishChin = {setVarnishChin}
 			/>
 		</div>
   );

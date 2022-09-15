@@ -1,17 +1,18 @@
 import Noeud from '../../../../assets/json/helmetid';
-const Trim = (standardValue) => {
-	let viewerIframe = document.getElementById('emersyaIframe').contentWindow;
+
+const TrimChin = (standardValue) => {
+	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 	if (standardValue.Helmet_trim.includes('rubber') ) {
 		viewerIframe.postMessage(
 			{
 				action : "updateProductNodesInstances",
 				nodesToAdd :
 				[
-					Noeud[0].helmet.helmetTrimRubber,
+					Noeud[0].chinguard.chinguardTrimRubber,
 				],
 				localIdsToRemove :
 				[
-					Noeud[0].helmet.helmetTrimLeather.localId
+					Noeud[0].chinguard.chinguardTrimLeather.localId
 				]
 			}, "*");
 			viewerIframe.postMessage({
@@ -19,8 +20,8 @@ const Trim = (standardValue) => {
 				values : 
 					[
 						{
-							configurationName : standardValue.Helmet_trim,
-							groupName : 'Helmet_trim'
+							configurationName : standardValue.Chinguard_trim,
+							groupName : 'Chinguard_trim'
 						}
 					]
 			}, '*');
@@ -31,11 +32,11 @@ const Trim = (standardValue) => {
 				action : "updateProductNodesInstances",
 				nodesToAdd :
 				[
-					Noeud[0].helmet.helmetTrimRubber,
+					Noeud[0].chinguard.chinguardTrimLeather,
 				],
 				localIdsToRemove :
 				[
-					Noeud[0].helmet.helmetTrimRubber.localId
+					Noeud[0].chinguard.chinguardTrimRubber.localId
 				]
 			}, "*");
 			viewerIframe.postMessage({
@@ -43,13 +44,12 @@ const Trim = (standardValue) => {
 				values : 
 					[
 						{
-							configurationName : standardValue.Helmet_trim,
-							groupName : 'Helmet_trim'
+							configurationName : standardValue.Chinguard_trim,
+							groupName : 'Chinguard_trim'
 						}
 					]
 			}, '*');
 	}
-
 }
 
-export default Trim;
+export default TrimChin;
