@@ -89,7 +89,7 @@ const radioTabs = ({
 							Data[0].chinguard.chinguardElements,
 							Data[0].chinguard.chinguardNoGroove,
 							Data[0].chinguard.chinguardCoatingNoGroove,
-							Data[0].chinguard.chinguardTrimRubber
+							/* Data[0].chinguard.chinguardTrimRubber */
 						],
 						localIdsToRemove :
 						[]
@@ -108,7 +108,7 @@ const radioTabs = ({
 							Data[0].chinguard.chinguardElements.localId,
 							Data[0].chinguard.chinguardNoGroove.localId,
 							Data[0].chinguard.chinguardCoatingNoGroove.localId,
-							Data[0].chinguard.chinguardTrimRubber.localId
+							/* Data[0].chinguard.chinguardTrimRubber.localId */
 						]
 						},
 						"*"
@@ -177,7 +177,11 @@ const radioTabs = ({
 							standardValue = {standardValue}
 							setVarnishChin = {setVarnishChin}
 						/> 
-					: title === 'Visor' ? <VisorTabs /> :  ''
+					: title === 'Visor' ? 
+						<VisorTabs 
+							setStandardValue = {setStandardValue}
+							standardValue = {standardValue}
+						/> :  ''
 				}
 			</div>
 		</>

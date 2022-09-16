@@ -22,6 +22,8 @@ import MainColorChin from './Chinguard/mainColor';
 import VarnishChin from './Chinguard/varnish';
 import TrimChin from './Chinguard/trim';
 
+import VisorChoice from './Visor/VisorChoice';
+
 const Body = ({
 	aerationHelmet, 
 	screwPosition, 
@@ -101,7 +103,8 @@ const Body = ({
 						Noeud[0].screw.screwsBaseHelmet,
 						Noeud[0].screw.screwsSideChinguard,
 						Noeud[0].screw.screwsTopVisor, 
-						Noeud[0].visor.visorPeak
+						Noeud[0].visor.visorPeak,
+						Noeud[0].visor.visorPeakCoating
 					],
 					localIdsToRemove :
 					[]
@@ -184,6 +187,9 @@ const Body = ({
 	useEffect(() => {
 		TrimChin(standardValue)
 	}, [standardValue.Chinguard_trim]);
+	useEffect(() => {
+		VisorChoice(standardValue)
+	}, [standardValue.Visor_peak_color,standardValue.Visor_peak_type,standardValue.Visor_color,,standardValue.Visor_type]);
 		return (
 		<main className="configurator" id="configurator">
 			<iframe

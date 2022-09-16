@@ -8,7 +8,7 @@ const TrimChin = (standardValue) => {
 				action : "updateProductNodesInstances",
 				nodesToAdd :
 				[
-					Noeud[0].chinguard.chinguardTrimRubber,
+					Noeud[0].chinguard.chinguardTrimRubber
 				],
 				localIdsToRemove :
 				[
@@ -32,7 +32,7 @@ const TrimChin = (standardValue) => {
 				action : "updateProductNodesInstances",
 				nodesToAdd :
 				[
-					Noeud[0].chinguard.chinguardTrimLeather,
+					Noeud[0].chinguard.chinguardTrimLeather
 				],
 				localIdsToRemove :
 				[

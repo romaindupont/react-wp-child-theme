@@ -4,26 +4,26 @@ import VisorLongChrome from "../../svg/VisorLong/VisorLongChrome";
 import VisorLongSemi from "../../svg/VisorLong/VisorLongSemi";
 import VisorLongTransparent from "../../svg/VisorLong/VisorLongTransparent";
 
-const VisorLongPage = () => {
+const VisorLongPage = ({setStandardValue,	standardValue}) => {
 	return (
 <div className="long_visor_page">
-	<div className="allScrew">
+	<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Visor_color:'clear'})}>
 		<VisorLongTransparent />
 		<span className="textAction">Transparant</span>
 	</div>
-	<div className="allScrew">
+	<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Visor_color:'black'})}>
 		<VisorLongBlack />
 		<span className="textAction">Black</span>
 	</div>
-	<div className="allScrew">
+	<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Visor_color:'chrome_blue'})}>
 		<VisorLongBlue />
 		<span className="textAction">Blue</span>
 	</div>
-	<div className="allScrew">
+	<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Visor_color:'chrome_silver'})}>
 		<VisorLongChrome />
 		<span className="textAction">Chrome</span>
 	</div>
-	<div className="allScrew">
+	<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Visor_color:'smoke'})}>
 		<VisorLongSemi />
 		<span className="textAction">Semi</span>
 	</div>

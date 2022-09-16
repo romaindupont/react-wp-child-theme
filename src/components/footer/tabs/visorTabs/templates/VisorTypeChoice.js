@@ -1,7 +1,7 @@
-const VisorTypeChoice = ({setTypeChoice}) => {
+const VisorTypeChoice = ({setTypeChoice, setStandardValue,	standardValue}) => {
 	const clickChoice = (e) => {
-/* 		e.preventDefault(); */
 		setTypeChoice(e.target.value);
+		setStandardValue({...standardValue, Visor_type: e.target.value})
 	}
 	return (
 		<form className="inputVisorChoice" onChange={clickChoice}>

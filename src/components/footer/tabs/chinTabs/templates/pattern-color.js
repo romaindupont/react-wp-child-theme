@@ -1,5 +1,4 @@
 const PatternColor = ({setStandardValue, standardValue}) => {
-	let value = 'plain'
 	return (
 		<>
 			<div className="colorListType">

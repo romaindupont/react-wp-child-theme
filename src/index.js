@@ -24,7 +24,11 @@ const Veldt = () => {
 		Chinguard_design_color: 'white',
 		Chinguard_design_type: 'plain',
 		Chinguard_design: '',
-		Chinguard_trim: 'rubber_black'
+		Chinguard_trim: 'rubber_black',
+		Visor_peak_color: 'black',
+		Visor_peak_type: 'plain',
+		Visor_color: 'clear',
+		Visor_type: 'peak'
 	})
 	const [ aerationHelmet, setAerationHelmet] = useState(true);
 	const [ screwPosition, setScrewPosition ] = useState('all');

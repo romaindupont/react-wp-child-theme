@@ -76,6 +76,8 @@ const Tabs = ({
 				checked = {tabsCheck.visorCheck}
 				tabsChoice = {tabsChoice}
 				tabsCheck = {tabsCheck}
+				setStandardValue = {setStandardValue}
+				standardValue = {standardValue}
 			/>
 		</div>
 	)
