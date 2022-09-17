@@ -4,7 +4,7 @@ const VisorChoice = (standardValue) => {
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 	console.log(standardValue.Visor_type)
 	switch (standardValue.Visor_type) {
-		case 'peak':
+		case 'peak_visor':
 			viewerIframe.postMessage(
 				{
 					action : "updateProductNodesInstances",
@@ -21,7 +21,7 @@ const VisorChoice = (standardValue) => {
 						]
 				}, "*");
 		break;
-		case 'short':
+		case 'short_visor':
 			viewerIframe.postMessage(
 				{
 					action : "updateProductNodesInstances",
@@ -39,7 +39,7 @@ const VisorChoice = (standardValue) => {
 						]
 				}, "*");
 		break;
-		case 'long':
+		case 'long_visor':
 			viewerIframe.postMessage(
 				{
 					action : "updateProductNodesInstances",
@@ -84,7 +84,7 @@ const VisorChoice = (standardValue) => {
 				},
 				{
 					configurationName : `${standardValue.Visor_color}`,
-					groupName : 'Visor color'
+					groupName : 'Visor_color'
 				}
 			]
 	}, '*');
