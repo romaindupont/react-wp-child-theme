@@ -2,7 +2,6 @@ const VisorTypeChoice = ({setTypeChoice, setStandardValue,	standardValue}) => {
 	const clickChoice = (e) => {
 		setTypeChoice(e.target.value);
 		setStandardValue({...standardValue, Visor_type: e.target.value})
-		console.log(standardValue)
 	}
 	return (
 		<form className="inputVisorChoice" onChange={clickChoice}>

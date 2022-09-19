@@ -33,14 +33,16 @@ const HelmetTabs = ({
 	rightNumberWindow,
 	setRightNumberWindow,
 	backEngraving,
-	setBackEngraving
+	setBackEngraving,
+	helmetPosition,
+	setHelmetPosition
 }) => {
 	const [ helmetTemplate ] = useState(ElementData);
-	const [ helmetPosition, setHelmetPosition ] = useState({
+/* 	const [ helmetPosition, setHelmetPosition ] = useState({
 		title: ElementData[0].title,
 		fileName: ElementData[0].fileName,
 		position: 0
-	})
+	}) */
 
 	const minus = () => {
 		let position = helmetPosition.position -= 1;
@@ -50,7 +52,8 @@ const HelmetTabs = ({
 		setHelmetPosition({
 			title: ElementData[position].title,
 			fileName: ElementData[position].fileName,
-			position: position
+			position: position,
+			helpMessage : ElementData[position].helpMessage
 		})
 	}
 	const plus = () => {
@@ -61,7 +64,8 @@ const HelmetTabs = ({
 		setHelmetPosition({
 			title: ElementData[position].title,
 			fileName: ElementData[position].fileName,
-			position: position
+			position: position,
+			helpMessage : ElementData[position].helpMessage
 		})
 	}
 	useEffect(() => {

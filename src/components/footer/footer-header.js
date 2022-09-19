@@ -1,3 +1,5 @@
+import ScreenShot from "../body/Camera/ScreenShot"
+
 const FooterHeader = ({setOpenOptionMenu}) => {
 	const menuOptionClic = () => {
 		setOpenOptionMenu({
@@ -12,6 +14,7 @@ const FooterHeader = ({setOpenOptionMenu}) => {
 		})
 	}
 	const menuExportClic = () => {
+		ScreenShot();
 		setOpenOptionMenu({
 			name: 'export', 
 			open: true

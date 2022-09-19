@@ -2,7 +2,6 @@ import Noeud from '../../../../assets/json/helmetid';
 
 const VisorChoice = (standardValue) => {
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
-	console.log(standardValue.Visor_type)
 	switch (standardValue.Visor_type) {
 		case 'peak_visor':
 			viewerIframe.postMessage(

@@ -34,7 +34,8 @@ const Body = ({
 	rightNumberWindow,
 	backEngraving,
 	aerationChin,
-	varnishChin
+	varnishChin,
+	setScreenshotsWait
 }) => {
 	let viewerIframe = null;
 	let viewerActive = false;
@@ -114,6 +115,18 @@ const Body = ({
 
 				window.addEventListener('message', firstConfiguration, false);
 			}
+		}
+		if(event.data && event.data.action == 'onScreenshots'){
+			setScreenshotsWait({
+				wait: true,
+				arrayScreen : [
+					event.data.screenshots[0],
+					event.data.screenshots[1],
+					event.data.screenshots[2],
+					event.data.screenshots[3]
+				]
+			})
+			
 		}
 		if(event.data && event.data.action == 'onError'){
 			console.log(event)

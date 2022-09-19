@@ -39,6 +39,11 @@ const Veldt = () => {
 	const [ backEngraving, setBackEngraving ] = useState(false);
 	const [ aerationChin, setAerationChin ] = useState(true);
 	const [ varnishChin, setVarnishChin ] = useState(true);
+	const [ screenshotsWait, setScreenshotsWait ] = useState({
+		wait: false,
+		arrayScreen : []
+	});
+
   return (
 		<div className='veldtConfig'>
 			<Header />
@@ -53,6 +58,7 @@ const Veldt = () => {
 				backEngraving = {backEngraving}
 				aerationChin = {aerationChin}
 				varnishChin = {varnishChin}
+				setScreenshotsWait = {setScreenshotsWait}
 			/>
 			<Footer
 				setAerationHelmet = {setAerationHelmet}
@@ -71,6 +77,7 @@ const Veldt = () => {
 				setBackEngraving = {setBackEngraving}
 				setAerationChin = {setAerationChin}
 				setVarnishChin = {setVarnishChin}
+				screenshotsWait = {screenshotsWait}
 			/>
 		</div>
   );

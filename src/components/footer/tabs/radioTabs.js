@@ -26,7 +26,9 @@ const radioTabs = ({
 	backEngraving,
 	setBackEngraving,
 	setAerationChin,
-	setVarnishChin
+	setVarnishChin,
+	helmetPosition,
+	setHelmetPosition
 }) => {
 	let viewerIframe = null;
 	const changeCheck = (e) => {
@@ -169,6 +171,8 @@ const radioTabs = ({
 							setRightNumberWindow = {setRightNumberWindow} 
 							backEngraving = {backEngraving}
 							setBackEngraving = {setBackEngraving}
+							helmetPosition = {helmetPosition}
+							setHelmetPosition = {setHelmetPosition}
 						/> 
 					: title === 'Chinguard' ? 
 						<ChinTabs 

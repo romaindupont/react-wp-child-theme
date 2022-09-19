@@ -1,4 +1,4 @@
-const popupHelp = ({setOpenOptionMenu}) => {
+const popupHelp = ({setOpenOptionMenu, helmetPosition}) => {
 	const menuClose = () => {
 		setOpenOptionMenu({
 			name: '',
@@ -10,7 +10,7 @@ const popupHelp = ({setOpenOptionMenu}) => {
 			<svg version="1.1" id="popupHelp_closeLogo" className="popupHelp_closeLogo" viewBox="0 0 41 41" onClick={menuClose}>
 				<polygon className="crossWhite" points="28.3,14.1 26.9,12.7 20.5,19.1 14.1,12.7 12.7,14.1 19.1,20.5 12.7,26.9 14.1,28.3 20.5,21.9   26.9,28.3 28.3,26.9 21.9,20.5 "></polygon>
 			</svg>
-			<div className="messagesHelp"></div>
+			<div className="messagesHelp">{helmetPosition.helpMessage}</div>
 		</div>
 	)
 }

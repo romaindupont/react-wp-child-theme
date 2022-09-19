@@ -4,6 +4,7 @@ import Tabs from './tabs';
 import MenuOption from './menuOption';
 import PopupHelp from './popupHelp';
 import ExportWindows from './exportWindows';
+import ElementData from '../../../assets/json/elementHelmet';
 
 const Footer = ({
 	setAerationHelmet,
@@ -20,9 +21,16 @@ const Footer = ({
 	backEngraving,
 	setBackEngraving,
 	setAerationChin,
-	setVarnishChin
+	setVarnishChin,
+	screenshotsWait
 }) => {
 	const [ openOptionMenu, setOpenOptionMenu ] = useState({name: '', open: false});
+	const [ helmetPosition, setHelmetPosition ] = useState({
+		title: ElementData[0].title,
+		fileName: ElementData[0].fileName,
+		position: 0,
+		helpMessage : ElementData[0].helpMessage
+	})
 	return (
 		<footer className="footer-configurator">
 			<FooterHeader setOpenOptionMenu={setOpenOptionMenu} />
@@ -42,10 +50,12 @@ const Footer = ({
 				setBackEngraving = {setBackEngraving}
 				setAerationChin = {setAerationChin}
 				setVarnishChin = {setVarnishChin}
+				helmetPosition = {helmetPosition}
+				setHelmetPosition = {setHelmetPosition}
 			/>
 			{openOptionMenu.open && openOptionMenu.name === 'menuOption' && <MenuOption setOpenOptionMenu={setOpenOptionMenu} />}
-			{openOptionMenu.open && openOptionMenu.name === 'help' && <PopupHelp setOpenOptionMenu={setOpenOptionMenu} />}
-			{openOptionMenu.open && openOptionMenu.name === 'export' && <ExportWindows setOpenOptionMenu={setOpenOptionMenu} />}
+			{openOptionMenu.open && openOptionMenu.name === 'help' && <PopupHelp setOpenOptionMenu={setOpenOptionMenu} helmetPosition={helmetPosition} />}
+			{openOptionMenu.open && openOptionMenu.name === 'export' && screenshotsWait.wait  && <ExportWindows setOpenOptionMenu={setOpenOptionMenu} screenshotsWait={screenshotsWait}/>}
 		</footer>
 	)
 }
