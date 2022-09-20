@@ -5,6 +5,7 @@ import MenuOption from './menuOption';
 import PopupHelp from './popupHelp';
 import ExportWindows from './exportWindows';
 import ElementData from '../../../assets/json/elementHelmet';
+import ElementDataChin from '../../../assets/json/elementChin';
 
 const Footer = ({
 	setAerationHelmet,
@@ -31,6 +32,11 @@ const Footer = ({
 		position: 0,
 		helpMessage : ElementData[0].helpMessage
 	})
+	const [ chinPosition, setChinPosition ] = useState({
+		title: ElementDataChin[0].title,
+		fileName: ElementDataChin[0].fileName,
+		position: 0
+	})
 	return (
 		<footer className="footer-configurator">
 			<FooterHeader setOpenOptionMenu={setOpenOptionMenu} />
@@ -52,6 +58,8 @@ const Footer = ({
 				setVarnishChin = {setVarnishChin}
 				helmetPosition = {helmetPosition}
 				setHelmetPosition = {setHelmetPosition}
+				chinPosition = {chinPosition}
+				setChinPosition = {setChinPosition}
 			/>
 			{openOptionMenu.open && openOptionMenu.name === 'menuOption' && <MenuOption setOpenOptionMenu={setOpenOptionMenu} />}
 			{openOptionMenu.open && openOptionMenu.name === 'help' && <PopupHelp setOpenOptionMenu={setOpenOptionMenu} helmetPosition={helmetPosition} />}

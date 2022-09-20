@@ -26,7 +26,12 @@ const CameraPosition = (fileName) => {
 			break;
 		default:
 			viewerIframe.postMessage({action : 'resetCamera'},'*');
-			viewerIframe.postMessage({action : 'play'},'*');
+				viewerIframe.postMessage({action : 'play'},'*');
+			/* setTimeout(()=>{
+				viewerIframe.postMessage({action : 'resetCamera'},'*');
+				viewerIframe.postMessage({action : 'play'},'*');
+			}, "10000") */
+		
 	}
 }
 

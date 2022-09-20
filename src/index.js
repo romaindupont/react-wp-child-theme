@@ -43,9 +43,10 @@ const Veldt = () => {
 		wait: false,
 		arrayScreen : []
 	});
-
+	const [ loader, setLoader ] = useState(false)
   return (
 		<div className='veldtConfig'>
+			{!loader && <div className="load"><div className="loader"></div></div>}
 			<Header />
 			<Body
 				aerationHelmet = {aerationHelmet}
@@ -59,6 +60,7 @@ const Veldt = () => {
 				aerationChin = {aerationChin}
 				varnishChin = {varnishChin}
 				setScreenshotsWait = {setScreenshotsWait}
+				setLoader = {setLoader}
 			/>
 			<Footer
 				setAerationHelmet = {setAerationHelmet}

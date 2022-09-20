@@ -35,7 +35,8 @@ const Body = ({
 	backEngraving,
 	aerationChin,
 	varnishChin,
-	setScreenshotsWait
+	setScreenshotsWait,
+	setLoader
 }) => {
 	let viewerIframe = null;
 	let viewerActive = false;
@@ -75,15 +76,17 @@ const Body = ({
 							{
 								configurationName : `${standardValue.Rear_text_certification}|${standardValue.Rear_text_size}`,
 								groupName : 'Rear_text'
-							},
-							
+							},	
 						]
 					}, '*');
 		}
 	}
 	let viewerEventListener =  function(event){
-		console.log(event.data.action, event, event.data.callAction)
+		console.log(event.data.action, event, event.data.callAction )
 		if(event.data && event.data.action == 'onStateChange'){
+			if(event.data.state.loadingProgress === 1){
+				setTimeout(()=>setLoader(true) , '2000')
+			}
 			if(event.data.state.viewerState == 'loaded' || event.data.state.viewerState == 'fallbackloaded'){
 				viewerActive = true;
 				viewerIframe.postMessage({
@@ -207,7 +210,7 @@ const Body = ({
 		<main className="configurator" id="configurator">
 			<iframe
 				id="emersyaIframe"
-				src="https://emersya.com/showcase/W3C2GS773F"
+				/* src="https://emersya.com/showcase/W3C2GS773F" */
 				frameBorder="0"
 				width="100%"
 				height="100%"

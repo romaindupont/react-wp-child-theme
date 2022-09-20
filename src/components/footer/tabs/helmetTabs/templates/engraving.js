@@ -17,7 +17,7 @@ const Engraving = ({backEngraving, setBackEngraving}) => {
 						<input type="text" name="textSelection" id="textSelection"/>
 						<div className="selectButtonNumber">
 							<Right />
-							<Wrong />
+							<Wrong windowClose={setBackEngraving}/>
 						</div>
 					</div>
 				</div>

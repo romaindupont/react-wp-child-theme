@@ -162,15 +162,14 @@ footer.footer-configurator {
 	position: absolute;
 	width: 100vw;
 	bottom: 0;
+	/* height: 30vh; */
 }
 .footer-configurator-header {
 	position: absolute;
 	width: 100%;
 	height: 50px;
 	top: 50px;
-	/* z-index: 99; */
 	display: flex;
-	/* align-items: center; */
 	align-items: flex-start;
 }
 .eye_on {
@@ -230,7 +229,6 @@ svg#menu_option {
 	position: absolute;
 	cursor: pointer;
 	z-index: 10;
-	/* top: 50px; */
 	right: 0px;
 }
 
@@ -319,16 +317,13 @@ svg#menu_option {
 		display: flex;
 		flex-direction: column;
 	}
-/* 	.direction {
-		margin: 1rem 2rem;
-	} */
 	.elementPicker {
 		text-align: center;
 		width: 100%;
 	}
 	.allScrew {
 		width: 60px;
-    height: 100px;
+    height: 100%;
 		margin: 0.5rem;
 	}
 	.buttonChoice {	
@@ -349,7 +344,6 @@ svg#menu_option {
     height: 30px;
     position: absolute;
 	}
-
 	.numberWindows {
 		top: 120px;
 	}
@@ -364,7 +358,6 @@ svg#menu_option {
 	.patternList, .colorList {
 		transform: translate3d(50%, 0px, 0px);
 		margin-top: 1rem;
-
 	}
 	.colorListType {
 		transform: translate3d(0%, 0px, 0px);
@@ -418,37 +411,18 @@ svg#menu_option {
 	}
 	svg#down {
 		display: block;
-		/* top: 50px;
-		left: 0px; */
 		margin-left: 2rem;
 	}
 	.sd-tabs > .sd-tab-content {
-		height: 230px;
+		height: 30vh;
 		
 	}
-/* 	.export {
-		top: 75%;
-
-	} */
-/* 	.positionExportLogo {
-    top: 35vh !important;
-	} */
 	svg#menu_option {
 		display: block;
 		margin-right: 2rem;
 	}
 }
-/* @media (min-width : 900px) {
-	.patternList, .colorList {
-		transform: translate3d(0px, 0px, 0px);
-		margin-top: 0rem;
-	}
-} */
 @media (min-width : 1024px) {
-	footer.footer-configurator {
-	 	/* top: 80vh; */
-		
-	}
 	.sd-tabs > .sd-tab-label::after,
 	.sd-tabs > .sd-tab-label::before {
 		width: 150%;
@@ -473,9 +447,6 @@ svg#menu_option {
 	.export {
 		top: -100px;
 	}
-/* 	.direction {
-		margin: 1rem 5rem;
-	} */
 	.template {
 		margin: 0rem;
 	}
@@ -485,14 +456,9 @@ svg#menu_option {
 	}
 	.allScrew {
 		width: 80px;
-   /*  height: 80px; */
 		margin: 0;
 	}
-	.buttonChoice {	
-		/* margin: 0.6rem;  */
-	}
 	.patternList::-webkit-scrollbar, .colorList::-webkit-scrollbar, .colorListType::-webkit-scrollbar, .sizeChoice::-webkit-scrollbar, .certifChoice::-webkit-scrollbar {
-		/* height: 3px; */
 		display: none;
 	}
 	.patternList, .colorList {
@@ -508,19 +474,14 @@ svg#menu_option {
 	}
 	.info_logo {
 		display: block;
-/*     width: 30px;
-    height: 30px; */
-/*     position: absolute;
-		top: 50px; */
     left: 200px;
     z-index: 51;
-		/* margin: 0.5rem 2rem; */
 	}
 	.logoAppear {
 		display: block;
 	}
 	.exportWindow {
-		bottom: -100px;
+		bottom: 0;
 		flex-direction: row;
 		align-items: start;
 	}
@@ -534,7 +495,7 @@ svg#menu_option {
 		display: block;
 	}
 	.colorListType, .sizeChoice, .certifChoice {
-		justify-content: center;
+		justify-content: space-around;
 	}
 	.menu_option {
 		bottom: -100px;
@@ -566,18 +527,9 @@ svg#menu_option {
 /* Large screens ----------- */
 @media only screen 
 and (min-width : 1824px) {
-	footer.footer-configurator {
-		/* top: 90vh; */
-	}
-
-	
-
 	.menu_option {
 		bottom: -100px;
 	}
-/* 	.export {
-    top: 85%;	
-	} */
 	.positionExportLogo {
     top: 70vh !important;
 	}
@@ -619,46 +571,37 @@ and (min-width : 1824px) {
 .pickerScrew, .varnishList, .metalParts {
 	justify-content: center;
 }
-
 .aerationList, .pickerScrew, .patternList, .shellColor, .varnishList, .metalParts {
 	justify-content: center;
 	display: flex;
 	width: 90%;
-	/* margin: 2rem 0; */
 }
-
 .patternList, .colorList {
-	overflow-x: scroll;
-	overflow-y: hidden;
+	/* overflow-x: scroll;
+	overflow-y: hidden; */
 	display: flex;
 	justify-content: flex-start;
 	-ms-overflow-style: none;
 	overflow: -moz-scrollbars-none;
 }
-
 .colorList {
-	height: 100px;
-	/* width: 90vw; */
+	height: 100%;
 }
-
 .colorListType, .sizeChoice, .certifChoice {
 	overflow-x: scroll;
 	overflow-y: hidden;
 	display: flex;
-	/* margin: 1rem 0; */
+	width: 80vw;
 }
-
 .chooseStyleNumber {
 	margin-top: 1rem;
 	display: flex;
 	justify-content: center;
 }
-
 .patternList::-webkit-scrollbar-thumb, .colorList::-webkit-scrollbar-thumb {
 	background-color: var(--scrollbar-bg-color);
 	border-radius: 10px;
 }
-
 .aerationDisplay {
 	text-transform: uppercase;
 	color: var(--color-principal);
@@ -666,29 +609,25 @@ and (min-width : 1824px) {
 	display: flex;
 	justify-content: space-evenly;
 }
-
 .buttonChoice:hover, .SizebuttonChoice:hover {
   background:var(--color-second);
   color: var(--color-principal);
 	border: 2px solid var(--color-principal);
 }
-
 .buttonChoice, .buttonAdd, .SizebuttonChoice {	
 	border-radius: 25px;
-	padding: 10px 0rem;
+	padding: 5px 0rem;
 	text-align: center;
 	cursor: pointer;
 	text-transform: uppercase;
-	font-size: 0.8rem;
-	width: 150px;
+	font-size: 0.7rem;
+	width: 120px;
 	font-weight: 600;
 }
-
 .buttonChoice, .SizebuttonChoice {
   color: #a5a4a4;
 	border: 2px solid var(--color-border-bottom-header);
 }
-
 .buttonAdd {
 	background:  var(--color-principal);
   color:  var(--color-second);
@@ -709,26 +648,22 @@ and (min-width : 1824px) {
 	flex-direction: column;
 	align-items: center;
 }
-
 .activeButton + label {
   background:var(--color-second);
   color: var(--color-principal);
 	border: 2px solid var(--color-principal);
 }
-
 .elementChoice {
 	display: flex;
 	justify-content: center;
 	height: 50px;
 	align-content: flex-start;
 }
-
 .direction {
 	width: 30px;
 	height: 30px;
   cursor: pointer;
 }
-
 .elementPicker {
 	font-size: 1rem;
 	text-transform: uppercase;
@@ -736,11 +671,9 @@ and (min-width : 1824px) {
 	color: var(--color-principal);
 	height: 30px;
 }
-
 .number {
 	margin-left: 2rem;
 }
-
 .allScrew {
 	display: flex;
 	flex-direction: column;
@@ -748,43 +681,26 @@ and (min-width : 1824px) {
 	cursor: pointer;
 	align-items: center;
 }
-
 .textAction {
 	font-weight: 500;
 }
-
 .allScrew:hover > .textAction {
 	visibility: visible;
 	}
-
 .varnishList > .allScrew:hover /* > .textAction */::after {
 	content: "";
 	bottom: -5px;
 }
-
-/* .allScrew:hover ::after {
-	content: "";
-	height: 2px;
-	position: absolute;
-	bottom: -5px;
-	background: var(--color-principal);
-	left: 25%;
-	animation: widthLine 200ms forwards ease-in-out;
-	width: 50%;
-} */
-
 .colorP > .textAction {
 	position: absolute;
 	font-size: 0.8rem;
 	top: 50px;
 	width: 120px;
 }
-
 .activeImage > .textAction {
 	visibility: visible !important;
 }
-
-.activeImage /*>  .textAction */::after {
+.activeImage::after {
 	content: "";
 	height: 2px;
 	position: absolute;
@@ -793,7 +709,6 @@ and (min-width : 1824px) {
 	left: 25%;
 	width: 50%;
 }
-
 .allScrew > .textAction {
 	text-align: center;
 	visibility: hidden;
@@ -940,7 +855,7 @@ background: #000;
 	flex-direction: column;
 	position: relative;
 	align-items: center;
-	height: 100px;
+	/* height: 100px; */
 	width: 40px;
 }
 .colorP:first-of-type {
@@ -956,24 +871,11 @@ background: #000;
 
 .roundColor:hover + .textAction {
 	visibility: visible;
-/* 	position: relative; */
 }
-
-/* .roundColor:hover + .textAction::after {
-	content: "";
-	width: 90%;
-	height: 2px;
-	position: absolute;
-	bottom: -5px;
-	background: var(--color-principal);
-	left: 5%;
-	animation: widthLine 200ms forwards ease-in-out;
-} */
 
 .roundColor + .textAction {
 	text-align: center;
 	visibility: hidden;
-	/* width: 90%; */
 }
 
 .activeColor {
@@ -1011,7 +913,6 @@ background: #000;
 	width: 100%;
 	height: 30vh;
 	position: absolute;
-/* 	top: 50px; */
 	flex-direction: column;
 	align-items: center;
 	overflow-y: scroll;
@@ -1019,6 +920,12 @@ background: #000;
 }
 .openNumberWindows {
 	display: block;
+	position: absolute;
+	top: -70vh;
+	width: 100vw;
+	height: 90vh;
+	z-index: 199;
+	backdrop-filter: blur(10px);
 }
 .infosNumber {
 	width: 400px;
@@ -1039,7 +946,6 @@ background: #000;
 .chooseWindows_input {
 	display: flex;
 	flex-direction: column;
-	/* margin: 0.5rem 1rem; */
 }
 
 input#numberSelection {
@@ -1105,7 +1011,6 @@ input#textSelection {
 
 .long_visor_page, .short_visor_page, .peak_visor_page {
 	display: flex;
-	/* margin: 1rem 5px; */
 	justify-content: center;
 	width: 100%;
 }
@@ -1143,7 +1048,7 @@ input#textSelection {
 	display: flex;
 	background: var(--background-menu);
 	width: 100vw;
-	height: 100vh;
+	height: 60vh;
 	position: absolute;
 	z-index: 102;
 	justify-items: center;
@@ -1233,7 +1138,7 @@ svg#link, svg#download {
 	cursor: pointer;
 }
 
-.exportWindow > div > div > div > p {
+.exportWindow > div > div > div > p, .exportWindow > div > div > div > a {
 	font-size: 0.8rem;
 	text-transform: uppercase;
 	color: var(--tabs-text-color);

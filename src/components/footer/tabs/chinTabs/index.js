@@ -11,13 +11,14 @@ import PatternColor from './templates/pattern-color';
 import Trim from './templates/trim';
 import Varnish from './templates/varnish';
 
-const ChinTabs = ({setAerationChin, setStandardValue,	standardValue, setVarnishChin}) => {
-	const [ chinTemplate ] = useState(ElementData);
-	const [ chinPosition, setChinPosition ] = useState({
-		title: ElementData[0].title,
-		fileName: ElementData[0].fileName,
-		position: 0
-	})
+const ChinTabs = ({
+	setAerationChin, 
+	setStandardValue, 
+	standardValue, 
+	setVarnishChin,
+	chinPosition,
+	setChinPosition
+}) => {
 	const minus = () => {
 		let position = chinPosition.position -= 1;
 		if (position === -1) {

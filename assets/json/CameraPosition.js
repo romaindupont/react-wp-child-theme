@@ -145,7 +145,7 @@ export default [
 				transitionTime : 500,
 				fov : 40
 			},
-			}
-		},
+		}
+	},
 ]
 		

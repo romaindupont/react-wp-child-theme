@@ -3,7 +3,7 @@ const ScreenShot = () => {
 	viewerIframe.postMessage({
 		action : 'getScreenshots',
 		width : 512,
-		takeBackground : true,
+		takeBackground : false,
 		height : 512,
 		cameras : [{
 			position : [4.13, 2.53, 3.96],

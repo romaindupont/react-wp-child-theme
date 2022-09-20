@@ -7,7 +7,6 @@ import PixelNumber from "../../svg/Number/PixelNumber";
 import RacingNumber from "../../svg/Number/RacingNumber";
 
 const BackNumber = ({backNumberWindow, setBackNumberWindow}) => {
-	console.log(backNumberWindow)
 	return (
 		<div className="numberChoice">
 			{
@@ -22,7 +21,7 @@ const BackNumber = ({backNumberWindow, setBackNumberWindow}) => {
 						<input type="number" name="numberSelection" id="numberSelection" />
 						<div className="selectButtonNumber">
 							<Right />
-							<Wrong />
+							<Wrong windowClose={setBackNumberWindow}/>
 						</div>
 					</div>
 						<div className="chooseStyleNumber">

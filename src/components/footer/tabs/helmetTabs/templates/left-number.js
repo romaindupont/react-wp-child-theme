@@ -22,7 +22,7 @@ const LeftNumber = ({leftNumberWindow, setLeftNumberWindow}) => {
 						<input type="number" name="numberSelection" id="numberSelection"/>
 						<div className="selectButtonNumber">
 							<Right />
-							<Wrong />
+							<Wrong windowClose={setLeftNumberWindow}/>
 						</div>
 					</div>
 						<div className="chooseStyleNumber">

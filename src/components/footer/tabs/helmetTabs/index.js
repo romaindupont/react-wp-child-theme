@@ -37,13 +37,6 @@ const HelmetTabs = ({
 	helmetPosition,
 	setHelmetPosition
 }) => {
-	const [ helmetTemplate ] = useState(ElementData);
-/* 	const [ helmetPosition, setHelmetPosition ] = useState({
-		title: ElementData[0].title,
-		fileName: ElementData[0].fileName,
-		position: 0
-	}) */
-
 	const minus = () => {
 		let position = helmetPosition.position -= 1;
 		if (position === -1) {

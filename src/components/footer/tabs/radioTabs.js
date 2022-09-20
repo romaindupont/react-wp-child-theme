@@ -28,13 +28,13 @@ const radioTabs = ({
 	setAerationChin,
 	setVarnishChin,
 	helmetPosition,
-	setHelmetPosition
+	setHelmetPosition,
+	chinPosition,
+	setChinPosition
 }) => {
 	let viewerIframe = null;
 	const changeCheck = (e) => {
-		/* e.preventDefault(); */
-		console.log(e.target.value,	tabsChoice,
-			tabsCheck, )
+		console.log(e.target.value,	tabsChoice,	tabsCheck)
 		switch(e.target.value) {
 			case 'Helmet':
 				setTabsCheck({
@@ -180,6 +180,8 @@ const radioTabs = ({
 							setStandardValue = {setStandardValue}
 							standardValue = {standardValue}
 							setVarnishChin = {setVarnishChin}
+							chinPosition = {chinPosition}
+							setChinPosition = {setChinPosition}
 						/> 
 					: title === 'Visor' ? 
 						<VisorTabs 

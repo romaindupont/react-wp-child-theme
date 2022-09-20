@@ -30,7 +30,7 @@ const Pattern = ({setStandardValue, standardValue}) => {
 		}
 	}
 	return (
-		<div className="patternList" onScroll={scrollEffect} ref={scrollRef} style={{ overflow: "auto" }}>
+		<div className="patternList" onScroll={scrollEffect} ref={scrollRef} /* style={{ overflow: "auto" }} */>
 			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Helmet_design:'band'})}>
 				<PatternShellBand />
 				<span className="textAction">Band</span>

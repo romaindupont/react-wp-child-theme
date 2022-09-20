@@ -1,15 +1,9 @@
-/* .configurator {
-	width: 100vw;
-	height: 100vh;
-	background-color: var(--background-page-config);
-} */
-
 .configurator {
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100vh;
+	height: 80vh;
 	background-color: var(--background-page-config);
 }
 #emersyaIframe, #emersyaContainer {
