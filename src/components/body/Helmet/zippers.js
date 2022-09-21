@@ -7,9 +7,9 @@ const Zippers = (standardValue) => {
 			{
 				action : "updateProductNodesInstances",
 				nodesToAdd :
-				[
-					Noeud[0].flap.pullingFlapNylon
-				],
+					[
+						Noeud[0].flap.pullingFlapNylon
+					],
 				localIdsToRemove :
 					[
 						Noeud[0].flap.pullingFlapLeather.localId
@@ -21,9 +21,9 @@ const Zippers = (standardValue) => {
 			{
 				action : "updateProductNodesInstances",
 				nodesToAdd :
-				[
-					Noeud[0].flap.pullingFlapLeather
-				],
+					[
+						Noeud[0].flap.pullingFlapLeather
+					],
 				localIdsToRemove :
 					[	
 						Noeud[0].flap.pullingFlapNylon.localId

@@ -7,10 +7,10 @@ const AerationChin = (aerationChin) => {
 			{
 				action : "updateProductNodesInstances",
 				nodesToAdd :
-				[
-					Noeud[0].chinguard.chinguardNoGroove,
-					Noeud[0].chinguard.chinguardCoatingNoGroove,
-				],
+					[
+						Noeud[0].chinguard.chinguardNoGroove,
+						Noeud[0].chinguard.chinguardCoatingNoGroove,
+					],
 				localIdsToRemove :
 					[
 						Noeud[0].chinguard.chinguardGroove.localId,
@@ -23,10 +23,10 @@ const AerationChin = (aerationChin) => {
 			{
 				action : "updateProductNodesInstances",
 				nodesToAdd :
-				[
-					Noeud[0].chinguard.chinguardGroove,
-					Noeud[0].chinguard.chinguardCoatingGroove,
-				],
+					[
+						Noeud[0].chinguard.chinguardGroove,
+						Noeud[0].chinguard.chinguardCoatingGroove,
+					],
 				localIdsToRemove :
 					[	
 						Noeud[0].chinguard.chinguardNoGroove.localId,

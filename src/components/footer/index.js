@@ -8,10 +8,13 @@ import ElementData from '../../../assets/json/elementHelmet';
 import ElementDataChin from '../../../assets/json/elementChin';
 
 const Footer = ({
+	aerationHelmet,
 	setAerationHelmet,
+	screwPosition,
 	setScrewPosition,
 	setStandardValue,
 	standardValue,
+	varnishHelmet,
 	setVarnishHelmet,
 	setBackNumberWindow,
 	backNumberWindow,
@@ -21,30 +24,38 @@ const Footer = ({
 	setRightNumberWindow,
 	backEngraving,
 	setBackEngraving,
+	aerationChin,
 	setAerationChin,
+	varnishChin,
 	setVarnishChin,
 	screenshotsWait
 }) => {
-	const [ openOptionMenu, setOpenOptionMenu ] = useState({name: '', open: false});
+	const [ openOptionMenu, setOpenOptionMenu ] = useState({
+			name: '',
+			open: false
+	});
 	const [ helmetPosition, setHelmetPosition ] = useState({
 		title: ElementData[0].title,
 		fileName: ElementData[0].fileName,
 		position: 0,
 		helpMessage : ElementData[0].helpMessage
-	})
+	});
 	const [ chinPosition, setChinPosition ] = useState({
 		title: ElementDataChin[0].title,
 		fileName: ElementDataChin[0].fileName,
 		position: 0
-	})
+	});
 	return (
 		<footer className="footer-configurator">
-			<FooterHeader setOpenOptionMenu={setOpenOptionMenu} />
+			<FooterHeader setOpenOptionMenu = {setOpenOptionMenu} />
 			<Tabs 
+				aerationHelmet = {aerationHelmet}
 				setAerationHelmet = {setAerationHelmet}
+				screwPosition = {screwPosition}
 				setScrewPosition = {setScrewPosition}
 				setStandardValue = {setStandardValue}
 				standardValue = {standardValue}
+				varnishHelmet = {varnishHelmet}
 				setVarnishHelmet = {setVarnishHelmet}
 				setBackNumberWindow = {setBackNumberWindow}
 				backNumberWindow={backNumberWindow}
@@ -55,15 +66,17 @@ const Footer = ({
 				backEngraving = {backEngraving}
 				setBackEngraving = {setBackEngraving}
 				setAerationChin = {setAerationChin}
+				varnishChin = {varnishChin}
 				setVarnishChin = {setVarnishChin}
 				helmetPosition = {helmetPosition}
 				setHelmetPosition = {setHelmetPosition}
 				chinPosition = {chinPosition}
 				setChinPosition = {setChinPosition}
+				aerationChin = {aerationChin}
 			/>
-			{openOptionMenu.open && openOptionMenu.name === 'menuOption' && <MenuOption setOpenOptionMenu={setOpenOptionMenu} />}
-			{openOptionMenu.open && openOptionMenu.name === 'help' && <PopupHelp setOpenOptionMenu={setOpenOptionMenu} helmetPosition={helmetPosition} />}
-			{openOptionMenu.open && openOptionMenu.name === 'export' && screenshotsWait.wait  && <ExportWindows setOpenOptionMenu={setOpenOptionMenu} screenshotsWait={screenshotsWait}/>}
+			{openOptionMenu.open && openOptionMenu.name === 'menuOption' && <MenuOption setOpenOptionMenu = {setOpenOptionMenu} />}
+			{openOptionMenu.open && openOptionMenu.name === 'help' && <PopupHelp setOpenOptionMenu = {setOpenOptionMenu} helmetPosition = {helmetPosition} />}
+			{openOptionMenu.open && openOptionMenu.name === 'export' && screenshotsWait.wait  && <ExportWindows setOpenOptionMenu = {setOpenOptionMenu} screenshotsWait = {screenshotsWait} />}
 		</footer>
 	)
 }

@@ -1,14 +1,14 @@
 import VarnishGlossy from "../../svg/Varnish/VarnishGlossy";
 import VarnishMat from "../../svg/Varnish/VarnishMat";
 
-const Varnish = ({setVarnishChin}) => {
+const Varnish = ({setVarnishChin, varnishChin}) => {
 	return (
 		<div className="varnishList">
-			<div className="allScrew" onClick={()=>setVarnishChin(true)}>
+			<div className={varnishChin ? 'Select' : 'allScrew'} onClick={()=>setVarnishChin(true)}>
 				<VarnishGlossy />
 				<span className="textAction">Glossy</span>
 			</div>
-			<div className="allScrew" onClick={()=>setVarnishChin(false)}>
+			<div className={varnishChin ? 'allScrew' : 'Select'} onClick={()=>setVarnishChin(false)}>
 				<VarnishMat />
 				<span className="textAction">Mat</span>
 			</div>

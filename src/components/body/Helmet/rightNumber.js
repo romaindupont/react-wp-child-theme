@@ -7,12 +7,11 @@ const RightNumber = (rightNumberWindow) => {
 			{
 				action : "updateProductNodesInstances",
 				nodesToAdd :
-				[
-					Noeud[0].custom.numberingRight
-				],
+					[
+						Noeud[0].custom.numberingRight
+					],
 				localIdsToRemove :
 					[
-
 					]
 			}, "*");
 	}
@@ -21,8 +20,8 @@ const RightNumber = (rightNumberWindow) => {
 			{
 				action : "updateProductNodesInstances",
 				nodesToAdd :
-				[
-				],
+					[
+					],
 				localIdsToRemove :
 					[	
 						Noeud[0].custom.numberingRight.localId

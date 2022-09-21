@@ -8,14 +8,14 @@ const Pattern = (standardValue, aerationChin) => {
 					{
 						action : "updateProductNodesInstances",
 						nodesToAdd :
-						[
-							
-						],
+							[
+								
+							],
 						localIdsToRemove :
-						[
-							Noeud[0].chinguard.chinguardDesignGroove.localId,
-							Noeud[0].chinguard.chinguardDesignNoGroove.localId
-						]
+							[
+								Noeud[0].chinguard.chinguardDesignGroove.localId,
+								Noeud[0].chinguard.chinguardDesignNoGroove.localId
+							]
 					}, "*");
 				}
 				else {
@@ -23,13 +23,13 @@ const Pattern = (standardValue, aerationChin) => {
 						{
 							action : "updateProductNodesInstances",
 							nodesToAdd :
-							[
-								Noeud[0].chinguard.chinguardDesignGroove
-							],
+								[
+									Noeud[0].chinguard.chinguardDesignGroove
+								],
 							localIdsToRemove :
-							[
-								Noeud[0].chinguard.chinguardDesignNoGroove.localId
-							]
+								[
+									Noeud[0].chinguard.chinguardDesignNoGroove.localId
+								]
 						}, "*");
 					viewerIframe.postMessage({
 						action : 'setMaterialsGroups',
@@ -53,14 +53,14 @@ const Pattern = (standardValue, aerationChin) => {
 				{
 					action : "updateProductNodesInstances",
 					nodesToAdd :
-					[
-						
-					],
+						[
+							
+						],
 					localIdsToRemove :
-					[
-						Noeud[0].chinguard.chinguardDesignGroove.localId,
-						Noeud[0].chinguard.chinguardDesignNoGroove.localId
-					]
+						[
+							Noeud[0].chinguard.chinguardDesignGroove.localId,
+							Noeud[0].chinguard.chinguardDesignNoGroove.localId
+						]
 				}, "*");
 			}
 			else {
@@ -68,9 +68,9 @@ const Pattern = (standardValue, aerationChin) => {
 					{
 						action : "updateProductNodesInstances",
 						nodesToAdd :
-						[
-							Noeud[0].chinguard.chinguardDesignNoGroove
-						],
+							[
+								Noeud[0].chinguard.chinguardDesignNoGroove
+							],
 						localIdsToRemove :
 							[
 								Noeud[0].chinguard.chinguardDesignGroove.localId

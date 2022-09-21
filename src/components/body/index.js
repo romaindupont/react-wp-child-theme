@@ -98,20 +98,20 @@ const Body = ({
 				{
 					action : "updateProductNodesInstances",
 					nodesToAdd :
-					[
-						Noeud[0].helmet.helmetGroove,
-						Noeud[0].helmet.helmetElements,
-						Noeud[0].helmet.helmetCoatingGroove,
-						Noeud[0].helmet.helmetTrimRubber,
-						Noeud[0].flap.pullingFlapNylon,
-						Noeud[0].screw.screwsBaseHelmet,
-						Noeud[0].screw.screwsSideChinguard,
-						Noeud[0].screw.screwsTopVisor, 
-						Noeud[0].visor.visorPeak,
-						Noeud[0].visor.visorPeakCoating
-					],
+						[
+							Noeud[0].helmet.helmetGroove,
+							Noeud[0].helmet.helmetElements,
+							Noeud[0].helmet.helmetCoatingGroove,
+							Noeud[0].helmet.helmetTrimRubber,
+							Noeud[0].flap.pullingFlapNylon,
+							Noeud[0].screw.screwsBaseHelmet,
+							Noeud[0].screw.screwsSideChinguard,
+							Noeud[0].screw.screwsTopVisor, 
+							Noeud[0].visor.visorPeak,
+							Noeud[0].visor.visorPeakCoating
+						],
 					localIdsToRemove :
-					[]
+						[]
 				}, 
 				"*"
 				);
@@ -210,7 +210,7 @@ const Body = ({
 		<main className="configurator" id="configurator">
 			<iframe
 				id="emersyaIframe"
-				/* src="https://emersya.com/showcase/W3C2GS773F" */
+				src="https://emersya.com/showcase/W3C2GS773F"
 				frameBorder="0"
 				width="100%"
 				height="100%"

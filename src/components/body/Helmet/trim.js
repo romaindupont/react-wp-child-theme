@@ -6,13 +6,13 @@ const Trim = (standardValue) => {
 			{
 				action : "updateProductNodesInstances",
 				nodesToAdd :
-				[
-					Noeud[0].helmet.helmetTrimRubber,
-				],
+					[
+						Noeud[0].helmet.helmetTrimRubber,
+					],
 				localIdsToRemove :
-				[
-					Noeud[0].helmet.helmetTrimLeather.localId
-				]
+					[
+						Noeud[0].helmet.helmetTrimLeather.localId
+					]
 			}, "*");
 			viewerIframe.postMessage({
 				action : 'setMaterialsGroups',
@@ -30,13 +30,13 @@ const Trim = (standardValue) => {
 			{
 				action : "updateProductNodesInstances",
 				nodesToAdd :
-				[
-					Noeud[0].helmet.helmetTrimRubber,
-				],
+					[
+						Noeud[0].helmet.helmetTrimRubber,
+					],
 				localIdsToRemove :
-				[
-					Noeud[0].helmet.helmetTrimRubber.localId
-				]
+					[
+						Noeud[0].helmet.helmetTrimRubber.localId
+					]
 			}, "*");
 			viewerIframe.postMessage({
 				action : 'setMaterialsGroups',

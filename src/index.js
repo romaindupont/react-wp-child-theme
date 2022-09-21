@@ -54,7 +54,7 @@ const Veldt = () => {
 				standardValue = {standardValue} 
 				varnishHelmet = {varnishHelmet} 
 				backNumberWindow = {backNumberWindow} 
-				leftNumberWindow ={ leftNumberWindow} 
+				leftNumberWindow = {leftNumberWindow} 
 				rightNumberWindow = {rightNumberWindow} 
 				backEngraving = {backEngraving}
 				aerationChin = {aerationChin}
@@ -63,11 +63,13 @@ const Veldt = () => {
 				setLoader = {setLoader}
 			/>
 			<Footer
+				aerationHelmet = {aerationHelmet}
 				setAerationHelmet = {setAerationHelmet}
 				setScrewPosition = {setScrewPosition}
 				screwPosition = {screwPosition}
 				setStandardValue = {setStandardValue}
 				standardValue = {standardValue}
+				varnishHelmet = {varnishHelmet}
 				setVarnishHelmet = {setVarnishHelmet}
 				setBackNumberWindow = {setBackNumberWindow}
 				backNumberWindow = {backNumberWindow}
@@ -77,7 +79,9 @@ const Veldt = () => {
 				setRightNumberWindow = {setRightNumberWindow} 
 				backEngraving = {backEngraving}
 				setBackEngraving = {setBackEngraving}
+				aerationChin = {aerationChin}
 				setAerationChin = {setAerationChin}
+				varnishChin = {varnishChin}
 				setVarnishChin = {setVarnishChin}
 				screenshotsWait = {screenshotsWait}
 			/>

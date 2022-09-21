@@ -12,9 +12,11 @@ import Trim from './templates/trim';
 import Varnish from './templates/varnish';
 
 const ChinTabs = ({
+	aerationChin,
 	setAerationChin, 
 	setStandardValue, 
 	standardValue, 
+	varnishChin,
 	setVarnishChin,
 	chinPosition,
 	setChinPosition
@@ -50,14 +52,48 @@ const ChinTabs = ({
 			</div>
 			<div className="template">
 			{
-				chinPosition.fileName === 'aeration' ? <Aeration setAerationChin={setAerationChin} /> :  
-				chinPosition.fileName === 'interior' ? <Interior /> :
-				chinPosition.fileName === 'main-color' ? <MainColor setStandardValue={setStandardValue} standardValue={standardValue}/> :
-				chinPosition.fileName === 'metal-parts' ? <MetalsParts /> :
-				chinPosition.fileName === 'pattern-color' ? <PatternColor setStandardValue={setStandardValue} standardValue={standardValue}/> :
-				chinPosition.fileName === 'pattern' ? <Pattern setStandardValue={setStandardValue} standardValue={standardValue} /> :
-				chinPosition.fileName === 'trim' ? <Trim setStandardValue={setStandardValue} standardValue={standardValue}/> :
-				chinPosition.fileName === 'varnish' ? <Varnish setVarnishChin={setVarnishChin} /> : ''
+				chinPosition.fileName === 'aeration' ?
+					<Aeration
+						setAerationChin = {setAerationChin}
+						aerationChin = {aerationChin}
+					/> 
+				:  
+				chinPosition.fileName === 'interior' ?
+				 	<Interior /> 
+				:
+				chinPosition.fileName === 'main-color' ?
+				 	<MainColor
+				 	 	setStandardValue = {setStandardValue}
+						standardValue = {standardValue}
+					/> 
+				:
+				chinPosition.fileName === 'metal-parts' ?
+				 	<MetalsParts /> 
+				:
+				chinPosition.fileName === 'pattern-color' ?
+				 	<PatternColor
+				 		setStandardValue = {setStandardValue}
+						standardValue = {standardValue}
+					/> 
+				:
+				chinPosition.fileName === 'pattern' ?
+					<Pattern
+						setStandardValue = {setStandardValue}
+						standardValue = {standardValue}
+					/> 
+				:
+				chinPosition.fileName === 'trim' ?
+					<Trim
+						setStandardValue = {setStandardValue}
+						standardValue = {standardValue}
+					/> 
+				:
+				chinPosition.fileName === 'varnish' ?
+					<Varnish
+						setVarnishChin = {setVarnishChin}
+						varnishChin = {varnishChin}
+					/> 
+				: ''
 			}
 			</div>
 		</div>

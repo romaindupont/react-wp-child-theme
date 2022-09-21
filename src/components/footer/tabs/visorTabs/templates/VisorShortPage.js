@@ -7,23 +7,23 @@ import VisorShortTransparent from "../../svg/VisorShort/VisorShortTransparent";
 const VisorShortPage = ({setStandardValue,	standardValue}) => {
 	return (
 <div className="short_visor_page">
-		<div className="allScrew"  onClick={()=>setStandardValue({...standardValue, Visor_color:'clear'})}>
+		<div className={standardValue.Visor_color === 'clear' ? 'Select' : 'allScrew'}  onClick={()=>setStandardValue({...standardValue, Visor_color:'clear'})}>
 			<VisorShortTransparent />
 			<span className="textAction">Transparant</span>
 		</div>
-		<div className="allScrew"  onClick={()=>setStandardValue({...standardValue, Visor_color:'black'})}>
+		<div className={standardValue.Visor_color === 'black' ? 'Select' : 'allScrew'}  onClick={()=>setStandardValue({...standardValue, Visor_color:'black'})}>
 			<VisorShortBlack />
 			<span className="textAction">Black</span>
 		</div>
-		<div className="allScrew"  onClick={()=>setStandardValue({...standardValue, Visor_color:'chrome_blue'})}>
+		<div className={standardValue.Visor_color === 'chrome_blue' ? 'Select' : 'allScrew'}  onClick={()=>setStandardValue({...standardValue, Visor_color:'chrome_blue'})}>
 			<VisorShortBlue />
 			<span className="textAction">Blue</span>
 		</div>
-		<div className="allScrew"  onClick={()=>setStandardValue({...standardValue, Visor_color:'chrome_silver'})}>
+		<div className={standardValue.Visor_color === 'chrome_silver' ? 'Select' : 'allScrew'}  onClick={()=>setStandardValue({...standardValue, Visor_color:'chrome_silver'})}>
 			<VisorShortChrome />
 			<span className="textAction">Chrome</span>
 		</div>
-		<div className="allScrew"  onClick={()=>setStandardValue({...standardValue, Visor_color:'smoke'})}>
+		<div className={standardValue.Visor_color === 'smoke' ? 'Select' : 'allScrew'}  onClick={()=>setStandardValue({...standardValue, Visor_color:'smoke'})}>
 			<VisorShortSemi />
 			<span className="textAction">Semi</span>
 		</div>

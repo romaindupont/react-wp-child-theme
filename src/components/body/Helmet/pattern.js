@@ -9,14 +9,13 @@ const Pattern = (standardValue, aerationHelmet) => {
 					{
 						action : "updateProductNodesInstances",
 						nodesToAdd :
-						[
-							
-						],
+							[
+							],
 						localIdsToRemove :
-						[
-							Noeud[0].helmet.helmetDesignGroove.localId,
-							Noeud[0].helmet.helmetDesignNoGroove.localId
-						]
+							[
+								Noeud[0].helmet.helmetDesignGroove.localId,
+								Noeud[0].helmet.helmetDesignNoGroove.localId
+							]
 					}, "*");
 				}
 				else {
@@ -24,13 +23,13 @@ const Pattern = (standardValue, aerationHelmet) => {
 						{
 							action : "updateProductNodesInstances",
 							nodesToAdd :
-							[
-								Noeud[0].helmet.helmetDesignGroove
-							],
+								[
+									Noeud[0].helmet.helmetDesignGroove
+								],
 							localIdsToRemove :
-							[
-								Noeud[0].helmet.helmetDesignNoGroove.localId
-							]
+								[
+									Noeud[0].helmet.helmetDesignNoGroove.localId
+								]
 						}, "*");
 					viewerIframe.postMessage({
 						action : 'setMaterialsGroups',
@@ -54,14 +53,13 @@ const Pattern = (standardValue, aerationHelmet) => {
 				{
 					action : "updateProductNodesInstances",
 					nodesToAdd :
-					[
-						
-					],
+						[
+						],
 					localIdsToRemove :
-					[
-						Noeud[0].helmet.helmetDesignGroove.localId,
-						Noeud[0].helmet.helmetDesignNoGroove.localId
-					]
+						[
+							Noeud[0].helmet.helmetDesignGroove.localId,
+							Noeud[0].helmet.helmetDesignNoGroove.localId
+						]
 				}, "*");
 			}
 			else {
@@ -69,9 +67,9 @@ const Pattern = (standardValue, aerationHelmet) => {
 					{
 						action : "updateProductNodesInstances",
 						nodesToAdd :
-						[
-							Noeud[0].helmet.helmetDesignNoGroove
-						],
+							[
+								Noeud[0].helmet.helmetDesignNoGroove
+							],
 						localIdsToRemove :
 							[
 								Noeud[0].helmet.helmetDesignGroove.localId

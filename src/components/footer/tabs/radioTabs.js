@@ -12,10 +12,13 @@ const radioTabs = ({
 	setTabsCheck,
 	tabsChoice,
 	tabsCheck,
+	aerationHelmet,
 	setAerationHelmet,
+	screwPosition,
 	setScrewPosition,
 	setStandardValue,
 	standardValue,
+	varnishHelmet,
 	setVarnishHelmet,
 	setBackNumberWindow,
 	backNumberWindow,
@@ -25,7 +28,9 @@ const radioTabs = ({
 	setRightNumberWindow,
 	backEngraving,
 	setBackEngraving,
+	aerationChin,
 	setAerationChin,
+	varnishChin,
 	setVarnishChin,
 	helmetPosition,
 	setHelmetPosition,
@@ -158,10 +163,13 @@ const radioTabs = ({
 				{
 					title === 'Helmet' ? 
 						<HelmetTabs
+							aerationHelmet = {aerationHelmet}
 							setAerationHelmet = {setAerationHelmet}
+							screwPosition = {screwPosition}
 							setScrewPosition = {setScrewPosition}
 							setStandardValue = {setStandardValue}
 							standardValue = {standardValue}
+							varnishHelmet = {varnishHelmet}
 							setVarnishHelmet = {setVarnishHelmet}
 							setBackNumberWindow = {setBackNumberWindow}
 							backNumberWindow = {backNumberWindow}
@@ -176,9 +184,11 @@ const radioTabs = ({
 						/> 
 					: title === 'Chinguard' ? 
 						<ChinTabs 
+							aerationChin = {aerationChin}
 							setAerationChin = {setAerationChin}
 							setStandardValue = {setStandardValue}
 							standardValue = {standardValue}
+							varnishChin = {varnishChin}
 							setVarnishChin = {setVarnishChin}
 							chinPosition = {chinPosition}
 							setChinPosition = {setChinPosition}

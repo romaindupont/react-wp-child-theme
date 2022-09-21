@@ -321,7 +321,7 @@ svg#menu_option {
 		text-align: center;
 		width: 100%;
 	}
-	.allScrew {
+	.allScrew, .Select {
 		width: 60px;
     height: 100%;
 		margin: 0.5rem;
@@ -454,7 +454,8 @@ svg#menu_option {
 		text-align: center;
 		width: 400px;
 	}
-	.allScrew {
+
+	.allScrew, .Select {
 		width: 80px;
 		margin: 0;
 	}
@@ -580,7 +581,7 @@ and (min-width : 1824px) {
 	/* overflow-x: scroll;
 	overflow-y: hidden; */
 	display: flex;
-	justify-content: flex-start;
+	/* justify-content: flex-start; */
 	-ms-overflow-style: none;
 	overflow: -moz-scrollbars-none;
 }
@@ -614,7 +615,12 @@ and (min-width : 1824px) {
   color: var(--color-principal);
 	border: 2px solid var(--color-principal);
 }
-.buttonChoice, .buttonAdd, .SizebuttonChoice {	
+.selectButton {
+	background:var(--color-second);
+  color: var(--color-principal);
+	border: 2px solid var(--color-principal);
+}
+.buttonChoice, .buttonAdd, .SizebuttonChoice, .selectButton {	
 	border-radius: 25px;
 	padding: 5px 0rem;
 	text-align: center;
@@ -671,10 +677,13 @@ and (min-width : 1824px) {
 	color: var(--color-principal);
 	height: 30px;
 }
+.numberStep {
+	opacity: 0.7;
+}
 .number {
 	margin-left: 2rem;
 }
-.allScrew {
+.allScrew, .Select {
 	display: flex;
 	flex-direction: column;
 	position: relative;
@@ -683,15 +692,37 @@ and (min-width : 1824px) {
 }
 .textAction {
 	font-weight: 500;
+	color: var(--color-principal);
+}
+.allScrew > .textAction::after, .Select > .textAction::after, .colorP > .textAction::after, .selectColor > .textAction::after {
+	border-bottom: 2px solid var(--color-principal);
+	content: '';
+	width: 50%;
+	position: absolute;
+	bottom: 0;
+	left: 25%;
+	transform: scaleX(0);
+	transition: transform 250ms ease-in-out;
+	transform-origin: center;
+}
+.allScrew:hover > .textAction::after, .Select:hover > .textAction::after, .colorP:hover > .textAction::after, .selectColor:hover > .textAction::after {
+	transform: scaleX(1);
 }
 .allScrew:hover > .textAction {
 	visibility: visible;
 	}
-.varnishList > .allScrew:hover /* > .textAction */::after {
+.Select > .textAction {
+	visibility: visible;
+	text-align: center;
+	/* position: absolute; */
+	top: 60px;
+	width: 120px;
+	}
+/* /.varnishList > .allScrew:hover /* > ::after {
 	content: "";
 	bottom: -5px;
-}
-.colorP > .textAction {
+} */ 
+.colorP > .textAction, .selectColor > .textAction {
 	position: absolute;
 	font-size: 0.8rem;
 	top: 50px;
@@ -712,7 +743,7 @@ and (min-width : 1824px) {
 .allScrew > .textAction {
 	text-align: center;
 	visibility: hidden;
-	position: absolute;
+	/* position: absolute; */
 	top: 60px;
 	width: 120px;
 }
@@ -850,13 +881,23 @@ background: #000;
 	background: #8d847e;
 }
 
-.colorP {
+.colorP,.selectColor  {
 	display: flex;
 	flex-direction: column;
 	position: relative;
 	align-items: center;
 	/* height: 100px; */
 	width: 40px;
+}
+.selectColor::after {
+	content: '';
+	border: 1px solid #233658;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	position: absolute;
+	top: 2.5px;
+	left: 0;
 }
 .colorP:first-of-type {
 	margin-left: 0.5rem;
@@ -872,13 +913,16 @@ background: #000;
 .roundColor:hover + .textAction {
 	visibility: visible;
 }
-
+.selectColor > .roundColor + .textAction {
+	text-align: center;
+	visibility: visible;
+}
 .roundColor + .textAction {
 	text-align: center;
 	visibility: hidden;
 }
 
-.activeColor {
+/* .activeColor {
 	position: relative;
 }
 
@@ -905,7 +949,7 @@ background: #000;
 	background: var(--color-principal);
 	left: 25%;
 	width: 50%;
-}
+} */
 
 .numberWindows {
 	display: none;
@@ -919,7 +963,9 @@ background: #000;
 	overflow-x: hidden;
 }
 .openNumberWindows {
-	display: block;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	position: absolute;
 	top: -70vh;
 	width: 100vw;
@@ -986,7 +1032,7 @@ input#textSelection {
 	border-radius: 50%;
 
 }
-.allScrew > svg {
+.allScrew > svg, .Select > svg {
 	width: 50px;
 	height: 50px;
 }

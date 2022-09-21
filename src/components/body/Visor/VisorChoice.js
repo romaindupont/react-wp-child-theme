@@ -8,10 +8,10 @@ const VisorChoice = (standardValue) => {
 				{
 					action : "updateProductNodesInstances",
 					nodesToAdd :
-					[
-						Noeud[0].visor.visorPeak,
-						Noeud[0].visor.visorPeakCoating
-					],
+						[
+							Noeud[0].visor.visorPeak,
+							Noeud[0].visor.visorPeakCoating
+						],
 					localIdsToRemove :
 						[
 							Noeud[0].visor.visorShortShield.localId,
@@ -25,11 +25,11 @@ const VisorChoice = (standardValue) => {
 				{
 					action : "updateProductNodesInstances",
 					nodesToAdd :
-					[
-						Noeud[0].visor.visorElements,
-						Noeud[0].visor.visorShortShield
-						
-					],
+						[
+							Noeud[0].visor.visorElements,
+							Noeud[0].visor.visorShortShield
+							
+						],
 					localIdsToRemove :
 						[
 							Noeud[0].visor.visorPeak.localId,
@@ -43,10 +43,10 @@ const VisorChoice = (standardValue) => {
 				{
 					action : "updateProductNodesInstances",
 					nodesToAdd :
-					[
-						Noeud[0].visor.visorElements,
-						Noeud[0].visor.visorLongShield
-					],
+						[
+							Noeud[0].visor.visorElements,
+							Noeud[0].visor.visorLongShield
+						],
 					localIdsToRemove :
 						[
 							Noeud[0].visor.visorPeak.localId,
@@ -61,10 +61,10 @@ const VisorChoice = (standardValue) => {
 				{
 					action : "updateProductNodesInstances",
 					nodesToAdd :
-					[
-						Noeud[0].visor.visorPeak,
-						Noeud[0].visor.visorPeakCoating
-					],
+						[
+							Noeud[0].visor.visorPeak,
+							Noeud[0].visor.visorPeakCoating
+						],
 					localIdsToRemove :
 						[
 							Noeud[0].visor.visorShortShield.localId,

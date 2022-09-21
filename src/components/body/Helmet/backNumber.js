@@ -7,9 +7,9 @@ const BackNumber = (backNumberWindow) => {
 			{
 				action : "updateProductNodesInstances",
 				nodesToAdd :
-				[
-					Noeud[0].custom.numberingBack
-				],
+					[
+						Noeud[0].custom.numberingBack
+					],
 				localIdsToRemove :
 					[
 
@@ -21,8 +21,8 @@ const BackNumber = (backNumberWindow) => {
 			{
 				action : "updateProductNodesInstances",
 				nodesToAdd :
-				[
-				],
+					[
+					],
 				localIdsToRemove :
 					[	
 						Noeud[0].custom.numberingBack.localId

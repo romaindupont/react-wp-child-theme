@@ -6,19 +6,19 @@ import InteriorSuedeBlue from "../../svg/Interior/InteriorSuedeBlue";
 const Interior = ({setStandardValue, standardValue}) => {
 	return (
 		<div className="varnishList">
-			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Interior:'suede|blue'})}>
+			<div className={standardValue.Interior === 'suede|blue' ? 'Select' : 'allScrew'} onClick={()=>setStandardValue({...standardValue, Interior:'suede|blue'})}>
 				<InteriorSuedeBlue />
 				<span className="textAction">Suede Blue</span>
 			</div>
-			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Interior:'suede|beige'})}>
+			<div className={standardValue.Interior === 'suede|beige' ? 'Select' : 'allScrew'} onClick={()=>setStandardValue({...standardValue, Interior:'suede|beige'})}>
 				<InteriorSuedeBlack />
 				<span className="textAction">Suede Black</span>
 			</div>
-			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Interior:'leather|red'})}>
+			<div className={standardValue.Interior === 'leather|red' ? 'Select' : 'allScrew'} onClick={()=>setStandardValue({...standardValue, Interior:'leather|red'})}>
 				<InteriorLeatherBrown />
 				<span className="textAction">Leather Brown</span>
 			</div>
-			<div className="allScrew" onClick={()=>setStandardValue({...standardValue, Interior:'leather|black'})}>
+			<div className={standardValue.Interior === 'leather|black' ? 'Select' : 'allScrew'} onClick={()=>setStandardValue({...standardValue, Interior:'leather|black'})}>
 				<InteriorLeatherBlack />
 				<span className="textAction">Leather Black</span>
 			</div>

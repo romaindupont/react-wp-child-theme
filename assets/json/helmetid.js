@@ -153,7 +153,7 @@ export default [
 				0, 1, 0, 0,
 				0, 0, 1, 0,
 				0, 0, 0, 1],
-				SKU: "backEngraving"
+				SKU: "custom_backEngraving"
 			}
 		},
 		screw: {

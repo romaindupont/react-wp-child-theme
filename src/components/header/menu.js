@@ -36,14 +36,14 @@ const Menu = ({ menuOpenClose, load,	titleList, setMenuOpenClose, subMenuList })
 							{load && titleList.map((title, i) => (
 								<li key={i} className={`sub-menu--li ${title[0]}`}>
 									{title[0].includes('Mark') ? title[0] : <a href={title[1]} className='sub-menu--a'>{title[0]}</a>}
-									{title[0].includes('Mark') ? <img src= {Caret} alt="caret" className={`caret caret--${i}` } onClick={clicCaret}/> : ''}
+									{title[0].includes('Mark') ? <img src= {Caret} alt="caret" className={`caret caret--${i}`} onClick={clicCaret}/> : ''}
 								</li>
 							))}
 						</ul>
 					</nav>
 				</div>
 			</div>
-			{subMenuOpen.open && <SubMenu subMenuList={subMenuList} subMenuOpenName={subMenuOpen.name} setSubMenuOpen={setSubMenuOpen}/>}
+			{subMenuOpen.open && <SubMenu subMenuList = {subMenuList} subMenuOpenName = {subMenuOpen.name} setSubMenuOpen = {setSubMenuOpen}/>}
 		</>
 	)
 }

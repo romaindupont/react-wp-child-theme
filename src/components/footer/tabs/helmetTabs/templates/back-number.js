@@ -20,7 +20,7 @@ const BackNumber = ({backNumberWindow, setBackNumberWindow}) => {
 					<div className="chooseWindows_input">
 						<input type="number" name="numberSelection" id="numberSelection" />
 						<div className="selectButtonNumber">
-							<Right />
+							<Right windowClose={setBackNumberWindow}/>
 							<Wrong windowClose={setBackNumberWindow}/>
 						</div>
 					</div>

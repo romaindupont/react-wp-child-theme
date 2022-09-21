@@ -5,23 +5,23 @@ import ScrewTop from "../../svg/Screw/ScrewTop";
 const { useEffect } = wp.element;
 import ScrewFunction from "../../../../body/Helmet/screw";
 
-const Screw = ({setScrewPosition}) => {
+const Screw = ({setScrewPosition, screwPosition}) => {
 
 	return (
 		<div className="pickerScrew">
-			<div className="allScrew" onClick={()=>setScrewPosition('none')}>
+			<div className={screwPosition === 'none' ? 'Select' : 'allScrew'} onClick={()=>setScrewPosition('none')}>
 				<ScrewNone />
 				<span className="textAction">None</span>
 			</div>
-			<div className="allScrew" onClick={()=>setScrewPosition('bottom')}>
+			<div className={screwPosition === 'bottom' ? 'Select' : 'allScrew'} onClick={()=>setScrewPosition('bottom')}>
 				<ScrewBottom />
 				<span className="textAction">Bottom</span>
 			</div>
-			<div className="allScrew" onClick={()=>setScrewPosition('top')}>
+			<div className={screwPosition === 'top' ? 'Select' : 'allScrew'} onClick={()=>setScrewPosition('top')}>
 				<ScrewTop />
 				<span className="textAction">Top</span>
 			</div>
-			<div className="allScrew" onClick={()=>setScrewPosition('all')}>
+			<div className={screwPosition === 'all' ? 'Select' : 'allScrew'} onClick={()=>setScrewPosition('all')}>
 				<ScrewAll />
 				<span className="textAction">All</span>
 			</div>

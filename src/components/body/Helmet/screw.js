@@ -7,17 +7,17 @@ const ScrewFunction = (screwPosition) => {
 			{
 				action : "updateProductNodesInstances",
 				nodesToAdd :
-				[
-				
-				],
+					[
+					
+					],
 				localIdsToRemove :
-				[
-					Noeud[0].screw.screwsBaseChinguard.localId,
-					Noeud[0].screw.screwsSideChinguard.localId,
-					Noeud[0].screw.screwsSideNoChinguard.localId,
-					Noeud[0].screw.screwsTopVisor.localId,
-					Noeud[0].screw.screwsTopNoVisor.localId
-				]
+					[
+						Noeud[0].screw.screwsBaseChinguard.localId,
+						Noeud[0].screw.screwsSideChinguard.localId,
+						Noeud[0].screw.screwsSideNoChinguard.localId,
+						Noeud[0].screw.screwsTopVisor.localId,
+						Noeud[0].screw.screwsTopNoVisor.localId
+					]
 			}, "*");
 	}
  	if(screwPosition === 'bottom') {
@@ -25,11 +25,11 @@ const ScrewFunction = (screwPosition) => {
 			{
 				action : "updateProductNodesInstances",
 				nodesToAdd :
-				[
-					Noeud[0].screw.screwsBaseChinguard,
-					Noeud[0].screw.screwsSideChinguard,
-					Noeud[0].screw.screwsSideNoChinguard,
-				],
+					[
+						Noeud[0].screw.screwsBaseChinguard,
+						Noeud[0].screw.screwsSideChinguard,
+						Noeud[0].screw.screwsSideNoChinguard,
+					],
 				localIdsToRemove :
 					[	
 						/* Noeud[0].screw.screwsSideNoChinguard.localId, */
@@ -44,11 +44,9 @@ const ScrewFunction = (screwPosition) => {
 				action : "updateProductNodesInstances",
 				nodesToAdd :
 				[
-					
 				],
 				localIdsToRemove :
 					[
-					
 					]
 			}, "*");
 	}
@@ -66,7 +64,6 @@ const ScrewFunction = (screwPosition) => {
 				],
 				localIdsToRemove :
 					[
-						
 					]
 			}, "*"); 
 	}

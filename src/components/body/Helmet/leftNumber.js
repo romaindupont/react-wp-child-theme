@@ -7,9 +7,9 @@ const LeftNumber = (leftNumberWindow) => {
 			{
 				action : "updateProductNodesInstances",
 				nodesToAdd :
-				[
-					Noeud[0].custom.numberingLeft
-				],
+					[
+						Noeud[0].custom.numberingLeft
+					],
 				localIdsToRemove :
 					[
 
@@ -21,8 +21,8 @@ const LeftNumber = (leftNumberWindow) => {
 			{
 				action : "updateProductNodesInstances",
 				nodesToAdd :
-				[
-				],
+					[
+					],
 				localIdsToRemove :
 					[	
 						Noeud[0].custom.numberingLeft.localId

@@ -6,11 +6,11 @@ const Aeration = (viewerIframe, aerationHelmet) => {
 			{
 				action : "updateProductNodesInstances",
 				nodesToAdd :
-				[
-					Noeud[0].helmet.helmetNoGroove,
-					Noeud[0].helmet.helmetCoatingNoGroove,
-					/* Noeud[0].helmet.helmetDesignNoGroove */
-				],
+					[
+						Noeud[0].helmet.helmetNoGroove,
+						Noeud[0].helmet.helmetCoatingNoGroove,
+						/* Noeud[0].helmet.helmetDesignNoGroove */
+					],
 				localIdsToRemove :
 					[
 						Noeud[0].helmet.helmetGroove.localId,
@@ -24,11 +24,11 @@ const Aeration = (viewerIframe, aerationHelmet) => {
 			{
 				action : "updateProductNodesInstances",
 				nodesToAdd :
-				[
-					Noeud[0].helmet.helmetGroove,
-					Noeud[0].helmet.helmetCoatingGroove,
-					/* Noeud[0].helmet.helmetDesignGroove */
-				],
+					[
+						Noeud[0].helmet.helmetGroove,
+						Noeud[0].helmet.helmetCoatingGroove,
+						/* Noeud[0].helmet.helmetDesignGroove */
+					],
 				localIdsToRemove :
 					[	
 						Noeud[0].helmet.helmetNoGroove.localId,

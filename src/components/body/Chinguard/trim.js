@@ -7,13 +7,13 @@ const TrimChin = (standardValue) => {
 			{
 				action : "updateProductNodesInstances",
 				nodesToAdd :
-				[
-					Noeud[0].chinguard.chinguardTrimRubber
-				],
+					[
+						Noeud[0].chinguard.chinguardTrimRubber
+					],
 				localIdsToRemove :
-				[
-					Noeud[0].chinguard.chinguardTrimLeather.localId
-				]
+					[
+						Noeud[0].chinguard.chinguardTrimLeather.localId
+					]
 			}, "*");
 			viewerIframe.postMessage({
 				action : 'setMaterialsGroups',
@@ -31,13 +31,13 @@ const TrimChin = (standardValue) => {
 			{
 				action : "updateProductNodesInstances",
 				nodesToAdd :
-				[
-					Noeud[0].chinguard.chinguardTrimLeather
-				],
+					[
+						Noeud[0].chinguard.chinguardTrimLeather
+					],
 				localIdsToRemove :
-				[
-					Noeud[0].chinguard.chinguardTrimRubber.localId
-				]
+					[
+						Noeud[0].chinguard.chinguardTrimRubber.localId
+					]
 			}, "*");
 			viewerIframe.postMessage({
 				action : 'setMaterialsGroups',

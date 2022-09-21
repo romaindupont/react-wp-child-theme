@@ -11,21 +11,36 @@ const VisorTabs = ({setStandardValue,	standardValue}) => {
 		<div className="infos visor">
 			<div className="template">
 				<VisorTypeChoice setTypeChoice={setTypeChoice} setStandardValue={setStandardValue} standardValue={standardValue} />
-				{ typeChoice === 'long_visor' && (
+				{typeChoice === 'long_visor' && (
 					<>
-						<VisorFrame setStandardValue={setStandardValue} standardValue={standardValue}/>
-						<VisorLongPage setStandardValue={setStandardValue} standardValue={standardValue}/>
+						<VisorFrame 
+							setStandardValue = {setStandardValue}
+							standardValue = {standardValue}
+						/>
+						<VisorLongPage 
+							setStandardValue = {setStandardValue}
+							standardValue = {standardValue}
+						/>
 					</>
 				)}
-				{ typeChoice === 'short_visor' && (
+				{typeChoice === 'short_visor' && (
 					<>
-						<VisorFrame setStandardValue={setStandardValue} standardValue={standardValue}/>
-						<VisorShortPage setStandardValue={setStandardValue} standardValue={standardValue}/>
+						<VisorFrame
+							setStandardValue = {setStandardValue}
+							standardValue = {standardValue}
+						/>
+						<VisorShortPage
+							setStandardValue = {setStandardValue}
+							standardValue = {standardValue}
+						/>
 					</>
 				)}
-				{ typeChoice === 'peak_visor' && (
+				{typeChoice === 'peak_visor' && (
 					<>
-						<VisorPeakPage setStandardValue={setStandardValue} standardValue={standardValue}/>
+						<VisorPeakPage
+							setStandardValue = {setStandardValue}
+							standardValue = {standardValue}
+						/>
 					</>
 				)}		
 			</div>

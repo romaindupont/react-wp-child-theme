@@ -7,13 +7,13 @@ const VarnishChin = (varnishChin, aerationChin) => {
 				{
 					action : "updateProductNodesInstances",
 					nodesToAdd :
-					[
-						Noeud[0].chinguard.chinguardCoatingGroove,
-					],
+						[
+							Noeud[0].chinguard.chinguardCoatingGroove,
+						],
 					localIdsToRemove :
-					[
-						Noeud[0].chinguard.chinguardCoatingNoGroove.localId
-					]
+						[
+							Noeud[0].chinguard.chinguardCoatingNoGroove.localId
+						]
 				}, "*");
 		}
 		if (varnishChin && !aerationChin) {
@@ -21,13 +21,13 @@ const VarnishChin = (varnishChin, aerationChin) => {
 				{
 					action : "updateProductNodesInstances",
 					nodesToAdd :
-					[
-						Noeud[0].chinguard.chinguardCoatingNoGroove
-					],
+						[
+							Noeud[0].chinguard.chinguardCoatingNoGroove
+						],
 					localIdsToRemove :
-					[	
-						Noeud[0].chinguard.chinguardCoatingGroove.localId
-					]
+						[	
+							Noeud[0].chinguard.chinguardCoatingGroove.localId
+						]
 				}, "*");
 		}
 		if (!varnishChin) {
@@ -35,12 +35,12 @@ const VarnishChin = (varnishChin, aerationChin) => {
 				{
 					action : "updateProductNodesInstances",
 					nodesToAdd :
-					[],
+						[],
 					localIdsToRemove :
-					[	
-						Noeud[0].chinguard.chinguardCoatingGroove.localId,
-						Noeud[0].chinguard.chinguardCoatingNoGroove.localId
-					]
+						[	
+							Noeud[0].chinguard.chinguardCoatingGroove.localId,
+							Noeud[0].chinguard.chinguardCoatingNoGroove.localId
+						]
 				}, "*");
 		}
 	}
