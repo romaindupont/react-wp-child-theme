@@ -36,7 +36,9 @@ const Body = ({
 	aerationChin,
 	varnishChin,
 	setScreenshotsWait,
-	setLoader
+	setLoader,
+	nodesConfiguration,
+	setNodesConfiguration
 }) => {
 	let viewerIframe = null;
 	let viewerActive = false;
@@ -49,36 +51,42 @@ const Body = ({
 	}
 	let firstConfiguration = (e) => {
 		if(e.data && e.data.action == 'onSuccess' && e.data.callAction == 'updateProductNodesInstances'){	
-				viewerIframe.postMessage({
-					action : 'setMaterialsGroups',
-					values : 
-						[
-							{
-								configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
-								groupName : 'Helmet_color'
-							},
-							{
-								configurationName : standardValue.Metal_pieces,
-								groupName : 'Metal_pieces'
-							},
-							{
-								configurationName :`${standardValue.Logo}|${standardValue.Logo_color}`,
-								groupName : 'Logo'
-							},
-							{
-								configurationName : standardValue.Interior,
-								groupName : 'Interior'
-							},
-							{
-								configurationName : standardValue.Helmet_trim,
-								groupName : 'Helmet_trim'
-							},
-							{
-								configurationName : `${standardValue.Rear_text_certification}|${standardValue.Rear_text_size}`,
-								groupName : 'Rear_text'
-							},	
-						]
-					}, '*');
+			viewerIframe.postMessage({
+				action : 'setMaterialsGroups',
+				values : 
+					[
+						{
+							configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
+							groupName : 'Helmet_color'
+						},
+						{
+							configurationName : standardValue.Metal_pieces,
+							groupName : 'Metal_pieces'
+						},
+						{
+							configurationName :`${standardValue.Logo}|${standardValue.Logo_color}`,
+							groupName : 'Logo'
+						},
+						{
+							configurationName : standardValue.Interior,
+							groupName : 'Interior'
+						},
+						{
+							configurationName : standardValue.Helmet_trim,
+							groupName : 'Helmet_trim'
+						},
+						{
+							configurationName : `${standardValue.Rear_text_certification}|${standardValue.Rear_text_size}`,
+							groupName : 'Rear_text'
+						},	
+					]
+				}, '*');
+				viewerIframe.postMessage(
+					{
+					action : "getCurrentProductNodesConfiguration",
+					},
+					"*"
+					) ;
 		}
 	}
 	let viewerEventListener =  function(event){
@@ -107,8 +115,8 @@ const Body = ({
 							Noeud[0].screw.screwsBaseHelmet,
 							Noeud[0].screw.screwsSideChinguard,
 							Noeud[0].screw.screwsTopVisor, 
-							Noeud[0].visor.visorPeak,
-							Noeud[0].visor.visorPeakCoating
+							/* Noeud[0].visor.visorPeak,
+							Noeud[0].visor.visorPeakCoating */
 						],
 					localIdsToRemove :
 						[]
@@ -129,7 +137,9 @@ const Body = ({
 					event.data.screenshots[3]
 				]
 			})
-			
+		}
+		if(event.data && event.data.action == 'onCurrentProductNodesConfigurationGet'){
+			setNodesConfiguration(event.data.productNodes)
 		}
 		if(event.data && event.data.action == 'onError'){
 			console.log(event)
@@ -147,7 +157,7 @@ const Body = ({
 		helmetAereationListener()
 	}, [aerationHelmet]);
 	useEffect(() => {
-		ScrewFunction(screwPosition)
+		ScrewFunction(screwPosition, nodesConfiguration)
 	}, [screwPosition]);
 	useEffect(() => {
 		Pattern(standardValue, aerationHelmet)
@@ -206,7 +216,10 @@ const Body = ({
 	useEffect(() => {
 		VisorChoice(standardValue)
 	}, [standardValue.Visor_peak_color,standardValue.Visor_peak_type,standardValue.Visor_color,,standardValue.Visor_type]);
-		return (
+	useEffect(() => {
+		console.log(nodesConfiguration)
+	}, [nodesConfiguration]);	
+	return (
 		<main className="configurator" id="configurator">
 			<iframe
 				id="emersyaIframe"

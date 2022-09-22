@@ -1,42 +1,67 @@
 import Noeud from '../../../../assets/json/helmetid';
+import { getRandomId } from '../../../../utils/getRandomId';
 
-const ScrewFunction = (screwPosition) => {
+const ScrewFunction = (screwPosition, nodesConfiguration) => {
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
+	let localIdToRemove = [];
+	nodesConfiguration.find((nodes) => { 
+		if(nodes.SKU === 'screwsSide_chinguard') {
+			localIdToRemove.push(nodes.localId)
+		}
+		if(nodes.SKU === 'screwsTop_visor') {
+			localIdToRemove.push(nodes.localId)
+		}
+		if(nodes.SKU === 'screwsBase_chinguard') {
+			localIdToRemove.push(nodes.localId)
+		}
+		if(nodes.SKU === 'screwsSide_noChinguard') {
+			localIdToRemove.push(nodes.localId)
+		}
+		if(nodes.SKU === 'screwsTop_noVisor') {
+			localIdToRemove.push(nodes.localId)
+		}
+	})
 	if(screwPosition === 'none') {
 		viewerIframe.postMessage(
 			{
 				action : "updateProductNodesInstances",
 				nodesToAdd :
-					[
-					
-					],
+					[],
 				localIdsToRemove :
-					[
-						Noeud[0].screw.screwsBaseChinguard.localId,
-						Noeud[0].screw.screwsSideChinguard.localId,
-						Noeud[0].screw.screwsSideNoChinguard.localId,
-						Noeud[0].screw.screwsTopVisor.localId,
-						Noeud[0].screw.screwsTopNoVisor.localId
-					]
+					localIdToRemove
 			}, "*");
+		localIdToRemove=[];
 	}
  	if(screwPosition === 'bottom') {
+		console.log(parseInt(`${Noeud[0].screw.screwsSideNoChinguard.localId}`+getRandomId(Noeud[0].screw.screwsSideNoChinguard.localId,Date.now())))
 		viewerIframe.postMessage(
 			{
 				action : "updateProductNodesInstances",
 				nodesToAdd :
 					[
-						Noeud[0].screw.screwsBaseChinguard,
-						Noeud[0].screw.screwsSideChinguard,
-						Noeud[0].screw.screwsSideNoChinguard,
+						{
+							parentLocalId: 1,
+							localId: parseInt(Noeud[0].screw.screwsSideNoChinguard.localId+getRandomId(Noeud[0].screw.screwsSideNoChinguard.localId,Date.now())),
+							matrix: [1, 0, 0, 0,
+							0, 1, 0, 0,
+							0, 0, 1, 0,
+							0, 0, 0, 1],
+							SKU: Noeud[0].screw.screwsSideNoChinguard.SKU
+						},
+						{
+							parentLocalId: 1,
+							localId: Noeud[0].screw.screwsBaseChinguard.localId+getRandomId(Noeud[0].screw.screwsBaseChinguard.localId,Date.now()),
+							matrix: [1, 0, 0, 0,
+							0, 1, 0, 0,
+							0, 0, 1, 0,
+							0, 0, 0, 1],
+							SKU: Noeud[0].screw.screwsBaseChinguard.SKU
+						}
 					],
 				localIdsToRemove :
-					[	
-						/* Noeud[0].screw.screwsSideNoChinguard.localId, */
-						Noeud[0].screw.screwsTopVisor.localId,
-						Noeud[0].screw.screwsTopNoVisor.localId,
-					]
+					localIdToRemove
 			}, "*");
+			localIdToRemove=[];
 	}
 	if(screwPosition === 'top') {
 		viewerIframe.postMessage(
@@ -44,11 +69,20 @@ const ScrewFunction = (screwPosition) => {
 				action : "updateProductNodesInstances",
 				nodesToAdd :
 				[
+					{
+						parentLocalId: 1,
+						localId: Noeud[0].screw.screwsTopNoVisor.localId+getRandomId(50,60),
+						matrix: [1, 0, 0, 0,
+						0, 1, 0, 0,
+						0, 0, 1, 0,
+						0, 0, 0, 1],
+						SKU: Noeud[0].screw.screwsTopNoVisor.SKU
+					},
 				],
 				localIdsToRemove :
-					[
-					]
+					localIdToRemove
 			}, "*");
+			localIdToRemove=[];
 	}
 	if(screwPosition === 'all') {
 		viewerIframe.postMessage(
@@ -56,16 +90,38 @@ const ScrewFunction = (screwPosition) => {
 				action : "updateProductNodesInstances",
 				nodesToAdd :
 				[
-					Noeud[0].screw.screwsBaseChinguard,
-					Noeud[0].screw.screwsSideChinguard,
-					Noeud[0].screw.screwsSideNoChinguard,
-					Noeud[0].screw.screwsTopVisor,
-					Noeud[0].screw.screwsTopNoVisor
+					{
+						parentLocalId: 1,
+						localId: Noeud[0].screw.screwsBaseChinguard.localId+getRandomId(50,60),
+						matrix: [1, 0, 0, 0,
+						0, 1, 0, 0,
+						0, 0, 1, 0,
+						0, 0, 0, 1],
+						SKU: Noeud[0].screw.screwsBaseChinguard.SKU
+					},
+					{
+						parentLocalId: 1,
+						localId: Noeud[0].screw.screwsSideNoChinguard.localId+getRandomId(50,60),
+						matrix: [1, 0, 0, 0,
+						0, 1, 0, 0,
+						0, 0, 1, 0,
+						0, 0, 0, 1],
+						SKU: Noeud[0].screw.screwsSideNoChinguard.SKU
+					},
+					{
+						parentLocalId: 1,
+						localId: Noeud[0].screw.screwsTopNoVisor.localId+getRandomId(50,60),
+						matrix: [1, 0, 0, 0,
+						0, 1, 0, 0,
+						0, 0, 1, 0,
+						0, 0, 0, 1],
+						SKU: Noeud[0].screw.screwsTopNoVisor.SKU
+					},
 				],
 				localIdsToRemove :
-					[
-					]
+					localIdToRemove
 			}, "*"); 
+			localIdToRemove=[];
 	}
 }
 

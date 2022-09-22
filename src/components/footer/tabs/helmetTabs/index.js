@@ -38,7 +38,8 @@ const HelmetTabs = ({
 	backEngraving,
 	setBackEngraving,
 	helmetPosition,
-	setHelmetPosition
+	setHelmetPosition,
+	nodesConfiguration
 }) => {
 	const minus = () => {
 		let position = helmetPosition.position -= 1;

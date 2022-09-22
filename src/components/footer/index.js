@@ -28,7 +28,8 @@ const Footer = ({
 	setAerationChin,
 	varnishChin,
 	setVarnishChin,
-	screenshotsWait
+	screenshotsWait,
+	nodesConfiguration
 }) => {
 	const [ openOptionMenu, setOpenOptionMenu ] = useState({
 			name: '',

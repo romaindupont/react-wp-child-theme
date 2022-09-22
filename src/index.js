@@ -9,7 +9,7 @@ const Veldt = () => {
 		Helmet_color: 'black',
 		Helmet_color_type: 'plain',
 		Metal_pieces: 'titanium',
-		Logo: 'V_Text',
+		Logo: 'V',
 		Logo_color: 'white',
 		Interior: 'suede|blue',
 		Helmet_trim: 'rubber_black',
@@ -29,7 +29,8 @@ const Veldt = () => {
 		Visor_peak_type: 'plain',
 		Visor_color: 'clear',
 		Visor_type: 'peak'
-	})
+	});
+	const [ nodesConfiguration, setNodesConfiguration ] = useState([]);
 	const [ aerationHelmet, setAerationHelmet] = useState(true);
 	const [ screwPosition, setScrewPosition ] = useState('all');
 	const [ varnishHelmet, setVarnishHelmet] = useState(true);
@@ -43,7 +44,7 @@ const Veldt = () => {
 		wait: false,
 		arrayScreen : []
 	});
-	const [ loader, setLoader ] = useState(false)
+	const [ loader, setLoader ] = useState(false);
   return (
 		<div className='veldtConfig'>
 			{!loader && <div className="load"><div className="loader"></div></div>}
@@ -61,6 +62,8 @@ const Veldt = () => {
 				varnishChin = {varnishChin}
 				setScreenshotsWait = {setScreenshotsWait}
 				setLoader = {setLoader}
+				setNodesConfiguration = {setNodesConfiguration}
+				nodesConfiguration = {nodesConfiguration}
 			/>
 			<Footer
 				aerationHelmet = {aerationHelmet}
@@ -84,6 +87,7 @@ const Veldt = () => {
 				varnishChin = {varnishChin}
 				setVarnishChin = {setVarnishChin}
 				screenshotsWait = {screenshotsWait}
+				nodesConfiguration = {nodesConfiguration}
 			/>
 		</div>
   );

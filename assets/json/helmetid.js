@@ -170,7 +170,7 @@ export default [
 			screwsBaseChinguard:
 			{
 				parentLocalId: 1,
-				localId: 18,
+				localId: 180,
 				matrix: [1, 0, 0, 0,
 				0, 1, 0, 0,
 				0, 0, 1, 0,
@@ -180,7 +180,7 @@ export default [
 			screwsSideNoChinguard:
 			{
 				parentLocalId: 1,
-				localId: 19,
+				localId: 190,
 				matrix: [1, 0, 0, 0,
 				0, 1, 0, 0,
 				0, 0, 1, 0,
