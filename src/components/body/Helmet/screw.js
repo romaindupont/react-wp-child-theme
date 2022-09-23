@@ -1,5 +1,4 @@
 import Noeud from '../../../../assets/json/helmetid';
-import { getRandomId } from '../../../../utils/getRandomId';
 
 const ScrewFunction = (screwPosition, nodesConfiguration) => {
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
@@ -33,7 +32,6 @@ const ScrewFunction = (screwPosition, nodesConfiguration) => {
 		localIdToRemove=[];
 	}
  	if(screwPosition === 'bottom') {
-		console.log(parseInt(`${Noeud[0].screw.screwsSideNoChinguard.localId}`+getRandomId(Noeud[0].screw.screwsSideNoChinguard.localId,Date.now())))
 		viewerIframe.postMessage(
 			{
 				action : "updateProductNodesInstances",
@@ -41,7 +39,7 @@ const ScrewFunction = (screwPosition, nodesConfiguration) => {
 					[
 						{
 							parentLocalId: 1,
-							localId: parseInt(Noeud[0].screw.screwsSideNoChinguard.localId+getRandomId(Noeud[0].screw.screwsSideNoChinguard.localId,Date.now())),
+							localId: parseInt(`${Noeud[0].screw.screwsSideNoChinguard.localId}` + Date.now()),
 							matrix: [1, 0, 0, 0,
 							0, 1, 0, 0,
 							0, 0, 1, 0,
@@ -50,7 +48,7 @@ const ScrewFunction = (screwPosition, nodesConfiguration) => {
 						},
 						{
 							parentLocalId: 1,
-							localId: Noeud[0].screw.screwsBaseChinguard.localId+getRandomId(Noeud[0].screw.screwsBaseChinguard.localId,Date.now()),
+							localId: parseInt(`${Noeud[0].screw.screwsBaseChinguard.localId}` + Date.now()),
 							matrix: [1, 0, 0, 0,
 							0, 1, 0, 0,
 							0, 0, 1, 0,
@@ -71,7 +69,7 @@ const ScrewFunction = (screwPosition, nodesConfiguration) => {
 				[
 					{
 						parentLocalId: 1,
-						localId: Noeud[0].screw.screwsTopNoVisor.localId+getRandomId(50,60),
+						localId: parseInt(`${Noeud[0].screw.screwsTopNoVisor.localId}` + Date.now()),
 						matrix: [1, 0, 0, 0,
 						0, 1, 0, 0,
 						0, 0, 1, 0,
@@ -92,7 +90,7 @@ const ScrewFunction = (screwPosition, nodesConfiguration) => {
 				[
 					{
 						parentLocalId: 1,
-						localId: Noeud[0].screw.screwsBaseChinguard.localId+getRandomId(50,60),
+						localId: parseInt(`${Noeud[0].screw.screwsBaseChinguard.localId}` + Date.now()),
 						matrix: [1, 0, 0, 0,
 						0, 1, 0, 0,
 						0, 0, 1, 0,
@@ -101,7 +99,7 @@ const ScrewFunction = (screwPosition, nodesConfiguration) => {
 					},
 					{
 						parentLocalId: 1,
-						localId: Noeud[0].screw.screwsSideNoChinguard.localId+getRandomId(50,60),
+						localId: parseInt(`${Noeud[0].screw.screwsSideNoChinguard.localId}` + Date.now()),
 						matrix: [1, 0, 0, 0,
 						0, 1, 0, 0,
 						0, 0, 1, 0,
@@ -110,7 +108,7 @@ const ScrewFunction = (screwPosition, nodesConfiguration) => {
 					},
 					{
 						parentLocalId: 1,
-						localId: Noeud[0].screw.screwsTopNoVisor.localId+getRandomId(50,60),
+						localId: parseInt(`${Noeud[0].screw.screwsTopNoVisor.localId}` + Date.now()),
 						matrix: [1, 0, 0, 0,
 						0, 1, 0, 0,
 						0, 0, 1, 0,

@@ -1,6 +1,5 @@
 const MainColor = (standardValue) => {
-	let viewerIframe = null;
-	viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
+	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 	viewerIframe.postMessage({
 		action : 'setMaterialsGroups',
 		values : 

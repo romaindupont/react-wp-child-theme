@@ -1,23 +1,84 @@
 import Noeud from '../../../../assets/json/helmetid';
 
-const Aeration = (viewerIframe, aerationHelmet) => {
+const Aeration = (viewerIframe, aerationHelmet, nodesConfiguration, setLoader, standardValue) => {
+	let localIdToRemove = [];
+	nodesConfiguration.find((nodes) => { 
+		if(nodes.SKU === 'helmetDesign_groove') {
+			localIdToRemove.push(nodes.localId);
+		}
+		if(nodes.SKU === 'helmetDesign_noGroove') {
+			localIdToRemove.push(nodes.localId);
+		}
+		if(nodes.SKU === 'helmet_noGroove') {
+			 localIdToRemove.push(nodes.localId);
+		}
+		if(nodes.SKU === 'helmet_groove') {
+			localIdToRemove.push(nodes.localId);
+		}
+		if(nodes.SKU === 'helmetCoating_groove') {
+			localIdToRemove.push(nodes.localId);
+		}
+		if(nodes.SKU === 'helmetCoating_noGroove') {
+			localIdToRemove.push(nodes.localId);
+		}
+	}) 
 	if(!aerationHelmet) {
 		viewerIframe.postMessage(
 			{
 				action : "updateProductNodesInstances",
 				nodesToAdd :
 					[
-						Noeud[0].helmet.helmetNoGroove,
-						Noeud[0].helmet.helmetCoatingNoGroove,
-						/* Noeud[0].helmet.helmetDesignNoGroove */
+						{
+							parentLocalId: 1,
+							localId: parseInt(`${Noeud[0].helmet.helmetNoGroove.localId}` + Date.now()),
+							matrix: [1, 0, 0, 0,
+							0, 1, 0, 0,
+							0, 0, 1, 0,
+							0, 0, 0, 1],
+							SKU: Noeud[0].helmet.helmetNoGroove.SKU
+						},
+						{
+							parentLocalId: 1,
+							localId: parseInt(`${Noeud[0].helmet.helmetDesignNoGroove.localId}` + Date.now()),
+							matrix: [1, 0, 0, 0,
+							0, 1, 0, 0,
+							0, 0, 1, 0,
+							0, 0, 0, 1],
+							SKU: Noeud[0].helmet.helmetDesignNoGroove.SKU
+						},
+						{
+							parentLocalId: 1,
+							localId: parseInt(`${Noeud[0].helmet.helmetCoatingNoGroove.localId}` + Date.now()),
+							matrix: [1, 0, 0, 0,
+							0, 1, 0, 0,
+							0, 0, 1, 0,
+							0, 0, 0, 1],
+							SKU: Noeud[0].helmet.helmetCoatingNoGroove.SKU
+						},
 					],
 				localIdsToRemove :
-					[
-						Noeud[0].helmet.helmetGroove.localId,
-						Noeud[0].helmet.helmetCoatingGroove.localId,
-						/* Noeud[0].helmet.helmetDesignGroove.localId */
-					]
+					localIdToRemove
 			}, "*");
+			localIdToRemove = [];
+			setLoader(false);
+		setTimeout(()=> {
+			viewerIframe.postMessage({
+				action : 'setMaterialsGroups',
+				values : 
+					[
+						{
+							configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
+							groupName : 'Helmet_color'
+						},
+						{
+							configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
+							groupName : 'Helmet_design_color'
+						},
+						
+					]
+			}, '*');
+		setLoader(true);
+		}, '2000');
 	}
 	if(aerationHelmet) {
 		viewerIframe.postMessage(
@@ -25,18 +86,58 @@ const Aeration = (viewerIframe, aerationHelmet) => {
 				action : "updateProductNodesInstances",
 				nodesToAdd :
 					[
-						Noeud[0].helmet.helmetGroove,
-						Noeud[0].helmet.helmetCoatingGroove,
-						/* Noeud[0].helmet.helmetDesignGroove */
+						{
+							parentLocalId: 1,
+							localId: parseInt(`${Noeud[0].helmet.helmetGroove.localId}` + Date.now()),
+							matrix: [1, 0, 0, 0,
+							0, 1, 0, 0,
+							0, 0, 1, 0,
+							0, 0, 0, 1],
+							SKU: Noeud[0].helmet.helmetGroove.SKU
+						},
+						{
+							parentLocalId: 1,
+							localId: parseInt(`${Noeud[0].helmet.helmetDesignGroove.localId}` + Date.now()),
+							matrix: [1, 0, 0, 0,
+							0, 1, 0, 0,
+							0, 0, 1, 0,
+							0, 0, 0, 1],
+							SKU: Noeud[0].helmet.helmetDesignGroove.SKU
+						},
+						{
+							parentLocalId: 1,
+							localId: parseInt(`${Noeud[0].helmet.helmetCoatingGroove.localId}` + Date.now()),
+							matrix: [1, 0, 0, 0,
+							0, 1, 0, 0,
+							0, 0, 1, 0,
+							0, 0, 0, 1],
+							SKU: Noeud[0].helmet.helmetCoatingGroove.SKU
+						},
 					],
 				localIdsToRemove :
-					[	
-						Noeud[0].helmet.helmetNoGroove.localId,
-						Noeud[0].helmet.helmetCoatingNoGroove.localId,
-						/* Noeud[0].helmet.helmetDesignNoGroove.localId */
-					]
+					localIdToRemove
 			}, "*");
-	}
+			localIdToRemove = [];
+			setLoader(false);
+		}
+	setTimeout(()=> {
+		viewerIframe.postMessage({
+			action : 'setMaterialsGroups',
+			values : 
+				[
+					{
+						configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
+						groupName : 'Helmet_color'
+					},
+						{
+						configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
+						groupName : 'Helmet_design_color'
+					}							
+				]
+			}, '*');
+		setLoader(true);
+	}, '2000');
+
 }
 
 export default Aeration;

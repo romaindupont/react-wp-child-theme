@@ -44,7 +44,7 @@ const Body = ({
 	let viewerActive = false;
 	let helmetAereationListener = (e) => {
 		viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
-		Aeration(viewerIframe, aerationHelmet) 
+		Aeration(viewerIframe, aerationHelmet,nodesConfiguration, setLoader, standardValue) 
 		viewerIframe.postMessage({
 			action : 'getCurrentMaterials'
 		}, '*');
@@ -115,15 +115,12 @@ const Body = ({
 							Noeud[0].screw.screwsBaseHelmet,
 							Noeud[0].screw.screwsSideChinguard,
 							Noeud[0].screw.screwsTopVisor, 
-							/* Noeud[0].visor.visorPeak,
-							Noeud[0].visor.visorPeakCoating */
 						],
 					localIdsToRemove :
 						[]
 				}, 
 				"*"
 				);
-
 				window.addEventListener('message', firstConfiguration, false);
 			}
 		}
@@ -140,6 +137,9 @@ const Body = ({
 		}
 		if(event.data && event.data.action == 'onCurrentProductNodesConfigurationGet'){
 			setNodesConfiguration(event.data.productNodes)
+			viewerIframe.postMessage({
+				action : 'getCurrentMaterials'
+			}, '*');
 		}
 		if(event.data && event.data.action == 'onError'){
 			console.log(event)
@@ -160,13 +160,13 @@ const Body = ({
 		ScrewFunction(screwPosition, nodesConfiguration)
 	}, [screwPosition]);
 	useEffect(() => {
-		Pattern(standardValue, aerationHelmet)
-	}, [standardValue.Helmet_design_type,standardValue.Helmet_design,standardValue.Helmet_color]);
+		Pattern(standardValue, aerationHelmet, nodesConfiguration, setLoader)
+	}, [standardValue.Helmet_design_type,standardValue.Helmet_design,standardValue.Helmet_color,standardValue.Helmet_design_color,standardValue.Helmet_color_type]);
 	useEffect(() => {
 		MainColor(standardValue)
 	}, [standardValue.Helmet_color, standardValue.Helmet_color_type]);
 	useEffect(() => {
-		Varnish(varnishHelmet, aerationHelmet)
+		Varnish(varnishHelmet, aerationHelmet, nodesConfiguration, setLoader, standardValue)
 	}, [varnishHelmet]);
 	useEffect(() => {
 		Logo(standardValue)
