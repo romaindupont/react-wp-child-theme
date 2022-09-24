@@ -2,10 +2,12 @@ const PatternShellGradient = () => {
 	return (
 		<svg version="1.1" id="shell_gradient" viewBox="0 0 60 60">
 			<g>
-{/* 			<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="30.4095" y1="1.3078" x2="30.4095" y2="57.5202">
-				<stop  offset="0.3" style="stop-color:#FFFFFF"/>
-				<stop  offset="0.7" style="stop-color:#000000"/>
-			</linearGradient> */}
+			<defs>
+			<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="30.4095" y1="1.3078" x2="30.4095" y2="57.5202">
+				<stop  offset="0.3" style={{stopColor:"#FFFFFF"}}/>
+				<stop  offset="0.7" style={{stopColor:"#000000"}}/>
+			</linearGradient>
+			</defs>
 				<path className="shell_gradient_st0" d="M49.6,57.5c2.9-3.7,5.4-7.6,7.2-12.2c2-5.1,3.2-11.1,2.7-16.6c-0.5-5.5-2.5-10.4-5.5-14.5
 					C51.2,10.2,47.4,7,43,4.9l0,0c-4.9-2.3-10.2-3.5-15.6-3.6c-5.3-0.1-10.7,0.9-15.3,3.2l-0.2,0.1C7.5,7,3.9,10.6,1.1,14.8l0,0l0,0
 					l0,0l0,0l0,0l0.1,0l0,0l0,0l0,0l0,0l0,0l0.1,0l0.1,0.1l0.1,0.1l0.1,0.1l1,0.7L4.2,17l0.1,0l1.6,1.3l0.4,0.3l0.1,0.1l0.5,0.4

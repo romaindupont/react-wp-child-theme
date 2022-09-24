@@ -62,6 +62,24 @@ const Varnish = (varnishHelmet, aerationHelmet, nodesConfiguration, setLoader, s
 						localIdToRemove
 				}, "*");
 				localIdToRemove = [];
+				setLoader(false);
+				setTimeout(()=> {
+					viewerIframe.postMessage({
+						action : 'setMaterialsGroups',
+						values : 
+							[
+								{
+									configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
+									groupName : 'Helmet_color'
+								},
+									{
+									configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
+									groupName : 'Helmet_design_color'
+								}							
+							]
+						}, '*');
+					setLoader(true);
+				}, '2000');
 		}
 		if (varnishHelmet && !aerationHelmet) {
 			console.log('pas daeration + vernis')
@@ -102,6 +120,24 @@ const Varnish = (varnishHelmet, aerationHelmet, nodesConfiguration, setLoader, s
 						localIdToRemove
 				}, "*");
 				localIdToRemove = [];
+				setLoader(false);
+				setTimeout(()=> {
+					viewerIframe.postMessage({
+						action : 'setMaterialsGroups',
+						values : 
+							[
+								{
+									configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
+									groupName : 'Helmet_color'
+								},
+									{
+									configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
+									groupName : 'Helmet_design_color'
+								}							
+							]
+						}, '*');
+					setLoader(true);
+				}, '2000');
 		}
 		if (!varnishHelmet && !aerationHelmet) {
 			console.log('pas daeration + pas de vernis')
@@ -125,7 +161,22 @@ const Varnish = (varnishHelmet, aerationHelmet, nodesConfiguration, setLoader, s
 					localIdsToRemove :
 						localIdToRemove
 				}, "*");
-				localIdToRemove = [];}
+				localIdToRemove = [];
+				setLoader(false);
+				setTimeout(()=> {
+					viewerIframe.postMessage({
+						action : 'setMaterialsGroups',
+						values : 
+							[
+								{
+									configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
+									groupName : 'Helmet_color'
+								},					
+							]
+						}, '*');
+					setLoader(true);
+				}, '2000');
+			}
 				else {
 					console.log('pas daeration + pas de vernis et design')
 					viewerIframe.postMessage(
@@ -157,6 +208,24 @@ const Varnish = (varnishHelmet, aerationHelmet, nodesConfiguration, setLoader, s
 								localIdToRemove
 						}, "*");
 						localIdToRemove = [];
+						setLoader(false);
+						setTimeout(()=> {
+							viewerIframe.postMessage({
+								action : 'setMaterialsGroups',
+								values : 
+									[
+										{
+											configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
+											groupName : 'Helmet_color'
+										},
+											{
+											configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
+											groupName : 'Helmet_design_color'
+										}							
+									]
+								}, '*');
+							setLoader(true);
+						}, '2000');
 				}
 		}
 		if (!varnishHelmet && aerationHelmet) {
@@ -182,6 +251,20 @@ const Varnish = (varnishHelmet, aerationHelmet, nodesConfiguration, setLoader, s
 						localIdToRemove
 				}, "*");
 				localIdToRemove = [];
+				setLoader(false);
+				setTimeout(()=> {
+					viewerIframe.postMessage({
+						action : 'setMaterialsGroups',
+						values : 
+							[
+								{
+									configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
+									groupName : 'Helmet_color'
+								},						
+							]
+						}, '*');
+					setLoader(true);
+				}, '2000');
 			}
 		
 		else {
@@ -214,6 +297,24 @@ const Varnish = (varnishHelmet, aerationHelmet, nodesConfiguration, setLoader, s
 						localIdToRemove
 				}, "*");
 				localIdToRemove = [];
+				setLoader(false);
+				setTimeout(()=> {
+					viewerIframe.postMessage({
+						action : 'setMaterialsGroups',
+						values : 
+							[
+								{
+									configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
+									groupName : 'Helmet_color'
+								},
+									{
+									configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
+									groupName : 'Helmet_design_color'
+								}							
+							]
+						}, '*');
+					setLoader(true);
+				}, '2000');
 		}
 	}
 	}

@@ -38,6 +38,21 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 						localIdToRemove
 				}, "*");
 				localIdToRemove = [];
+				setLoader(false);
+							setTimeout(()=> {
+						viewerIframe.postMessage({
+							action : 'setMaterialsGroups',
+							values : 
+								[
+									{
+										configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
+										groupName : 'Helmet_color'
+									},
+															
+								]
+							}, '*');
+						setLoader(true);
+					}, '2000');
 			}
 			else {
 				viewerIframe.postMessage(
@@ -69,24 +84,24 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 					}, "*");
 					localIdToRemove = [];
 					setLoader(false);
+					setTimeout(()=> {
+						viewerIframe.postMessage({
+							action : 'setMaterialsGroups',
+							values : 
+								[
+									{
+										configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
+										groupName : 'Helmet_color'
+									},
+										{
+										configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
+										groupName : 'Helmet_design_color'
+									}							
+								]
+							}, '*');
+						setLoader(true);
+					}, '2000');
 				}
-			setTimeout(()=> {
-				viewerIframe.postMessage({
-					action : 'setMaterialsGroups',
-					values : 
-						[
-							{
-								configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
-								groupName : 'Helmet_color'
-							},
-								{
-								configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
-								groupName : 'Helmet_design_color'
-							}							
-						]
-					}, '*');
-				setLoader(true);
-			}, '2000');
 } else {	
 	if (standardValue.Helmet_design === 'plain' || standardValue.Helmet_design === '') {
 		viewerIframe.postMessage(
@@ -108,6 +123,21 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 					localIdToRemove
 			}, "*");
 			localIdToRemove = [];
+			setLoader(false);
+			setTimeout(()=> {
+				viewerIframe.postMessage({
+					action : 'setMaterialsGroups',
+					values : 
+						[
+							{
+								configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
+								groupName : 'Helmet_color'
+							},
+							
+						]
+				}, '*');
+			setLoader(true);
+		}, '2000');
 		}
 		else {
 			viewerIframe.postMessage(
@@ -139,25 +169,25 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 				}, "*");
 				localIdToRemove = [];
 				setLoader(false);
+				setTimeout(()=> {
+					viewerIframe.postMessage({
+						action : 'setMaterialsGroups',
+						values : 
+							[
+								{
+									configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
+									groupName : 'Helmet_color'
+								},
+								{
+									configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
+									groupName : 'Helmet_design_color'
+								},
+								
+							]
+					}, '*');
+				setLoader(true);
+			}, '2000');
 			}
-			setTimeout(()=> {
-				viewerIframe.postMessage({
-					action : 'setMaterialsGroups',
-					values : 
-						[
-							{
-								configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
-								groupName : 'Helmet_color'
-							},
-							{
-								configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
-								groupName : 'Helmet_design_color'
-							},
-							
-						]
-				}, '*');
-			setLoader(true);
-		}, '2000');
 	}
 }
 

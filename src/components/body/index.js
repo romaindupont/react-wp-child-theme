@@ -114,7 +114,7 @@ const Body = ({
 							Noeud[0].flap.pullingFlapNylon,
 							Noeud[0].screw.screwsBaseHelmet,
 							Noeud[0].screw.screwsSideChinguard,
-							Noeud[0].screw.screwsTopVisor, 
+							Noeud[0].screw.screwsTopNoVisor, 
 						],
 					localIdsToRemove :
 						[]

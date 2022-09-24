@@ -23,6 +23,38 @@ const Aeration = (viewerIframe, aerationHelmet, nodesConfiguration, setLoader, s
 		}
 	}) 
 	if(!aerationHelmet) {
+		if (standardValue.Helmet_design === 'plain' || standardValue.Helmet_design === '') {
+			viewerIframe.postMessage(
+				{
+					action : "updateProductNodesInstances",
+					nodesToAdd :
+						[
+							{
+								parentLocalId: 1,
+								localId: parseInt(`${Noeud[0].helmet.helmetNoGroove.localId}` + Date.now()),
+								matrix: [1, 0, 0, 0,
+								0, 1, 0, 0,
+								0, 0, 1, 0,
+								0, 0, 0, 1],
+								SKU: Noeud[0].helmet.helmetNoGroove.SKU
+							},
+							{
+								parentLocalId: 1,
+								localId: parseInt(`${Noeud[0].helmet.helmetCoatingNoGroove.localId}` + Date.now()),
+								matrix: [1, 0, 0, 0,
+								0, 1, 0, 0,
+								0, 0, 1, 0,
+								0, 0, 0, 1],
+								SKU: Noeud[0].helmet.helmetCoatingNoGroove.SKU
+							},
+						],
+					localIdsToRemove :
+						localIdToRemove
+				}, "*");
+				localIdToRemove = [];
+				setLoader(false);
+		}
+		else {
 		viewerIframe.postMessage(
 			{
 				action : "updateProductNodesInstances",
@@ -60,7 +92,7 @@ const Aeration = (viewerIframe, aerationHelmet, nodesConfiguration, setLoader, s
 					localIdToRemove
 			}, "*");
 			localIdToRemove = [];
-			setLoader(false);
+			setLoader(false);}
 		setTimeout(()=> {
 			viewerIframe.postMessage({
 				action : 'setMaterialsGroups',
@@ -79,8 +111,41 @@ const Aeration = (viewerIframe, aerationHelmet, nodesConfiguration, setLoader, s
 			}, '*');
 		setLoader(true);
 		}, '2000');
+	
 	}
 	if(aerationHelmet) {
+		if (standardValue.Helmet_design === 'plain' || standardValue.Helmet_design === '') {
+			viewerIframe.postMessage(
+				{
+					action : "updateProductNodesInstances",
+					nodesToAdd :
+						[
+							{
+								parentLocalId: 1,
+								localId: parseInt(`${Noeud[0].helmet.helmetGroove.localId}` + Date.now()),
+								matrix: [1, 0, 0, 0,
+								0, 1, 0, 0,
+								0, 0, 1, 0,
+								0, 0, 0, 1],
+								SKU: Noeud[0].helmet.helmetGroove.SKU
+							},
+							{
+								parentLocalId: 1,
+								localId: parseInt(`${Noeud[0].helmet.helmetCoatingGroove.localId}` + Date.now()),
+								matrix: [1, 0, 0, 0,
+								0, 1, 0, 0,
+								0, 0, 1, 0,
+								0, 0, 0, 1],
+								SKU: Noeud[0].helmet.helmetCoatingGroove.SKU
+							},
+						],
+					localIdsToRemove :
+						localIdToRemove
+				}, "*");
+				localIdToRemove = [];
+				setLoader(false);
+		}
+		else {
 		viewerIframe.postMessage(
 			{
 				action : "updateProductNodesInstances",
@@ -119,7 +184,7 @@ const Aeration = (viewerIframe, aerationHelmet, nodesConfiguration, setLoader, s
 			}, "*");
 			localIdToRemove = [];
 			setLoader(false);
-		}
+		}}
 	setTimeout(()=> {
 		viewerIframe.postMessage({
 			action : 'setMaterialsGroups',

@@ -59,7 +59,7 @@ const Pattern = ({setStandardValue, standardValue}) => {
 				<PatternShellExtend />
 				<span className="textAction">Extend</span>
 			</div>
-			<div className={standardValue.Helmet_design === 'gradient' ? 'Select' : 'allScrew'} onClick={()=>setStandardValue({...standardValue, Helmet_design:'gradient'})}>
+			<div className={standardValue.Helmet_design === 'grandient' ? 'Select' : 'allScrew'} onClick={()=>setStandardValue({...standardValue, Helmet_design:'grandient'})}>
 				<PatternShellGradient />
 				<span className="textAction">Gradient</span>
 			</div>
