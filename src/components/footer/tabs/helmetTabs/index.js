@@ -86,11 +86,13 @@ const HelmetTabs = ({
 						<BackNumber
 							setBackNumberWindow = {setBackNumberWindow}
 							backNumberWindow = {backNumberWindow}
+							fileNames = 'back'
 						/> :
 					helmetPosition.fileName === 'engraving' ?
 						<Engraving 
 							backEngraving = {backEngraving}
 							setBackEngraving = {setBackEngraving}
+							fileNames = 'engraving'
 						/> :
 					helmetPosition.fileName === 'interior' ?
 						<Interior
@@ -101,6 +103,7 @@ const HelmetTabs = ({
 						<LeftNumber 
 							leftNumberWindow = {leftNumberWindow}
 							setLeftNumberWindow = {setLeftNumberWindow}
+							fileNames = 'left'
 						/> :
 					helmetPosition.fileName === 'logo' ?
 						<Logo
@@ -130,7 +133,8 @@ const HelmetTabs = ({
 					helmetPosition.fileName === 'right-number' ?
 						<RightNumber 
 							rightNumberWindow = {rightNumberWindow}
-							setRightNumberWindow = {setRightNumberWindow} 
+							setRightNumberWindow = {setRightNumberWindow}
+							fileNames = 'right'
 						/> :
 					helmetPosition.fileName === 'screw' ?
 						<Screw

@@ -37,7 +37,7 @@ export default [
 				transitionTime : 500,
 				fov : 40
 			},
-			leftNumber: 
+			rightNumber: 
 			{
 				action : 'setCamera',
 				position : [5.905,0.9709,0.3857],
@@ -91,7 +91,7 @@ export default [
 				transitionTime : 500,
 				fov : 40
 			},
-			rightNumber:
+			leftNumber:
 			{
 				action : 'setCamera',
 				position : [-5.894,0.8686,.4711],

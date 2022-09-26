@@ -1,7 +1,7 @@
 import HelmetTabs from "./helmetTabs";
 import VisorTabs from "./visorTabs";
 import ChinTabs from "./chinTabs";
-import Data from "../../../../assets/json/helmetid";
+import Noeud from "../../../../assets/json/helmetid";
 
 const radioTabs = ({
 	id,
@@ -35,7 +35,8 @@ const radioTabs = ({
 	helmetPosition,
 	setHelmetPosition,
 	chinPosition,
-	setChinPosition
+	setChinPosition,
+	nodesConfiguration
 }) => {
 	let viewerIframe = null;
 	const changeCheck = (e) => {
@@ -73,6 +74,36 @@ const radioTabs = ({
 	}
 	const openEyeClic = () => {
  		viewerIframe = document.getElementById('emersyaIframe').contentWindow;
+		let localIdToRemove = [];
+		nodesConfiguration.find((nodes) => { 
+			if(nodes.SKU === 'chinguard_groove') {
+				localIdToRemove.push(nodes.localId);
+			}
+			if(nodes.SKU === 'chinguard_noGroove') {
+				localIdToRemove.push(nodes.localId);
+			}
+			if(nodes.SKU === 'chinguard_elements') {
+				 localIdToRemove.push(nodes.localId);
+			}
+			if(nodes.SKU === 'chinguardDesign_groove') {
+				localIdToRemove.push(nodes.localId);
+			}
+			if(nodes.SKU === 'chinguardDesign_noGroove') {
+				localIdToRemove.push(nodes.localId);
+			}
+			if(nodes.SKU === 'chinguardCoating_groove') {
+				localIdToRemove.push(nodes.localId);
+			}
+			if(nodes.SKU === 'chinguardCoating_noGroove') {
+				localIdToRemove.push(nodes.localId);
+			}
+			if(nodes.SKU === 'chinguardTrim_rubber') {
+				localIdToRemove.push(nodes.localId);
+			}
+			if(nodes.SKU === 'chinguardTrim_leather') {
+				localIdToRemove.push(nodes.localId);
+			}
+		}) 
 		switch(title) {
 			case 'Helmet':
 				setTabsChoice({
@@ -93,10 +124,42 @@ const radioTabs = ({
 						action : "updateProductNodesInstances",
 						nodesToAdd :
 						[
-							Data[0].chinguard.chinguardElements,
-							Data[0].chinguard.chinguardNoGroove,
-							Data[0].chinguard.chinguardCoatingNoGroove,
-							/* Data[0].chinguard.chinguardTrimRubber */
+							{
+								parentLocalId: 1,
+								localId: parseInt(`${Noeud[0].chinguard.chinguardElements.localId}` + Date.now()),
+								matrix: [1, 0, 0, 0,
+								0, 1, 0, 0,
+								0, 0, 1, 0,
+								0, 0, 0, 1],
+								SKU: Noeud[0].chinguard.chinguardElements.SKU
+							},
+							{
+								parentLocalId: 1,
+								localId: parseInt(`${Noeud[0].chinguard.chinguardGroove.localId}` + Date.now()),
+								matrix: [1, 0, 0, 0,
+								0, 1, 0, 0,
+								0, 0, 1, 0,
+								0, 0, 0, 1],
+								SKU: Noeud[0].chinguard.chinguardGroove.SKU
+							},
+							{
+								parentLocalId: 1,
+								localId: parseInt(`${Noeud[0].chinguard.chinguardCoatingGroove.localId}` + Date.now()),
+								matrix: [1, 0, 0, 0,
+								0, 1, 0, 0,
+								0, 0, 1, 0,
+								0, 0, 0, 1],
+								SKU: Noeud[0].chinguard.chinguardCoatingGroove.SKU
+							},
+							{
+								parentLocalId: 1,
+								localId: parseInt(`${Noeud[0].chinguard.chinguardTrimRubber.localId}` + Date.now()),
+								matrix: [1, 0, 0, 0,
+								0, 1, 0, 0,
+								0, 0, 1, 0,
+								0, 0, 0, 1],
+								SKU: Noeud[0].chinguard.chinguardTrimRubber.SKU
+							}
 						],
 						localIdsToRemove :
 						[]
@@ -111,15 +174,12 @@ const radioTabs = ({
 						nodesToAdd :
 						[
 						],
-						localIdsToRemove: [
-							Data[0].chinguard.chinguardElements.localId,
-							Data[0].chinguard.chinguardNoGroove.localId,
-							Data[0].chinguard.chinguardCoatingNoGroove.localId,
-							/* Data[0].chinguard.chinguardTrimRubber.localId */
-						]
+						localIdsToRemove: 
+							localIdToRemove
 						},
 						"*"
 						); 
+						localIdToRemove = []
 			}
 				break;
 			case 'Visor':

@@ -172,41 +172,41 @@ const Body = ({
 		Logo(standardValue)
 	}, [standardValue.Logo_color, standardValue.Logo]);
 	useEffect(() => {
-		Interior(standardValue)
+		Interior(standardValue, setLoader)
 	}, [standardValue.Interior]);
 	useEffect(() => {
-		Trim(standardValue)
+		Trim(standardValue, nodesConfiguration, setLoader, aerationHelmet, varnishHelmet)
 	}, [standardValue.Helmet_trim]);
 	useEffect(() => {
 		MetalParts(standardValue)
 	}, [standardValue.Metal_pieces]);
 	useEffect(() => {
-		Zippers(standardValue)
+		Zippers(standardValue, nodesConfiguration, setLoader, aerationHelmet, varnishHelmet)
 	}, [standardValue.flap]);
 	useEffect(() => {
-		BackNumber(backNumberWindow)
+		BackNumber(backNumberWindow, nodesConfiguration, setLoader)
 	}, [backNumberWindow]);
 	useEffect(() => {
-		LeftNumber(leftNumberWindow)
+		LeftNumber(leftNumberWindow, nodesConfiguration, setLoader)
 	}, [leftNumberWindow]);
 	useEffect(() => {
-		RightNumber(rightNumberWindow)
+		RightNumber(rightNumberWindow, nodesConfiguration, setLoader)
 	}, [rightNumberWindow]);
 	useEffect(() => {
-		Engraving(backEngraving)
+		Engraving(backEngraving, nodesConfiguration, setLoader)
 	}, [backEngraving]);
 	useEffect(() => {
 		RearText(standardValue)
 	}, [standardValue.Rear_text_certification, standardValue.Rear_text_size]);
 	useEffect(() => {
-		AerationChin(aerationChin)
+		AerationChin(aerationChin, nodesConfiguration, setLoader, standardValue)
 	}, [aerationChin]);
 	useEffect(() => {
-		PatternChin(standardValue, aerationChin)
-	}, [standardValue.Chinguard_design_type,standardValue.Chinguard_design,standardValue.Chinguard_color]);
+		PatternChin(standardValue, aerationChin, nodesConfiguration, setLoader)
+	}, [standardValue.Chinguard_design_type, standardValue.Chinguard_design, standardValue.Chinguard_color, standardValue.Chinguard_design_color, standardValue.Chinguard_color_type]);
 	useEffect(() => {
 		MainColorChin(standardValue)
-	}, [standardValue.Chinguard_color,standardValue.Chinguard_color_type]);
+	}, [standardValue.Chinguard_color, standardValue.Chinguard_color_type]);
 	useEffect(() => {
 		VarnishChin(varnishChin, aerationChin)
 	}, [varnishChin]);
@@ -215,7 +215,7 @@ const Body = ({
 	}, [standardValue.Chinguard_trim]);
 	useEffect(() => {
 		VisorChoice(standardValue)
-	}, [standardValue.Visor_peak_color,standardValue.Visor_peak_type,standardValue.Visor_color,,standardValue.Visor_type]);
+	}, [standardValue.Visor_peak_color, standardValue.Visor_peak_type, standardValue.Visor_color, standardValue.Visor_type]);
 	useEffect(() => {
 		console.log(nodesConfiguration)
 	}, [nodesConfiguration]);	

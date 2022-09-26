@@ -6,22 +6,23 @@ import DirtNumber from "../../svg/Number/DirtNumber";
 import PixelNumber from "../../svg/Number/PixelNumber";
 import RacingNumber from "../../svg/Number/RacingNumber";
 
-const BackNumber = ({backNumberWindow, setBackNumberWindow}) => {
+const BackNumber = ({backNumberWindow, setBackNumberWindow, fileNames}) => {
+	const [ openWindow, setOpenWindow ] = useState(false);
 	return (
 		<div className="numberChoice">
 			{
 				!backNumberWindow ? 
-					<button className="buttonAdd" onClick={()=>setBackNumberWindow(true)}>{`\u002B`} Add</button> :
-					<button className="buttonAdd" onClick={()=>setBackNumberWindow(false)}>{`\u002D`} Delete</button>
+					<button className="buttonAdd" onClick={()=>setBackNumberWindow(true) & setOpenWindow(true)}>{`\u002B`} Add</button> :
+					<button className="buttonAdd" onClick={()=>setBackNumberWindow(false) & setOpenWindow(false)}>{`\u002D`} Delete</button>
 			}
-			<div className={!backNumberWindow ? "numberWindows" : "openNumberWindows" }>
+			<div className={!openWindow ? "numberWindows" : "openNumberWindows" }>
 				<p className="infosNumber">Choose your style and your number</p>
 				<div className="chooseWindows">
 					<div className="chooseWindows_input">
 						<input type="number" name="numberSelection" id="numberSelection" />
 						<div className="selectButtonNumber">
-							<Right windowClose={setBackNumberWindow}/>
-							<Wrong windowClose={setBackNumberWindow}/>
+							<Right windowClose={setOpenWindow} setNumberWindow={setBackNumberWindow} fileNames={fileNames}/>
+							<Wrong windowClose={setOpenWindow} setNumberWindow={setBackNumberWindow}/>
 						</div>
 					</div>
 						<div className="chooseStyleNumber">

@@ -1,6 +1,28 @@
-const Right = ({windowClose}) => {
+const Right = ({windowClose, setNumberWindow, fileNames}) => {
+	const RightClic = () => {
+		switch (fileNames) {
+			case 'left':
+				setNumberWindow(true)
+				windowClose(false);
+				break
+			case 'right':
+				setNumberWindow(true)
+				windowClose(false);
+				break
+			case 'back':
+				setNumberWindow(true)
+				windowClose(false);
+				break	
+			case 'engraving':
+				setNumberWindow(true)
+				windowClose(false);
+				break	
+			default:
+				console.log('rien')
+		}
+	}
 	return (
-		<svg version="1.1" id="right"	viewBox="0 0 40 40" onClick={()=>windowClose(false)}>
+		<svg version="1.1" id="right"	viewBox="0 0 40 40" onClick={RightClic}>
 			<g>
 				<path className="right_st0" d="M20,1c10.5,0,19,8.5,19,19s-8.5,19-19,19S1,30.5,1,20S9.5,1,20,1 M20,0C9,0,0,9,0,20s9,20,20,20s20-9,20-20
 					S31,0,20,0L20,0z"/>

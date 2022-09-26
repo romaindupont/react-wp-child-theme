@@ -48,7 +48,14 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 										configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
 										groupName : 'Helmet_color'
 									},
-															
+									{
+										configurationName : standardValue.Interior,
+										groupName : 'Interior'
+									},
+									{
+										configurationName : standardValue.Metal_pieces,
+										groupName : 'Metal_pieces'
+									}			
 								]
 							}, '*');
 						setLoader(true);
@@ -96,7 +103,15 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 										{
 										configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
 										groupName : 'Helmet_design_color'
-									}							
+									},
+									{
+										configurationName : standardValue.Interior,
+										groupName : 'Interior'
+									},
+									{
+										configurationName : standardValue.Metal_pieces,
+										groupName : 'Metal_pieces'
+									}					
 								]
 							}, '*');
 						setLoader(true);
@@ -133,7 +148,14 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 								configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
 								groupName : 'Helmet_color'
 							},
-							
+							{
+								configurationName : standardValue.Interior,
+								groupName : 'Interior'
+							},
+							{
+								configurationName : standardValue.Metal_pieces,
+								groupName : 'Metal_pieces'
+							}
 						]
 				}, '*');
 			setLoader(true);
@@ -182,7 +204,14 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 									configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
 									groupName : 'Helmet_design_color'
 								},
-								
+								{
+									configurationName : standardValue.Interior,
+									groupName : 'Interior'
+								},
+								{
+									configurationName : standardValue.Metal_pieces,
+									groupName : 'Metal_pieces'
+								}
 							]
 					}, '*');
 				setLoader(true);

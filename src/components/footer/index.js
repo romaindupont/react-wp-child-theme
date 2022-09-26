@@ -74,6 +74,7 @@ const Footer = ({
 				chinPosition = {chinPosition}
 				setChinPosition = {setChinPosition}
 				aerationChin = {aerationChin}
+				nodesConfiguration = {nodesConfiguration}
 			/>
 			{openOptionMenu.open && openOptionMenu.name === 'menuOption' && <MenuOption setOpenOptionMenu = {setOpenOptionMenu} />}
 			{openOptionMenu.open && openOptionMenu.name === 'help' && <PopupHelp setOpenOptionMenu = {setOpenOptionMenu} helmetPosition = {helmetPosition} />}

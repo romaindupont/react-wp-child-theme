@@ -25,7 +25,8 @@ const Tabs = ({
 	helmetPosition,
 	setHelmetPosition,
 	chinPosition,
-	setChinPosition
+	setChinPosition,
+	nodesConfiguration
 }) => {
 	const [ tabsChoice, setTabsChoice ] = useState({
 		helmet: true,
@@ -66,6 +67,7 @@ const Tabs = ({
 				setBackEngraving = {setBackEngraving}
 				helmetPosition = {helmetPosition}
 				setHelmetPosition	= {setHelmetPosition}
+				nodesConfiguration = {nodesConfiguration}
 			/>
 			<RadioTabs 
 				id = 'tabtwo'
@@ -84,6 +86,7 @@ const Tabs = ({
 				setVarnishChin = {setVarnishChin}
 				chinPosition = {chinPosition}
 				setChinPosition = {setChinPosition}
+				nodesConfiguration = {nodesConfiguration}
 			/>
 			<RadioTabs 
 				id = 'tabthree'
@@ -96,6 +99,7 @@ const Tabs = ({
 				tabsCheck = {tabsCheck}
 				setStandardValue = {setStandardValue}
 				standardValue = {standardValue}
+				nodesConfiguration = {nodesConfiguration}
 			/>
 		</div>
 	)

@@ -1,18 +1,31 @@
 import Noeud from '../../../../assets/json/helmetid';
 
-const RightNumber = (rightNumberWindow) => {
+const RightNumber = (rightNumberWindow, nodesConfiguration, setLoader) => {
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
+	let localIdToRemove = [];
+	nodesConfiguration.find((nodes) => { 
+		if(nodes.SKU === 'custom_numberingRight') {
+			localIdToRemove.push(nodes.localId);
+		}
+	}) 
 	if(rightNumberWindow) {
 		viewerIframe.postMessage(
 			{
 				action : "updateProductNodesInstances",
 				nodesToAdd :
-					[
-						Noeud[0].custom.numberingRight
+					[	
+						{
+							parentLocalId: 1,
+							localId: parseInt(`${Noeud[0].custom.numberingRight.localId}` + Date.now()),
+							matrix: [1, 0, 0, 0,
+							0, 1, 0, 0,
+							0, 0, 1, 0,
+							0, 0, 0, 1],
+							SKU: Noeud[0].custom.numberingRight.SKU
+						}
 					],
 				localIdsToRemove :
-					[
-					]
+					localIdToRemove
 			}, "*");
 	}
 	if(!rightNumberWindow) {
@@ -23,9 +36,7 @@ const RightNumber = (rightNumberWindow) => {
 					[
 					],
 				localIdsToRemove :
-					[	
-						Noeud[0].custom.numberingRight.localId
-					]
+					localIdToRemove
 			}, "*");
 	}
 }

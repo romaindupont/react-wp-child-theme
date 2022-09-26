@@ -1,3 +1,4 @@
+const { useState } = wp.element;
 import ClassicNumber from "../../svg/Number/ClassicNumber";
 import DirtNumber from "../../svg/Number/DirtNumber";
 import PixelNumber from "../../svg/Number/PixelNumber";
@@ -5,22 +6,23 @@ import RacingNumber from "../../svg/Number/RacingNumber";
 import Right from "../../svg/Right";
 import Wrong from "../../svg/Wrong";
 
-const RightNumber = ({rightNumberWindow, setRightNumberWindow}) => {
+const RightNumber = ({rightNumberWindow, setRightNumberWindow, fileNames}) => {
+	const [ openWindow, setOpenWindow ] = useState(false);
 	return (
 		<div className="numberChoice">
 			{
 				!rightNumberWindow ? 
-					<button className="buttonAdd" onClick={()=>setRightNumberWindow(true)}>{`\u002B`} Add</button> :
-					<button className="buttonAdd" onClick={()=>setRightNumberWindow(false)}>{`\u002D`} Delete</button>
+					<button className="buttonAdd" onClick={()=>setRightNumberWindow(true) & setOpenWindow(true)}>{`\u002B`} Add</button> :
+					<button className="buttonAdd" onClick={()=>setRightNumberWindow(false) & setOpenWindow(false)}>{`\u002D`} Delete</button>
 			}
-			<div className={!rightNumberWindow ? "numberWindows" : "openNumberWindows" }>
+			<div className={!openWindow ? "numberWindows" : "openNumberWindows" }>
 				<p className="infosNumber">Choose your style and your number</p>
 				<div className="chooseWindows">
 					<div className="chooseWindows_input">
 						<input type="number" name="numberSelection" id="numberSelection"/>
 						<div className="selectButtonNumber">
-							<Right windowClose={setRightNumberWindow}/>
-							<Wrong windowClose={setRightNumberWindow}/>
+							<Right windowClose={setOpenWindow} setNumberWindow={setRightNumberWindow} fileNames={fileNames}/>
+							<Wrong windowClose={setOpenWindow} setNumberWindow={setRightNumberWindow}/>
 						</div>
 					</div>
 						<div className="chooseStyleNumber">
