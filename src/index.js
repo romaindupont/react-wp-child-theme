@@ -45,6 +45,16 @@ const Veldt = () => {
 		arrayScreen : []
 	});
 	const [ loader, setLoader ] = useState(false);
+	const [ tabsChoice, setTabsChoice ] = useState({
+		helmet: true,
+		chin: false,
+		visor: false
+	});
+	const [ tabsCheck, setTabsCheck ] = useState({
+		helmetCheck: true,
+		chinCheck: false,
+		visorCheck: false
+	});
   return (
 		<div className='veldtConfig'>
 			{!loader && <div className="load"><div className="loader"></div></div>}
@@ -64,6 +74,7 @@ const Veldt = () => {
 				setLoader = {setLoader}
 				setNodesConfiguration = {setNodesConfiguration}
 				nodesConfiguration = {nodesConfiguration}
+				tabsChoice = {tabsChoice}
 			/>
 			<Footer
 				aerationHelmet = {aerationHelmet}
@@ -88,6 +99,10 @@ const Veldt = () => {
 				setVarnishChin = {setVarnishChin}
 				screenshotsWait = {screenshotsWait}
 				nodesConfiguration = {nodesConfiguration}
+				tabsChoice = {tabsChoice}
+				setTabsChoice = {setTabsChoice}
+				tabsCheck = {tabsCheck}
+				setTabsCheck = {setTabsCheck}
 			/>
 		</div>
   );

@@ -19,6 +19,7 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 	}) 
 	if (aerationHelmet) {
 		if (standardValue.Helmet_design === 'plain' || standardValue.Helmet_design === '') {
+			console.log('aeration + helmet design plein')
 			viewerIframe.postMessage(
 				{
 					action : "updateProductNodesInstances",
@@ -55,13 +56,18 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 									{
 										configurationName : standardValue.Metal_pieces,
 										groupName : 'Metal_pieces'
-									}			
+									},
+									{
+										configurationName : `${standardValue.Chinguard_color_type}|${standardValue.Chinguard_color}`,
+										groupName : 'Chinguard_color'
+									}
 								]
 							}, '*');
 						setLoader(true);
 					}, '2000');
 			}
 			else {
+				console.log('aeration + helmet design')
 				viewerIframe.postMessage(
 					{
 						action : "updateProductNodesInstances",
@@ -100,7 +106,7 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 										configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
 										groupName : 'Helmet_color'
 									},
-										{
+									{
 										configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
 										groupName : 'Helmet_design_color'
 									},
@@ -111,14 +117,24 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 									{
 										configurationName : standardValue.Metal_pieces,
 										groupName : 'Metal_pieces'
-									}					
+									},
+									{
+										configurationName : `${standardValue.Chinguard_color_type}|${standardValue.Chinguard_color}`,
+										groupName : 'Chinguard_color'
+									},
+										/* {
+										configurationName : `${standardValue.Chinguard_design}|${standardValue.Chinguard_design_type}|${standardValue.Chinguard_design_color}`,
+										groupName : 'Chinguard_design_color'
+									}		 */		
 								]
 							}, '*');
 						setLoader(true);
 					}, '2000');
 				}
 } else {	
+
 	if (standardValue.Helmet_design === 'plain' || standardValue.Helmet_design === '') {
+		console.log('aeration none + helmet design plein')
 		viewerIframe.postMessage(
 			{
 				action : "updateProductNodesInstances",
@@ -155,6 +171,10 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 							{
 								configurationName : standardValue.Metal_pieces,
 								groupName : 'Metal_pieces'
+							},
+							{
+								configurationName : `${standardValue.Chinguard_color_type}|${standardValue.Chinguard_color}`,
+								groupName : 'Chinguard_color'
 							}
 						]
 				}, '*');
@@ -162,6 +182,7 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 		}, '2000');
 		}
 		else {
+			console.log('aeration none + helmet design')
 			viewerIframe.postMessage(
 				{
 					action : "updateProductNodesInstances",
@@ -211,12 +232,20 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 								{
 									configurationName : standardValue.Metal_pieces,
 									groupName : 'Metal_pieces'
-								}
+								},
+								{
+									configurationName : `${standardValue.Chinguard_color_type}|${standardValue.Chinguard_color}`,
+									groupName : 'Chinguard_color'
+								},
+									/* {
+									configurationName : `${standardValue.Chinguard_design}|${standardValue.Chinguard_design_type}|${standardValue.Chinguard_design_color}`,
+									groupName : 'Chinguard_design_color'
+								} */
 							]
 					}, '*');
 				setLoader(true);
 			}, '2000');
-			}
+		}
 	}
 }
 

@@ -29,7 +29,11 @@ const Footer = ({
 	varnishChin,
 	setVarnishChin,
 	screenshotsWait,
-	nodesConfiguration
+	nodesConfiguration,
+	tabsChoice,
+	setTabsChoice,
+	tabsCheck,
+	setTabsCheck
 }) => {
 	const [ openOptionMenu, setOpenOptionMenu ] = useState({
 			name: '',
@@ -75,6 +79,10 @@ const Footer = ({
 				setChinPosition = {setChinPosition}
 				aerationChin = {aerationChin}
 				nodesConfiguration = {nodesConfiguration}
+				tabsChoice = {tabsChoice}
+				setTabsChoice = {setTabsChoice}
+				tabsCheck = {tabsCheck}
+				setTabsCheck = {setTabsCheck}
 			/>
 			{openOptionMenu.open && openOptionMenu.name === 'menuOption' && <MenuOption setOpenOptionMenu = {setOpenOptionMenu} />}
 			{openOptionMenu.open && openOptionMenu.name === 'help' && <PopupHelp setOpenOptionMenu = {setOpenOptionMenu} helmetPosition = {helmetPosition} />}

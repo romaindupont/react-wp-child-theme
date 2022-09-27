@@ -16,6 +16,7 @@ import RightNumber from './Helmet/rightNumber';
 import Engraving from './Helmet/engraving';
 import RearText from './Helmet/rearText';
 
+import ChinguardAction from './Chinguard/chinguard';
 import AerationChin from './Chinguard/aeration';
 import PatternChin from './Chinguard/pattern';
 import MainColorChin from './Chinguard/mainColor';
@@ -23,6 +24,7 @@ import VarnishChin from './Chinguard/varnish';
 import TrimChin from './Chinguard/trim';
 
 import VisorChoice from './Visor/VisorChoice';
+
 
 const Body = ({
 	aerationHelmet, 
@@ -38,20 +40,21 @@ const Body = ({
 	setScreenshotsWait,
 	setLoader,
 	nodesConfiguration,
-	setNodesConfiguration
+	setNodesConfiguration,
+	tabsChoice
 }) => {
 	let viewerIframe = null;
 	let viewerActive = false;
 	let helmetAereationListener = (e) => {
 		viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
-		Aeration(viewerIframe, aerationHelmet,nodesConfiguration, setLoader, standardValue) 
+		Aeration(viewerIframe, aerationHelmet, nodesConfiguration, setLoader, standardValue) 
 		viewerIframe.postMessage({
 			action : 'getCurrentMaterials'
 		}, '*');
 	}
 	let firstConfiguration = (e) => {
 		if(e.data && e.data.action == 'onSuccess' && e.data.callAction == 'updateProductNodesInstances'){	
-			viewerIframe.postMessage({
+			/* viewerIframe.postMessage({
 				action : 'setMaterialsGroups',
 				values : 
 					[
@@ -80,7 +83,7 @@ const Body = ({
 							groupName : 'Rear_text'
 						},	
 					]
-				}, '*');
+				}, '*'); */
 				viewerIframe.postMessage(
 					{
 					action : "getCurrentProductNodesConfiguration",
@@ -154,15 +157,15 @@ const Body = ({
 		window.addEventListener('message', viewerEventListener, false);
 	}, false);
  	useEffect(() => {
-		helmetAereationListener()
+		helmetAereationListener();
 	}, [aerationHelmet]);
 	useEffect(() => {
 		ScrewFunction(screwPosition, nodesConfiguration)
 	}, [screwPosition]);
-	useEffect(() => {
+	 useEffect(() => {
 		Pattern(standardValue, aerationHelmet, nodesConfiguration, setLoader)
 	}, [standardValue.Helmet_design_type,standardValue.Helmet_design,standardValue.Helmet_color,standardValue.Helmet_design_color,standardValue.Helmet_color_type]);
-	useEffect(() => {
+	/*useEffect(() => {
 		MainColor(standardValue)
 	}, [standardValue.Helmet_color, standardValue.Helmet_color_type]);
 	useEffect(() => {
@@ -208,14 +211,17 @@ const Body = ({
 		MainColorChin(standardValue)
 	}, [standardValue.Chinguard_color, standardValue.Chinguard_color_type]);
 	useEffect(() => {
-		VarnishChin(varnishChin, aerationChin)
+		VarnishChin(varnishChin, aerationChin, nodesConfiguration, setLoader, standardValue)
 	}, [varnishChin]);
 	useEffect(() => {
-		TrimChin(standardValue)
+		TrimChin(standardValue, nodesConfiguration, setLoader, aerationChin, varnishChin)
 	}, [standardValue.Chinguard_trim]);
 	useEffect(() => {
 		VisorChoice(standardValue)
 	}, [standardValue.Visor_peak_color, standardValue.Visor_peak_type, standardValue.Visor_color, standardValue.Visor_type]);
+	useEffect(() => {
+		ChinguardAction(aerationChin, nodesConfiguration, setLoader, standardValue, tabsChoice)
+	}, [tabsChoice]);	 */
 	useEffect(() => {
 		console.log(nodesConfiguration)
 	}, [nodesConfiguration]);	

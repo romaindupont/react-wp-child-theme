@@ -26,9 +26,13 @@ const Tabs = ({
 	setHelmetPosition,
 	chinPosition,
 	setChinPosition,
-	nodesConfiguration
+	nodesConfiguration,
+	tabsChoice,
+	setTabsChoice,
+	tabsCheck,
+	setTabsCheck
 }) => {
-	const [ tabsChoice, setTabsChoice ] = useState({
+/* 	const [ tabsChoice, setTabsChoice ] = useState({
 		helmet: true,
 		chin: false,
 		visor: false
@@ -37,7 +41,7 @@ const Tabs = ({
 		helmetCheck: true,
 		chinCheck: false,
 		visorCheck: false
-	});
+	}); */
 	return (
 		<div className="sd-tabs">
 			<RadioTabs 

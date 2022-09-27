@@ -24,7 +24,9 @@ const Pattern = (standardValue, aerationChin, nodesConfiguration, setLoader) => 
 		}
 	}) 
 	if (aerationChin) {
+		console.log('pattern aeration ouvert')
 		if (standardValue.Chinguard_design === 'plain' || standardValue.Chinguard_design === '') {
+			console.log('pattern aeration ouvert + design plein', standardValue)
 			viewerIframe.postMessage(
 				{
 					action : "updateProductNodesInstances",
@@ -51,6 +53,18 @@ const Pattern = (standardValue, aerationChin, nodesConfiguration, setLoader) => 
 							values : 
 								[
 									{
+										configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
+										groupName : 'Helmet_color'
+									},
+									{
+										configurationName : standardValue.Interior,
+										groupName : 'Interior'
+									},
+									{
+										configurationName : standardValue.Metal_pieces,
+										groupName : 'Metal_pieces'
+									},
+									{
 										configurationName : `${standardValue.Chinguard_color_type}|${standardValue.Chinguard_color}`,
 										groupName : 'Chinguard_color'
 									}		
@@ -60,6 +74,7 @@ const Pattern = (standardValue, aerationChin, nodesConfiguration, setLoader) => 
 					}, '2000');
 			}
 			else {
+				console.log('pattern aeration ouvert + design', standardValue)
 				viewerIframe.postMessage(
 					{
 						action : "updateProductNodesInstances",
@@ -89,26 +104,41 @@ const Pattern = (standardValue, aerationChin, nodesConfiguration, setLoader) => 
 					}, "*");
 					localIdToRemove = [];
 					setLoader(false);
-					setTimeout(()=> {
-						viewerIframe.postMessage({
-							action : 'setMaterialsGroups',
-							values : 
-								[
-									{
-										configurationName : `${standardValue.Chinguard_color_type}|${standardValue.Chinguard_color}`,
-										groupName : 'Chinguard_color'
-									},
+						setTimeout(()=> {
+							viewerIframe.postMessage({
+								action : 'setMaterialsGroups',
+								values : 
+									[
 										{
-										configurationName : `${standardValue.Chinguard_design}|${standardValue.Chinguard_design_type}|${standardValue.Chinguard_design_color}`,
-										groupName : 'Chinguard_design_color'
-									}			
-								]
-							}, '*');
-						setLoader(true);
-					}, '2000');
-				}
-} else {	
+											configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
+											groupName : 'Helmet_color'
+										},
+										{
+											configurationName : standardValue.Interior,
+											groupName : 'Interior'
+										},
+										{
+											configurationName : standardValue.Metal_pieces,
+											groupName : 'Metal_pieces'
+										},
+										{
+											configurationName : `${standardValue.Chinguard_color_type}|${standardValue.Chinguard_color}`,
+											groupName : 'Chinguard_color'
+										},
+										{
+											configurationName : `${standardValue.Chinguard_design}|${standardValue.Chinguard_design_type}|${standardValue.Chinguard_design_color}`,
+											groupName : 'Chinguard_design_color'
+										}			
+									]
+								}, '*');
+							setLoader(true);
+						}, '2000');
+					
+			}
+	} else {	
+	console.log('pattern aerations fermées')
 	if (standardValue.Chinguard_design === 'plain' || standardValue.Chinguard_design === '') {
+		console.log('pattern aerations fermées + design plein',  standardValue)
 		viewerIframe.postMessage(
 			{
 				action : "updateProductNodesInstances",
@@ -135,6 +165,18 @@ const Pattern = (standardValue, aerationChin, nodesConfiguration, setLoader) => 
 					values : 
 						[
 							{
+								configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
+								groupName : 'Helmet_color'
+							},
+							{
+								configurationName : standardValue.Interior,
+								groupName : 'Interior'
+							},
+							{
+								configurationName : standardValue.Metal_pieces,
+								groupName : 'Metal_pieces'
+							},
+							{
 								configurationName : `${standardValue.Chinguard_color_type}|${standardValue.Chinguard_color}`,
 								groupName : 'Chinguard_color'
 							}
@@ -142,8 +184,9 @@ const Pattern = (standardValue, aerationChin, nodesConfiguration, setLoader) => 
 				}, '*');
 			setLoader(true);
 		}, '2000');
-		}
+	}
 		else {
+			console.log('pattern aerations fermées + design',  standardValue)
 			viewerIframe.postMessage(
 				{
 					action : "updateProductNodesInstances",
@@ -173,25 +216,38 @@ const Pattern = (standardValue, aerationChin, nodesConfiguration, setLoader) => 
 				}, "*");
 				localIdToRemove = [];
 				setLoader(false);
-				setTimeout(()=> {
-					viewerIframe.postMessage({
-						action : 'setMaterialsGroups',
-						values : 
-							[
-								{
-									configurationName : `${standardValue.Chinguard_color_type}|${standardValue.Chinguard_color}`,
-									groupName : 'Chinguard_color'
-								},
-								{
-									configurationName : `${standardValue.Chinguard_design}|${standardValue.Chinguard_design_type}|${standardValue.Chinguard_design_color}`,
-									groupName : 'Chinguard_design_color'
-								}
-							]
-					}, '*');
-				setLoader(true);
-			}, '2000');
-			}
-	}
+					setTimeout(()=> {
+						viewerIframe.postMessage({
+							action : 'setMaterialsGroups',
+							values : 
+								[
+									{
+										configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
+										groupName : 'Helmet_color'
+									},
+									{
+										configurationName : standardValue.Interior,
+										groupName : 'Interior'
+									},
+									{
+										configurationName : standardValue.Metal_pieces,
+										groupName : 'Metal_pieces'
+									},
+									{
+										configurationName : `${standardValue.Chinguard_color_type}|${standardValue.Chinguard_color}`,
+										groupName : 'Chinguard_color'
+									},
+									{
+										configurationName : `${standardValue.Chinguard_design}|${standardValue.Chinguard_design_type}|${standardValue.Chinguard_design_color}`,
+										groupName : 'Chinguard_design_color'
+									}
+								]
+						}, '*');
+					setLoader(true);
+				}, '2000');
+				
+		}
+}
 }
 
 export default Pattern;
