@@ -38,9 +38,7 @@ const radioTabs = ({
 	setChinPosition,
 	nodesConfiguration
 }) => {
-	let viewerIframe = null;
 	const changeCheck = (e) => {
-		console.log(e.target.value,	tabsChoice,	tabsCheck)
 		switch(e.target.value) {
 			case 'Helmet':
 				setTabsCheck({
@@ -48,62 +46,31 @@ const radioTabs = ({
 					chinCheck: false,
 					visorCheck: false
 				});
-				break;
+			break;
 			case 'Chinguard':
 				setTabsCheck({
 					chinCheck: true,
 					helmetCheck: false,
 					visorCheck: false
 				});
-				break;
+			break;
 			case 'Visor':
 				setTabsCheck({
 					visorCheck: true,
 					helmetCheck: false,
 					chinCheck: false
 				});
-				break;
+			break;
 			default:
 				setTabsCheck({
 					visorCheck: false,
 					helmetCheck: true,
 					chinCheck: false
 				});
-				break;
+			break;
 		}
 	}
 	const openEyeClic = () => {
- 		viewerIframe = document.getElementById('emersyaIframe').contentWindow;
-		let localIdToRemove = [];
-		nodesConfiguration.find((nodes) => { 
-			if(nodes.SKU === 'chinguard_groove') {
-				localIdToRemove.push(nodes.localId);
-			}
-			if(nodes.SKU === 'chinguard_noGroove') {
-				localIdToRemove.push(nodes.localId);
-			}
-			if(nodes.SKU === 'chinguard_elements') {
-				 localIdToRemove.push(nodes.localId);
-			}
-			if(nodes.SKU === 'chinguardDesign_groove') {
-				localIdToRemove.push(nodes.localId);
-			}
-			if(nodes.SKU === 'chinguardDesign_noGroove') {
-				localIdToRemove.push(nodes.localId);
-			}
-			if(nodes.SKU === 'chinguardCoating_groove') {
-				localIdToRemove.push(nodes.localId);
-			}
-			if(nodes.SKU === 'chinguardCoating_noGroove') {
-				localIdToRemove.push(nodes.localId);
-			}
-			if(nodes.SKU === 'chinguardTrim_rubber') {
-				localIdToRemove.push(nodes.localId);
-			}
-			if(nodes.SKU === 'chinguardTrim_leather') {
-				localIdToRemove.push(nodes.localId);
-			}
-		}) 
 		switch(title) {
 			case 'Helmet':
 				setTabsChoice({
@@ -111,28 +78,28 @@ const radioTabs = ({
 					chin: tabsChoice.chin,
 					visor: tabsChoice.visor
 				});
-				break;
+			break;
 			case 'Chinguard':
 				setTabsChoice({
 					chin: !eyeType,
 					helmet: tabsChoice.helmet,
 					visor: tabsChoice.visor
 				});
-				break;
+			break;
 			case 'Visor':
 				setTabsChoice({
 					visor: !eyeType,
 					helmet: tabsChoice.helmet,
 					chin: tabsChoice.chin
 				});
-				break;
+			break;
 			default:
 				setTabsChoice({
 					helmet: true,
 					chin: false,
 					visor: false
 				});
-				break;
+			break;
 		}
 	}
 	return (
@@ -194,7 +161,8 @@ const radioTabs = ({
 						<VisorTabs 
 							setStandardValue = {setStandardValue}
 							standardValue = {standardValue}
-						/> :  ''
+						/> 
+					:  ''
 				}
 			</div>
 		</>

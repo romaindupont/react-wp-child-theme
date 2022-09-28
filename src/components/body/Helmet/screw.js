@@ -4,23 +4,23 @@ const ScrewFunction = (screwPosition, nodesConfiguration) => {
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 	let localIdToRemove = [];
 	nodesConfiguration.find((nodes) => { 
-		if(nodes.SKU === 'screwsSide_chinguard') {
+		if (nodes.SKU === 'screwsSide_chinguard') {
 			localIdToRemove.push(nodes.localId)
 		}
-		if(nodes.SKU === 'screwsTop_visor') {
+		if (nodes.SKU === 'screwsTop_visor') {
 			localIdToRemove.push(nodes.localId)
 		}
-		if(nodes.SKU === 'screwsBase_chinguard') {
+		if (nodes.SKU === 'screwsBase_chinguard') {
 			localIdToRemove.push(nodes.localId)
 		}
-		if(nodes.SKU === 'screwsSide_noChinguard') {
+		if (nodes.SKU === 'screwsSide_noChinguard') {
 			localIdToRemove.push(nodes.localId)
 		}
-		if(nodes.SKU === 'screwsTop_noVisor') {
+		if (nodes.SKU === 'screwsTop_noVisor') {
 			localIdToRemove.push(nodes.localId)
 		}
 	})
-	if(screwPosition === 'none') {
+	if (screwPosition === 'none') {
 		viewerIframe.postMessage(
 			{
 				action : "updateProductNodesInstances",
@@ -31,7 +31,7 @@ const ScrewFunction = (screwPosition, nodesConfiguration) => {
 			}, "*");
 		localIdToRemove=[];
 	}
- 	if(screwPosition === 'bottom') {
+ 	if (screwPosition === 'bottom') {
 		viewerIframe.postMessage(
 			{
 				action : "updateProductNodesInstances",
@@ -59,9 +59,9 @@ const ScrewFunction = (screwPosition, nodesConfiguration) => {
 				localIdsToRemove :
 					localIdToRemove
 			}, "*");
-			localIdToRemove=[];
+		localIdToRemove=[];
 	}
-	if(screwPosition === 'top') {
+	if (screwPosition === 'top') {
 		viewerIframe.postMessage(
 			{
 				action : "updateProductNodesInstances",
@@ -75,14 +75,14 @@ const ScrewFunction = (screwPosition, nodesConfiguration) => {
 						0, 0, 1, 0,
 						0, 0, 0, 1],
 						SKU: Noeud[0].screw.screwsTopNoVisor.SKU
-					},
+					}
 				],
 				localIdsToRemove :
 					localIdToRemove
 			}, "*");
-			localIdToRemove=[];
+		localIdToRemove=[];
 	}
-	if(screwPosition === 'all') {
+	if (screwPosition === 'all') {
 		viewerIframe.postMessage(
 			{
 				action : "updateProductNodesInstances",
@@ -114,12 +114,12 @@ const ScrewFunction = (screwPosition, nodesConfiguration) => {
 						0, 0, 1, 0,
 						0, 0, 0, 1],
 						SKU: Noeud[0].screw.screwsTopNoVisor.SKU
-					},
+					}
 				],
 				localIdsToRemove :
 					localIdToRemove
 			}, "*"); 
-			localIdToRemove=[];
+		localIdToRemove=[];
 	}
 }
 

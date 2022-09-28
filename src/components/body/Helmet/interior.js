@@ -1,7 +1,7 @@
 const Interior = (standardValue, setLoader) => {
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 	setLoader(false);
-	setTimeout(()=> {
+	setTimeout(() => {
 		viewerIframe.postMessage({
 			action : 'setMaterialsGroups',
 			values : 

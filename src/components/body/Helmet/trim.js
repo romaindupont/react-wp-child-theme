@@ -3,14 +3,14 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow;
 	let localIdToRemove = [];
 	nodesConfiguration.find((nodes) => { 
-		if(nodes.SKU === 'helmetTrim_rubber') {
+		if (nodes.SKU === 'helmetTrim_rubber') {
 			localIdToRemove.push(nodes.localId);
 		}
-		if(nodes.SKU === 'helmetTrim_leather') {
+		if (nodes.SKU === 'helmetTrim_leather') {
 			localIdToRemove.push(nodes.localId);
 		}
 	}) 
-	if (standardValue.Helmet_trim.includes('rubber') ) {
+	if (standardValue.Helmet_trim.includes('rubber')) {
 		viewerIframe.postMessage(
 			{
 				action : "updateProductNodesInstances",
@@ -32,70 +32,128 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 		localIdToRemove = [];
 		setLoader(false);
 		if (varnishHelmet && aerationHelmet) {
-			setTimeout(()=> {
-				viewerIframe.postMessage({
-					action : 'setMaterialsGroups',
-					values : 
-						[
-							{
-								configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
-								groupName : 'Helmet_color'
-							},
+			if (standardValue.Helmet_design === '' || standardValue.Helmet_design === 'plain') {
+				setTimeout(() => {
+					viewerIframe.postMessage({
+						action : 'setMaterialsGroups',
+						values : 
+							[
 								{
-								configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
-								groupName : 'Helmet_design_color'
-							},
-							{
-								configurationName : standardValue.Interior,
-								groupName : 'Interior'
-							},
-							{
-								configurationName : standardValue.Metal_pieces,
-								groupName : 'Metal_pieces'
-							},
-							{
-								configurationName : standardValue.Helmet_trim,
-								groupName : 'Helmet_trim'
-							}	
-						]
+									configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
+									groupName : 'Helmet_color'
+								},
+								{
+									configurationName : standardValue.Interior,
+									groupName : 'Interior'
+								},
+								{
+									configurationName : standardValue.Metal_pieces,
+									groupName : 'Metal_pieces'
+								},
+								{
+									configurationName : standardValue.Helmet_trim,
+									groupName : 'Helmet_trim'
+								}	
+							]
+						}, '*');
+					setLoader(true);
+				}, '2000');
+			}
+			else {
+				setTimeout(() => {
+					viewerIframe.postMessage({
+						action : 'setMaterialsGroups',
+						values : 
+							[
+								{
+									configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
+									groupName : 'Helmet_color'
+								},
+									{
+									configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
+									groupName : 'Helmet_design_color'
+								},
+								{
+									configurationName : standardValue.Interior,
+									groupName : 'Interior'
+								},
+								{
+									configurationName : standardValue.Metal_pieces,
+									groupName : 'Metal_pieces'
+								},
+								{
+									configurationName : standardValue.Helmet_trim,
+									groupName : 'Helmet_trim'
+								}	
+							]
 					}, '*');
-				setLoader(true);
-			}, '2000');
+					setLoader(true);
+				}, '2000');
+			}
 		}
 		if (varnishHelmet && !aerationHelmet) {
-			setTimeout(()=> {
-				viewerIframe.postMessage({
-					action : 'setMaterialsGroups',
-					values : 
-						[
-							{
-								configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
-								groupName : 'Helmet_color'
-							},
+			if (standardValue.Helmet_design === '' || standardValue.Helmet_design === 'plain') {
+				setTimeout(() => {
+					viewerIframe.postMessage({
+						action : 'setMaterialsGroups',
+						values : 
+							[
 								{
-								configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
-								groupName : 'Helmet_design_color'
-							},
-							{
-								configurationName : standardValue.Interior,
-								groupName : 'Interior'
-							},
-							{
-								configurationName : standardValue.Metal_pieces,
-								groupName : 'Metal_pieces'
-							},
-							{
-								configurationName : standardValue.Helmet_trim,
-								groupName : 'Helmet_trim'
-							}		
-						]
-					}, '*');
-				setLoader(true);
-			}, '2000');
+									configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
+									groupName : 'Helmet_color'
+								},
+								{
+									configurationName : standardValue.Interior,
+									groupName : 'Interior'
+								},
+								{
+									configurationName : standardValue.Metal_pieces,
+									groupName : 'Metal_pieces'
+								},
+								{
+									configurationName : standardValue.Helmet_trim,
+									groupName : 'Helmet_trim'
+								}		
+							]
+						}, '*');
+					setLoader(true);
+				}, '2000');
+			}
+			else {
+				setTimeout(() => {
+					viewerIframe.postMessage({
+						action : 'setMaterialsGroups',
+						values : 
+							[
+								{
+									configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
+									groupName : 'Helmet_color'
+								},
+									{
+									configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
+									groupName : 'Helmet_design_color'
+								},
+								{
+									configurationName : standardValue.Interior,
+									groupName : 'Interior'
+								},
+								{
+									configurationName : standardValue.Metal_pieces,
+									groupName : 'Metal_pieces'
+								},
+								{
+									configurationName : standardValue.Helmet_trim,
+									groupName : 'Helmet_trim'
+								}		
+							]
+						}, '*');
+					setLoader(true);
+				}, '2000');
+			}
 		}
 		if (!varnishHelmet && !aerationHelmet) {
-			if (standardValue.Helmet_design === '' || standardValue.Helmet_design === 'plain'){
-					setTimeout(()=> {
+			if (standardValue.Helmet_design === '' || standardValue.Helmet_design === 'plain') {
+					setTimeout(() => {
 						viewerIframe.postMessage({
 							action : 'setMaterialsGroups',
 							values : 
@@ -122,7 +180,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 					}, '2000');
 			}
 			else {
-				setTimeout(()=> {
+				setTimeout(() => {
 					viewerIframe.postMessage({
 						action : 'setMaterialsGroups',
 						values : 
@@ -155,7 +213,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 		}
 		if (!varnishHelmet && aerationHelmet) {
 			if (standardValue.Helmet_design === '' || standardValue.Helmet_design === 'plain'){
-				setTimeout(()=> {
+				setTimeout(() => {
 					viewerIframe.postMessage({
 						action : 'setMaterialsGroups',
 						values : 
@@ -182,7 +240,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 				}, '2000');
 			}
 			else {
-				setTimeout(()=> {
+				setTimeout(() => {
 					viewerIframe.postMessage({
 						action : 'setMaterialsGroups',
 						values : 
@@ -214,7 +272,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 			}
 		}
 	}
-	if (standardValue.Helmet_trim.includes('leather') ) {
+	if (standardValue.Helmet_trim.includes('leather')) {
 		viewerIframe.postMessage(
 			{
 				action : "updateProductNodesInstances",
@@ -236,70 +294,128 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 			localIdToRemove = [];
 		setLoader(false);
 		if (varnishHelmet && aerationHelmet) {
-			setTimeout(()=> {
-				viewerIframe.postMessage({
-					action : 'setMaterialsGroups',
-					values : 
-						[
-							{
-								configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
-								groupName : 'Helmet_color'
-							},
+			if (standardValue.Helmet_design === '' || standardValue.Helmet_design === 'plain') {
+				setTimeout(() => {
+					viewerIframe.postMessage({
+						action : 'setMaterialsGroups',
+						values : 
+							[
 								{
-								configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
-								groupName : 'Helmet_design_color'
-							},
-							{
-								configurationName : standardValue.Interior,
-								groupName : 'Interior'
-							},
-							{
-								configurationName : standardValue.Metal_pieces,
-								groupName : 'Metal_pieces'
-							},
-							{
-								configurationName : standardValue.Helmet_trim,
-								groupName : 'Helmet_trim'
-							}	
-						]
-					}, '*');
-				setLoader(true);
-			}, '2000');
+									configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
+									groupName : 'Helmet_color'
+								},
+								{
+									configurationName : standardValue.Interior,
+									groupName : 'Interior'
+								},
+								{
+									configurationName : standardValue.Metal_pieces,
+									groupName : 'Metal_pieces'
+								},
+								{
+									configurationName : standardValue.Helmet_trim,
+									groupName : 'Helmet_trim'
+								}	
+							]
+						}, '*');
+					setLoader(true);
+				}, '2000');
+			}
+			else {
+				setTimeout(() => {
+					viewerIframe.postMessage({
+						action : 'setMaterialsGroups',
+						values : 
+							[
+								{
+									configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
+									groupName : 'Helmet_color'
+								},
+									{
+									configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
+									groupName : 'Helmet_design_color'
+								},
+								{
+									configurationName : standardValue.Interior,
+									groupName : 'Interior'
+								},
+								{
+									configurationName : standardValue.Metal_pieces,
+									groupName : 'Metal_pieces'
+								},
+								{
+									configurationName : standardValue.Helmet_trim,
+									groupName : 'Helmet_trim'
+								}	
+							]
+						}, '*');
+					setLoader(true);
+				}, '2000');
+			}
 		}
 		if (varnishHelmet && !aerationHelmet) {
-			setTimeout(()=> {
-				viewerIframe.postMessage({
-					action : 'setMaterialsGroups',
-					values : 
-						[
-							{
-								configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
-								groupName : 'Helmet_color'
-							},
+			if (standardValue.Helmet_design === '' || standardValue.Helmet_design === 'plain') {
+				setTimeout(() => {
+					viewerIframe.postMessage({
+						action : 'setMaterialsGroups',
+						values : 
+							[
 								{
-								configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
-								groupName : 'Helmet_design_color'
-							},
-							{
-								configurationName : standardValue.Interior,
-								groupName : 'Interior'
-							},
-							{
-								configurationName : standardValue.Metal_pieces,
-								groupName : 'Metal_pieces'
-							},
-							{
-								configurationName : standardValue.Helmet_trim,
-								groupName : 'Helmet_trim'
-							}		
-						]
-					}, '*');
-				setLoader(true);
-			}, '2000');
+									configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
+									groupName : 'Helmet_color'
+								},
+								{
+									configurationName : standardValue.Interior,
+									groupName : 'Interior'
+								},
+								{
+									configurationName : standardValue.Metal_pieces,
+									groupName : 'Metal_pieces'
+								},
+								{
+									configurationName : standardValue.Helmet_trim,
+									groupName : 'Helmet_trim'
+								}		
+							]
+						}, '*');
+					setLoader(true);
+				}, '2000');
+			}
+			else {
+				setTimeout(() => {
+					viewerIframe.postMessage({
+						action : 'setMaterialsGroups',
+						values : 
+							[
+								{
+									configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
+									groupName : 'Helmet_color'
+								},
+									{
+									configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
+									groupName : 'Helmet_design_color'
+								},
+								{
+									configurationName : standardValue.Interior,
+									groupName : 'Interior'
+								},
+								{
+									configurationName : standardValue.Metal_pieces,
+									groupName : 'Metal_pieces'
+								},
+								{
+									configurationName : standardValue.Helmet_trim,
+									groupName : 'Helmet_trim'
+								}		
+							]
+						}, '*');
+					setLoader(true);
+				}, '2000');
+			}
 		}
 		if (!varnishHelmet && !aerationHelmet) {
-			if (standardValue.Helmet_design === '' || standardValue.Helmet_design === 'plain'){
-					setTimeout(()=> {
+			if (standardValue.Helmet_design === '' || standardValue.Helmet_design === 'plain') {
+					setTimeout(() => {
 						viewerIframe.postMessage({
 							action : 'setMaterialsGroups',
 							values : 
@@ -326,7 +442,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 					}, '2000');
 			}
 			else {
-				setTimeout(()=> {
+				setTimeout(() => {
 					viewerIframe.postMessage({
 						action : 'setMaterialsGroups',
 						values : 
@@ -358,8 +474,8 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 			}
 		}
 		if (!varnishHelmet && aerationHelmet) {
-			if (standardValue.Helmet_design === '' || standardValue.Helmet_design === 'plain'){
-				setTimeout(()=> {
+			if (standardValue.Helmet_design === '' || standardValue.Helmet_design === 'plain') {
+				setTimeout(() => {
 					viewerIframe.postMessage({
 						action : 'setMaterialsGroups',
 						values : 
@@ -386,7 +502,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 				}, '2000');
 			}
 			else {
-				setTimeout(()=> {
+				setTimeout(() => {
 					viewerIframe.postMessage({
 						action : 'setMaterialsGroups',
 						values : 

@@ -4,53 +4,59 @@ import Wrong from "../../svg/Wrong";
 
 const Engraving = ({backEngraving, setBackEngraving, fileNames}) => {
 	const [ openWindow, setOpenWindow ] = useState(false);
+	const [ engravingInput, setEngravingInput ] = useState({
+		text: 'VELDT',
+		textStyle: 'montserrat'
+	});
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
-	const okClic = (e) => {
-		e.preventDefault();
-		console.log(e)
+	const okClic = () => {
 		viewerIframe.postMessage({
-					action : 'updateCustomText',
-					data   : {
-						configurableMaterial : 'Back_engraving',
-						materialVariation : 'Back_engraving',
-						contents : ['opacity'],
-						color : '#FFFFFF',
-						backgroundColor : '#FFFFFF',
-						italic : false,
-						bold : false,
-						imageWidth : 1024,
-						imageHeight : 512,
-						verticalAlignment : 'middle',
-						horizontalAlignment : 'middle',
-						size : 120,
-						textOffsetY : 0,
-						textOffsetX : 0,
-						text : 'FFANFFFFF',
-						font : 'dirt',
-						underline : true,
-						strokeText : true,
-						strokeColor : '#FFFFFF',
-						strokeWidth : 5
-					}
-				}, '*');
+			action : 'updateCustomText',
+			data   : {
+				configurableMaterial : 'Back_engraving',
+				materialVariation : 'Back_engraving',
+				contents : ['opacity'],
+				color : '#FFFFFF',
+				backgroundColor : '#000000',
+				italic : false,
+				bold : true,
+				imageWidth : 1024,
+				imageHeight : 512,
+				verticalAlignment : 'middle',
+				horizontalAlignment : 'middle',
+				size : 120,
+				textOffsetY : 0,
+				textOffsetX : 0,
+				text : engravingInput.text,
+				font : engravingInput.textStyle,
+				underline : false,
+				strokeText : true,
+				strokeColor : '#000000',
+				strokeWidth : 5
+			}
+		}, '*');
 	}
 	return (
 		<div className="numberChoice">
 			{
 				!backEngraving ? 
-					<button className="buttonAdd" onClick={()=>setBackEngraving(true) & setOpenWindow(true)}>{`\u002B`} Add</button>
+					<button className="buttonAdd" onClick={() => setBackEngraving(true) & setOpenWindow(true)}>{`\u002B`} Add</button>
 				:
-					<button className="buttonAdd" onClick={()=>setBackEngraving(false) & setOpenWindow(false)}>{`\u002D`} Delete</button>
+				<div className="numberButton">
+					<button className="buttonAdd" onClick={() => setBackEngraving(false) & setOpenWindow(false)}>{`\u002D`} Delete</button>
+					<button className="buttonAdd" onClick={() => setBackEngraving(false) & setOpenWindow(true)}>{`\u002B`} Modify</button>
+				</div>
 			}
 			<div className={!openWindow ? "numberWindows" : "openNumberWindows"}>
 				<p className="infosNumber">Your Text</p>
 				<div className="chooseWindows">
 					<form className="chooseWindows_input">
-						<input type="text" name="textSelection" id="textSelection"/>
+						<input type="text" name="textSelection" id="textSelection" onChange={(e)=>setEngravingInput({...engravingInput, text: e.target.value })}/>
 						<div className="selectButtonNumber">
-							<button onSubmit={okClic}>OK</button>
-							<Right windowClose={setOpenWindow} setNumberWindow={setBackEngraving} fileNames={fileNames}/>
-							<Wrong windowClose={setOpenWindow} setNumberWindow={setBackEngraving}/>
+							<div className="selectButtonNumber--right" onClick={okClic}>
+								<Right windowClose={setOpenWindow} setNumberWindow={setBackEngraving} fileNames={fileNames}/>
+							</div>
+								<Wrong windowClose={setOpenWindow} setNumberWindow={setBackEngraving}/>
 						</div>
 					</form>
 				</div>

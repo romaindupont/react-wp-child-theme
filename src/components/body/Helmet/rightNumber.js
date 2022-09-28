@@ -1,14 +1,14 @@
 import Noeud from '../../../../assets/json/helmetid';
 
-const RightNumber = (rightNumberWindow, nodesConfiguration, setLoader) => {
+const RightNumber = (rightNumberWindow, nodesConfiguration) => {
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 	let localIdToRemove = [];
 	nodesConfiguration.find((nodes) => { 
-		if(nodes.SKU === 'custom_numberingRight') {
+		if (nodes.SKU === 'custom_numberingRight') {
 			localIdToRemove.push(nodes.localId);
 		}
 	}) 
-	if(rightNumberWindow) {
+	if (rightNumberWindow) {
 		viewerIframe.postMessage(
 			{
 				action : "updateProductNodesInstances",
@@ -27,44 +27,19 @@ const RightNumber = (rightNumberWindow, nodesConfiguration, setLoader) => {
 				localIdsToRemove :
 					localIdToRemove
 			}, "*");
+		localIdToRemove = [];
 	}
-	if(!rightNumberWindow) {
+	if (!rightNumberWindow) {
 		viewerIframe.postMessage(
 			{
 				action : "updateProductNodesInstances",
 				nodesToAdd :
-					[
-					],
+					[],
 				localIdsToRemove :
 					localIdToRemove
 			}, "*");
+		localIdToRemove = [];
 	}
 }
 
 export default RightNumber;
-
-/* viewerIframe.postMessage({
-	action : 'updateCustomText',
-	data   : {
-		configurableMaterial : 'Numbering_back',
-		materialVariation : 'Numbering_back',
-		contents : ['opacity'],
-		color : '#000000',
-		backgroundColor : '#000000',
-		italic : false,
-		bold : false,
-		imageWidth : 1024,
-		imageHeight : 512,
-		verticalAlignment : 'middle',
-		horizontalAlignment : 'middle',
-		size : 120,
-		textOffsetY : 0,
-		textOffsetX : 0,
-		text : '55',
-		font : 'racing',
-		underline : true,
-		strokeText : true,
-		strokeColor : '#000000',
-		strokeWidth : 5
-	}
-}, '*'); */

@@ -12,46 +12,33 @@ const exportWindows = ({setOpenOptionMenu, screenshotsWait}) => {
 		})
 	}
 	function imageToBase64(src = '#', outputFormat) {
-
     return new Promise((resolve, reject) => {
-
         const img = new Image();
-
-
 				img.crossOrigin = "Anonymous";
-
 				img.onload = function() {
 					const canvas = document.createElement('CANVAS');
 					const ctx = canvas.getContext('2d');
 					let dataURL;
-
 						canvas.width = img.width;
 						canvas.height = img.height;
 						ctx.drawImage( img, 0, 0 );
 						dataURL = canvas.toDataURL('image/png');
-
 						resolve(dataURL);
 				}
 				img.src = src;
-
 				if ( img.complete || img.complete === undefined ) {
 						img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
 						img.src = src;
 				}
-				
     });
 	}
 const downloadImage = () => {
 	let baliseA = document.querySelector('.downloadLink');
 		imageToBase64(screenshotsWait.arrayScreen[0])
 			.then(image => {
-
 				baliseA.attributes.href.value = image;
-			
 				baliseA.click();		
 			});
-		
-
 }
 const saveConfig = () => {
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 

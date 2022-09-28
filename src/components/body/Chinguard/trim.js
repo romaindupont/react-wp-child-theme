@@ -4,14 +4,14 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 	let localIdToRemove = [];
 	nodesConfiguration.find((nodes) => { 
-		if(nodes.SKU === 'chinguardTrim_rubber') {
+		if (nodes.SKU === 'chinguardTrim_rubber') {
 			localIdToRemove.push(nodes.localId);
 		}
-		if(nodes.SKU === 'chinguardTrim_leather') {
+		if (nodes.SKU === 'chinguardTrim_leather') {
 			localIdToRemove.push(nodes.localId);
 		}
 	}) 
-	if (standardValue.Chinguard_trim.includes('rubber') ) {
+	if (standardValue.Chinguard_trim.includes('rubber')) {
 		viewerIframe.postMessage(
 			{
 				action : "updateProductNodesInstances",
@@ -33,7 +33,7 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 		localIdToRemove = [];
 		setLoader(false);
 		if (varnishChin && aerationChin) {
-			setTimeout(()=> {
+			setTimeout(() => {
 				viewerIframe.postMessage({
 					action : 'setMaterialsGroups',
 					values : 
@@ -64,7 +64,7 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 			}, '2000');
 		}
 		if (varnishChin && !aerationChin) {
-			setTimeout(()=> {
+			setTimeout(() => {
 				viewerIframe.postMessage({
 					action : 'setMaterialsGroups',
 					values : 
@@ -95,8 +95,8 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 			}, '2000');
 		}
 		if (!varnishChin && !aerationChin) {
-			if (standardValue.Chinguard_design === '' || standardValue.Chinguard_design === 'plain'){
-					setTimeout(()=> {
+			if (standardValue.Chinguard_design === '' || standardValue.Chinguard_design === 'plain') {
+					setTimeout(() => {
 						viewerIframe.postMessage({
 							action : 'setMaterialsGroups',
 							values : 
@@ -121,9 +121,9 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 							}, '*');
 						setLoader(true);
 					}, '2000');
-			}
+				}
 			else {
-				setTimeout(()=> {
+				setTimeout(() => {
 					viewerIframe.postMessage({
 						action : 'setMaterialsGroups',
 						values : 
@@ -155,8 +155,8 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 			}
 		}
 		if (!varnishChin && aerationChin) {
-			if (standardValue.Chinguard_design === '' || standardValue.Chinguard_design === 'plain'){
-				setTimeout(()=> {
+			if (standardValue.Chinguard_design === '' || standardValue.Chinguard_design === 'plain') {
+				setTimeout(() => {
 					viewerIframe.postMessage({
 						action : 'setMaterialsGroups',
 						values : 
@@ -183,7 +183,7 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 				}, '2000');
 			}
 			else {
-				setTimeout(()=> {
+				setTimeout(() => {
 					viewerIframe.postMessage({
 						action : 'setMaterialsGroups',
 						values : 
@@ -215,7 +215,7 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 			}
 		}
 	}
-	if (standardValue.Chinguard_trim.includes('leather') ) {
+	if (standardValue.Chinguard_trim.includes('leather')) {
 		viewerIframe.postMessage(
 			{
 				action : "updateProductNodesInstances",
@@ -234,10 +234,10 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 				localIdsToRemove :
 					localIdToRemove
 			}, "*");
-			localIdToRemove = [];
+		localIdToRemove = [];
 		setLoader(false);
 		if (varnishChin && aerationChin) {
-			setTimeout(()=> {
+			setTimeout(() => {
 				viewerIframe.postMessage({
 					action : 'setMaterialsGroups',
 					values : 
@@ -268,7 +268,7 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 			}, '2000');
 		}
 		if (varnishChin && !aerationChin) {
-			setTimeout(()=> {
+			setTimeout(() => {
 				viewerIframe.postMessage({
 					action : 'setMaterialsGroups',
 					values : 
@@ -299,8 +299,8 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 			}, '2000');
 		}
 		if (!varnishChin && !aerationChin) {
-			if (standardValue.Chinguard_design === '' || standardValue.Chinguard_design === 'plain'){
-					setTimeout(()=> {
+			if (standardValue.Chinguard_design === '' || standardValue.Chinguard_design === 'plain') {
+					setTimeout(() => {
 						viewerIframe.postMessage({
 							action : 'setMaterialsGroups',
 							values : 
@@ -327,7 +327,7 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 					}, '2000');
 			}
 			else {
-				setTimeout(()=> {
+				setTimeout(() => {
 					viewerIframe.postMessage({
 						action : 'setMaterialsGroups',
 						values : 
@@ -336,7 +336,7 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 									configurationName : `${standardValue.Chinguard_color_type}|${standardValue.Chinguard_color}`,
 									groupName : 'Chinguard_color'
 								},
-									{
+								{
 									configurationName : `${standardValue.Chinguard_design}|${standardValue.Chinguard_design_type}|${standardValue.Chinguard_design_color}`,
 									groupName : 'Chinguard_design_color'
 								},
@@ -359,8 +359,8 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 			}
 		}
 		if (!varnishChin && aerationChin) {
-			if (standardValue.Chinguard_design === '' || standardValue.Chinguard_design === 'plain'){
-				setTimeout(()=> {
+			if (standardValue.Chinguard_design === '' || standardValue.Chinguard_design === 'plain') {
+				setTimeout(() => {
 					viewerIframe.postMessage({
 						action : 'setMaterialsGroups',
 						values : 
@@ -387,7 +387,7 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 				}, '2000');
 			}
 			else {
-				setTimeout(()=> {
+				setTimeout(() => {
 					viewerIframe.postMessage({
 						action : 'setMaterialsGroups',
 						values : 
@@ -396,10 +396,6 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 									configurationName : `${standardValue.Chinguard_color_type}|${standardValue.Chinguard_color}`,
 									groupName : 'Chinguard_color'
 								},
-									/* {
-									configurationName : `${standardValue.Chinguard_design}|${standardValue.Chinguard_design_type}|${standardValue.Chinguard_design_color}`,
-									groupName : 'Helmet_design_color'
-								}, */
 								{
 									configurationName : standardValue.Interior,
 									groupName : 'Interior'

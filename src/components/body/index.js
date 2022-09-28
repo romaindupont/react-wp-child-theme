@@ -1,4 +1,4 @@
-const { useEffect } = wp.element;
+const { useEffect, useRef } = wp.element;
 import Noeud from '../../../assets/json/helmetid';
 import Aeration from './Helmet/aeration';
 import ScrewFunction from './Helmet/screw';
@@ -45,6 +45,17 @@ const Body = ({
 }) => {
 	let viewerIframe = null;
 	let viewerActive = false;
+	const notInitialRender = useRef(false);
+	const notInitialRenderTwo = useRef(false);
+	const notInitialRenderThree = useRef(false);
+	const notInitialRenderFour = useRef(false);
+	const notInitialRenderFive = useRef(false);
+	const notInitialRenderSix = useRef(false);
+	const notInitialRenderSeven = useRef(false);
+	const notInitialRenderHeight = useRef(false);
+	const notInitialRenderNine = useRef(false);
+	const notInitialRenderTen = useRef(false);
+	const notInitialRenderEleven = useRef(false);
 	let helmetAereationListener = (e) => {
 		viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 		Aeration(viewerIframe, aerationHelmet, nodesConfiguration, setLoader, standardValue) 
@@ -52,53 +63,11 @@ const Body = ({
 			action : 'getCurrentMaterials'
 		}, '*');
 	}
-	let firstConfiguration = (e) => {
-		if(e.data && e.data.action == 'onSuccess' && e.data.callAction == 'updateProductNodesInstances'){	
-			/* viewerIframe.postMessage({
-				action : 'setMaterialsGroups',
-				values : 
-					[
-						{
-							configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
-							groupName : 'Helmet_color'
-						},
-						{
-							configurationName : standardValue.Metal_pieces,
-							groupName : 'Metal_pieces'
-						},
-						{
-							configurationName :`${standardValue.Logo}|${standardValue.Logo_color}`,
-							groupName : 'Logo'
-						},
-						{
-							configurationName : standardValue.Interior,
-							groupName : 'Interior'
-						},
-						{
-							configurationName : standardValue.Helmet_trim,
-							groupName : 'Helmet_trim'
-						},
-						{
-							configurationName : `${standardValue.Rear_text_certification}|${standardValue.Rear_text_size}`,
-							groupName : 'Rear_text'
-						},	
-					]
-				}, '*'); */
-				viewerIframe.postMessage(
-					{
-					action : "getCurrentProductNodesConfiguration",
-					},
-					"*"
-					) ;
-		}
-	}
 	let viewerEventListener =  function(event){
 		console.log(event.data.action, event, event.data.callAction )
 		if(event.data && event.data.action == 'onStateChange'){
-			if(event.data.state.loadingProgress === 1){
-				setTimeout(()=>setLoader(true) , '2000')
-			}
 			if(event.data.state.viewerState == 'loaded' || event.data.state.viewerState == 'fallbackloaded'){
+				setLoader(false)
 				viewerActive = true;
 				viewerIframe.postMessage({
 					action : 'setSceneryBackgroundColor',
@@ -124,7 +93,40 @@ const Body = ({
 				}, 
 				"*"
 				);
-				window.addEventListener('message', firstConfiguration, false);
+				setTimeout(()=> {
+				viewerIframe.postMessage({
+					action : 'setMaterialsGroups',
+					values : 
+						[
+							{
+								configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
+								groupName : 'Helmet_color'
+							},
+							{
+								configurationName : standardValue.Metal_pieces,
+								groupName : 'Metal_pieces'
+							},
+							{
+								configurationName :`${standardValue.Logo}|${standardValue.Logo_color}`,
+								groupName : 'Logo'
+							},
+							{
+								configurationName : standardValue.Interior,
+								groupName : 'Interior'
+							},
+							{
+								configurationName : standardValue.Helmet_trim,
+								groupName : 'Helmet_trim'
+							},
+							{
+								configurationName : `${standardValue.Rear_text_certification}|${standardValue.Rear_text_size}`,
+								groupName : 'Rear_text'
+							},	
+						]
+					}, '*');
+				setLoader(true);
+				}, '2000');
+			
 			}
 		}
 		if(event.data && event.data.action == 'onScreenshots'){
@@ -144,6 +146,12 @@ const Body = ({
 				action : 'getCurrentMaterials'
 			}, '*');
 		}
+		if(event.data && event.data.action == 'onSuccess' && event.data.callAction == 'updateProductNodesInstances'){
+			viewerIframe.postMessage(
+				{
+				action : "getCurrentProductNodesConfiguration",
+				}, "*") ;
+		}
 		if(event.data && event.data.action == 'onError'){
 			console.log(event)
 		}
@@ -157,71 +165,160 @@ const Body = ({
 		window.addEventListener('message', viewerEventListener, false);
 	}, false);
  	useEffect(() => {
-		helmetAereationListener();
+		if (notInitialRender.current) {
+			helmetAereationListener();
+		} else {
+			notInitialRender.current = true;
+		}
 	}, [aerationHelmet]);
 	useEffect(() => {
-		ScrewFunction(screwPosition, nodesConfiguration)
+		if (notInitialRender.current) {
+			ScrewFunction(screwPosition, nodesConfiguration);
+		} else {
+			notInitialRender.current = true;
+		}
 	}, [screwPosition]);
 	 useEffect(() => {
-		Pattern(standardValue, aerationHelmet, nodesConfiguration, setLoader)
+		if (notInitialRender.current) {
+			Pattern(standardValue, aerationHelmet, nodesConfiguration, setLoader);
+		} else {
+			notInitialRender.current = true;
+		}
 	}, [standardValue.Helmet_design_type,standardValue.Helmet_design,standardValue.Helmet_color,standardValue.Helmet_design_color,standardValue.Helmet_color_type]);
-	/*useEffect(() => {
-		MainColor(standardValue)
+	useEffect(() => {
+		if (notInitialRender.current) {
+			MainColor(standardValue);
+		} else {
+			notInitialRender.current = true;
+		}
 	}, [standardValue.Helmet_color, standardValue.Helmet_color_type]);
 	useEffect(() => {
-		Varnish(varnishHelmet, aerationHelmet, nodesConfiguration, setLoader, standardValue)
+		if (notInitialRenderTwo.current) {
+			Varnish(varnishHelmet, aerationHelmet, nodesConfiguration, setLoader, standardValue);
+		} else {
+			notInitialRenderTwo.current = true;
+		}
 	}, [varnishHelmet]);
-	useEffect(() => {
-		Logo(standardValue)
+ 	useEffect(() => {
+		if (notInitialRenderThree.current) {
+			Logo(standardValue);
+		} else {
+			notInitialRenderThree.current = true;
+		}
 	}, [standardValue.Logo_color, standardValue.Logo]);
 	useEffect(() => {
-		Interior(standardValue, setLoader)
+		if (notInitialRenderFour.current) {
+			Interior(standardValue, setLoader);
+		} else {
+			notInitialRenderFour.current = true;
+		}
 	}, [standardValue.Interior]);
 	useEffect(() => {
-		Trim(standardValue, nodesConfiguration, setLoader, aerationHelmet, varnishHelmet)
+		if (notInitialRenderFive.current) {
+			Trim(standardValue, nodesConfiguration, setLoader, aerationHelmet, varnishHelmet);
+		} else {
+			notInitialRenderFive.current = true;
+		}
 	}, [standardValue.Helmet_trim]);
 	useEffect(() => {
-		MetalParts(standardValue)
+		if (notInitialRender.current) {
+			MetalParts(standardValue);
+		} else {
+			notInitialRender.current = true;
+		}
 	}, [standardValue.Metal_pieces]);
 	useEffect(() => {
-		Zippers(standardValue, nodesConfiguration, setLoader, aerationHelmet, varnishHelmet)
+		if (notInitialRenderSix.current) {
+			Zippers(standardValue, nodesConfiguration, setLoader, aerationHelmet, varnishHelmet);
+		} else {
+			notInitialRenderSix.current = true;
+		}
 	}, [standardValue.flap]);
 	useEffect(() => {
-		BackNumber(backNumberWindow, nodesConfiguration, setLoader)
+		if (notInitialRender.current) {
+			BackNumber(backNumberWindow, nodesConfiguration, setLoader);
+		} else {
+			notInitialRender.current = true;
+		}
 	}, [backNumberWindow]);
 	useEffect(() => {
-		LeftNumber(leftNumberWindow, nodesConfiguration, setLoader)
+		if (notInitialRender.current) {
+			LeftNumber(leftNumberWindow, nodesConfiguration, setLoader);
+		} else {
+			notInitialRender.current = true;
+		}
 	}, [leftNumberWindow]);
 	useEffect(() => {
-		RightNumber(rightNumberWindow, nodesConfiguration, setLoader)
+		if (notInitialRender.current) {
+			RightNumber(rightNumberWindow, nodesConfiguration, setLoader);
+		} else {
+			notInitialRender.current = true;
+		}
 	}, [rightNumberWindow]);
-	useEffect(() => {
-		Engraving(backEngraving, nodesConfiguration, setLoader)
+useEffect(() => {
+		if (notInitialRender.current) {
+			Engraving(backEngraving, nodesConfiguration, setLoader);
+		} else {
+			notInitialRender.current = true;
+		}
 	}, [backEngraving]);
 	useEffect(() => {
-		RearText(standardValue)
+		if (notInitialRender.current) {
+			RearText(standardValue);
+		} else {
+			notInitialRender.current = true;
+		}
 	}, [standardValue.Rear_text_certification, standardValue.Rear_text_size]);
 	useEffect(() => {
-		AerationChin(aerationChin, nodesConfiguration, setLoader, standardValue)
+		if (notInitialRenderSeven.current) {
+			ChinguardAction(aerationChin, nodesConfiguration, setLoader, standardValue, tabsChoice);
+		} else {
+			notInitialRenderSeven.current = true;
+		}
+	}, [tabsChoice]);
+	useEffect(() => {
+		if (notInitialRenderHeight.current) {
+			AerationChin(aerationChin, nodesConfiguration, setLoader, standardValue);
+		} else {
+			notInitialRenderHeight.current = true;
+		}
 	}, [aerationChin]);
 	useEffect(() => {
-		PatternChin(standardValue, aerationChin, nodesConfiguration, setLoader)
+		if (notInitialRenderHeight.current) {
+			PatternChin(standardValue, aerationChin, nodesConfiguration, setLoader);
+		} else {
+			notInitialRenderHeight.current = true;
+		}
 	}, [standardValue.Chinguard_design_type, standardValue.Chinguard_design, standardValue.Chinguard_color, standardValue.Chinguard_design_color, standardValue.Chinguard_color_type]);
 	useEffect(() => {
-		MainColorChin(standardValue)
+		if (notInitialRenderNine.current) {
+			MainColorChin(standardValue);
+		} else {
+			notInitialRenderNine.current = true;
+		}
 	}, [standardValue.Chinguard_color, standardValue.Chinguard_color_type]);
 	useEffect(() => {
-		VarnishChin(varnishChin, aerationChin, nodesConfiguration, setLoader, standardValue)
+		if (notInitialRenderTen.current) {
+			VarnishChin(varnishChin, aerationChin, nodesConfiguration, setLoader, standardValue);
+		} else {
+			notInitialRenderTen.current = true;
+		}
 	}, [varnishChin]);
 	useEffect(() => {
-		TrimChin(standardValue, nodesConfiguration, setLoader, aerationChin, varnishChin)
+		if (notInitialRenderEleven.current) {
+			TrimChin(standardValue, nodesConfiguration, setLoader, aerationChin, varnishChin);
+		} else {
+			notInitialRenderEleven.current = true;
+		}
 	}, [standardValue.Chinguard_trim]);
-	useEffect(() => {
-		VisorChoice(standardValue)
+	/* useEffect(() => {
+		if (notInitialRenderTwelve.current) {
+			VisorChoice(standardValue);
+		} else {
+			notInitialRenderTwelve.current = true;
+		}
 	}, [standardValue.Visor_peak_color, standardValue.Visor_peak_type, standardValue.Visor_color, standardValue.Visor_type]);
-	useEffect(() => {
-		ChinguardAction(aerationChin, nodesConfiguration, setLoader, standardValue, tabsChoice)
-	}, [tabsChoice]);	 */
+  */
 	useEffect(() => {
 		console.log(nodesConfiguration)
 	}, [nodesConfiguration]);	

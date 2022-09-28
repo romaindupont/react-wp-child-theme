@@ -160,7 +160,8 @@ const HelmetTabs = ({
 						<Zippers
 							setStandardValue = {setStandardValue}
 							standardValue = {standardValue}
-						/> : ''
+						/> 
+					: ''
 				}
 			</div>
 		</div>
