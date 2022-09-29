@@ -56,6 +56,7 @@ const Body = ({
 	const notInitialRenderNine = useRef(false);
 	const notInitialRenderTen = useRef(false);
 	const notInitialRenderEleven = useRef(false);
+	const notInitialRenderTwelve = useRef(false);
 	let helmetAereationListener = (e) => {
 		viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 		Aeration(viewerIframe, aerationHelmet, nodesConfiguration, setLoader, standardValue) 
@@ -311,14 +312,14 @@ useEffect(() => {
 			notInitialRenderEleven.current = true;
 		}
 	}, [standardValue.Chinguard_trim]);
-	/* useEffect(() => {
+	useEffect(() => {
 		if (notInitialRenderTwelve.current) {
-			VisorChoice(standardValue);
+			VisorChoice(standardValue, nodesConfiguration, setLoader, tabsChoice);
 		} else {
 			notInitialRenderTwelve.current = true;
 		}
-	}, [standardValue.Visor_peak_color, standardValue.Visor_peak_type, standardValue.Visor_color, standardValue.Visor_type]);
-  */
+	}, [standardValue.Visor_peak_color, standardValue.Visor_peak_type, standardValue.Visor_color, standardValue.Visor_type, standardValue.Visor_frame]);
+ 
 	useEffect(() => {
 		console.log(nodesConfiguration)
 	}, [nodesConfiguration]);	

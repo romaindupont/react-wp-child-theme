@@ -360,6 +360,26 @@ export default [
 				0, 0, 1, 0,
 				0, 0, 0, 1],
 				SKU: "visor_elements"
+			},
+			visorStandardFrame:
+			{
+				parentLocalId: 1,
+				localId: 37,
+				matrix: [1, 0, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1],
+				SKU: "visor_standardFrame"
+			},
+			visorLightFrame:
+			{
+				parentLocalId: 1,
+				localId: 38,
+				matrix: [1, 0, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1],
+				SKU: "visor_lightFrame"
 			}
 		}
 	}

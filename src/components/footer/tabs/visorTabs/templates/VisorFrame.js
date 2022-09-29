@@ -4,11 +4,11 @@ import LightFrame from "../../svg/Frame/LightFrame";
 const VisorFrame = ({setStandardValue,	standardValue}) => {
 	return (
 		<div className="frame">
-			<div className="allScrew" /* onClick={()=>setStandardValue({...standardValue, Chinguard_design_type:'plain'})} */>
+			<div className={standardValue.Visor_frame === 'full' ? 'Select' : 'allScrew'} onClick={()=>setStandardValue({...standardValue, Visor_frame:'full'})}>
 				<FullFrame />
 				<span className="textAction">Full</span>
 			</div>
-			<div className="allScrew" /* onClick={()=>setStandardValue({...standardValue, Chinguard_design_type:'plain'})} */>
+			<div className={standardValue.Visor_frame === 'light' ? 'Select' : 'allScrew'} onClick={()=>setStandardValue({...standardValue, Visor_frame:'light'})}>
 				<LightFrame />
 				<span className="textAction">Light</span>
 			</div>
