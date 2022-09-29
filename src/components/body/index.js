@@ -318,7 +318,7 @@ useEffect(() => {
 		} else {
 			notInitialRenderTwelve.current = true;
 		}
-	}, [standardValue.Visor_peak_color, standardValue.Visor_peak_type, standardValue.Visor_color, standardValue.Visor_type, standardValue.Visor_frame]);
+	}, [standardValue.Visor_peak_color, standardValue.Visor_peak_type, standardValue.Visor_color, standardValue.Visor_type, standardValue.Visor_frame, tabsChoice.visor]);
  
 	useEffect(() => {
 		console.log(nodesConfiguration)

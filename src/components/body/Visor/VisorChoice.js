@@ -32,49 +32,9 @@ const VisorChoice = (standardValue, nodesConfiguration, setLoader, tabsChoice) =
 			localIdToRemove.push(nodes.localId);
 		}
 	}) 
-	switch (standardValue.Visor_type) {
-		case 'peak_visor':
-			viewerIframe.postMessage(
-				{
-					action : "updateProductNodesInstances",
-					nodesToAdd :
-						[
-							{
-								parentLocalId: 1,
-								localId: parseInt(`${Noeud[0].visor.visorPeak.localId}` + Date.now()),
-								matrix: [1, 0, 0, 0,
-								0, 1, 0, 0,
-								0, 0, 1, 0,
-								0, 0, 0, 1],
-								SKU: Noeud[0].visor.visorPeak.SKU
-							},
-							{
-								parentLocalId: 1,
-								localId: parseInt(`${Noeud[0].visor.visorElements.localId}` + Date.now()),
-								matrix: [1, 0, 0, 0,
-								0, 1, 0, 0,
-								0, 0, 1, 0,
-								0, 0, 0, 1],
-								SKU: Noeud[0].visor.visorElements.SKU
-							},
-							{
-								parentLocalId: 1,
-								localId: parseInt(`${Noeud[0].screw.screwsTopVisor.localId}` + Date.now()),
-								matrix: [1, 0, 0, 0,
-								0, 1, 0, 0,
-								0, 0, 1, 0,
-								0, 0, 0, 1],
-								SKU: Noeud[0].screw.screwsTopVisor.SKU
-							}
-						],
-					localIdsToRemove :
-						localIdToRemove
-				}, "*");
-				localIdToRemove = [];
-				setLoader(false);
-		break;
-		case 'short_visor':
-			if (standardValue.Visor_frame === 'full') {
+	if (tabsChoice.visor) {
+		switch (standardValue.Visor_type) {
+			case 'peak_visor':
 				viewerIframe.postMessage(
 					{
 						action : "updateProductNodesInstances",
@@ -82,12 +42,12 @@ const VisorChoice = (standardValue, nodesConfiguration, setLoader, tabsChoice) =
 							[
 								{
 									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].visor.visorShortShield.localId}` + Date.now()),
+									localId: parseInt(`${Noeud[0].visor.visorPeak.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
 									0, 1, 0, 0,
 									0, 0, 1, 0,
 									0, 0, 0, 1],
-									SKU: Noeud[0].visor.visorShortShield.SKU
+									SKU: Noeud[0].visor.visorPeak.SKU
 								},
 								{
 									parentLocalId: 1,
@@ -97,15 +57,6 @@ const VisorChoice = (standardValue, nodesConfiguration, setLoader, tabsChoice) =
 									0, 0, 1, 0,
 									0, 0, 0, 1],
 									SKU: Noeud[0].visor.visorElements.SKU
-								},
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].visor.visorStandardFrame.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].visor.visorStandardFrame.SKU
 								},
 								{
 									parentLocalId: 1,
@@ -120,179 +71,241 @@ const VisorChoice = (standardValue, nodesConfiguration, setLoader, tabsChoice) =
 						localIdsToRemove :
 							localIdToRemove
 					}, "*");
-				localIdToRemove = [];
-				setLoader(false);
-			}
-			else {
-				viewerIframe.postMessage(
-					{
-						action : "updateProductNodesInstances",
-						nodesToAdd :
-							[
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].visor.visorShortShield.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].visor.visorShortShield.SKU
-								},
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].visor.visorElements.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].visor.visorElements.SKU
-								},
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].visor.visorLightFrame.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].visor.visorLightFrame.SKU
-								},
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].screw.screwsTopVisor.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].screw.screwsTopVisor.SKU
-								}
-							],
-						localIdsToRemove :
-							localIdToRemove
-					}, "*");
-				localIdToRemove = [];
-				setLoader(false);
-			}
-		break;
-		case 'long_visor':
-			if (standardValue.Visor_frame === 'full') {
-				viewerIframe.postMessage(
-					{
-						action : "updateProductNodesInstances",
-						nodesToAdd :
-							[
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].visor.visorLongShield.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].visor.visorLongShield.SKU
-								},
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].visor.visorElements.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].visor.visorElements.SKU
-								},
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].visor.visorStandardFrame.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].visor.visorStandardFrame.SKU
-								},
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].screw.screwsTopVisor.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].screw.screwsTopVisor.SKU
-								}
-							],
-						localIdsToRemove :
-							localIdToRemove
-					}, "*");
-				localIdToRemove = [];
-				setLoader(false);
-			}
-			else {
-				viewerIframe.postMessage(
-					{
-						action : "updateProductNodesInstances",
-						nodesToAdd :
-							[
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].visor.visorLongShield.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].visor.visorLongShield.SKU
-								},
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].visor.visorElements.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].visor.visorElements.SKU
-								},
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].visor.visorLightFrame.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].visor.visorLightFrame.SKU
-								},
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].screw.screwsTopVisor.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].screw.screwsTopVisor.SKU
-								}
-							],
-						localIdsToRemove :
-							localIdToRemove
-					}, "*");
-				localIdToRemove = [];
-				setLoader(false);
-			}
-		break;
-		default:
-		console.log('no default theme')
+					localIdToRemove = [];
+					setLoader(false);
+			break;
+			case 'short_visor':
+				if (standardValue.Visor_frame === 'full') {
+					viewerIframe.postMessage(
+						{
+							action : "updateProductNodesInstances",
+							nodesToAdd :
+								[
+									{
+										parentLocalId: 1,
+										localId: parseInt(`${Noeud[0].visor.visorShortShield.localId}` + Date.now()),
+										matrix: [1, 0, 0, 0,
+										0, 1, 0, 0,
+										0, 0, 1, 0,
+										0, 0, 0, 1],
+										SKU: Noeud[0].visor.visorShortShield.SKU
+									},
+									{
+										parentLocalId: 1,
+										localId: parseInt(`${Noeud[0].visor.visorElements.localId}` + Date.now()),
+										matrix: [1, 0, 0, 0,
+										0, 1, 0, 0,
+										0, 0, 1, 0,
+										0, 0, 0, 1],
+										SKU: Noeud[0].visor.visorElements.SKU
+									},
+									{
+										parentLocalId: 1,
+										localId: parseInt(`${Noeud[0].visor.visorStandardFrame.localId}` + Date.now()),
+										matrix: [1, 0, 0, 0,
+										0, 1, 0, 0,
+										0, 0, 1, 0,
+										0, 0, 0, 1],
+										SKU: Noeud[0].visor.visorStandardFrame.SKU
+									},
+									{
+										parentLocalId: 1,
+										localId: parseInt(`${Noeud[0].screw.screwsTopVisor.localId}` + Date.now()),
+										matrix: [1, 0, 0, 0,
+										0, 1, 0, 0,
+										0, 0, 1, 0,
+										0, 0, 0, 1],
+										SKU: Noeud[0].screw.screwsTopVisor.SKU
+									}
+								],
+							localIdsToRemove :
+								localIdToRemove
+						}, "*");
+					localIdToRemove = [];
+					setLoader(false);
+				}
+				else {
+					viewerIframe.postMessage(
+						{
+							action : "updateProductNodesInstances",
+							nodesToAdd :
+								[
+									{
+										parentLocalId: 1,
+										localId: parseInt(`${Noeud[0].visor.visorShortShield.localId}` + Date.now()),
+										matrix: [1, 0, 0, 0,
+										0, 1, 0, 0,
+										0, 0, 1, 0,
+										0, 0, 0, 1],
+										SKU: Noeud[0].visor.visorShortShield.SKU
+									},
+									{
+										parentLocalId: 1,
+										localId: parseInt(`${Noeud[0].visor.visorElements.localId}` + Date.now()),
+										matrix: [1, 0, 0, 0,
+										0, 1, 0, 0,
+										0, 0, 1, 0,
+										0, 0, 0, 1],
+										SKU: Noeud[0].visor.visorElements.SKU
+									},
+									{
+										parentLocalId: 1,
+										localId: parseInt(`${Noeud[0].visor.visorLightFrame.localId}` + Date.now()),
+										matrix: [1, 0, 0, 0,
+										0, 1, 0, 0,
+										0, 0, 1, 0,
+										0, 0, 0, 1],
+										SKU: Noeud[0].visor.visorLightFrame.SKU
+									},
+									{
+										parentLocalId: 1,
+										localId: parseInt(`${Noeud[0].screw.screwsTopVisor.localId}` + Date.now()),
+										matrix: [1, 0, 0, 0,
+										0, 1, 0, 0,
+										0, 0, 1, 0,
+										0, 0, 0, 1],
+										SKU: Noeud[0].screw.screwsTopVisor.SKU
+									}
+								],
+							localIdsToRemove :
+								localIdToRemove
+						}, "*");
+					localIdToRemove = [];
+					setLoader(false);
+				}
+			break;
+			case 'long_visor':
+				if (standardValue.Visor_frame === 'full') {
+					viewerIframe.postMessage(
+						{
+							action : "updateProductNodesInstances",
+							nodesToAdd :
+								[
+									{
+										parentLocalId: 1,
+										localId: parseInt(`${Noeud[0].visor.visorLongShield.localId}` + Date.now()),
+										matrix: [1, 0, 0, 0,
+										0, 1, 0, 0,
+										0, 0, 1, 0,
+										0, 0, 0, 1],
+										SKU: Noeud[0].visor.visorLongShield.SKU
+									},
+									{
+										parentLocalId: 1,
+										localId: parseInt(`${Noeud[0].visor.visorElements.localId}` + Date.now()),
+										matrix: [1, 0, 0, 0,
+										0, 1, 0, 0,
+										0, 0, 1, 0,
+										0, 0, 0, 1],
+										SKU: Noeud[0].visor.visorElements.SKU
+									},
+									{
+										parentLocalId: 1,
+										localId: parseInt(`${Noeud[0].visor.visorStandardFrame.localId}` + Date.now()),
+										matrix: [1, 0, 0, 0,
+										0, 1, 0, 0,
+										0, 0, 1, 0,
+										0, 0, 0, 1],
+										SKU: Noeud[0].visor.visorStandardFrame.SKU
+									},
+									{
+										parentLocalId: 1,
+										localId: parseInt(`${Noeud[0].screw.screwsTopVisor.localId}` + Date.now()),
+										matrix: [1, 0, 0, 0,
+										0, 1, 0, 0,
+										0, 0, 1, 0,
+										0, 0, 0, 1],
+										SKU: Noeud[0].screw.screwsTopVisor.SKU
+									}
+								],
+							localIdsToRemove :
+								localIdToRemove
+						}, "*");
+					localIdToRemove = [];
+					setLoader(false);
+				}
+				else {
+					viewerIframe.postMessage(
+						{
+							action : "updateProductNodesInstances",
+							nodesToAdd :
+								[
+									{
+										parentLocalId: 1,
+										localId: parseInt(`${Noeud[0].visor.visorLongShield.localId}` + Date.now()),
+										matrix: [1, 0, 0, 0,
+										0, 1, 0, 0,
+										0, 0, 1, 0,
+										0, 0, 0, 1],
+										SKU: Noeud[0].visor.visorLongShield.SKU
+									},
+									{
+										parentLocalId: 1,
+										localId: parseInt(`${Noeud[0].visor.visorElements.localId}` + Date.now()),
+										matrix: [1, 0, 0, 0,
+										0, 1, 0, 0,
+										0, 0, 1, 0,
+										0, 0, 0, 1],
+										SKU: Noeud[0].visor.visorElements.SKU
+									},
+									{
+										parentLocalId: 1,
+										localId: parseInt(`${Noeud[0].visor.visorLightFrame.localId}` + Date.now()),
+										matrix: [1, 0, 0, 0,
+										0, 1, 0, 0,
+										0, 0, 1, 0,
+										0, 0, 0, 1],
+										SKU: Noeud[0].visor.visorLightFrame.SKU
+									},
+									{
+										parentLocalId: 1,
+										localId: parseInt(`${Noeud[0].screw.screwsTopVisor.localId}` + Date.now()),
+										matrix: [1, 0, 0, 0,
+										0, 1, 0, 0,
+										0, 0, 1, 0,
+										0, 0, 0, 1],
+										SKU: Noeud[0].screw.screwsTopVisor.SKU
+									}
+								],
+							localIdsToRemove :
+								localIdToRemove
+						}, "*");
+					localIdToRemove = [];
+					setLoader(false);
+				}
+			break;
+			default:
+			console.log('no default theme')
+		}
+		setTimeout(() => {
+			viewerIframe.postMessage({
+				action : 'setMaterialsGroups',
+				values : 
+					[
+						{
+							configurationName : `${standardValue.Visor_peak_type}|${standardValue.Visor_peak_color}`,
+							groupName : 'Peak_color'
+						},
+						{
+							configurationName : `${standardValue.Visor_color}`,
+							groupName : 'Visor_color'
+						}		
+					]
+			}, '*');
+		setLoader(true);
+		}, '2000');
 	}
-	setTimeout(() => {
-		viewerIframe.postMessage({
-			action : 'setMaterialsGroups',
-			values : 
-				[
-					{
-						configurationName : `${standardValue.Visor_peak_type}|${standardValue.Visor_peak_color}`,
-						groupName : 'Peak_color'
-					},
-					{
-						configurationName : `${standardValue.Visor_color}`,
-						groupName : 'Visor_color'
-					}		
-				]
-		}, '*');
-	setLoader(true);
-	}, '2000');
+	else {
+		viewerIframe.postMessage(
+			{
+				action : "updateProductNodesInstances",
+				nodesToAdd :
+					[],
+				localIdsToRemove :
+					localIdToRemove
+			}, "*");
+		localIdToRemove = [];
+	}
 }
 
 export default VisorChoice;

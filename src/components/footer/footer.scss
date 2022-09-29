@@ -426,7 +426,7 @@ svg#menu_option {
 		margin-left: 2rem;
 	}
 	.sd-tabs > .sd-tab-content {
-		height: 30vh;
+		height: 230px;
 		
 	}
 	svg#menu_option {
@@ -435,6 +435,9 @@ svg#menu_option {
 	}
 }
 @media (min-width : 1024px) {
+	.sd-tabs > .sd-tab-content {
+    height: 230px;
+	}
 	.sd-tabs > .sd-tab-label::after,
 	.sd-tabs > .sd-tab-label::before {
 		width: 150%;
