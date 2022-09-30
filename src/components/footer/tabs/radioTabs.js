@@ -1,7 +1,6 @@
 import HelmetTabs from "./helmetTabs";
 import VisorTabs from "./visorTabs";
 import ChinTabs from "./chinTabs";
-import Noeud from "../../../../assets/json/helmetid";
 
 const radioTabs = ({
 	id,

@@ -1,4 +1,3 @@
-const { useState } = wp.element;
 import ArrowLeft from '../../../../../assets/images/arrow_left.svg';
 import ArrowRight from '../../../../../assets/images/arrow_right.svg';
 import ElementData from '../../../../../assets/json/elementChin';

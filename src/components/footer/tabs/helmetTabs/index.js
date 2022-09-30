@@ -1,4 +1,4 @@
-const { useState, useEffect } = wp.element;
+const { useEffect } = wp.element;
 import ArrowLeft from '../../../../../assets/images/arrow_left.svg';
 import ArrowRight from '../../../../../assets/images/arrow_right.svg';
 import ElementData from '../../../../../assets/json/elementHelmet';

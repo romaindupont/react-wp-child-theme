@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "My WordPress theme with React",
   "main": "index.js",
-  "dependencies": {},
   "devDependencies": {
     "@wordpress/scripts": "^5.1.0"
   },

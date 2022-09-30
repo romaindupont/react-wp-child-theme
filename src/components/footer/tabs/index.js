@@ -1,5 +1,4 @@
 import RadioTabs from "./radioTabs";
-const { useState } = wp.element;
 
 const Tabs = ({
 	aerationHelmet,
@@ -32,16 +31,6 @@ const Tabs = ({
 	tabsCheck,
 	setTabsCheck
 }) => {
-/* 	const [ tabsChoice, setTabsChoice ] = useState({
-		helmet: true,
-		chin: false,
-		visor: false
-	});
-	const [ tabsCheck, setTabsCheck ] = useState({
-		helmetCheck: true,
-		chinCheck: false,
-		visorCheck: false
-	}); */
 	return (
 		<div className="sd-tabs">
 			<RadioTabs 

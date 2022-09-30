@@ -76,6 +76,7 @@ const Veldt = () => {
 				setNodesConfiguration = {setNodesConfiguration}
 				nodesConfiguration = {nodesConfiguration}
 				tabsChoice = {tabsChoice}
+				setTabsChoice = {setTabsChoice}
 			/>
 			<Footer
 				aerationHelmet = {aerationHelmet}

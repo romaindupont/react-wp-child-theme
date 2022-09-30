@@ -44,7 +44,7 @@ const Body = ({
 	tabsChoice
 }) => {
 	let viewerIframe = null;
-	let viewerActive = false;
+	let viewerActive = null;
 	const notInitialRender = useRef(false);
 	const notInitialRenderTwo = useRef(false);
 	const notInitialRenderThree = useRef(false);
@@ -279,14 +279,14 @@ useEffect(() => {
 	}, [tabsChoice]);
 	useEffect(() => {
 		if (notInitialRenderHeight.current) {
-			AerationChin(aerationChin, nodesConfiguration, setLoader, standardValue);
+			AerationChin(aerationChin, nodesConfiguration, setLoader, standardValue, tabsChoice);
 		} else {
 			notInitialRenderHeight.current = true;
 		}
 	}, [aerationChin]);
 	useEffect(() => {
 		if (notInitialRenderHeight.current) {
-			PatternChin(standardValue, aerationChin, nodesConfiguration, setLoader);
+			PatternChin(standardValue, aerationChin, nodesConfiguration, setLoader, tabsChoice);
 		} else {
 			notInitialRenderHeight.current = true;
 		}

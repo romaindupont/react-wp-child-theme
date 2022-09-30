@@ -1,4 +1,3 @@
-
 import { useHorizontalScroll } from "../../../../../../utils/useHorizontalScroll";
 import PatternChinBand from "../../svg/PatternChin/PatternChinBand";
 import PatternChinChecker from "../../svg/PatternChin/PatternChinChecker";

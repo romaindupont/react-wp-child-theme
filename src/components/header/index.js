@@ -1,5 +1,4 @@
 import VeldtLogo from '../../../assets/images/veldt-logo.svg';
-const { useState, useEffect } = wp.element;
 
 const Header = () => {
   return (
