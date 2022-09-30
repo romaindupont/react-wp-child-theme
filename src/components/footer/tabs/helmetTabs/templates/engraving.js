@@ -2,7 +2,7 @@ const { useState } = wp.element;
 import Right from "../../svg/Right";
 import Wrong from "../../svg/Wrong";
 
-const Engraving = ({backEngraving, setBackEngraving, fileNames}) => {
+const Engraving = ({backEngraving, setBackEngraving, fileNames, traduction}) => {
 	const [ openWindow, setOpenWindow ] = useState(false);
 	const [ engravingInput, setEngravingInput ] = useState({
 		text: 'VELDT',
@@ -40,11 +40,11 @@ const Engraving = ({backEngraving, setBackEngraving, fileNames}) => {
 		<div className="numberChoice">
 			{
 				!backEngraving ? 
-					<button className="buttonAdd" onClick={() => setBackEngraving(true) & setOpenWindow(true)}>{`\u002B`} Add</button>
+					<button className="buttonAdd" onClick={() => setBackEngraving(true) & setOpenWindow(true)}>{`\u002B`} {traduction.Add}</button>
 				:
 				<div className="numberButton">
-					<button className="buttonAdd" onClick={() => setBackEngraving(false) & setOpenWindow(false)}>{`\u002D`} Delete</button>
-					<button className="buttonAdd" onClick={() => setBackEngraving(false) & setOpenWindow(true)}>{`\u002B`} Modify</button>
+					<button className="buttonAdd" onClick={() => setBackEngraving(false) & setOpenWindow(false)}>{`\u002D`} {traduction.Delete}</button>
+					<button className="buttonAdd" onClick={() => setBackEngraving(false) & setOpenWindow(true)}>{`\u002B`} {traduction.Modify}</button>
 				</div>
 			}
 			<div className={!openWindow ? "numberWindows" : "openNumberWindows"}>

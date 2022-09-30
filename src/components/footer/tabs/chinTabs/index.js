@@ -21,25 +21,33 @@ const ChinTabs = ({
 	chinPosition,
 	setChinPosition
 }) => {
+	let language = document.querySelector('html').lang;
+	let elementsOfChin = ElementData[0].en;
+	if (language.includes('fr')) {
+		elementsOfChin = ElementData[0].fr;
+	}
+	if (language.includes('es')) {
+		elementsOfChin = ElementData[0].en;
+	}
 	const minus = () => {
 		let position = chinPosition.position -= 1;
 		if (position === -1) {
-			position = ElementData.length - 1
+			position = elementsOfChin.length - 1
 		}
 		setChinPosition({
-			title: ElementData[position].title,
-			fileName: ElementData[position].fileName,
+			title: elementsOfChin[position].title,
+			fileName: elementsOfChin[position].fileName,
 			position: position
 		})
 	}
 	const plus = () => {
 		let position = chinPosition.position += 1;
-		if (position === ElementData.length) {
+		if (position === elementsOfChin.length) {
 			position = 0
 		}
 		setChinPosition({
-			title: ElementData[position].title,
-			fileName: ElementData[position].fileName,
+			title: elementsOfChin[position].title,
+			fileName: elementsOfChin[position].fileName,
 			position: position
 		})
 	}
@@ -47,7 +55,7 @@ const ChinTabs = ({
 		<div className="infos chinguard">
 			<div className="elementChoice">
 					<img className="leftChoice direction" src={ArrowLeft} alt="left direction" onClick={minus}/>
-					<h3 className="elementPicker">{chinPosition.title} <span className="numberStep">{chinPosition.position+1}/{ElementData.length}</span></h3>	
+					<h3 className="elementPicker">{chinPosition.title} <span className="numberStep">{chinPosition.position+1}/{elementsOfChin.length}</span></h3>	
 					<img className="rightChoice direction" src={ArrowRight} alt="right direction" onClick={plus}/>
 			</div>
 			<div className="template">

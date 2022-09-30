@@ -1,4 +1,5 @@
-export default [
+export default [{
+	"en": [
 	{
 		fileName : 'aeration',
 		title: 'aeration',
@@ -79,4 +80,87 @@ export default [
 		title: 'size and certification',
 		helpMessage: 'Choose the helmet size and the certification'
 	},
-]
+],
+"fr": [
+		{
+			fileName : 'aeration',
+			title: 'aération',
+			helpMessage: 'Choisir d\'ajouter ou d\'enlever les aérations'
+		},
+		{
+			fileName : 'screw',
+			title: 'vis et rivets',
+			helpMessage: 'Choisir la position des vis et rivets'
+		},
+		{
+			fileName : 'pattern',
+			title: 'modèle',
+			helpMessage: 'Choisir le modèle à appliquer'
+		},
+		{
+			fileName : 'main-color',
+			title: 'couleur principale',
+			helpMessage: 'Choisir la couleur principale'
+		},
+		{
+			fileName : 'pattern-color',
+			title: 'couleur du modèle',
+			helpMessage: 'Choix de la couleur du modèle et de la finition'
+		},
+		{
+			fileName : 'varnish',
+			title: 'vernis',
+			helpMessage: 'Choisir la finition vernis'
+		},
+		{
+			fileName : 'right-number',
+			title: 'numéro droite',
+			helpMessage: 'Appliquer un numéro du côté droit du casque, choisir également le style'
+		},
+		{
+			fileName : 'left-number',
+			title: 'numéro gauche',
+			helpMessage: 'Appliquer un numéro du côté gauche du casque, choisir également le style'
+		},
+		{
+			fileName : 'back-number',
+			title: 'numéro arrière',
+			helpMessage: 'Appliquer un numéro à l\'arrière du casque, choisir également le style'
+		},
+		{
+			fileName : 'logo',
+			title: 'logo',
+			helpMessage: 'Choisir entre différente proposition de logo Veldt et sélectionner la couleur'
+		},
+		{
+			fileName : 'interior',
+			title: 'interieur',
+			helpMessage: 'Choisir le revêtement de l\'intérieur du casque'
+		},
+		{
+			fileName : 'trim',
+			title: 'jonc',
+			helpMessage: 'Choisir la couleur du jonc'
+		},
+		{
+			fileName : 'metal-parts',
+			title: 'pièces métalliques',
+			helpMessage: 'Choisir la couleur des pièces métalliques'
+		},
+		{
+			fileName : 'zippers',
+			title: 'Fermeture',
+			helpMessage: 'Choisir le type de fermeture entre deux technologies'
+		},
+		{
+			fileName : 'engraving',
+			title: 'Gravures',
+			helpMessage: 'Choisir le texte à appliquer sur la gravure à l\'arrière du casque'
+		},
+		{
+			fileName : 'size',
+			title: 'taille et certification',
+			helpMessage: 'Choisir la taille et certification'
+		},
+	]
+}]

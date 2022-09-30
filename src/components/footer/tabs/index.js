@@ -30,18 +30,9 @@ const Tabs = ({
 	tabsChoice,
 	setTabsChoice,
 	tabsCheck,
-	setTabsCheck
+	setTabsCheck,
+	traduction
 }) => {
-/* 	const [ tabsChoice, setTabsChoice ] = useState({
-		helmet: true,
-		chin: false,
-		visor: false
-	});
-	const [ tabsCheck, setTabsCheck ] = useState({
-		helmetCheck: true,
-		chinCheck: false,
-		visorCheck: false
-	}); */
 	return (
 		<div className="sd-tabs">
 			<RadioTabs 
@@ -72,6 +63,8 @@ const Tabs = ({
 				helmetPosition = {helmetPosition}
 				setHelmetPosition	= {setHelmetPosition}
 				nodesConfiguration = {nodesConfiguration}
+				traductionTitle = {traduction.HelmetTitle}
+				traduction = {traduction}
 			/>
 			<RadioTabs 
 				id = 'tabtwo'
@@ -91,6 +84,8 @@ const Tabs = ({
 				chinPosition = {chinPosition}
 				setChinPosition = {setChinPosition}
 				nodesConfiguration = {nodesConfiguration}
+				traductionTitle = {traduction.ChinTitle}
+				traduction = {traduction}
 			/>
 			<RadioTabs 
 				id = 'tabthree'
@@ -104,6 +99,8 @@ const Tabs = ({
 				setStandardValue = {setStandardValue}
 				standardValue = {standardValue}
 				nodesConfiguration = {nodesConfiguration}
+				traductionTitle = {traduction.VisorTitle}
+				traduction = {traduction}
 			/>
 		</div>
 	)

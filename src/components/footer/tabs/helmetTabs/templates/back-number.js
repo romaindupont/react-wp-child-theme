@@ -6,7 +6,7 @@ import DirtNumber from "../../svg/Number/DirtNumber";
 import PixelNumber from "../../svg/Number/PixelNumber";
 import RacingNumber from "../../svg/Number/RacingNumber";
 
-const BackNumber = ({backNumberWindow, setBackNumberWindow, fileNames}) => {
+const BackNumber = ({backNumberWindow, setBackNumberWindow, fileNames, traduction}) => {
 	const [ openWindow, setOpenWindow ] = useState(false);
 	const [ backNumberInput, setBackNumberInput ] = useState({
 		numberText: '08',
@@ -56,14 +56,14 @@ const BackNumber = ({backNumberWindow, setBackNumberWindow, fileNames}) => {
 		<div className="numberChoice">
 			{
 				!backNumberWindow ? 
-					<button className="buttonAdd" onClick={() => setBackNumberWindow(true) & setOpenWindow(true)}>{`\u002B`} Add</button> : 
+					<button className="buttonAdd" onClick={() => setBackNumberWindow(true) & setOpenWindow(true)}>{`\u002B`} {traduction.Add}</button> : 
 					<div className="numberButton">
-						<button className="buttonAdd" onClick={() => setBackNumberWindow(false) & setOpenWindow(false)}>{`\u002D`} Delete</button>
-						<button className="buttonAdd" onClick={() => setBackNumberWindow(false) & setOpenWindow(true)}>{`\u002B`} Modify</button>
+						<button className="buttonAdd" onClick={() => setBackNumberWindow(false) & setOpenWindow(false)}>{`\u002D`} {traduction.Delete}</button>
+						<button className="buttonAdd" onClick={() => setBackNumberWindow(false) & setOpenWindow(true)}>{`\u002B`} {traduction.Modify}</button>
 					</div>
 			}
 			<div className={!openWindow ? "numberWindows" : "openNumberWindows" }>
-				<p className="infosNumber">Choose your style and your number</p>
+				<p className="infosNumber">{traduction.NumberStyleTitle}</p>
 				<div className="chooseWindows">
 					<div className="chooseWindows_input">
 						<input type="number" name="numberSelection" id="numberSelection" onChange={(e)=>setBackNumberInput({...backNumberInput, numberText: e.target.value })} />

@@ -3,6 +3,7 @@ import './style.scss';
 import Header from './components/header';
 import Body from './components/body';
 import Footer from './components/footer';
+import Traduction from '../assets/json/elementHTML';
 
 const Veldt = () => {
 	const [ standardValue, setStandardValue ] = useState({
@@ -56,10 +57,18 @@ const Veldt = () => {
 		chinCheck: false,
 		visorCheck: false
 	});
+	let language = document.querySelector('html').lang;
+	let traduction = Traduction[0].en[0];
+	if (language.includes('fr')) {
+		traduction = Traduction[0].fr[0];
+	}
+	if (language.includes('es')) {
+		traduction = Traduction[0].en[0];
+	}
   return (
 		<div className='veldtConfig'>
 			{!loader && <div className="load"><div className="loader"></div></div>}
-			<Header />
+			<Header traduction = {traduction} />
 			<Body
 				aerationHelmet = {aerationHelmet}
 				screwPosition = {screwPosition} 
@@ -104,6 +113,8 @@ const Veldt = () => {
 				setTabsChoice = {setTabsChoice}
 				tabsCheck = {tabsCheck}
 				setTabsCheck = {setTabsCheck}
+				traduction = {traduction}
+				setScreenshotsWait = {setScreenshotsWait}
 			/>
 		</div>
   );

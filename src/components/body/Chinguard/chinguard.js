@@ -37,7 +37,7 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 		if (nodes.SKU === 'screwsSide_noChinguard') {
 			localIdToRemove.push(nodes.localId)
 		}
-	}) 
+	})
 	if (tabsChoice.chin) {
 		if (!aerationChin) {
 		if (standardValue.Chinguard_design === 'plain' || standardValue.Chinguard_design === '') {

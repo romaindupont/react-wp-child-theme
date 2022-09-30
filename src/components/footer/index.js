@@ -33,22 +33,36 @@ const Footer = ({
 	tabsChoice,
 	setTabsChoice,
 	tabsCheck,
-	setTabsCheck
+	setTabsCheck,
+	traduction,
+	setScreenshotsWait
 }) => {
 	const [ openOptionMenu, setOpenOptionMenu ] = useState({
 			name: '',
 			open: false
 	});
+	let language = document.querySelector('html').lang;
+	let elementsOfChin = ElementDataChin[0].en;
+	let elementsOfHelmet = ElementData[0].en;
+	if (language.includes('fr')) {
+		elementsOfChin = ElementDataChin[0].fr;
+		elementsOfHelmet = ElementData[0].fr;
+	}
+	if (language.includes('es')) {
+		elementsOfChin = ElementDataChin[0].en;
+		elementsOfHelmet = ElementData[0].en;
+	}
 	const [ helmetPosition, setHelmetPosition ] = useState({
-		title: ElementData[0].title,
-		fileName: ElementData[0].fileName,
+		title: elementsOfHelmet[0].title,
+		fileName: elementsOfHelmet[0].fileName,
 		position: 0,
-		helpMessage : ElementData[0].helpMessage
+		helpMessage : elementsOfHelmet[0].helpMessage
 	});
 	const [ chinPosition, setChinPosition ] = useState({
-		title: ElementDataChin[0].title,
-		fileName: ElementDataChin[0].fileName,
-		position: 0
+		title: elementsOfChin[0].title,
+		fileName: elementsOfChin[0].fileName,
+		position: 0,
+		helpMessage : elementsOfChin[0].helpMessage
 	});
 	return (
 		<footer className="footer-configurator">
@@ -83,10 +97,11 @@ const Footer = ({
 				setTabsChoice = {setTabsChoice}
 				tabsCheck = {tabsCheck}
 				setTabsCheck = {setTabsCheck}
+				traduction = {traduction}
 			/>
 			{openOptionMenu.open && openOptionMenu.name === 'menuOption' && <MenuOption setOpenOptionMenu = {setOpenOptionMenu} />}
-			{openOptionMenu.open && openOptionMenu.name === 'help' && <PopupHelp setOpenOptionMenu = {setOpenOptionMenu} helmetPosition = {helmetPosition} />}
-			{openOptionMenu.open && openOptionMenu.name === 'export' && screenshotsWait.wait  && <ExportWindows setOpenOptionMenu = {setOpenOptionMenu} screenshotsWait = {screenshotsWait} />}
+			{openOptionMenu.open && openOptionMenu.name === 'help' && <PopupHelp setOpenOptionMenu = {setOpenOptionMenu} helmetPosition = {helmetPosition} chinPosition = {chinPosition} tabsCheck = {tabsCheck}/>}
+			{openOptionMenu.open && openOptionMenu.name === 'export' && screenshotsWait.wait  && <ExportWindows setOpenOptionMenu = {setOpenOptionMenu} screenshotsWait = {screenshotsWait} traduction = {traduction} setScreenshotsWait = {setScreenshotsWait} />}
 		</footer>
 	)
 }

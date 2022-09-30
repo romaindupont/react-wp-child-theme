@@ -39,30 +39,39 @@ const HelmetTabs = ({
 	setBackEngraving,
 	helmetPosition,
 	setHelmetPosition,
-	nodesConfiguration
+	nodesConfiguration,
+	traduction
 }) => {
+	let language = document.querySelector('html').lang;
+	let elementsOfHelmet = ElementData[0].en;
+	if (language.includes('fr')) {
+		elementsOfHelmet = ElementData[0].fr;
+	}
+	if (language.includes('es')) {
+		elementsOfHelmet = ElementData[0].en;
+	}
 	const minus = () => {
 		let position = helmetPosition.position -= 1;
 		if (position === -1) {
-			position = ElementData.length - 1
+			position = elementsOfHelmet.length - 1
 		}
 		setHelmetPosition({
-			title: ElementData[position].title,
-			fileName: ElementData[position].fileName,
+			title: elementsOfHelmet[position].title,
+			fileName: elementsOfHelmet[position].fileName,
 			position: position,
-			helpMessage : ElementData[position].helpMessage
+			helpMessage : elementsOfHelmet[position].helpMessage
 		})
 	}
 	const plus = () => {
 		let position = helmetPosition.position += 1;
-		if (position === ElementData.length) {
+		if (position === elementsOfHelmet.length) {
 			position = 0
 		}
 		setHelmetPosition({
-			title: ElementData[position].title,
-			fileName: ElementData[position].fileName,
+			title: elementsOfHelmet[position].title,
+			fileName: elementsOfHelmet[position].fileName,
 			position: position,
-			helpMessage : ElementData[position].helpMessage
+			helpMessage : elementsOfHelmet[position].helpMessage
 		})
 	}
 	useEffect(() => {
@@ -72,7 +81,7 @@ const HelmetTabs = ({
 		<div className="infos helmet">
 			<div className="elementChoice">
 				<img className="leftChoice direction" src={ArrowLeft} alt="left direction" onClick={minus}/>
-				<h3 className="elementPicker">{helmetPosition.title} <span className="numberStep">{helmetPosition.position+1}/{ElementData.length}</span></h3>	
+				<h3 className="elementPicker">{helmetPosition.title} <span className="numberStep">{helmetPosition.position+1}/{elementsOfHelmet.length}</span></h3>	
 				<img className="rightChoice direction" src={ArrowRight} alt="right direction" onClick={plus}/>
 			</div>
 			<div className="template">
@@ -81,18 +90,21 @@ const HelmetTabs = ({
 						<Aeration 
 							aerationHelmet = {aerationHelmet}
 							setAerationHelmet = {setAerationHelmet}
+							traduction = {traduction}
 						/> :  
 					helmetPosition.fileName === 'back-number' ?
 						<BackNumber
 							setBackNumberWindow = {setBackNumberWindow}
 							backNumberWindow = {backNumberWindow}
 							fileNames = 'back'
+							traduction = {traduction}
 						/> :
 					helmetPosition.fileName === 'engraving' ?
 						<Engraving 
 							backEngraving = {backEngraving}
 							setBackEngraving = {setBackEngraving}
 							fileNames = 'engraving'
+							traduction = {traduction}
 						/> :
 					helmetPosition.fileName === 'interior' ?
 						<Interior
@@ -104,11 +116,13 @@ const HelmetTabs = ({
 							leftNumberWindow = {leftNumberWindow}
 							setLeftNumberWindow = {setLeftNumberWindow}
 							fileNames = 'left'
+							traduction = {traduction}
 						/> :
 					helmetPosition.fileName === 'logo' ?
 						<Logo
 							setStandardValue = {setStandardValue}
 							standardValue = {standardValue}
+							traduction = {traduction}
 						/> :
 					helmetPosition.fileName === 'main-color' ?
 						<MainColor
@@ -135,6 +149,7 @@ const HelmetTabs = ({
 							rightNumberWindow = {rightNumberWindow}
 							setRightNumberWindow = {setRightNumberWindow}
 							fileNames = 'right'
+							traduction = {traduction}
 						/> :
 					helmetPosition.fileName === 'screw' ?
 						<Screw

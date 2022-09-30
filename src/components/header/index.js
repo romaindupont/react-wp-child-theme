@@ -1,7 +1,6 @@
 import VeldtLogo from '../../../assets/images/veldt-logo.svg';
-const { useState, useEffect } = wp.element;
 
-const Header = () => {
+const Header = ({traduction}) => {
   return (
 		<header className="configurator-header">
 			<div className="header-configurator">
@@ -13,18 +12,18 @@ const Header = () => {
 				</div>
 				<div className="header-configurator-right">
 					<div className="header-configurator-right-priceZone">
-						<div className="header-configurator-right-priceZone-price">950<span>€</span></div>
+						<div className="header-configurator-right-priceZone-price">950<span>{traduction.Money}</span></div>
 						<button
 							type="submit"
 							name="add"
 							className="header-configurator-right-priceZone-buy"
 						>
 							<span>
-								Buy it
+								{traduction.BuyIT}
 							</span>
 						</button>
 					</div>
-					<div className="header-configurator-right-comment">Free delivery 10 weeks</div>
+					<div className="header-configurator-right-comment">{traduction.FreeDelivery}</div>
 				</div>
 			</div>
 		</header>

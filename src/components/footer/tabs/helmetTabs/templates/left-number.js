@@ -8,7 +8,7 @@ import Wrong from "../../svg/Wrong";
 
 
 
-const LeftNumber = ({leftNumberWindow, setLeftNumberWindow, fileNames}) => {
+const LeftNumber = ({leftNumberWindow, setLeftNumberWindow, fileNames, traduction}) => {
 	const [ openWindow, setOpenWindow ] = useState(false);
 	const [ leftNumberInput, setLeftNumberInput ] = useState({
 		numberText: '08',
@@ -58,15 +58,15 @@ const LeftNumber = ({leftNumberWindow, setLeftNumberWindow, fileNames}) => {
 		<div className="numberChoice">
 			{
 				!leftNumberWindow ? 
-					<button className="buttonAdd" onClick={() => setLeftNumberWindow(true) & setOpenWindow(true)}>{`\u002B`} Add</button> 
+					<button className="buttonAdd" onClick={() => setLeftNumberWindow(true) & setOpenWindow(true)}>{`\u002B`} {traduction.Add}</button> 
 				:
 					<div className="numberButton">
-						<button className="buttonAdd" onClick={() => setLeftNumberWindow(false) & setOpenWindow(false)}>{`\u002D`} Delete</button>
-						<button className="buttonAdd" onClick={() => setLeftNumberWindow(false) & setOpenWindow(true)}>{`\u002B`} Modify</button>
+						<button className="buttonAdd" onClick={() => setLeftNumberWindow(false) & setOpenWindow(false)}>{`\u002D`} {traduction.Delete}</button>
+						<button className="buttonAdd" onClick={() => setLeftNumberWindow(false) & setOpenWindow(true)}>{`\u002B`} {traduction.Modify}</button>
 					</div>
 			}
 			<div className={!openWindow ? "numberWindows" : "openNumberWindows"}>
-				<p className="infosNumber">Choose your style and your number</p>
+				<p className="infosNumber">{traduction.NumberStyleTitle}</p>
 				<div className="chooseWindows">
 					<div className="chooseWindows_input">
 						<input type="number" name="numberSelection" id="numberSelection" onChange={(e) => setLeftNumberInput({...leftNumberInput, numberText: e.target.value })}/>
