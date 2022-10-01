@@ -5,6 +5,7 @@ import PixelNumber from "../../svg/Number/PixelNumber";
 import RacingNumber from "../../svg/Number/RacingNumber";
 import Right from "../../svg/Right";
 import Wrong from "../../svg/Wrong";
+import { useHorizontalScroll } from "../../../../../../utils/useHorizontalScroll";
 
 const RightNumber = ({rightNumberWindow, setRightNumberWindow, fileNames, traduction}) => {
 	const [ openWindow, setOpenWindow ] = useState(false);
@@ -51,6 +52,19 @@ const RightNumber = ({rightNumberWindow, setRightNumberWindow, fileNames, traduc
 					}
 				]
 		}, '*');
+	}
+	const scrollRef = useHorizontalScroll();
+	const scrollEffect = (e) => {
+		let ratio = 4.5;
+		if(e.target.getBoundingClientRect().width < 900) {
+			let calcul = e.target.clientWidth/ratio - e.target.scrollLeft;
+			if (calcul < `-${e.target.clientWidth/5}`) {
+				e.target.style.transform = `translate3d(-${calcul}, 0px, 0px)`; 
+			}
+			else {
+				e.target.style.transform = `translate3d(${calcul}px, 0px, 0px)`; 
+			}
+		}
 	}
 	return (
 		<div className="numberChoice">
@@ -101,7 +115,7 @@ const RightNumber = ({rightNumberWindow, setRightNumberWindow, fileNames, traduc
 					<span className={rightNumberInput.numberColorType === 'glitter' ? 'selectButton' : 'buttonChoice'}  onClick={() => setRightNumberInput({...rightNumberInput, numberColorType:'glitter'}) & okClic()}>Glitter</span>
 					<span className={rightNumberInput.numberColorType === 'gilding' ? 'selectButton' : 'buttonChoice'} onClick={() => setRightNumberInput({...rightNumberInput, numberColorType:'gilding'}) & okClic()}>Gilding</span>
 				</div>
-				<div className="colorList">
+				<div className="colorList" onScroll={scrollEffect} ref={scrollRef}>
 					{rightNumberInput.numberColorType === 'plain' ? 
 					<>
 						<div className={rightNumberInput.numberColor === 'carbon' ? 'selectColor' : 'colorP'} onClick={() => setRightNumberInput({...rightNumberInput, numberColor:'carbon'}) & okClic()}><div className="roundColor carbon"></div><span className="textAction">Carbon</span></div>

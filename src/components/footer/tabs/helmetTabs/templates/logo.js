@@ -9,16 +9,30 @@ import LogoSquare from "../../svg/Logo/LogoSquare";
 import LogoText from "../../svg/Logo/LogoText";
 import LogoV from "../../svg/Logo/LogoV";
 import LogoVText from "../../svg/Logo/LogoVText";
+import { useHorizontalScroll } from "../../../../../../utils/useHorizontalScroll";
 
 const Logo = ({setStandardValue, standardValue, traduction}) => {
+	const scrollRef = useHorizontalScroll();
+	const scrollEffect = (e) => {
+		let ratio = 4.5;
+		if(e.target.getBoundingClientRect().width < 900) {
+			let calcul = e.target.clientWidth/ratio - e.target.scrollLeft;
+			if (calcul < `-${e.target.clientWidth/5}`) {
+				e.target.style.transform = `translate3d(-${calcul}, 0px, 0px)`; 
+			}
+			else {
+				e.target.style.transform = `translate3d(${calcul}px, 0px, 0px)`; 
+			}
+		}
+	}
 	return (
 		<>
 		<div className="sizeChoice">
-			<span className={standardValue.Logo_color === 'none' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Logo_color:'none'})}>{traduction.Nologo}</span>
+			<span className={standardValue.Logo_color === 'none' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Logo_color:'none'})}>{traduction.None}</span>
 			<span className={standardValue.Logo_color === 'white' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Logo_color:'white'})}>{traduction.White}</span>
 			<span className={standardValue.Logo_color === 'black' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Logo_color:'black'})}>{traduction.Black}</span>
 		</div>
-		<div className="patternList">
+		<div className="patternList" onScroll={scrollEffect} ref={scrollRef}>
 			<div className={standardValue.Logo === 'Boxed_Multiply' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Logo:'Boxed_Multiply'})}>
 				<LogoBoxedMultiply />
 				<span className="textAction">Boxed-Multiply</span>

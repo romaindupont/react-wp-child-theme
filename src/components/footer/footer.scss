@@ -313,7 +313,7 @@ svg#menu_option {
 	svg#menu_option {
 		display: none;
 	}
-	.helmet{
+	.helmet, .chinguard {
 		display: flex;
 		flex-direction: column;
 	}
@@ -433,6 +433,60 @@ svg#menu_option {
 		display: block;
 		margin-right: 2rem;
 	}
+	.elementChoice {
+		width: 100vw;
+		justify-content: space-evenly;
+	}
+	.helmet, .chinguard, .visor {
+		margin-top: 55px;
+	}
+	.elementPicker {
+		width: 300px;
+	}
+	.info_logo {
+		top: -100px;
+		left: 30px;
+	}
+	.export {
+		top: -100px;
+		right: 30px;
+		margin: 0;
+	}
+	.patternList, .colorList {
+		overflow-x: scroll;
+		overflow-y: hidden;
+	}
+	.colorListType, .sizeChoice, .certifChoice {
+		width: 100vw;
+		justify-content: space-evenly;
+	}
+	.colorList {
+		width: 90%;
+	}
+	.openColorList {
+		width: 100vw;
+		display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+	}
+	.openColorList > .colorListType {
+    width: 100vw;
+	}
+	.exportWindow {
+		height: 100vh;
+	}
+	.inputVisorChoice {
+		justify-content: space-evenly;
+	}
+	.menu_option {
+		top: -100%;
+	}
+	.peak_visor_page > .colorListType {
+    margin-top: 0.5rem;
+    height: 50%;
+    justify-content: space-evenly;
+    width: 100vw;
+}
 }
 @media (min-width : 1024px) {
 	.sd-tabs > .sd-tab-content {
@@ -652,6 +706,7 @@ and (min-width : 1824px) {
 .buttonAdd {
 	background:  var(--color-principal);
   color:  var(--color-second);
+	border: 2px solid var(--color-principal);
 }
 .inputVisorChoice input[type="radio"]:checked + label {
 	background:var(--color-second);
@@ -1063,7 +1118,7 @@ input#textSelection {
 	position: relative;
 	display: flex;
 	margin: 0;
-	justify-content: center;
+	/* justify-content: center; */
 }
 
 .inputVisor, .inputVisor_peak {

@@ -1,4 +1,3 @@
-
 import { useHorizontalScroll } from "../../../../../../utils/useHorizontalScroll";
 import PatternChinBand from "../../svg/PatternChin/PatternChinBand";
 import PatternChinChecker from "../../svg/PatternChin/PatternChinChecker";
@@ -27,7 +26,7 @@ const Pattern = ({setStandardValue,	standardValue}) => {
 		}
 	}
 	return (
-		<div className="patternList" onScroll={scrollEffect} ref={scrollRef} style={{ overflow: "auto" }}>
+		<div className="patternList" onScroll={scrollEffect} ref={scrollRef} >
 			<div className={standardValue.Chinguard_design === 'band' ? 'Select' : 'allScrew'} onClick={()=>setStandardValue({...standardValue, Chinguard_design:'band'})}>
 				<PatternChinBand />
 				<span className="textAction">Band</span>

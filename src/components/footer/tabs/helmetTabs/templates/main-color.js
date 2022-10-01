@@ -1,4 +1,19 @@
+import { useHorizontalScroll } from "../../../../../../utils/useHorizontalScroll";
+
 const MainColor = ({setStandardValue, standardValue}) => {
+	const scrollRef = useHorizontalScroll();
+	const scrollEffect = (e) => {
+		let ratio = 4.5;
+		if(e.target.getBoundingClientRect().width < 900) {
+			let calcul = e.target.clientWidth/ratio - e.target.scrollLeft;
+			if (calcul < `-${e.target.clientWidth/5}`) {
+				e.target.style.transform = `translate3d(-${calcul}, 0px, 0px)`; 
+			}
+			else {
+				e.target.style.transform = `translate3d(${calcul}px, 0px, 0px)`; 
+			}
+		}
+	}
 	return (
 		<>
 		<div className="colorListType">
@@ -7,7 +22,7 @@ const MainColor = ({setStandardValue, standardValue}) => {
 			<span className={standardValue.Helmet_color_type === 'glitter' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Helmet_color_type:'glitter'})}>Glitter</span>
 			<span className={standardValue.Helmet_color_type === 'gilding' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Helmet_color_type:'gilding'})}>Gilding</span>
 		</div>
-		<div className="colorList">
+		<div className="colorList" onScroll={scrollEffect} ref={scrollRef}>
 			{standardValue.Helmet_color_type === 'plain' ? 
 			<>
 				<div className={standardValue.Helmet_color === 'carbon' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'carbon'})}><div className="roundColor carbon"></div><span className="textAction">Carbon</span></div>

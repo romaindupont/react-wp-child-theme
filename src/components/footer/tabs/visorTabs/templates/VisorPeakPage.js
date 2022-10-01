@@ -1,4 +1,19 @@
+import { useHorizontalScroll } from "../../../../../../utils/useHorizontalScroll";
+
 const VisorPeakPage = ({setStandardValue,	standardValue}) => {
+	const scrollRef = useHorizontalScroll();
+	const scrollEffect = (e) => {
+		let ratio = 4.5;
+		if(e.target.getBoundingClientRect().width < 900) {
+			let calcul = e.target.clientWidth/ratio - e.target.scrollLeft;
+			if (calcul < `-${e.target.clientWidth/5}`) {
+				e.target.style.transform = `translate3d(-${calcul}, 0px, 0px)`; 
+			}
+			else {
+				e.target.style.transform = `translate3d(${calcul}px, 0px, 0px)`; 
+			}
+		}
+	}
 	return (
 		<div className="peak_visor_page">
 			<div className="colorListType">
@@ -11,7 +26,7 @@ const VisorPeakPage = ({setStandardValue,	standardValue}) => {
 				<input className="inputVisor_peak" type="radio" name="peak_visor" id="gilding" value="gilding" onClick={()=>setStandardValue({...standardValue, Visor_peak_type:'gilding'})}/>
 				<label className={standardValue.Visor_peak_type === 'gilding' ? 'selectButton' : 'buttonChoice'} htmlFor="gilding">Gilding</label>
 			</div>
-			<div className="colorList">
+			<div className="colorList" onScroll={scrollEffect} ref={scrollRef}>
 			{standardValue.Visor_peak_type === 'plain' ? 
 				<>
 					<div className={standardValue.Visor_peak_color === 'carbon' ? 'selectColor' : 'colorP'} onClick={()=>setStandardValue({...standardValue, Visor_peak_color:'carbon'})}><div className="roundColor carbon"></div><span className="textAction">Carbon</span></div>

@@ -5,6 +5,7 @@ import ClassicNumber from "../../svg/Number/ClassicNumber";
 import DirtNumber from "../../svg/Number/DirtNumber";
 import PixelNumber from "../../svg/Number/PixelNumber";
 import RacingNumber from "../../svg/Number/RacingNumber";
+import { useHorizontalScroll } from "../../../../../../utils/useHorizontalScroll";
 
 const BackNumber = ({backNumberWindow, setBackNumberWindow, fileNames, traduction}) => {
 	const [ openWindow, setOpenWindow ] = useState(false);
@@ -51,6 +52,19 @@ const BackNumber = ({backNumberWindow, setBackNumberWindow, fileNames, traductio
 					}
 				]
 		}, '*');
+	}
+	const scrollRef = useHorizontalScroll();
+	const scrollEffect = (e) => {
+		let ratio = 4.5;
+		if(e.target.getBoundingClientRect().width < 900) {
+			let calcul = e.target.clientWidth/ratio - e.target.scrollLeft;
+			if (calcul < `-${e.target.clientWidth/5}`) {
+				e.target.style.transform = `translate3d(-${calcul}, 0px, 0px)`; 
+			}
+			else {
+				e.target.style.transform = `translate3d(${calcul}px, 0px, 0px)`; 
+			}
+		}
 	}
 	return (
 		<div className="numberChoice">
@@ -101,7 +115,7 @@ const BackNumber = ({backNumberWindow, setBackNumberWindow, fileNames, traductio
 						<span className={backNumberInput.numberColorType === 'glitter' ? 'selectButton' : 'buttonChoice'}  onClick={() => setBackNumberInput({...backNumberInput, numberColorType:'glitter'}) & okClic()}>Glitter</span>
 						<span className={backNumberInput.numberColorType === 'gilding' ? 'selectButton' : 'buttonChoice'} onClick={() => setBackNumberInput({...backNumberInput, numberColorType:'gilding'}) & okClic()}>Gilding</span>
 					</div>
-					<div className="colorList">
+					<div className="colorList" onScroll={scrollEffect} ref={scrollRef}>
 						{backNumberInput.numberColorType === 'plain' ? 
 						<>
 							<div className={backNumberInput.numberColor === 'carbon' ? 'selectColor' : 'colorP'} onClick={() => setBackNumberInput({...backNumberInput, numberColor:'carbon'}) & okClic()}><div className="roundColor carbon"></div><span className="textAction">Carbon</span></div>
