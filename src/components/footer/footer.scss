@@ -390,6 +390,13 @@ svg#menu_option {
 	.sd-tabs > .sd-tab-content {
 		height: 40vh;
 	}
+	.whenNoEyes {
+    position: absolute;
+    top: 50px;
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+}
 }
 @media (min-width: 576px) { 
 	.sd-tabs > .sd-tab-label::after,
@@ -489,6 +496,9 @@ svg#menu_option {
 }
 }
 @media (min-width : 1024px) {
+	.whenNoEyes {
+		display: none;
+	}
 	.sd-tabs > .sd-tab-content {
     height: 230px;
 	}

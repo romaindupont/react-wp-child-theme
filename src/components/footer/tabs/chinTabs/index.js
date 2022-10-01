@@ -19,7 +19,9 @@ const ChinTabs = ({
 	varnishChin,
 	setVarnishChin,
 	chinPosition,
-	setChinPosition
+	setChinPosition,
+	setTabsChoice,
+	tabsChoice
 }) => {
 	let language = document.querySelector('html').lang;
 	let elementsOfChin = ElementData[0].en;
@@ -53,6 +55,15 @@ const ChinTabs = ({
 	}
 	return (
 		<div className="infos chinguard">
+				{!tabsChoice.chin ?
+					<div className="whenNoEyes">  
+						<button className="buttonAdd" onClick={() => setTabsChoice({...tabsChoice, chin: true})}>Ajouter</button>
+					</div>
+					 : 
+					 <div className="whenNoEyes">  
+					 	<button className="buttonAdd" onClick={() => setTabsChoice({...tabsChoice, chin: false})}>Supprimer</button>
+					</div>
+				}
 			<div className="elementChoice">
 					<img className="leftChoice direction" src={ArrowLeft} alt="left direction" onClick={minus}/>
 					<h3 className="elementPicker">{chinPosition.title} <span className="numberStep">{chinPosition.position+1}/{elementsOfChin.length}</span></h3>	

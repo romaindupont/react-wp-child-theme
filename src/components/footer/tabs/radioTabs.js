@@ -160,6 +160,8 @@ const radioTabs = ({
 							chinPosition = {chinPosition}
 							setChinPosition = {setChinPosition}
 							traduction = {traduction}
+							setTabsChoice = {setTabsChoice}
+							tabsChoice = {tabsChoice}
 						/> 
 					: title === 'Visor' ? 
 						<VisorTabs 
