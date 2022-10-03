@@ -1,6 +1,9 @@
 import ScreenShot from "../body/Camera/ScreenShot"
 
-const FooterHeader = ({setOpenOptionMenu}) => {
+const FooterHeader = ({setOpenOptionMenu, downMenu,	setDownMenu}) => {
+	const menuDownClic = () => {
+		setDownMenu(!downMenu)
+	}
 	const menuOptionClic = () => {
 		setOpenOptionMenu({
 			name: 'menuOption', 
@@ -19,10 +22,12 @@ const FooterHeader = ({setOpenOptionMenu}) => {
 			name: 'export', 
 			open: true
 		})
+
+
 	}
 	return (
 		<div className="footer-configurator-header">
-			<svg version="1.1" id="down" viewBox="0 0 41 41">
+			<svg version="1.1" id="down" viewBox="0 0 41 41" onClick={menuDownClic}>
 				<polygon className="down" points="12,15.1 9.9,17.3 18.4,25.7 20.5,27.9 31.1,17.3 29,15.1 20.5,23.6 "></polygon>
 				<g>
 					<path className="down" d="M20.5,1.5c10.5,0,19,8.5,19,19s-8.5,19-19,19s-19-8.5-19-19S10,1.5,20.5,1.5 M20.5,0.5c-11,0-20,9-20,20   s9,20,20,20s20-9,20-20S31.5,0.5,20.5,0.5L20.5,0.5z"></path>

@@ -38,7 +38,8 @@ const radioTabs = ({
 	setChinPosition,
 	nodesConfiguration,
 	traductionTitle,
-	traduction
+	traduction,
+	downMenu
 }) => {
 	const changeCheck = (e) => {
 		switch(e.target.value) {
@@ -125,7 +126,7 @@ const radioTabs = ({
 					</svg>
 				}
 			</label>
-			<div className="sd-tab-content" tabIndex="1">
+			<div className={downMenu ? "sd-tab-content downContent" : "sd-tab-content"} tabIndex="1">
 				{
 					title === 'Helmet' ? 
 						<HelmetTabs

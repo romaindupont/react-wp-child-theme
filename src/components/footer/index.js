@@ -41,6 +41,7 @@ const Footer = ({
 			name: '',
 			open: false
 	});
+	const [ downMenu, setDownMenu ] = useState(false);
 	let language = document.querySelector('html').lang;
 	let elementsOfChin = ElementDataChin[0].en;
 	let elementsOfHelmet = ElementData[0].en;
@@ -66,7 +67,7 @@ const Footer = ({
 	});
 	return (
 		<footer className="footer-configurator">
-			<FooterHeader setOpenOptionMenu = {setOpenOptionMenu} />
+			<FooterHeader setOpenOptionMenu = {setOpenOptionMenu} downMenu = {downMenu} setDownMenu = {setDownMenu} />
 			<Tabs 
 				aerationHelmet = {aerationHelmet}
 				setAerationHelmet = {setAerationHelmet}
@@ -98,6 +99,7 @@ const Footer = ({
 				tabsCheck = {tabsCheck}
 				setTabsCheck = {setTabsCheck}
 				traduction = {traduction}
+				downMenu = {downMenu}
 			/>
 			{openOptionMenu.open && openOptionMenu.name === 'menuOption' && <MenuOption setOpenOptionMenu = {setOpenOptionMenu} />}
 			{openOptionMenu.open && openOptionMenu.name === 'help' && <PopupHelp setOpenOptionMenu = {setOpenOptionMenu} helmetPosition = {helmetPosition} chinPosition = {chinPosition} tabsCheck = {tabsCheck}/>}

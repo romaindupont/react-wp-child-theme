@@ -32,7 +32,7 @@ const Logo = ({setStandardValue, standardValue, traduction}) => {
 			<span className={standardValue.Logo_color === 'white' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Logo_color:'white'})}>{traduction.White}</span>
 			<span className={standardValue.Logo_color === 'black' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Logo_color:'black'})}>{traduction.Black}</span>
 		</div>
-		<div className="patternList" onScroll={scrollEffect} ref={scrollRef}>
+		<div className="pickerScrew" onScroll={scrollEffect} ref={scrollRef}>
 			<div className={standardValue.Logo === 'Boxed_Multiply' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Logo:'Boxed_Multiply'})}>
 				<LogoBoxedMultiply />
 				<span className="textAction">Boxed-Multiply</span>

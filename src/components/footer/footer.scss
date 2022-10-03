@@ -91,7 +91,12 @@
 	overflow-y: auto;
 	transition: all 1s ease-in-out;
 }
-
+.sd-tab-content.downContent {
+	height: 70px !important;
+}
+.sd-tab-content.downContent > .infos {
+	display: none;
+}
 .sd-tabs > .sd-tab-radio:checked + .sd-tab-label + .sd-tab-content {
   display: block;
 }
@@ -162,7 +167,6 @@ footer.footer-configurator {
 	position: absolute;
 	width: 100vw;
 	bottom: 0;
-	/* height: 30vh; */
 }
 .footer-configurator-header {
 	position: absolute;
@@ -178,6 +182,9 @@ footer.footer-configurator {
 
 .eye_off {
 	fill:var(--eye-off-fillColor);
+}
+svg#eye:hover {
+	filter: invert(0.6);
 }
 
 svg#eye, #eye {
@@ -240,6 +247,7 @@ svg#menu_option {
 .info_logo {
 	position: absolute;
 	display: none;
+	cursor: pointer;
 }
 
 .popupHelp {
@@ -469,6 +477,7 @@ svg#menu_option {
 	}
 	.colorList {
 		width: 90%;
+		justify-content: flex-start;
 	}
 	.openColorList {
 		width: 100vw;
@@ -493,7 +502,21 @@ svg#menu_option {
     height: 50%;
     justify-content: space-evenly;
     width: 100vw;
-}
+	}
+	.template > .sizeChoice + .pickerScrew {
+    justify-content: left;
+    overflow-x: hidden;
+    overflow-y: hidden;
+	}
+	.template > .pickerScrew { 
+		-ms-overflow-style: none;
+		overflow: -moz-scrollbars-none;
+	}
+	.chinguard > .template > .pickerScrew { 
+		justify-content: flex-start;
+		overflow-y: hidden;
+    overflow-x: hidden;
+	}
 }
 @media (min-width : 1024px) {
 	.whenNoEyes {
@@ -544,10 +567,11 @@ svg#menu_option {
 	.patternList, .colorList {
 		transform: translate3d(0px, 0px, 0px);
 		margin-top: 0rem;
+		/* justify-content: center; */
 	}
 	.patternList {
 		flex-wrap: nowrap;
-		justify-content: center;
+		justify-content: none;
 	}
 	.inputVisorChoice {
 		justify-content: center;
@@ -556,6 +580,7 @@ svg#menu_option {
 		display: block;
     left: 200px;
     z-index: 51;
+		top: 0;
 	}
 	.logoAppear {
 		display: block;
@@ -580,6 +605,12 @@ svg#menu_option {
 	.menu_option {
 		bottom: -100px;
 	}
+	.peak_visor_page > .colorList {
+		justify-content: center;
+	}
+	.chinguard > .template > .pickerScrew {
+    justify-content: center;
+}
 }
 @media (min-width : 1224px) {
 	.sd-tabs > .sd-tab-label::after,
@@ -651,7 +682,8 @@ and (min-width : 1824px) {
 .pickerScrew, .varnishList, .metalParts {
 	justify-content: center;
 }
-.aerationList, .pickerScrew, .patternList, .shellColor, .varnishList, .metalParts {
+
+.aerationList, .pickerScrew, .shellColor, .varnishList, .metalParts {
 	justify-content: center;
 	display: flex;
 	width: 90%;
@@ -663,12 +695,14 @@ and (min-width : 1824px) {
 	/* justify-content: flex-start; */
 	-ms-overflow-style: none;
 	overflow: -moz-scrollbars-none;
+	display: flex;
+	width: 90%;
 }
 .colorList {
 	height: 100%;
 }
 .colorListType, .sizeChoice, .certifChoice {
-	overflow-x: scroll;
+	overflow-x: hidden;
 	overflow-y: hidden;
 	display: flex;
 	width: 80vw;
@@ -750,6 +784,10 @@ and (min-width : 1824px) {
 	height: 30px;
   cursor: pointer;
 }
+.direction:hover {
+	filter: invert(0.6);
+}
+
 .elementPicker {
 	font-size: 1rem;
 	text-transform: uppercase;
@@ -1128,7 +1166,7 @@ input#textSelection {
 	position: relative;
 	display: flex;
 	margin: 0;
-	/* justify-content: center; */
+	justify-content: space-evenly;
 }
 
 .inputVisor, .inputVisor_peak {

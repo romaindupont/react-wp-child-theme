@@ -97,6 +97,12 @@
 .export_st0{fill:#233658;}
 .menuOption{fill:#233658;}
 .info_logo_st0{fill:#233658;}
+svg#info_logo:hover > g > .info_logo_st0 {
+	fill: #fff;
+	stroke: #233856;
+}
+
+
 .closeOption_st100{fill:#FFFFFF;}
 .closeOption_st101{fill:#233658;}
 .exportWindow_closeLogo_st100{fill:#FFFFFF;}

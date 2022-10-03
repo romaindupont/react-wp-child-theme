@@ -31,7 +31,8 @@ const Tabs = ({
 	setTabsChoice,
 	tabsCheck,
 	setTabsCheck,
-	traduction
+	traduction,
+	downMenu
 }) => {
 	return (
 		<div className="sd-tabs">
@@ -65,6 +66,7 @@ const Tabs = ({
 				nodesConfiguration = {nodesConfiguration}
 				traductionTitle = {traduction.HelmetTitle}
 				traduction = {traduction}
+				downMenu = {downMenu}
 			/>
 			<RadioTabs 
 				id = 'tabtwo'
@@ -86,6 +88,7 @@ const Tabs = ({
 				nodesConfiguration = {nodesConfiguration}
 				traductionTitle = {traduction.ChinTitle}
 				traduction = {traduction}
+				downMenu = {downMenu}
 			/>
 			<RadioTabs 
 				id = 'tabthree'
@@ -101,6 +104,7 @@ const Tabs = ({
 				nodesConfiguration = {nodesConfiguration}
 				traductionTitle = {traduction.VisorTitle}
 				traduction = {traduction}
+				downMenu = {downMenu}
 			/>
 		</div>
 	)

@@ -26,7 +26,7 @@ const Pattern = ({setStandardValue,	standardValue}) => {
 		}
 	}
 	return (
-		<div className="patternList" onScroll={scrollEffect} ref={scrollRef} >
+		<div className="pickerScrew" onScroll={scrollEffect} ref={scrollRef} >
 			<div className={standardValue.Chinguard_design === 'band' ? 'Select' : 'allScrew'} onClick={()=>setStandardValue({...standardValue, Chinguard_design:'band'})}>
 				<PatternChinBand />
 				<span className="textAction">Band</span>
