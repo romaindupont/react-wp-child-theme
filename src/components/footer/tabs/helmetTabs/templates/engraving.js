@@ -14,23 +14,23 @@ const Engraving = ({backEngraving, setBackEngraving, fileNames, traduction}) => 
 			action : 'updateCustomText',
 			data   : {
 				configurableMaterial : 'Back_engraving',
-				materialVariation : 'Back_engraving',
+				materialVariation : 'Visible',
 				contents : ['opacity'],
 				color : '#FFFFFF',
 				backgroundColor : '#000000',
 				italic : false,
-				bold : true,
-				imageWidth : 1024,
+				bold : false,
+				imageWidth : 2048,
 				imageHeight : 512,
 				verticalAlignment : 'middle',
 				horizontalAlignment : 'middle',
-				size : 120,
+				size : 180,
 				textOffsetY : 0,
 				textOffsetX : 0,
 				text : engravingInput.text,
 				font : engravingInput.textStyle,
 				underline : false,
-				strokeText : true,
+				strokeText : false,
 				strokeColor : '#000000',
 				strokeWidth : 5
 			}
@@ -48,7 +48,7 @@ const Engraving = ({backEngraving, setBackEngraving, fileNames, traduction}) => 
 				</div>
 			}
 			<div className={!openWindow ? "numberWindows" : "openNumberWindows"}>
-				<p className="infosNumber">Your Text</p>
+				<p className="infosNumber">{traduction.YourText}</p>
 				<div className="chooseWindows">
 					<form className="chooseWindows_input">
 						<input type="text" name="textSelection" id="textSelection" onChange={(e)=>setEngravingInput({...engravingInput, text: e.target.value })}/>

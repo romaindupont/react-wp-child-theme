@@ -3,10 +3,24 @@ import VisorLongBlue from "../../svg/VisorLong/VisorLongBlue";
 import VisorLongChrome from "../../svg/VisorLong/VisorLongChrome";
 import VisorLongSemi from "../../svg/VisorLong/VisorLongSemi";
 import VisorLongTransparent from "../../svg/VisorLong/VisorLongTransparent";
+import { useHorizontalScroll } from "../../../../../../utils/useHorizontalScroll";
 
 const VisorLongPage = ({setStandardValue,	standardValue}) => {
+	const scrollRef = useHorizontalScroll();
+	const scrollEffect = (e) => {
+		let ratio = 4.5;
+		if(e.target.getBoundingClientRect().width < 900) {
+			let calcul = e.target.clientWidth/ratio - e.target.scrollLeft;
+			if (calcul < `-${e.target.clientWidth/5}`) {
+				e.target.style.transform = `translate3d(-${calcul}, 0px, 0px)`; 
+			}
+			else {
+				e.target.style.transform = `translate3d(${calcul}px, 0px, 0px)`; 
+			}
+		}
+	}
 	return (
-<div className="long_visor_page">
+<div className="long_visor_page" onScroll={scrollEffect} ref={scrollRef}>
 	<div className={standardValue.Visor_color === 'clear' ? 'Select' : 'allScrew'} onClick={()=>setStandardValue({...standardValue, Visor_color:'clear'})}>
 		<VisorLongTransparent />
 		<span className="textAction">Transparant</span>

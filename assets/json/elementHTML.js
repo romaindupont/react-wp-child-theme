@@ -106,7 +106,15 @@ export default [{
 			Semi: 'Semi',
 			VisorChoiceShort: 'short',
 			VisorChoiceLong: 'long',
-			VisorChoicePeak: 'peak'
+			VisorChoicePeak: 'peak',
+			TitaniumMetalParts: 'titanium',
+			BlackMetalParts: 'black',
+			GoldMetalParts: 'copper Foil',
+			YourText: 'Your Text',
+			None: 'none',
+			Bottom: 'Bottom',
+			Top: 'Top',
+			All: 'All'
 		}
 	],
 	"fr": [
@@ -204,7 +212,7 @@ export default [{
 			BlackRubber: 'Black Rubber',
 			BrownLeather: 'Brown Leather',
 			WhiteRubber: 'White Rubber',
-			Glossy: 'Glossy',
+			Glossy: 'Vernis',
 			Mat: 'Mat',
 			Nylon: 'Nylon',
 			Leather: 'Leather',
@@ -216,7 +224,15 @@ export default [{
 			Semi: 'Semi',
 			VisorChoiceShort: 'court',
 			VisorChoiceLong: 'long',
-			VisorChoicePeak: 'visière'
+			VisorChoicePeak: 'visière',
+			TitaniumMetalParts: 'titane',
+			BlackMetalParts: 'noire',
+			GoldMetalParts: 'dorée',
+			YourText: 'Votre Texte',
+			None: 'Aucun',
+			Bottom: 'Bas',
+			Top: 'Haut',
+			All: 'Tous'
 		}
 	]
 }]

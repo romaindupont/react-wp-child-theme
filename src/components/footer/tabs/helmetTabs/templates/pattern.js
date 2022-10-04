@@ -15,7 +15,7 @@ import PatternShellStars from "../../svg/PatternShell/PatternShellStars";
 import PatternShellVertical from "../../svg/PatternShell/PatternShellVertical";
 import { useHorizontalScroll } from "../../../../../../utils/useHorizontalScroll";
 
-const Pattern = ({setStandardValue, standardValue}) => {
+const Pattern = ({setStandardValue, standardValue, traduction}) => {
 	const scrollRef = useHorizontalScroll();
 	const scrollEffect = (e) => {
 		let ratio = 4.5;

@@ -110,6 +110,7 @@ const HelmetTabs = ({
 						<Interior
 							setStandardValue = {setStandardValue}
 							standardValue = {standardValue}
+							traduction = {traduction}
 						/> :
 					helmetPosition.fileName === 'left-number' ?
 						<LeftNumber 
@@ -128,21 +129,25 @@ const HelmetTabs = ({
 						<MainColor
 							setStandardValue = {setStandardValue}
 							standardValue = {standardValue}
+							traduction = {traduction}
 						/> :
 					helmetPosition.fileName === 'metal-parts' ?
 						<MetalsParts
 							setStandardValue = {setStandardValue}
 							standardValue = {standardValue}
+							traduction = {traduction}
 						/> :
 					helmetPosition.fileName === 'pattern-color' ?
 						<PatternColor
 							setStandardValue = {setStandardValue}
 							standardValue = {standardValue}
+							traduction = {traduction}
 						/> :
 					helmetPosition.fileName === 'pattern' ?
 						<Pattern
 							setStandardValue = {setStandardValue}
 							standardValue = {standardValue}
+							traduction = {traduction}
 						/> :
 					helmetPosition.fileName === 'right-number' ?
 						<RightNumber 
@@ -155,26 +160,31 @@ const HelmetTabs = ({
 						<Screw
 							screwPosition = {screwPosition}
 							setScrewPosition = {setScrewPosition}
+							traduction = {traduction}
 						/> :
 					helmetPosition.fileName === 'size' ?
 						<Size 
 							setStandardValue = {setStandardValue}
 							standardValue = {standardValue}
+							traduction = {traduction}
 						/> :
 					helmetPosition.fileName === 'trim' ?
 						<Trim
 							setStandardValue = {setStandardValue}
 							standardValue = {standardValue}
+							traduction = {traduction}
 						/> :
 					helmetPosition.fileName === 'varnish' ?
 						<Varnish
 							varnishHelmet = {varnishHelmet}
 							setVarnishHelmet = {setVarnishHelmet}
+							traduction = {traduction}
 						/> :
 					helmetPosition.fileName === 'zippers' ?
 						<Zippers
 							setStandardValue = {setStandardValue}
 							standardValue = {standardValue}
+							traduction = {traduction}
 						/> 
 					: ''
 				}

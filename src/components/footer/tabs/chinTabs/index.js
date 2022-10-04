@@ -21,7 +21,8 @@ const ChinTabs = ({
 	chinPosition,
 	setChinPosition,
 	setTabsChoice,
-	tabsChoice
+	tabsChoice,
+	traduction
 }) => {
 	let language = document.querySelector('html').lang;
 	let elementsOfChin = ElementData[0].en;
@@ -75,6 +76,7 @@ const ChinTabs = ({
 					<Aeration
 						setAerationChin = {setAerationChin}
 						aerationChin = {aerationChin}
+						traduction = {traduction}
 					/> 
 				:  
 				chinPosition.fileName === 'interior' ?

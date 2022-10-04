@@ -35,47 +35,47 @@ const Logo = ({setStandardValue, standardValue, traduction}) => {
 		<div className="pickerScrew" onScroll={scrollEffect} ref={scrollRef}>
 			<div className={standardValue.Logo === 'Boxed_Multiply' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Logo:'Boxed_Multiply'})}>
 				<LogoBoxedMultiply />
-				<span className="textAction">Boxed-Multiply</span>
+				<span className="textAction">{traduction.BoxedMultiply}</span>
 			</div>
 			<div className={standardValue.Logo === 'Boxed_Plus' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Logo:'Boxed_Plus'})}>
 				<LogoBoxedPlus />
-				<span className="textAction">Boxed-Plus</span>
+				<span className="textAction">{traduction.BoxedPlus}</span>
 			</div>
 			<div className={standardValue.Logo === 'Boxed_Text' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Logo:'Boxed_Text'})}>
 				<LogoBoxedText />
-				<span className="textAction">Boxed-text</span>
+				<span className="textAction">{traduction.Boxedtext}</span>
 			</div>
 			<div className={standardValue.Logo === 'Circle' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Logo:'Circle'})}>
 				<LogoCircle />
-				<span className="textAction">Circle</span>
+				<span className="textAction">{traduction.Circle}</span>
 			</div>
 			<div className={standardValue.Logo === 'Heart' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Logo:'Heart'})}>
 				<LogoHeart />
-				<span className="textAction">Heart</span>
+				<span className="textAction">{traduction.Heart}</span>
 			</div>
 			<div className={standardValue.Logo === 'Multiply' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Logo:'Multiply'})}>
 				<LogoMultiply />
-				<span className="textAction">Multiply</span>
+				<span className="textAction">{traduction.Multiply}</span>
 			</div>
 			<div className={standardValue.Logo === 'Plus' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Logo:'Plus'})}>
 				<LogoPlus />
-				<span className="textAction">Plus</span>
+				<span className="textAction">{traduction.Plus}</span>
 			</div>
 			<div className={standardValue.Logo === 'Square' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Logo:'Square'})}>
 				<LogoSquare />
-				<span className="textAction">Square</span>
+				<span className="textAction">{traduction.Square}</span>
 			</div>
 			<div className={standardValue.Logo === 'Text' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Logo:'Text'})}>
 				<LogoText />
-				<span className="textAction">Text</span>
+				<span className="textAction">{traduction.Text}</span>
 			</div>
 			<div className={standardValue.Logo === 'V' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Logo:'V'})}>
 				<LogoV />
-				<span className="textAction">V</span>
+				<span className="textAction">{traduction.V}</span>
 			</div>
 			<div className={standardValue.Logo === 'V_Text' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Logo:'V_Text'})}>
 				<LogoVText />
-				<span className="textAction">V-text</span>
+				<span className="textAction">{traduction.V-text}</span>
 			</div>
 		</div>
 		</>
