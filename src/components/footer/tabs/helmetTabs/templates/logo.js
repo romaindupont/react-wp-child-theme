@@ -75,7 +75,7 @@ const Logo = ({setStandardValue, standardValue, traduction}) => {
 			</div>
 			<div className={standardValue.Logo === 'V_Text' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Logo:'V_Text'})}>
 				<LogoVText />
-				<span className="textAction">{traduction.V-text}</span>
+				<span className="textAction">{traduction.Vtext}</span>
 			</div>
 		</div>
 		</>

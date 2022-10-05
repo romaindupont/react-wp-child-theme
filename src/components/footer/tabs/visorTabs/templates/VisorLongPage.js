@@ -5,7 +5,7 @@ import VisorLongSemi from "../../svg/VisorLong/VisorLongSemi";
 import VisorLongTransparent from "../../svg/VisorLong/VisorLongTransparent";
 import { useHorizontalScroll } from "../../../../../../utils/useHorizontalScroll";
 
-const VisorLongPage = ({setStandardValue,	standardValue}) => {
+const VisorLongPage = ({setStandardValue,	standardValue, traduction}) => {
 	const scrollRef = useHorizontalScroll();
 	const scrollEffect = (e) => {
 		let ratio = 4.5;
@@ -23,23 +23,23 @@ const VisorLongPage = ({setStandardValue,	standardValue}) => {
 <div className="long_visor_page" onScroll={scrollEffect} ref={scrollRef}>
 	<div className={standardValue.Visor_color === 'clear' ? 'Select' : 'allScrew'} onClick={()=>setStandardValue({...standardValue, Visor_color:'clear'})}>
 		<VisorLongTransparent />
-		<span className="textAction">Transparant</span>
+		<span className="textAction">{traduction.Transparant}</span>
 	</div>
 	<div className={standardValue.Visor_color === 'black' ? 'Select' : 'allScrew'} onClick={()=>setStandardValue({...standardValue, Visor_color:'black'})}>
 		<VisorLongBlack />
-		<span className="textAction">Black</span>
+		<span className="textAction">{traduction.Black}</span>
 	</div>
 	<div className={standardValue.Visor_color === 'chrome_blue' ? 'Select' : 'allScrew'} onClick={()=>setStandardValue({...standardValue, Visor_color:'chrome_blue'})}>
 		<VisorLongBlue />
-		<span className="textAction">Blue</span>
+		<span className="textAction">{traduction.Blue}</span>
 	</div>
 	<div className={standardValue.Visor_color === 'chrome_silver' ? 'Select' : 'allScrew'} onClick={()=>setStandardValue({...standardValue, Visor_color:'chrome_silver'})}>
 		<VisorLongChrome />
-		<span className="textAction">Chrome</span>
+		<span className="textAction">{traduction.Chrome}</span>
 	</div>
 	<div className={standardValue.Visor_color === 'smoke' ? 'Select' : 'allScrew'} onClick={()=>setStandardValue({...standardValue, Visor_color:'smoke'})}>
 		<VisorLongSemi />
-		<span className="textAction">Semi</span>
+		<span className="textAction">{traduction.Semi}</span>
 	</div>
 </div>
 	)

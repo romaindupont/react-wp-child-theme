@@ -119,5 +119,6 @@ const Veldt = () => {
 		</div>
   );
 };
+
 render(<Veldt />, document.getElementById('root') || document.createElement('div'));
 

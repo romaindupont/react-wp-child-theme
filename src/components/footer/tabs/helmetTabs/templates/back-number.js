@@ -1,4 +1,4 @@
-const { useState } = wp.element;
+const { useState, useRef, useEffect } = wp.element;
 import Right from "../../svg/Right";
 import Wrong from "../../svg/Wrong";
 import ClassicNumber from "../../svg/Number/ClassicNumber";
@@ -66,11 +66,17 @@ const BackNumber = ({backNumberWindow, setBackNumberWindow, fileNames, traductio
 			}
 		}
 	}
+	const textInput = useRef(null);
+	const handleClick = () => {
+		let input = document.getElementById('numberSelection');
+    input.focus();
+		console.log(input)
+  };
 	return (
 		<div className="numberChoice">
 			{
 				!backNumberWindow ? 
-					<button className="buttonAdd" onClick={() => setBackNumberWindow(true) & setOpenWindow(true)}>{`\u002B`} {traduction.Add}</button> : 
+					<button className="buttonAdd" onClick={() => setBackNumberWindow(true) & setOpenWindow(true) & handleClick()}>{`\u002B`} {traduction.Add}</button> : 
 					<div className="numberButton">
 						<button className="buttonAdd" onClick={() => setBackNumberWindow(false) & setOpenWindow(false)}>{`\u002D`} {traduction.Delete}</button>
 						<button className="buttonAdd" onClick={() => setBackNumberWindow(false) & setOpenWindow(true)}>{`\u002B`} {traduction.Modify}</button>
@@ -80,7 +86,7 @@ const BackNumber = ({backNumberWindow, setBackNumberWindow, fileNames, traductio
 				<p className="infosNumber">{traduction.NumberStyleTitle}</p>
 				<div className="chooseWindows">
 					<div className="chooseWindows_input">
-						<input type="number" name="numberSelection" id="numberSelection" onChange={(e)=>setBackNumberInput({...backNumberInput, numberText: e.target.value })} />
+						<input ref={textInput} type="number" name="numberSelection" id="numberSelection" onChange={(e)=>setBackNumberInput({...backNumberInput, numberText: e.target.value })} />
 						<div className="selectButtonNumber">
 							<div className="selectButtonNumber--right" onClick={okClic}>
 								<Right windowClose={setOpenWindow} setNumberWindow={setBackNumberWindow} fileNames={fileNames} />

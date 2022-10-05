@@ -22,8 +22,6 @@ const FooterHeader = ({setOpenOptionMenu, downMenu,	setDownMenu}) => {
 			name: 'export', 
 			open: true
 		})
-
-
 	}
 	return (
 		<div className="footer-configurator-header">

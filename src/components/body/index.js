@@ -25,7 +25,6 @@ import TrimChin from './Chinguard/trim';
 
 import VisorChoice from './Visor/VisorChoice';
 
-
 const Body = ({
 	aerationHelmet, 
 	screwPosition, 

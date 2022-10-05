@@ -1,6 +1,34 @@
 import VeldtLogo from '../../../assets/images/veldt-logo.svg';
+import ZipperLeather from '../footer/tabs/svg/Zipper/ZipperLeather';
 
 const Header = ({traduction}) => {
+	var _nonce = "<?php echo wp_create_nonce( 'wc_store_api' ); ?>";
+	const Buy = () => {
+		var myHeaders = {
+			'X-WC-Store-API-Nonce': _nonce,
+			"Content-Type": "application/json",
+		}
+		var myInit = { 
+							 method: 'POST',
+               headers: myHeaders,
+               mode: 'cors',
+               cache: 'default',
+							/*  body: JSON.stringify({data:{
+								id : 200,
+								quantity: 1,
+								variation: [{
+									attribute : "configData",
+									value: 'super'
+								}]
+							}}) */
+							};
+			/* fetch("http://localhost:8080/essai/wp-json/wc/store/cart/add-item", myInit)
+			.then(response => response.json())
+			.then(data => console.log(data)) */
+		fetch("http://localhost:8080/essai/cart/?add-to-cart=183", myInit)
+				.then(response => response.text())
+				.then(data => console.log(data))
+			}
   return (
 		<header className="configurator-header">
 			<div className="header-configurator">
@@ -17,6 +45,7 @@ const Header = ({traduction}) => {
 							type="submit"
 							name="add"
 							className="header-configurator-right-priceZone-buy"
+							onClick={Buy}
 						>
 							<span>
 								{traduction.BuyIT}

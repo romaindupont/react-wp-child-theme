@@ -1,5 +1,3 @@
-import ImageHelmet from '../../../assets/images/imageMotorHelmet.png';
-
 const exportWindows = ({setOpenOptionMenu, screenshotsWait, traduction, setScreenshotsWait}) => {
 	const menuClose = () => {
 		setOpenOptionMenu({
@@ -23,7 +21,6 @@ const exportWindows = ({setOpenOptionMenu, screenshotsWait, traduction, setScree
 			document.body.removeChild(a);
 		}
 	}
-
 const saveConfig = () => {
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 	viewerIframe.postMessage({

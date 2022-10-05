@@ -1,5 +1,4 @@
 import RadioTabs from "./radioTabs";
-const { useState } = wp.element;
 
 const Tabs = ({
 	aerationHelmet,

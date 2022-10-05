@@ -11,7 +11,7 @@ import PatternChinParabol from "../../svg/PatternChin/PatternChinParabol";
 import PatternChinPlain from "../../svg/PatternChin/PatternChinPlain";
 import PatternChinStars from "../../svg/PatternChin/PatternChinStars";
 
-const Pattern = ({setStandardValue,	standardValue}) => {
+const Pattern = ({setStandardValue,	standardValue, traduction}) => {
 	const scrollRef = useHorizontalScroll();
 	const scrollEffect = (e) => {
 		let ratio = 4.5;
@@ -29,47 +29,47 @@ const Pattern = ({setStandardValue,	standardValue}) => {
 		<div className="pickerScrew" onScroll={scrollEffect} ref={scrollRef} >
 			<div className={standardValue.Chinguard_design === 'band' ? 'Select' : 'allScrew'} onClick={()=>setStandardValue({...standardValue, Chinguard_design:'band'})}>
 				<PatternChinBand />
-				<span className="textAction">Band</span>
+				<span className="textAction">{traduction.Band}</span>
 			</div>
 			<div className={standardValue.Chinguard_design === 'checker' ? 'Select' : 'allScrew'} onClick={()=>setStandardValue({...standardValue, Chinguard_design:'checker'})}>
 				<PatternChinChecker />
-				<span className="textAction">Checker</span>
+				<span className="textAction">{traduction.Checker}</span>
 			</div>
 			<div className={standardValue.Chinguard_design === 'contour' ? 'Select' : 'allScrew'} onClick={()=>setStandardValue({...standardValue, Chinguard_design:'contour'})}>
 				<PatternChinContour />
-				<span className="textAction">Contour</span>
+				<span className="textAction">{traduction.Around}</span>
 			</div>
 			<div className={standardValue.Chinguard_design === 'dots' ? 'Select' : 'allScrew'} onClick={()=>setStandardValue({...standardValue, Chinguard_design:'dots'})}>
 				<PatternChinDots />
-				<span className="textAction">Dots</span>
+				<span className="textAction">{traduction.Dots}</span>
 			</div>
 			<div className={standardValue.Chinguard_design === 'dual' ? 'Select' : 'allScrew'} onClick={()=>setStandardValue({...standardValue, Chinguard_design:'dual'})}>
 				<PatternChinDual />
-				<span className="textAction">Dual</span>
+				<span className="textAction">{traduction.Dual}</span>
 			</div>
 			<div className={standardValue.Chinguard_design === 'extend' ? 'Select' : 'allScrew'} onClick={()=>setStandardValue({...standardValue, Chinguard_design:'extend'})}>
 				<PatternChinExtend />
-				<span className="textAction">Extend</span>
+				<span className="textAction">{traduction.Extend}</span>
 			</div>
 			<div className={standardValue.Chinguard_design === 'half' ? 'Select' : 'allScrew'} onClick={()=>setStandardValue({...standardValue, Chinguard_design:'half'})}>
 				<PatternChinHalf />
-				<span className="textAction">Half</span>
+				<span className="textAction">{traduction.Half}</span>
 			</div>
 			<div className={standardValue.Chinguard_design === 'outline' ? 'Select' : 'allScrew'} onClick={()=>setStandardValue({...standardValue, Chinguard_design:'outline'})}>
 				<PatternChinOutline />
-				<span className="textAction">Outline</span>
+				<span className="textAction">{traduction.Outline}</span>
 			</div>
 			<div className={standardValue.Chinguard_design === 'parabol' ? 'Select' : 'allScrew'} onClick={()=>setStandardValue({...standardValue, Chinguard_design:'parabol'})}>
 				<PatternChinParabol />
-				<span className="textAction">Parabol</span>
+				<span className="textAction">{traduction.Parabol}</span>
 			</div>
 			<div className={standardValue.Chinguard_design === 'plain' ? 'Select' : 'allScrew'} onClick={()=>setStandardValue({...standardValue, Chinguard_design:'plain'})}>
 				<PatternChinPlain />
-				<span className="textAction">Plain</span>
+				<span className="textAction">{traduction.Plain}</span>
 			</div>
 			<div className={standardValue.Chinguard_design === 'star' ? 'Select' : 'allScrew'} onClick={()=>setStandardValue({...standardValue, Chinguard_design:'star'})}>
 				<PatternChinStars />
-				<span className="textAction">Stars</span>
+				<span className="textAction">{traduction.Stars}</span>
 			</div>
 		</div>
 	)

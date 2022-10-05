@@ -1,4 +1,5 @@
 import Noeud from '../../../../assets/json/helmetid';
+
 const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varnishHelmet) => {
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow;
 	let localIdToRemove = [];

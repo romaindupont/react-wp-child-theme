@@ -27,4 +27,5 @@ function get_menu() {
 	return wp_get_nav_menu_items('main-menu');
 } 
 
-add_action( 'rest_api_init', function () { register_rest_route( 'myroutes', '/menu', array( 'methods' => 'GET', 'callback' => 'get_menu', ) ); } );
+add_action( 'rest_api_init', function () { register_rest_route( 'myroutes', '/menu', array( 'methods' => 'GET', 'callback' => 'get_menu', ) ); });
+add_filter( 'woocommerce_store_api_disable_nonce_check', '__return_true' );

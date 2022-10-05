@@ -5,21 +5,28 @@ import VisorPeakPage from "./templates/VisorPeakPage";
 import VisorShortPage from "./templates/VisorShortPage";
 import VisorTypeChoice from "./templates/VisorTypeChoice";
 
-const VisorTabs = ({setStandardValue,	standardValue}) => {
+const VisorTabs = ({setStandardValue,	standardValue, traduction}) => {
 	const [ typeChoice, setTypeChoice ] = useState('');
 	return (
 		<div className="infos visor">
 			<div className="template">
-				<VisorTypeChoice setTypeChoice={setTypeChoice} setStandardValue={setStandardValue} standardValue={standardValue} />
+				<VisorTypeChoice
+					setTypeChoice={setTypeChoice}
+					setStandardValue={setStandardValue}
+					standardValue={standardValue}
+					traduction = {traduction}
+				/>
 				{typeChoice === 'long_visor' && (
 					<>
 						<VisorFrame 
 							setStandardValue = {setStandardValue}
 							standardValue = {standardValue}
+							traduction = {traduction}
 						/>
 						<VisorLongPage 
 							setStandardValue = {setStandardValue}
 							standardValue = {standardValue}
+							traduction = {traduction}
 						/>
 					</>
 				)}
@@ -28,10 +35,12 @@ const VisorTabs = ({setStandardValue,	standardValue}) => {
 						<VisorFrame
 							setStandardValue = {setStandardValue}
 							standardValue = {standardValue}
+							traduction = {traduction}
 						/>
 						<VisorShortPage
 							setStandardValue = {setStandardValue}
 							standardValue = {standardValue}
+							traduction = {traduction}
 						/>
 					</>
 				)}
@@ -40,6 +49,7 @@ const VisorTabs = ({setStandardValue,	standardValue}) => {
 						<VisorPeakPage
 							setStandardValue = {setStandardValue}
 							standardValue = {standardValue}
+							traduction = {traduction}
 						/>
 					</>
 				)}		

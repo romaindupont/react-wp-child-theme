@@ -1,5 +1,4 @@
 const popupHelp = ({setOpenOptionMenu, helmetPosition, chinPosition, tabsCheck}) => {
-	console.log(tabsCheck)
 	const menuClose = () => {
 		setOpenOptionMenu({
 			name: '',
@@ -15,7 +14,6 @@ const popupHelp = ({setOpenOptionMenu, helmetPosition, chinPosition, tabsCheck})
 				tabsCheck.helmetCheck ? 
 				<div className="messagesHelp">{helmetPosition.helpMessage}</div> : tabsCheck.chinCheck ? <div className="messagesHelp">{chinPosition.helpMessage}</div> : ''
 			}
-			
 		</div>
 	)
 }

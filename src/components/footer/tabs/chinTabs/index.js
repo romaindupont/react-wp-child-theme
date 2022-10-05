@@ -1,4 +1,3 @@
-const { useState } = wp.element;
 import ArrowLeft from '../../../../../assets/images/arrow_left.svg';
 import ArrowRight from '../../../../../assets/images/arrow_right.svg';
 import ElementData from '../../../../../assets/json/elementChin';
@@ -86,6 +85,7 @@ const ChinTabs = ({
 				 	<MainColor
 				 	 	setStandardValue = {setStandardValue}
 						standardValue = {standardValue}
+						traduction = {traduction}
 					/> 
 				:
 				chinPosition.fileName === 'metal-parts' ?
@@ -95,24 +95,28 @@ const ChinTabs = ({
 				 	<PatternColor
 				 		setStandardValue = {setStandardValue}
 						standardValue = {standardValue}
+						traduction = {traduction}
 					/> 
 				:
 				chinPosition.fileName === 'pattern' ?
 					<Pattern
 						setStandardValue = {setStandardValue}
 						standardValue = {standardValue}
+						traduction = {traduction}
 					/> 
 				:
 				chinPosition.fileName === 'trim' ?
 					<Trim
 						setStandardValue = {setStandardValue}
 						standardValue = {standardValue}
+						traduction = {traduction}
 					/> 
 				:
 				chinPosition.fileName === 'varnish' ?
 					<Varnish
 						setVarnishChin = {setVarnishChin}
 						varnishChin = {varnishChin}
+						traduction = {traduction}
 					/> 
 				: ''
 			}
