@@ -6,6 +6,7 @@ import PopupHelp from './popupHelp';
 import ExportWindows from './exportWindows';
 import ElementData from '../../../assets/json/elementHelmet';
 import ElementDataChin from '../../../assets/json/elementChin';
+import ElementDataVisor from '../../../assets/json/elementVisor';
 
 const Footer = ({
 	aerationHelmet,
@@ -45,13 +46,16 @@ const Footer = ({
 	let language = document.querySelector('html').lang;
 	let elementsOfChin = ElementDataChin[0].en;
 	let elementsOfHelmet = ElementData[0].en;
+	let elementsOfVisor = ElementDataVisor[0].en;
 	if (language.includes('fr')) {
 		elementsOfChin = ElementDataChin[0].fr;
 		elementsOfHelmet = ElementData[0].fr;
+		elementsOfVisor = ElementDataVisor[0].fr;
 	}
 	if (language.includes('es')) {
 		elementsOfChin = ElementDataChin[0].en;
 		elementsOfHelmet = ElementData[0].en;
+		elementsOfVisor = ElementDataVisor[0].en;
 	}
 	const [ helmetPosition, setHelmetPosition ] = useState({
 		title: elementsOfHelmet[0].title,
@@ -64,6 +68,12 @@ const Footer = ({
 		fileName: elementsOfChin[0].fileName,
 		position: 0,
 		helpMessage : elementsOfChin[0].helpMessage
+	});
+	const [ visorPosition, setVisorPosition ] = useState({
+		title: elementsOfVisor[0].title,
+		fileName: elementsOfVisor[0].fileName,
+		position: 0,
+		helpMessage : elementsOfVisor[0].helpMessage
 	});
 	return (
 		<footer className="footer-configurator">
@@ -100,6 +110,8 @@ const Footer = ({
 				setTabsCheck = {setTabsCheck}
 				traduction = {traduction}
 				downMenu = {downMenu}
+				visorPosition = {visorPosition}
+				setVisorPosition = {setVisorPosition}
 			/>
 			{openOptionMenu.open && openOptionMenu.name === 'menuOption' && <MenuOption setOpenOptionMenu = {setOpenOptionMenu} />}
 			{openOptionMenu.open && openOptionMenu.name === 'help' && <PopupHelp setOpenOptionMenu = {setOpenOptionMenu} helmetPosition = {helmetPosition} chinPosition = {chinPosition} tabsCheck = {tabsCheck}/>}

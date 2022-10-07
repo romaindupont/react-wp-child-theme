@@ -260,21 +260,27 @@ svg#menu_option {
 	justify-content: center;
 	display: flex;
 	width: 90%;
+	margin-top: 0.5rem;
 }
-.patternList, .colorList {
+.patternList, .colorList, .visorPage {
 	display: flex;
 	-ms-overflow-style: none;
 	overflow: -moz-scrollbars-none;
 	display: flex;
 }
-.colorList {
+.colorList, .visorPage {
 	height: 100%;
 }
 .colorListType, .sizeChoice, .certifChoice {
 	overflow-x: hidden;
 	overflow-y: hidden;
 	display: flex;
-	width: 80vw;
+}
+.numberListType {
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+	margin-top: 0.5rem;
 }
 .chooseStyleNumber {
 	margin-top: 1rem;
@@ -308,8 +314,7 @@ svg#menu_option {
 	text-align: center;
 	cursor: pointer;
 	text-transform: uppercase;
-	font-size: 0.7rem;
-	width: 120px;
+
 	font-weight: 600;
 }
 .buttonChoice, .SizebuttonChoice {
@@ -594,13 +599,11 @@ background: #000;
 	align-items: center;
 	position: absolute;
 	width: 100vw;
-	height: 90vh;
+	height: 250px;
 	z-index: 199;
 	backdrop-filter: blur(10px);
 }
 .infosNumber {
-	width: 400px;
-	font-size: 1rem;
 	text-transform: uppercase;
 	font-weight: 600;
 	color: var(--color-principal);
@@ -849,17 +852,14 @@ svg#link, svg#download {
 	svg#menu_option {
 		display: none;
 	}
-	.helmet, .chinguard {
+	.helmet, .chinguard, .visor {
 		display: flex;
 		flex-direction: column;
-		margin-top: 55px;
+		margin-top: 15px;
 	}
-	.visor {
-		margin-top: 55px;
-	}
-	.visor > .template {
+/* 	.visor > .template {
 		align-items: unset;
-	}
+	} */
 	.elementPicker {
 		text-align: center;
 		width: 100%;
@@ -877,7 +877,9 @@ svg#link, svg#download {
 	.colorListType::-webkit-scrollbar,
 	.long_visor_page::-webkit-scrollbar,
 	.short_visor_page::-webkit-scrollbar,
-	.peak_visor_page::-webkit-scrollbar {
+	.peak_visor_page::-webkit-scrollbar,
+	.pickerScrew::-webkit-scrollbar,
+	.visorPage::-webkit-scrollbar {
 		height: 0px;
 	}
 	label.sd-tab-label.label2 {
@@ -911,22 +913,27 @@ svg#link, svg#download {
 	.menuImageToShare > img {
 		width: 80%;
 	}
-	.patternList, .colorList, .long_visor_page, .short_visor_page {
+	.patternList, .colorList, .visorPage {
 		transform: translate3d(50%, 0px, 0px);
 		margin-top: 1rem;
 		overflow-x: scroll;
 		overflow-y: hidden;
 		width: 100vw;
 	}
-	.long_visor_page, .short_visor_page, .peak_visor_page {
+/* 	.long_visor_page, .short_visor_page, .peak_visor_page {
 		justify-content: flex-start;
-	}
+	} */
 	.colorListType {
 		transform: translate3d(0%, 0px, 0px);
-		justify-content: flex-start;
+		max-width: 100%;
+		justify-content: space-evenly;
 	}
 	.openColorList {
-		display: block;
+		width: 100vw;
+    display: flex;
+		align-items: center;
+    flex-direction: column;
+    margin-top: 0.5rem;
 	}
 	.openColorClose {
 		display: none;
@@ -958,8 +965,12 @@ svg#link, svg#download {
 		width: 90%;
 		justify-content: flex-start;
 	}
+	.visorPage {
+		width: 90%;
+		justify-content: center;
+	}
 	.openNumberWindows {
-		top: -50%;
+		top: 0px;
 	}
 	.template > .sizeChoice + .pickerScrew {
     justify-content: left;
@@ -968,6 +979,7 @@ svg#link, svg#download {
 		-ms-overflow-style: none;
 		overflow: -moz-scrollbars-none;
 		transform: translate3d(50%, 0px, 0px);
+		margin-top: 0.5rem;
 	}
 	.template > .sizeChoice + .pickerScrew:-webkit-scrollbar {
     height: 0px;
@@ -1008,8 +1020,27 @@ svg#link, svg#download {
 	.sd-tabs > .sd-tab-label .sd-tab-desc {
 		font-size: 0.8rem;
 	}
+	.buttonChoice, .buttonAdd, .SizebuttonChoice, .selectButton {	
+		width: 50px;
+		font-size: 0.5rem;
+	}
+	.numberListType, .aerationList {
+		max-width: 90%;
+	}
+	.colorListType, .sizeChoice, .certifChoice {
+    max-width: 90%;
+		width: 100vw;
+    justify-content: space-evenly;
+		margin-top: 0.5rem;
+	}
+	.infosNumber {
+		width: 300px;
+		font-size: 0.7rem
+	}
+	.inputVisorChoice {
+		max-width: 90%;
+	}
 }
-
 @media (min-width: 576px) { 
 	.sd-tabs > .sd-tab-label::after,
 	.sd-tabs > .sd-tab-label::before {
@@ -1025,7 +1056,7 @@ svg#link, svg#download {
 
 @media (min-width : 768px) {
 	.sd-tabs > .sd-tab-label::after,
-	.sd-tabs > .sd-tab-label::before {
+	.sd-tabs > .sd-tab-label::before {	
 		width: 50%;
 	}
 	.sd-tabs > .sd-tab-radio:checked + .sd-tab-label::before {
@@ -1054,11 +1085,8 @@ svg#link, svg#download {
 	}
 	.elementChoice {
 		width: 100vw;
-		justify-content: space-evenly;
 	}
-	.helmet, .chinguard, .visor {
-		margin-top: 55px;
-	}
+
 	.elementPicker {
 		width: 300px;
 	}
@@ -1078,8 +1106,8 @@ svg#link, svg#download {
 	.openColorList {
 		width: 100vw;
 		display: flex;
-    justify-content: space-evenly;
     flex-direction: column;
+		margin-top: 0.5rem;
 	}
 	.openColorList > .colorListType {
     width: 100vw;
@@ -1101,14 +1129,25 @@ svg#link, svg#download {
 		transform: translate3d(0px, 0px, 0px);
 		margin-top: 0rem;
 	}
-	.openNumberWindows {
-		top: -45vh;
-	}
-	.visor > .template {
+/* 	.visor > .template {
 		align-items: center;
-	}
+	} */
 	.sd-tabs > .sd-tab-label .sd-tab-desc {
 		font-size: 1rem;
+	}
+	.buttonChoice, .buttonAdd, .SizebuttonChoice, .selectButton {	
+		width: 100px;
+		font-size: 0.7rem;
+	}
+	.colorListType, .sizeChoice, .certifChoice {
+		max-width: 70%;
+	}
+	.numberListType, .aerationList {
+		max-width: 70%;
+	}
+	.infosNumber {
+		width: 400px;
+		font-size: 1rem
 	}
 }
 
@@ -1153,10 +1192,10 @@ svg#link, svg#download {
 		width: 80px;
 		margin: 0;
 	}
-	.patternList::-webkit-scrollbar, .colorList::-webkit-scrollbar, .colorListType::-webkit-scrollbar, .sizeChoice::-webkit-scrollbar, .certifChoice::-webkit-scrollbar {
+	.patternList::-webkit-scrollbar, .colorList::-webkit-scrollbar, .colorListType::-webkit-scrollbar, .sizeChoice::-webkit-scrollbar, .certifChoice::-webkit-scrollbar,.pickerScrew::-webkit-scrollbar {
 		display: none;
 	}
-	.patternList, .colorList, .long_visor_page {
+	.patternList, .colorList, .visorPage {
 		transform: translate3d(0px, 0px, 0px);
 		margin-top: 0rem;
 	}
@@ -1165,7 +1204,7 @@ svg#link, svg#download {
 		justify-content: center;
 	}
 	.inputVisorChoice {
-		justify-content: center;
+		max-width: 70%;
 	}
 	.info_logo {
 		display: block;
@@ -1212,11 +1251,18 @@ svg#link, svg#download {
 		width: 100vw;
 	}
 	.openNumberWindows {
-		top: -70vh;
+		top: -50px;
 	}
 	.popupHelp {
 		width: 45%;
 		height: 10%;
+	}
+	.buttonChoice, .buttonAdd, .SizebuttonChoice, .selectButton {	
+		width: 120px;
+		font-size: 0.7rem;
+	}
+	.helmet, .chinguard, .visor {
+		margin-top: 0px;
 	}
 }
 

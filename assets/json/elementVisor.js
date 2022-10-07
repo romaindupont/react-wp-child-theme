@@ -1,14 +1,14 @@
 export default [{
 	"en": [
 		{
+			fileName : 'visor',
+			title: 'visor',
+			helpMessage: 'Choose to add or not visor'
+		},
+		{
 			fileName : 'visorType',
 			title: 'visor type',
 			helpMessage: 'Choose the visor type you want'
-		},
-		{
-			fileName : 'frame',
-			title: 'frame',
-			helpMessage: 'Choose the frame to apply'
 		},
 		{
 			fileName : 'visorColor',
@@ -18,14 +18,14 @@ export default [{
 	],
 	"fr": [
 		{
-			fileName : 'visorType',
+			fileName : 'visor',
 			title: 'visière',
-			helpMessage: 'Choississez le type de visière voulue'
+			helpMessage: 'Ajouter ou non la visière'
 		},
 		{
-			fileName : 'frame',
-			title: 'frame',
-			helpMessage: 'Choississez le frame'
+			fileName : 'visorType',
+			title: 'Type de visière',
+			helpMessage: 'Choississez le type de visière voulue'
 		},
 		{
 			fileName : 'visorColor',

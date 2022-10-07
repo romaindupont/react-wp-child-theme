@@ -20,7 +20,7 @@ const VisorShortPage = ({setStandardValue,	standardValue, traduction}) => {
 		}
 	}
 	return (
-<div className="short_visor_page" onScroll={scrollEffect} ref={scrollRef}>
+<div className="visorPage" onScroll={scrollEffect} ref={scrollRef}>
 		<div className={standardValue.Visor_color === 'clear' ? 'Select' : 'allScrew'}  onClick={()=>setStandardValue({...standardValue, Visor_color:'clear'})}>
 			<VisorShortTransparent />
 			<span className="textAction">{traduction.Transparant}</span>

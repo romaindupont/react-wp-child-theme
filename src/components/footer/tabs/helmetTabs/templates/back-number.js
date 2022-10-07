@@ -1,17 +1,13 @@
-const { useState, useRef, useEffect } = wp.element;
+const { useState, useRef } = wp.element;
 import Right from "../../svg/Right";
 import Wrong from "../../svg/Wrong";
-import ClassicNumber from "../../svg/Number/ClassicNumber";
-import DirtNumber from "../../svg/Number/DirtNumber";
-import PixelNumber from "../../svg/Number/PixelNumber";
-import RacingNumber from "../../svg/Number/RacingNumber";
 import { useHorizontalScroll } from "../../../../../../utils/useHorizontalScroll";
 
 const BackNumber = ({backNumberWindow, setBackNumberWindow, fileNames, traduction}) => {
 	const [ openWindow, setOpenWindow ] = useState(false);
 	const [ backNumberInput, setBackNumberInput ] = useState({
 		numberText: '08',
-		numberStyle: 'montserrat',
+		numberStyle: 'none',
 		numberColorType: 'plain',
 		numberColor: 'white'
 	});
@@ -70,18 +66,16 @@ const BackNumber = ({backNumberWindow, setBackNumberWindow, fileNames, traductio
 	const handleClick = () => {
 		let input = document.getElementById('numberSelection');
     input.focus();
-		console.log(input)
   };
 	return (
-		<div className="numberChoice">
-			{
-				!backNumberWindow ? 
-					<button className="buttonAdd" onClick={() => setBackNumberWindow(true) & setOpenWindow(true) & handleClick()}>{`\u002B`} {traduction.Add}</button> : 
-					<div className="numberButton">
-						<button className="buttonAdd" onClick={() => setBackNumberWindow(false) & setOpenWindow(false)}>{`\u002D`} {traduction.Delete}</button>
-						<button className="buttonAdd" onClick={() => setBackNumberWindow(false) & setOpenWindow(true)}>{`\u002B`} {traduction.Modify}</button>
-					</div>
-			}
+		<>
+			<div className="numberListType">
+				<span className={backNumberInput.numberStyle === 'none' ? 'selectButton' : 'buttonChoice'} onClick={() => setBackNumberInput({...backNumberInput, numberStyle:'none'}) & setBackNumberWindow(false) & setOpenWindow(false)}>{traduction.None}</span>
+				<span className={backNumberInput.numberStyle === 'montserrat' ? 'selectButton' : 'buttonChoice'} onClick={() => setBackNumberInput({...backNumberInput, numberStyle:'montserrat'}) & setBackNumberWindow(true) & setOpenWindow(true) & handleClick()}>{traduction.ClassicNumber}</span>
+				<span className={backNumberInput.numberStyle === 'dirt' ? 'selectButton' : 'buttonChoice'} onClick={() => setBackNumberInput({...backNumberInput, numberStyle:'metallic'}) & setBackNumberWindow(true) & setOpenWindow(true) & handleClick()}>{traduction.DirtNumber}</span>
+				<span className={backNumberInput.numberStyle === 'pixel' ? 'selectButton' : 'buttonChoice'} onClick={() => setBackNumberInput({...backNumberInput, numberStyle:'glitter'}) & setBackNumberWindow(true) & setOpenWindow(true) & handleClick()}>{traduction.PixelNumber}</span>
+				<span className={backNumberInput.numberStyle === 'racing' ? 'selectButton' : 'buttonChoice'} onClick={() => setBackNumberInput({...backNumberInput, numberStyle:'gilding'}) & setBackNumberWindow(true) & setOpenWindow(true) & handleClick()}>{traduction.RacingNumber}</span>
+			</div>
 			<div className={!openWindow ? "numberWindows" : "openNumberWindows" }>
 				<p className="infosNumber">{traduction.NumberStyleTitle}</p>
 				<div className="chooseWindows">
@@ -94,27 +88,9 @@ const BackNumber = ({backNumberWindow, setBackNumberWindow, fileNames, traductio
 							<Wrong windowClose={setOpenWindow} setNumberWindow={setBackNumberWindow}/>
 						</div>
 					</div>
-						<div className="chooseStyleNumber">
-							<div className={backNumberInput.numberStyle === 'montserrat' ? 'Select' : 'allScrew'} onClick={()=>setBackNumberInput({...backNumberInput, numberStyle: 'montserrat' })}>
-								<ClassicNumber />
-								<span className="textAction">{traduction.ClassicNumber}</span>
-							</div>
-							<div className={backNumberInput.numberStyle === 'dirt' ? 'Select' : 'allScrew'} onClick={()=>setBackNumberInput({...backNumberInput, numberStyle: 'dirt' })}>
-								<DirtNumber />
-								<span className="textAction">{traduction.DirtNumber}</span>
-							</div>
-							<div className={backNumberInput.numberStyle === 'pixel' ? 'Select' : 'allScrew'} onClick={()=>setBackNumberInput({...backNumberInput, numberStyle: 'pixel' })}>
-								<PixelNumber />
-								<span className="textAction">{traduction.PixelNumber}</span>
-							</div>
-							<div className={backNumberInput.numberStyle === 'racing' ? 'Select' : 'allScrew'} onClick={()=>setBackNumberInput({...backNumberInput, numberStyle: 'racing' })}>
-								<RacingNumber />
-								<span className="textAction">{traduction.RacingNumber}</span>
-							</div>
-						</div>
-					</div>
 				</div>
-				<div className={backNumberWindow ? "openColorList" : "openColorClose"}>
+			</div>
+			<div className={backNumberWindow ? "openColorList" : "openColorClose"}>
 					<div className="colorListType">
 						<span className={backNumberInput.numberColorType === 'plain' ? 'selectButton' : 'buttonChoice'} onClick={() => setBackNumberInput({...backNumberInput, numberColorType:'plain'}) & okClic()}>{traduction.Plain}</span>
 						<span className={backNumberInput.numberColorType === 'metallic' ? 'selectButton' : 'buttonChoice'} onClick={() => setBackNumberInput({...backNumberInput, numberColorType:'metallic'}) & okClic()}>{traduction.Metallic}</span>
@@ -190,7 +166,7 @@ const BackNumber = ({backNumberWindow, setBackNumberWindow, fileNames, traductio
 						}		
 					</div>
 			</div>
-		</div>
+		</>
 	)
 }
 

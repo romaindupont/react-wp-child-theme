@@ -15,7 +15,7 @@ const VisorPeakPage = ({setStandardValue,	standardValue, traduction}) => {
 		}
 	}
 	return (
-		<div className="peak_visor_page">
+		<>
 			<div className="colorListType">
 				<input className="inputVisor_peak" type="radio" name="peak_visor" id="plain" value="plain" onClick={()=>setStandardValue({...standardValue, Visor_peak_type:'plain'})}/>
 				<label className={standardValue.Visor_peak_type === 'plain' ? 'selectButton' : 'buttonChoice'} htmlFor="plain">{traduction.Plain}</label>
@@ -73,7 +73,7 @@ const VisorPeakPage = ({setStandardValue,	standardValue, traduction}) => {
 				</>
 			}
 			</div>
-		</div>
+			</>
 	)
 }
 export default VisorPeakPage;

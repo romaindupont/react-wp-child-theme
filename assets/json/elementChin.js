@@ -1,6 +1,11 @@
 export default [{
 	"en": [
 		{
+			fileName : 'chinguard',
+			title: 'chinguard',
+			helpMessage: 'Choose to add or not chinguard'
+		},
+		{
 			fileName : 'aeration',
 			title: 'aeration',
 			helpMessage: 'Choose if you want aeration or not'
@@ -42,6 +47,11 @@ export default [{
 		}
 	],
 	"fr": [
+		{
+			fileName : 'chinguard',
+			title: 'mentonnière',
+			helpMessage: 'Ajouter ou non la mentonnière'
+		},
 		{
 			fileName : 'aeration',
 			title: 'aération',

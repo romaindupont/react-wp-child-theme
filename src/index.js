@@ -29,7 +29,7 @@ const Veldt = () => {
 		Visor_peak_color: 'black',
 		Visor_peak_type: 'plain',
 		Visor_color: 'clear',
-		Visor_type: 'peak',
+		Visor_type: 'peak_visor',
 		Visor_frame: 'full'
 	});
 	const [ nodesConfiguration, setNodesConfiguration ] = useState([]);

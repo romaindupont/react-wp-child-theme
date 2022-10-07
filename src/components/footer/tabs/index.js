@@ -31,7 +31,9 @@ const Tabs = ({
 	tabsCheck,
 	setTabsCheck,
 	traduction,
-	downMenu
+	downMenu,
+	visorPosition,
+	setVisorPosition
 }) => {
 	return (
 		<div className="sd-tabs">
@@ -104,6 +106,8 @@ const Tabs = ({
 				traductionTitle = {traduction.VisorTitle}
 				traduction = {traduction}
 				downMenu = {downMenu}
+				visorPosition = {visorPosition}
+				setVisorPosition = {setVisorPosition}
 			/>
 		</div>
 	)
