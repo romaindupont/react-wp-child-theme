@@ -326,7 +326,7 @@ useEffect(() => {
 		<main className="configurator" id="configurator">
 			<iframe
 				id="emersyaIframe"
-				/* src="https://emersya.com/showcase/W3C2GS773F" */
+				src="https://emersya.com/showcase/W3C2GS773F"
 				frameBorder="0"
 				width="100%"
 				height="100%"
