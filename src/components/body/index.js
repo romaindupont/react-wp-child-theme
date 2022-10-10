@@ -93,7 +93,7 @@ const Body = ({
 				}, 
 				"*"
 				);
-				setTimeout(()=> {
+				setTimeout(() => {
 				viewerIframe.postMessage({
 					action : 'setMaterialsGroups',
 					values : 

@@ -1,3 +1,4 @@
+const { useState, useEffect } = wp.element;
 import ArrowLeft from '../../../../../assets/images/arrow_left.svg';
 import ArrowRight from '../../../../../assets/images/arrow_right.svg';
 import ElementData from '../../../../../assets/json/elementChin';
@@ -9,7 +10,7 @@ import Pattern from './templates/pattern';
 import PatternColor from './templates/pattern-color';
 import Trim from './templates/trim';
 import Varnish from './templates/varnish';
-const { useState } = wp.element;
+import CameraPosition from '../../../body/Camera/CameraPositionChin';
 
 const ChinTabs = ({
 	aerationChin,
@@ -57,6 +58,9 @@ const ChinTabs = ({
 			helpMessage : elementsOfChin[position].helpMessage
 		})
 	}
+	useEffect(() => {
+		CameraPosition(chinPosition.fileName)
+	}, [chinPosition]);
 	return (
 		<div className="infos chinguard">
 					{!withChin ? 

@@ -38,17 +38,27 @@ function uploadImage($request) {
 	/* var_dump($request); */
 	$upload_dir = wp_upload_dir();
 	$upload_path = is_ssl() ? str_replace('http://', 'https://', $upload_dir['baseurl']) : $upload_dir['baseurl'];
-	$base64Image = file_get_contents('php://input');;
-	$base64Image = str_replace('data:image/png;base64,', '', $base64Image);
-	$base64Image = str_replace(' ', '+', $base64Image);
+	$base64Image = file_get_contents('php://input');
 	$base64Image = str_replace('"', '', $base64Image);
-	var_dump($base64Image);
-
+	list($type, $base64Image) = explode(';', $base64Image);
+	list(,$extension) = explode('/',$type);
+	list(,$base64Image)      = explode(',', $base64Image);
+	$fileName = uniqid().'.'.$extension;
+	/* $pathReel = $upload_path . "/22/10/" . $fileName; */
+	$imageData = base64_decode($base64Image);
+	file_put_contents($fileName, $imageData);
+	var_dump($pathReel);
+	/* $base64Image = str_replace('data:image/png;base64,', '', $base64Image);
+	$base64Image = str_replace(' ', '+', $base64Image);
+	
 	$decoded          = base64_decode($base64Image);
-	$filename         = 'tattoo.png';
-	$hashed_filename  = md5( $filename . microtime() ) . '_' . $filename;
-	$image_upload     = file_put_contents( $upload_path . $hashed_filename, $decoded );
-	/* var_dump($image_upload); */
+	/* $decoded          = $base64Image; */
+/* 	var_dump($decoded); */
+	/* $filename         = 'tattoo.png';
+	$hashed_filename  = md5( $filename . microtime() ) . '_' . $filename; */
+	/* $image_upload     = file_put_contents( $upload_path . "/" . $hashed_filename, base64_decode($base64Image) ); */
+	/* $pathReel = $upload_path . "/" . $hashed_filename;
+	$image_upload     = file_put_contents( $filename , base64_decode($base64Image) ); */ 
 }
 add_filter( 'woocommerce_store_api_disable_nonce_check', '__return_true' );
 

@@ -1,4 +1,4 @@
-const { useState } = wp.element;
+const { useState, useEffect } = wp.element;
 import VisorFrame from "./templates/VisorFrame";
 import VisorLongPage from "./templates/VisorLongPage";
 import VisorPeakPage from "./templates/VisorPeakPage";
@@ -7,8 +7,17 @@ import VisorTypeChoice from "./templates/VisorTypeChoice";
 import ElementData from '../../../../../assets/json/elementVisor';
 import ArrowLeft from '../../../../../assets/images/arrow_left.svg';
 import ArrowRight from '../../../../../assets/images/arrow_right.svg';
+import CameraPosition from '../../../body/Camera/CameraPositionVisor';
 
-const VisorTabs = ({setStandardValue,	standardValue, traduction, setTabsChoice,	tabsChoice, visorPosition, setVisorPosition}) => {
+const VisorTabs = ({
+	setStandardValue,
+	standardValue,
+	traduction,
+	setTabsChoice,
+	tabsChoice,
+	visorPosition,
+	setVisorPosition
+}) => {
 	const [ typeChoice, setTypeChoice ] = useState('peak_visor');
 	const [ withVisor, setWithVisor ] = useState(false);
 	let language = document.querySelector('html').lang;
@@ -43,6 +52,9 @@ const VisorTabs = ({setStandardValue,	standardValue, traduction, setTabsChoice,	
 			helpMessage : elementsOfVisor[position].helpMessage
 		})
 	}
+	useEffect(() => {
+		CameraPosition(visorPosition.fileName)
+	}, [visorPosition]);
 	return (
 		<div className="infos visor">
 			{!withVisor ? 

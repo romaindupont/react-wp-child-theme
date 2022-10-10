@@ -8,6 +8,14 @@ const CameraPosition = (fileName) => {
     	break;
 		case 'zippers':
 			viewerIframe.postMessage(CameraPositionChange[0].helmet.zippers,'*');
+			setTimeout(
+				() => {
+					viewerIframe.postMessage({
+					action : 'setZoomProportion',
+					value : 0.9,
+					transitionTime : 500
+				},'*');
+			}, 500);
    		break;	
 		case 'back-number'	:
 			viewerIframe.postMessage(CameraPositionChange[0].helmet.backNumber,'*');
@@ -23,14 +31,29 @@ const CameraPosition = (fileName) => {
 			break;
 		case 'engraving' :
 			viewerIframe.postMessage(CameraPositionChange[0].helmet.engraving,'*');
+			setTimeout(
+				function() {
+					viewerIframe.postMessage({
+					action : 'setZoomProportion',
+					value : 0.97,
+					transitionTime : 500
+				},'*');
+			}, 500);
+			break;
+		case 'logo' :
+			viewerIframe.postMessage(CameraPositionChange[0].helmet.logo,'*');
+			setTimeout(
+				() => {
+					viewerIframe.postMessage({
+					action : 'setZoomProportion',
+					value : 0.72,
+					transitionTime : 500
+				},'*');
+			}, 500);
 			break;
 		default:
 			viewerIframe.postMessage({action : 'resetCamera'},'*');
 				viewerIframe.postMessage({action : 'play'},'*');
-			/* setTimeout(()=>{
-				viewerIframe.postMessage({action : 'resetCamera'},'*');
-				viewerIframe.postMessage({action : 'play'},'*');
-			}, "10000") */
 		
 	}
 }

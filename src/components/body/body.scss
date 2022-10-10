@@ -9,6 +9,9 @@
 #emersyaIframe, #emersyaContainer {
 	background-color: var(--background-page-config);
 }
+#emersyaIframe {
+	max-height: 80%;
+}
 div#testPanelCtn {
 	display: none;
 }

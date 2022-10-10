@@ -44,7 +44,6 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: flex-end;
-	margin: 2rem;
 }
 .header-configurator-right-comment {
 	margin-top: 0.6rem;
@@ -346,6 +345,12 @@ and (max-device-width : 768px) {
 	.closeMenu {
 		right: 100px;
 	}
+	button.header-configurator-right-priceZone-buy {
+		width: 100px;
+	}
+	.header-configurator-right {
+		margin: 0.5rem 2rem;
+	}
 }
 /* iPads (portrait and landscape) ----------- */
 @media only screen 
@@ -395,6 +400,10 @@ and (max-device-width : 1024px) {
 	}
 	button.header-configurator-right-priceZone-buy {
 		font-size: 0.8rem;
+		width: 250px;
+	}
+	.header-configurator-right {
+		margin: 2rem;
 	}
 }
 
