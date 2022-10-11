@@ -35,7 +35,6 @@ add_action( 'rest_api_init', function () {
 } );
 
 function uploadImage($request) {
-	/* var_dump($request); */
 	$upload_dir = wp_upload_dir();
 	$upload_path = is_ssl() ? str_replace('http://', 'https://', $upload_dir['baseurl']) : $upload_dir['baseurl'];
 	$base64Image = file_get_contents('php://input');
@@ -43,33 +42,34 @@ function uploadImage($request) {
 	list($type, $base64Image) = explode(';', $base64Image);
 	list(,$extension) = explode('/',$type);
 	list(,$base64Image)      = explode(',', $base64Image);
-	$fileName = uniqid().'.'.$extension;
-	/* $pathReel = $upload_path . "/22/10/" . $fileName; */
+	/* $fileName = uniqid().'.'.$extension; */
+	$fileName ='motorBike.'.$extension;
 	$imageData = base64_decode($base64Image);
-	file_put_contents($fileName, $imageData);
-	var_dump($pathReel);
-	/* $base64Image = str_replace('data:image/png;base64,', '', $base64Image);
-	$base64Image = str_replace(' ', '+', $base64Image);
-	
-	$decoded          = base64_decode($base64Image);
-	/* $decoded          = $base64Image; */
-/* 	var_dump($decoded); */
-	/* $filename         = 'tattoo.png';
-	$hashed_filename  = md5( $filename . microtime() ) . '_' . $filename; */
-	/* $image_upload     = file_put_contents( $upload_path . "/" . $hashed_filename, base64_decode($base64Image) ); */
-	/* $pathReel = $upload_path . "/" . $hashed_filename;
-	$image_upload     = file_put_contents( $filename , base64_decode($base64Image) ); */ 
+	/* $src = get_stylesheet_directory_uri(). '.\assets\images\.' . uniqid().'.'.$extension;  */
+	file_put_contents( $fileName, $imageData);
+
 }
 add_filter( 'woocommerce_store_api_disable_nonce_check', '__return_true' );
 
 function custom_new_product_image($a) {
-
+	/* $upload_dir = wp_upload_dir();
+	$upload_path = is_ssl() ? str_replace('http://', 'https://', $upload_dir['baseurl']) : $upload_dir['baseurl'];
+	$base64Image = file_get_contents('php://input');
+	var_dump($base64Image);
+	$base64Image = str_replace('"', '', $base64Image);
+	list($type, $base64Image) = explode(';', $base64Image);
+	list(,$extension) = explode('/',$type);
+	list(,$base64Image)      = explode(',', $base64Image);
+	$fileName = uniqid().'.'.$extension;
+	$imageData = base64_decode($base64Image); */
+	/* $src = __DIR__. '\\' .$fileName;  */
+	/* var_dump($src); */
+	/* file_put_contents($fileName, $imageData); */
 	$class = 'attachment-shop_thumbnail wp-post-image'; // Default cart thumbnail class.
-	$src = get_stylesheet_directory_uri(). '.\assets\images\imageMotorHelmet.png';
-
+	/* $src = get_stylesheet_directory_uri(). '.\assets\images\imageMotorHelmet.png'; */
 	// Construct your img tag.
 	$a = '<img';
-	$a .= ' src="' . $src . '"';
+	$a .= ' src="http://localhost:8080/essai/motorBike.png"';
 	$a .= ' class="' . $class . '"';
 	$a .= ' />';
 
@@ -90,11 +90,11 @@ add_action('woocommerce_add_order_item_meta', 'add_order_item_meta', 10, 2);
 
 // Display additional product fields (+ jQuery code)
 add_action( 'woocommerce_before_add_to_cart_button', 'njengah_additional_product_fields', 9 );
-function njengah_additional_product_fields(){
+function njengah_additional_product_fields($image){
     ?>
     <p class="form-row validate-required" id="image" >
         <label for="file_field"><?php echo __("Upload Image") . ': '; ?>
-            <input type='file' name='image' accept='image/*'>
+            <input type='file' name='image' accept='image/*' value=''.$image.''>
         </label>
     </p>
     <?php
@@ -103,7 +103,7 @@ function njengah_additional_product_fields(){
 add_filter( 'woocommerce_add_cart_item_data', 'add_custom_fields_data_as_custom_cart_item_data', 10, 2 );
 function add_custom_fields_data_as_custom_cart_item_data( $cart_item, $product_id ){
     if( isset($_FILES['image']) && ! empty($_FILES['image']) ) {
-        $upload       = wp_upload_bits( $_FILES['image']['name'], null, file_get_contents( $_FILES['image']['tmp_name'] ) );
+				$upload       = wp_upload_bits( $_FILES['image']['name'], null, file_get_contents( $_FILES['image']['tmp_name'] ) );
         $filetype     = wp_check_filetype( basename( $upload['file'] ), null );
         $upload_dir   = wp_upload_dir();
         $upl_base_url = is_ssl() ? str_replace('http://', 'https://', $upload_dir['baseurl']) : $upload_dir['baseurl'];

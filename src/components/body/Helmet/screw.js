@@ -45,15 +45,6 @@ const ScrewFunction = (screwPosition, nodesConfiguration) => {
 							0, 0, 1, 0,
 							0, 0, 0, 1],
 							SKU: Noeud[0].screw.screwsSideNoChinguard.SKU
-						},
-						{
-							parentLocalId: 1,
-							localId: parseInt(`${Noeud[0].screw.screwsBaseChinguard.localId}` + Date.now()),
-							matrix: [1, 0, 0, 0,
-							0, 1, 0, 0,
-							0, 0, 1, 0,
-							0, 0, 0, 1],
-							SKU: Noeud[0].screw.screwsBaseChinguard.SKU
 						}
 					],
 				localIdsToRemove :
@@ -88,15 +79,6 @@ const ScrewFunction = (screwPosition, nodesConfiguration) => {
 				action : "updateProductNodesInstances",
 				nodesToAdd :
 				[
-					{
-						parentLocalId: 1,
-						localId: parseInt(`${Noeud[0].screw.screwsBaseChinguard.localId}` + Date.now()),
-						matrix: [1, 0, 0, 0,
-						0, 1, 0, 0,
-						0, 0, 1, 0,
-						0, 0, 0, 1],
-						SKU: Noeud[0].screw.screwsBaseChinguard.SKU
-					},
 					{
 						parentLocalId: 1,
 						localId: parseInt(`${Noeud[0].screw.screwsSideNoChinguard.localId}` + Date.now()),
