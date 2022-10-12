@@ -34,7 +34,7 @@ add_action( 'rest_api_init', function () {
 	) );
 } );
 
-function uploadImage($request) {
+function uploadImage($request/* , $cart_item */) {
 	$upload_dir = wp_upload_dir();
 	$upload_path = is_ssl() ? str_replace('http://', 'https://', $upload_dir['baseurl']) : $upload_dir['baseurl'];
 	$base64Image = file_get_contents('php://input');
@@ -47,40 +47,61 @@ function uploadImage($request) {
 	$imageData = base64_decode($base64Image);
 	/* $src = get_stylesheet_directory_uri(). '.\assets\images\.' . uniqid().'.'.$extension;  */
 	file_put_contents( $fileName, $imageData);
-
+/* 	$cart_item['file_upload'] = array(
+		'guid'      => $fileName, // Url
+		'file_type' => $extension , // File type
+		'file_name' => $fileName, // File name
+		'title'     => $fileName, // Title
+);*/
+	var_dump(file_put_contents( $fileName, $imageData)); 
 }
 add_filter( 'woocommerce_store_api_disable_nonce_check', '__return_true' );
 
-function custom_new_product_image($a) {
-	/* $upload_dir = wp_upload_dir();
-	$upload_path = is_ssl() ? str_replace('http://', 'https://', $upload_dir['baseurl']) : $upload_dir['baseurl'];
-	$base64Image = file_get_contents('php://input');
-	var_dump($base64Image);
-	$base64Image = str_replace('"', '', $base64Image);
-	list($type, $base64Image) = explode(';', $base64Image);
-	list(,$extension) = explode('/',$type);
-	list(,$base64Image)      = explode(',', $base64Image);
-	$fileName = uniqid().'.'.$extension;
-	$imageData = base64_decode($base64Image); */
-	/* $src = __DIR__. '\\' .$fileName;  */
-	/* var_dump($src); */
-	/* file_put_contents($fileName, $imageData); */
-	$class = 'attachment-shop_thumbnail wp-post-image'; // Default cart thumbnail class.
-	/* $src = get_stylesheet_directory_uri(). '.\assets\images\imageMotorHelmet.png'; */
-	// Construct your img tag.
-	$a = '<img';
-	$a .= ' src="http://localhost:8080/essai/motorBike.png"';
-	$a .= ' class="' . $class . '"';
-	$a .= ' />';
+function custom_new_product_image($a, $cart_item, $cart_item_key) {	
 
-	// Output.
+	var_dump($request);
+	$targeted_id = 200;
+	/* $base64Image = file_get_contents('php://input'); */
+/* 	$cart_item['file_upload'] = array(
+		'guid'      => '', // Url
+		'file_type' =>'' , // File type
+		'file_name' => '', // File name
+		'title'     => 'un titre', // Title
+); */
+	/* var_dump($base64Image); */
+	if( $cart_item['product_id'] == $targeted_id || $cart_item['product_id'] == $targeted_id ){
+		$class = 'attachment-shop_thumbnail wp-post-image'; // Default cart thumbnail class.
+		$a = '<img';
+		$a .= ' src="http://localhost:8080/essai/motorBike.png"';
+		$a .= ' class="' . $class . '"';
+		$a .= ' />';
+		return $a;
+	}
 	return $a;
-
 }
 
-add_filter( 'woocommerce_cart_item_thumbnail', 'custom_new_product_image' );
+add_filter( 'woocommerce_cart_item_thumbnail', 'custom_new_product_image', 20, 3 );
 
-function add_order_item_meta($item_id, $values) {
+/* add_filter( 'woocommerce_add_cart_item_data', 'add_custom_fields_data_as_custom_cart_item_data', 10, 2 );
+function add_custom_fields_data_as_custom_cart_item_data( $cart_item, $product_id ){
+		$targeted_id = 200;
+    if( isset($_FILES['image']) && ! empty($_FILES['image']) ) {
+				$upload       = wp_upload_bits( $_FILES['image']['name'], null, file_get_contents( $_FILES['image']['tmp_name'] ) );
+        $filetype     = wp_check_filetype( basename( $upload['file'] ), null );
+        $upload_dir   = wp_upload_dir();
+        $upl_base_url = is_ssl() ? str_replace('http://', 'https://', $upload_dir['baseurl']) : $upload_dir['baseurl'];
+        $base_name    = basename( $upload['file'] );
+        $cart_item['file_upload'] = array(
+            'guid'      => $upl_base_url .'/'. _wp_relative_upload_path( $upload['file'] ), // Url
+            'file_type' => $filetype['type'], // File type
+            'file_name' => $base_name, // File name
+            'title'     => ucfirst( preg_replace('/\.[^.]+$/', '', $base_name ) ), // Title
+        );
+        $cart_item['unique_key'] = md5( microtime().rand() ); // Avoid merging items
+    }
+    return $cart_item;
+} */
+/* function add_order_item_meta($item_id, $values) {
 	$key = ''; // Define your key here
 	$value = $_POST['key_name']; // Get your value here
 	woocommerce_add_order_item_meta($item_id, $key, $value);
@@ -102,6 +123,7 @@ function njengah_additional_product_fields($image){
 // Add custom fields data as the cart item custom data
 add_filter( 'woocommerce_add_cart_item_data', 'add_custom_fields_data_as_custom_cart_item_data', 10, 2 );
 function add_custom_fields_data_as_custom_cart_item_data( $cart_item, $product_id ){
+		$base64Image = file_get_contents('php://input');
     if( isset($_FILES['image']) && ! empty($_FILES['image']) ) {
 				$upload       = wp_upload_bits( $_FILES['image']['name'], null, file_get_contents( $_FILES['image']['tmp_name'] ) );
         $filetype     = wp_check_filetype( basename( $upload['file'] ), null );
@@ -159,4 +181,4 @@ function njengah_email_new_order_custom_meta_data( $order, $sent_to_admin, $plai
             }
         }
     }
-}
+} */

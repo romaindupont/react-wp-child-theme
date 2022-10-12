@@ -67,7 +67,7 @@ const Header = ({traduction}) => {
 			.then(data => console.log(data))
 		fetch("http://localhost:8080/essai/cart/?add-to-cart=201", myInit)
 				.then(response => response.text())
-				.then(data => console.log(data))
+				.then(data => /* console.log */(data))
 			} 
   return (
 		<header className="configurator-header">
