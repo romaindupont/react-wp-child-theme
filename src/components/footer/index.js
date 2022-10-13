@@ -36,13 +36,14 @@ const Footer = ({
 	tabsCheck,
 	setTabsCheck,
 	traduction,
-	setScreenshotsWait
+	setScreenshotsWait,
+	downMenu,
+	setDownMenu
 }) => {
 	const [ openOptionMenu, setOpenOptionMenu ] = useState({
 			name: '',
 			open: false
 	});
-	const [ downMenu, setDownMenu ] = useState(false);
 	let language = document.querySelector('html').lang;
 	let elementsOfChin = ElementDataChin[0].en;
 	let elementsOfHelmet = ElementData[0].en;

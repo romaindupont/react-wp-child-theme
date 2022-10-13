@@ -40,7 +40,8 @@ const Body = ({
 	setLoader,
 	nodesConfiguration,
 	setNodesConfiguration,
-	tabsChoice
+	tabsChoice,
+	downMenu
 }) => {
 	let viewerIframe = null;
 	let viewerActive = false;
@@ -326,6 +327,7 @@ useEffect(() => {
 		<main className="configurator" id="configurator">
 			<iframe
 				id="emersyaIframe"
+				className={downMenu ? 'openTabs' : ''}
 				src="https://emersya.com/showcase/W3C2GS773F"
 				frameBorder="0"
 				width="100%"

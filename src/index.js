@@ -42,6 +42,7 @@ const Veldt = () => {
 	const [ backEngraving, setBackEngraving ] = useState(false);
 	const [ aerationChin, setAerationChin ] = useState(true);
 	const [ varnishChin, setVarnishChin ] = useState(true);
+	const [ downMenu, setDownMenu ] = useState(false);
 	const [ screenshotsWait, setScreenshotsWait ] = useState({
 		wait: false,
 		arrayScreen : []
@@ -85,6 +86,7 @@ const Veldt = () => {
 				setNodesConfiguration = {setNodesConfiguration}
 				nodesConfiguration = {nodesConfiguration}
 				tabsChoice = {tabsChoice}
+				downMenu = {downMenu}
 			/>
 			<Footer
 				aerationHelmet = {aerationHelmet}
@@ -115,6 +117,8 @@ const Veldt = () => {
 				setTabsCheck = {setTabsCheck}
 				traduction = {traduction}
 				setScreenshotsWait = {setScreenshotsWait}
+				downMenu = {downMenu}
+				setDownMenu = {setDownMenu}
 			/>
 		</div>
   );
