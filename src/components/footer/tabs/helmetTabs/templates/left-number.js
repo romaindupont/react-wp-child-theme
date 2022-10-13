@@ -33,7 +33,7 @@ const LeftNumber = ({leftNumberWindow, setLeftNumberWindow, fileNames, traductio
 				text : leftNumberInput.numberText,
 				font : leftNumberInput.numberStyle,
 				underline : false,
-				strokeText : true,
+				strokeText : false,
 				strokeColor : '#000000',
 				strokeWidth : 5
 			}

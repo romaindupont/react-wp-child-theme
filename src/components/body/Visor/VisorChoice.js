@@ -49,7 +49,7 @@ const VisorChoice = (standardValue, nodesConfiguration, setLoader, tabsChoice) =
 									0, 0, 0, 1],
 									SKU: Noeud[0].visor.visorPeak.SKU
 								},
-								{
+								/* {
 									parentLocalId: 1,
 									localId: parseInt(`${Noeud[0].visor.visorElements.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
@@ -57,7 +57,7 @@ const VisorChoice = (standardValue, nodesConfiguration, setLoader, tabsChoice) =
 									0, 0, 1, 0,
 									0, 0, 0, 1],
 									SKU: Noeud[0].visor.visorElements.SKU
-								},
+								}, */
 								{
 									parentLocalId: 1,
 									localId: parseInt(`${Noeud[0].screw.screwsTopVisor.localId}` + Date.now()),

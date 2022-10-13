@@ -13,7 +13,7 @@ export default [
 			backNumber:
 			{
 				action : 'setCamera',
-				position : [0.262, -0.385, -5.786],
+				position : [0.01, -0.385, -5.786],
 				target : [0, 1.171, -0.0731],
 				up : [0, 1, 0],
 				transitionTime : 500,
@@ -49,8 +49,8 @@ export default [
 			logo:
 			{
 				action : 'setCamera',
-				position : [-0.007, 3.57, 3.39],
-				target : [0, 1.171, -0.0731],
+				position : [0.02, 3.88, 1.78],
+				target : [0.015, 1.171, -0.0731],
 				up : [0, 1, 0],
 				transitionTime : 500,
 				fov : 40
@@ -139,8 +139,8 @@ export default [
 			zippers:
 			{
 				action : 'setCamera',
-				position : [-0.0087, -3.165, 1.336],
-				target : [0, 1.171, -0.0731],
+				position : [0.007, -1.65, 1.342],
+				target : [0.006, 1.33, 0.407],
 				up : [0, 1, 0],
 				transitionTime : 500,
 				fov : 40

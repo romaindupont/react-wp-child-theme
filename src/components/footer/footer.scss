@@ -92,13 +92,13 @@
 }
 .sd-tabs > .sd-tab-label .sd-tab-desc {
   display: block;
-  margin: auto;
+  margin: 0 auto;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
   position: relative;
 	text-transform: uppercase;
-	font-weight: 600;
+	font-weight: 500;
 }
 .sd-tabs > .sd-tab-label .sd-tab-icon {
   display: flex;
@@ -259,7 +259,7 @@ svg#menu_option {
 	justify-content: center;
 	display: flex;
 	width: 90%;
-	margin-top: 0.5rem;
+/* 	margin-top: 0.5rem; */
 }
 .patternList, .colorList, .visorPage {
 	display: flex;
@@ -295,7 +295,7 @@ svg#menu_option {
 	color: var(--color-principal);
 	width: 70%;
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: center;
 }
 .buttonChoice:hover, .SizebuttonChoice:hover {
   background:var(--color-second);
@@ -313,12 +313,11 @@ svg#menu_option {
 	text-align: center;
 	cursor: pointer;
 	text-transform: uppercase;
-
-	font-weight: 600;
+	font-weight: 500;
 }
 .buttonChoice, .SizebuttonChoice {
   color: #a5a4a4;
-	border: 2px solid var(--color-border-bottom-header);
+	border: 1px solid var(--color-border-bottom-header);
 }
 .buttonAdd {
 	background:  var(--color-principal);
@@ -349,8 +348,9 @@ svg#menu_option {
 .elementChoice {
 	display: flex;
 	justify-content: center;
-	height: 50px;
+	height: 30px;
 	align-content: flex-start;
+	margin-bottom: 10px;
 }
 .direction {
 	width: 30px;
@@ -366,6 +366,7 @@ svg#menu_option {
 	font-weight: 600;
 	color: var(--color-principal);
 	height: 30px;
+	
 }
 .numberStep {
 	opacity: 0.7;
@@ -862,6 +863,8 @@ svg#link, svg#download {
 	.elementPicker {
 		text-align: center;
 		width: 100%;
+		vertical-align: middle;
+    line-height: unset;
 	}
 	.allScrew, .Select {
 		width: 60px;
@@ -1022,6 +1025,8 @@ svg#link, svg#download {
 	.buttonChoice, .buttonAdd, .SizebuttonChoice, .selectButton {	
 		width: 50px;
 		font-size: 0.5rem;
+		margin: auto 5px;
+		
 	}
 	.numberListType, .aerationList {
 		max-width: 90%;
@@ -1069,7 +1074,7 @@ svg#link, svg#download {
 		top: 3px;
 	}
 	.sd-tabs > .sd-tab-label:first-of-type {
-    margin-left: 14px;
+    /* margin-left: 14px; */
 	}
 	svg#down {
 		display: block;
@@ -1185,7 +1190,9 @@ svg#link, svg#download {
 	}
 	.elementPicker {
 		text-align: center;
-		width: 400px;
+		width: 540px;
+		vertical-align: middle;
+    line-height: unset;
 	}
 	.allScrew, .Select {
 		width: 80px;
@@ -1229,7 +1236,7 @@ svg#link, svg#download {
 		display: block;
 	}
 	.colorListType, .sizeChoice, .certifChoice {
-		justify-content: space-around;
+		justify-content: center;
 	}
 	.menu_option {
 		bottom: -100px;
@@ -1257,8 +1264,8 @@ svg#link, svg#download {
 		height: 10%;
 	}
 	.buttonChoice, .buttonAdd, .SizebuttonChoice, .selectButton {	
-		width: 120px;
-		font-size: 0.7rem;
+		width: 150px;
+		font-size: 0.8rem;
 	}
 	.helmet, .chinguard, .visor {
 		margin-top: 0px;

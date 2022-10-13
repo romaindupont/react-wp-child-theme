@@ -33,7 +33,7 @@ const BackNumber = ({backNumberWindow, setBackNumberWindow, fileNames, traductio
 				text : backNumberInput.numberText,
 				font : backNumberInput.numberStyle,
 				underline : false,
-				strokeText : true,
+				strokeText : false,
 				strokeColor : '#000000',
 				strokeWidth : 5
 			}

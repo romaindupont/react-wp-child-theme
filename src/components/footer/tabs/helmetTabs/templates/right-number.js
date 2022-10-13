@@ -33,8 +33,8 @@ const RightNumber = ({rightNumberWindow, setRightNumberWindow, fileNames, traduc
 				text : rightNumberInput.numberText,
 				font : rightNumberInput.numberStyle,
 				underline : false,
-				strokeText : true,
-				strokeColor : '#000000',
+				strokeText : false,
+				strokeColor : '#FFFFFF',
 				strokeWidth : 5
 			}
 		}, '*');

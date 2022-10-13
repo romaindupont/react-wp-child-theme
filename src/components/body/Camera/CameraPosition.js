@@ -35,7 +35,7 @@ const CameraPosition = (fileName) => {
 				function() {
 					viewerIframe.postMessage({
 					action : 'setZoomProportion',
-					value : 0.97,
+					value : 0.86,
 					transitionTime : 500
 				},'*');
 			}, 500);
@@ -46,7 +46,7 @@ const CameraPosition = (fileName) => {
 				() => {
 					viewerIframe.postMessage({
 					action : 'setZoomProportion',
-					value : 0.72,
+					value : 0.83,
 					transitionTime : 500
 				},'*');
 			}, 500);
