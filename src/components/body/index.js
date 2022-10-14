@@ -127,7 +127,7 @@ const Body = ({
 					}, '*');
 				setLoader(true);
 				}, '2000');
-			
+				viewerIframe.postMessage({action : 'play'},'*');
 			}
 		}
 		if(event.data && event.data.action == 'onScreenshots'){

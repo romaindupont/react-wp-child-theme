@@ -51,9 +51,15 @@ const CameraPosition = (fileName) => {
 				},'*');
 			}, 500);
 			break;
+			case 'trim'	:
+				viewerIframe.postMessage({action : 'resetCamera'},'*');
+			break;
+			case 'aeration'	:
+				viewerIframe.postMessage({action : 'resetCamera'},'*');
+			break;
 		default:
-			viewerIframe.postMessage({action : 'resetCamera'},'*');
-				viewerIframe.postMessage({action : 'play'},'*');
+			/* viewerIframe.postMessage({action : 'resetCamera'},'*'); */
+				/* viewerIframe.postMessage({action : 'play'},'*'); */
 		
 	}
 }

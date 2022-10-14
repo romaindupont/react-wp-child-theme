@@ -613,8 +613,7 @@
 	fill:#233658;
 }
 svg#info_logo:hover > g > .info_logo_st0 {
-	fill: #fff;
-	stroke: #233856;
+	filter: invert(0.6);
 }
 .closeOption_st100 {
 	fill:#FFFFFF;

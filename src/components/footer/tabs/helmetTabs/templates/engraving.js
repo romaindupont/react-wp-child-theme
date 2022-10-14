@@ -51,7 +51,7 @@ const Engraving = ({backEngraving, setBackEngraving, fileNames, traduction}) => 
 				<p className="infosNumber">{traduction.YourText}</p>
 				<div className="chooseWindows">
 					<form className="chooseWindows_input">
-						<input type="text" name="textSelection" id="textSelection" onChange={(e)=>setEngravingInput({...engravingInput, text: e.target.value })}/>
+						<input type="text" name="textSelection" id="textSelection" placeholder="TEXT" onChange={(e)=>setEngravingInput({...engravingInput, text: e.target.value })}/>
 						<div className="selectButtonNumber">
 							<div className="selectButtonNumber--right" onClick={okClic}>
 								<Right windowClose={setOpenWindow} setNumberWindow={setBackEngraving} fileNames={fileNames}/>

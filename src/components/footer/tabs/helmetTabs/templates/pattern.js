@@ -18,7 +18,7 @@ import { useHorizontalScroll } from "../../../../../../utils/useHorizontalScroll
 const Pattern = ({setStandardValue, standardValue, traduction}) => {
 	const scrollRef = useHorizontalScroll();
 	const scrollEffect = (e) => {
-		let ratio = 4.5;
+		let ratio = 3.5;
 		if(e.target.getBoundingClientRect().width < 900) {
 			let calcul = e.target.clientWidth/ratio - e.target.scrollLeft;
 			if (calcul < `-${e.target.clientWidth/5}`) {

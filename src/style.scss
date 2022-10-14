@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 .mc0{fill:#233658;}
 .mc1{fill:#FFFFFF;}
 
@@ -32,6 +34,10 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	font-family: 'Montserrat', sans-serif;
+}
+html {
+	font-family: 'Montserrat', sans-serif;
 }
 ol, ul {
 	list-style: none;
@@ -63,25 +69,39 @@ a {
 }
 .load {
 	width: 100vw;
-	height: 100vh;
-	background: rgba(0, 0, 0, .5);
-	backdrop-filter: blur(10px);
+	height: 230px;
+	background: #FFFFFF;
 	z-index: 99;
 	position: absolute;
-	top: 0;
+	bottom: 0;
 	left: 0;
 	display: flex;
 }
 .loader {
-  border: 16px solid #f3f3f3;
+  border: 8px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 16px solid #233658;
+  border-top: 8px solid #233658;
   width: 120px;
   height: 120px;
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 2s linear infinite;
 	margin: auto;
 	z-index: 100;
+}
+
+input[type=number] {
+	-moz-appearance: textfield;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button { 
+-webkit-appearance: none;
+margin:0;
+}
+input::-o-inner-spin-button,
+input::-o-outer-spin-button { 
+	-o-appearance: none;
+	margin:0
 }
 @-webkit-keyframes spin {
   0% { -webkit-transform: rotate(0deg); }
@@ -92,6 +112,8 @@ a {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+
 @import './components/header/header.scss';
 
 @import './components/body/body.scss';

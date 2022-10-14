@@ -6,18 +6,25 @@ import { useHorizontalScroll } from "../../../../../../utils/useHorizontalScroll
 const LeftNumber = ({leftNumberWindow, setLeftNumberWindow, fileNames, traduction}) => {
 	const [ openWindow, setOpenWindow ] = useState(false);
 	const [ leftNumberInput, setLeftNumberInput ] = useState({
-		numberText: '08',
+		numberText: '00',
 		numberStyle: 'none',
 		numberColorType: 'plain',
 		numberColor: 'white'
 	});
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 	const okClic = () => {
+		let typeColor = leftNumberInput.numberColorType;
+		if (leftNumberInput.numberColorType === 'gilding') {
+			typeColor = 'metallic'
+		}
+		else {
+			typeColor = leftNumberInput.numberColorType;
+		}
 		viewerIframe.postMessage({
 			action : 'updateCustomText',
 			data   : {
 				configurableMaterial : 'Numbering_left',
-				materialVariation : `${leftNumberInput.numberColorType}|${leftNumberInput.numberColor}`,
+				materialVariation : `${typeColor}|${leftNumberInput.numberColor}`,
 				contents : ['opacity'],
 				color : '#FFFFFF',
 				backgroundColor : '#000000',
@@ -51,7 +58,7 @@ const LeftNumber = ({leftNumberWindow, setLeftNumberWindow, fileNames, traductio
 	}
 	const scrollRef = useHorizontalScroll();
 	const scrollEffect = (e) => {
-		let ratio = 4.5;
+		let ratio = 2.5;
 		if(e.target.getBoundingClientRect().width < 900) {
 			let calcul = e.target.clientWidth/ratio - e.target.scrollLeft;
 			if (calcul < `-${e.target.clientWidth/5}`) {
@@ -64,10 +71,13 @@ const LeftNumber = ({leftNumberWindow, setLeftNumberWindow, fileNames, traductio
 	}
 	useEffect(() => {
 		okClic()
-		}, [leftNumberInput.numberText,
-			leftNumberInput.numberStyle,
-			leftNumberInput.numberColorType,
-			leftNumberInput.numberColor]);
+		}, [
+				leftNumberInput.numberText,
+				leftNumberInput.numberStyle,
+				leftNumberInput.numberColorType,
+				leftNumberInput.numberColor
+			]
+	);
 	return (
 		<>
 			<div className="numberListType">
@@ -81,12 +91,15 @@ const LeftNumber = ({leftNumberWindow, setLeftNumberWindow, fileNames, traductio
 				<p className="infosNumber">{traduction.NumberStyleTitle}</p>
 				<div className="chooseWindows">
 					<div className="chooseWindows_input">
-						<input type="number" name="numberSelection" id="numberSelection" onChange={(e)=>setLeftNumberInput({...leftNumberInput, numberText: e.target.value })} />
+						<input type="number" name="numberSelection" id="numberSelection" placeholder="00" onChange={(e)=>setLeftNumberInput({...leftNumberInput, numberText: e.target.value })} />
+						{parseInt(leftNumberInput.numberText) > 99  || parseInt(leftNumberInput.numberText) < 0 ? traduction.MessageErrorNumber : '' }
 						<div className="selectButtonNumber">
-							<div className="selectButtonNumber--right" onClick={okClic}>
-								<Right windowClose={setOpenWindow} setNumberWindow={setLeftNumberWindow} fileNames={fileNames} />
-							</div>
 							<Wrong windowClose={setOpenWindow} setNumberWindow={setLeftNumberWindow}/>
+							<div className="selectButtonNumber--right" onClick={okClic}>
+							{parseInt(leftNumberInput.numberText) > 99  || parseInt(leftNumberInput.numberText) < 0 ? '': 
+								<Right windowClose={setOpenWindow} setNumberWindow={setLeftNumberWindow} fileNames={fileNames} />
+							}
+								</div>
 						</div>
 					</div>
 				</div>

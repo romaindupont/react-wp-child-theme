@@ -6,18 +6,25 @@ import { useHorizontalScroll } from "../../../../../../utils/useHorizontalScroll
 const RightNumber = ({rightNumberWindow, setRightNumberWindow, fileNames, traduction}) => {
 	const [ openWindow, setOpenWindow ] = useState(false);
 	const [ rightNumberInput, setRightNumberInput ] = useState({
-		numberText: '08',
+		numberText: '00',
 		numberStyle: 'none',
 		numberColorType: 'plain',
 		numberColor: 'white'
 	});
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 	const okClic = () => {
+		let typeColor = rightNumberInput.numberColorType;
+		if (rightNumberInput.numberColorType === 'gilding') {
+			typeColor = 'metallic'
+		}
+		else {
+			typeColor = rightNumberInput.numberColorType;
+		}
 		viewerIframe.postMessage({
 			action : 'updateCustomText',
 			data   : {
 				configurableMaterial : 'Numbering_right',
-				materialVariation : `${rightNumberInput.numberColorType}|${rightNumberInput.numberColor}`,
+				materialVariation : `${typeColor}|${rightNumberInput.numberColor}`,
 				contents : ['opacity'],
 				color : '#FFFFFF',
 				backgroundColor : '#000000',
@@ -51,7 +58,7 @@ const RightNumber = ({rightNumberWindow, setRightNumberWindow, fileNames, traduc
 	}
 	const scrollRef = useHorizontalScroll();
 	const scrollEffect = (e) => {
-		let ratio = 4.5;
+		let ratio = 2.5;
 		if(e.target.getBoundingClientRect().width < 900) {
 			let calcul = e.target.clientWidth/ratio - e.target.scrollLeft;
 			if (calcul < `-${e.target.clientWidth/5}`) {
@@ -64,10 +71,13 @@ const RightNumber = ({rightNumberWindow, setRightNumberWindow, fileNames, traduc
 	}
 	useEffect(() => {
 		okClic()
-		}, [rightNumberInput.numberText,
-			rightNumberInput.numberStyle,
-			rightNumberInput.numberColorType,
-			rightNumberInput.numberColor]);
+		}, [
+				rightNumberInput.numberText,
+				rightNumberInput.numberStyle,
+				rightNumberInput.numberColorType,
+				rightNumberInput.numberColor
+			]
+	);
 	return (
 		<>
 			<div className="numberListType">
@@ -81,12 +91,15 @@ const RightNumber = ({rightNumberWindow, setRightNumberWindow, fileNames, traduc
 				<p className="infosNumber">{traduction.NumberStyleTitle}</p>
 				<div className="chooseWindows">
 					<div className="chooseWindows_input">
-						<input type="number" name="numberSelection" id="numberSelection" onChange={(e)=>setRightNumberInput({...rightNumberInput, numberText: e.target.value })} />
+					{parseInt(rightNumberInput.numberText) > 99  || parseInt(rightNumberInput.numberText) < 0 ? traduction.MessageErrorNumber : '' }
+						<input type="number" name="numberSelection" id="numberSelection" placeholder="00" onChange={(e)=>setRightNumberInput({...rightNumberInput, numberText: e.target.value })} />
 						<div className="selectButtonNumber">
-							<div className="selectButtonNumber--right" onClick={okClic}>
-								<Right windowClose={setOpenWindow} setNumberWindow={setRightNumberWindow} fileNames={fileNames} />
-							</div>
 							<Wrong windowClose={setOpenWindow} setNumberWindow={setRightNumberWindow}/>
+							<div className="selectButtonNumber--right" onClick={okClic}>
+							{parseInt(rightNumberInput.numberText) > 99  || parseInt(rightNumberInput.numberText) < 0 ? '': 
+								<Right windowClose={setOpenWindow} setNumberWindow={setRightNumberWindow} fileNames={fileNames} />
+							}
+								</div>
 						</div>
 					</div>
 				</div>

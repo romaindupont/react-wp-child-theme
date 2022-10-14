@@ -27,7 +27,7 @@ function get_menu() {
 	return wp_get_nav_menu_items('main-menu');
 } 
 
-/* add_action( 'rest_api_init', function () {
+add_action( 'rest_api_init', function () {
 	register_rest_route( '/imageHandler/v1', '/upload', array(
 			'methods' => 'POST',
 			'callback' => 'uploadImage',
@@ -48,8 +48,8 @@ function uploadImage($request) {
 	var_dump(file_put_contents( $fileName, $imageData));
 }
 add_filter( 'woocommerce_store_api_disable_nonce_check', '__return_true' );
- */
-/* function custom_new_product_image($a, $cart_item, $cart_item_key) {	
+
+function custom_new_product_image($a, $cart_item, $cart_item_key) {	
 	$targeted_id = 200;
 	$upload_dir   = wp_upload_dir();
 	$upl_base_url = is_ssl() ? str_replace('http://', 'https://', $_SERVER['SERVER_NAME']. ':8080/essai') : $_SERVER['SERVER_NAME']. ':8080/essai';
@@ -57,7 +57,7 @@ add_filter( 'woocommerce_store_api_disable_nonce_check', '__return_true' );
 	$newName = 'motorBike' . uniqid() . '.png';
 	copy($user_pic, $newName);
 	$cart_item['file_upload'] = array(
-		'guid'      => $upl_base_url .'/' // Url
+		'guid'      => $upl_base_url .'/', // Url
 		'file_type' => 'png', // File type
 		'file_name' => $newName, // File name
 		'title'     => 'Your Custom Helmet', // Title
@@ -75,7 +75,7 @@ add_filter( 'woocommerce_store_api_disable_nonce_check', '__return_true' );
 	return $a;
 }
 
-add_filter( 'woocommerce_cart_item_thumbnail', 'custom_new_product_image', 20, 3 ); */
+add_filter( 'woocommerce_cart_item_thumbnail', 'custom_new_product_image', 20, 3 );
 
 /* add_filter( 'woocommerce_add_cart_item_data', 'add_custom_fields_data_as_custom_cart_item_data', 10, 2 );
 function add_custom_fields_data_as_custom_cart_item_data( $cart_item, $product_id ){

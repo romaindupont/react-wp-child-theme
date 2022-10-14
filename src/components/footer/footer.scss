@@ -99,6 +99,7 @@
   position: relative;
 	text-transform: uppercase;
 	font-weight: 500;
+	font-family: var(--font-family);
 }
 .sd-tabs > .sd-tab-label .sd-tab-icon {
   display: flex;
@@ -245,6 +246,7 @@ svg#menu_option {
 	font-style: italic;
 	width: 100%;
 	flex-wrap: wrap;
+	font-family: var(--font-family);
 }
 /* Config helmet */
 .template {
@@ -278,8 +280,8 @@ svg#menu_option {
 .numberListType {
 	width: 100%;
 	display: flex;
-	justify-content: space-evenly;
-	margin-top: 0.5rem;
+	justify-content: center;
+	/* margin-top: 0.5rem; */
 }
 .chooseStyleNumber {
 	margin-top: 1rem;
@@ -314,10 +316,12 @@ svg#menu_option {
 	cursor: pointer;
 	text-transform: uppercase;
 	font-weight: 500;
+	font-family: var(--font-family);
 }
 .buttonChoice, .SizebuttonChoice {
   color: #a5a4a4;
 	border: 1px solid var(--color-border-bottom-header);
+	font-family: var(--font-family);
 }
 .buttonAdd {
 	background:  var(--color-principal);
@@ -366,11 +370,12 @@ svg#menu_option {
 	font-weight: 600;
 	color: var(--color-principal);
 	height: 30px;
-	
+	font-family: var(--font-family);
 }
 .numberStep {
 	opacity: 0.7;
 	margin-left: 1rem;
+	font-family: var(--font-family);
 }
 .number {
 	margin-left: 2rem;
@@ -386,36 +391,17 @@ svg#menu_option {
 .textAction {
 	font-weight: 500;
 	color: var(--color-principal);
-}
-.allScrew > .textAction::after,
-.Select > .textAction::after,
-.colorP > .textAction::after,
-.selectColor > .textAction::after {
-	border-bottom: 2px solid var(--color-principal);
-	content: '';
-	width: 50%;
-	position: absolute;
-	bottom: 0;
-	left: 25%;
-	transform: scaleX(0);
-	transition: transform 250ms ease-in-out;
-	transform-origin: center;
-}
-.allScrew:hover > .textAction::after,
-.Select:hover > .textAction::after,
-.colorP:hover > .textAction::after,
-.selectColor:hover > .textAction::after {
-	transform: scaleX(1);
+	font-family: var(--font-family);
 }
 .allScrew:hover > .textAction {
 	visibility: visible;
-	}
+}
 .Select > .textAction {
 	visibility: visible;
 	text-align: center;
 	top: 60px;
 	width: 120px;
-	}
+}
 .colorP > .textAction,
 .selectColor > .textAction {
 	position: absolute;
@@ -599,9 +585,9 @@ background: #000;
 	align-items: center;
 	position: absolute;
 	width: 100vw;
-	height: 250px;
+	height: 260px;
 	z-index: 199;
-	backdrop-filter: blur(10px);
+	background: white;
 }
 .infosNumber {
 	text-transform: uppercase;
@@ -609,6 +595,7 @@ background: #000;
 	color: var(--color-principal);
 	text-align: center;
 	margin-top: 0.5rem;
+	font-family: var(--font-family);
 }
 .chooseWindows {
 	display: flex;
@@ -622,10 +609,20 @@ background: #000;
 input#numberSelection {
 	height: 40px;
 	text-align: center;
+	border: 2px solid rgba(35, 54, 88, 0.2);
+	font-family: var(--font-family);
+	&:focus {
+		border: 2px solid rgba(35, 54, 88);
+	}
 }
 input#textSelection {
 	height: 40px;
 	text-align: center;
+	border: 2px solid rgba(35, 54, 88, 0.2);
+	font-family: var(--font-family);
+	&:focus {
+		border: 2px solid rgba(35, 54, 88);
+	}
 }
 .selectButtonNumber {
 	width: 100%;
@@ -671,7 +668,7 @@ input#textSelection {
 	position: relative;
 	display: flex;
 	margin: 0;
-	justify-content: space-evenly;
+	justify-content: center;
 }
 .inputVisor, .inputVisor_peak {
 	position: absolute;
@@ -718,7 +715,7 @@ input#textSelection {
 	position: absolute;
 	z-index: 102;
 	justify-items: center;
-	padding: 4rem 0;
+	justify-content: center;
 }
 .openMenuOption {
 	bottom: -100px;
@@ -757,17 +754,15 @@ input#textSelection {
 }
 .exportWindow > div {
 	height: 100%;
-	width: 100%;
+	/* width: 35%; */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
 	justify-content: center;
 }
 .exportWindow > div > h3 {
 	text-transform: uppercase;
 	color: var(--color-principal);
-	font-size: 1rem;
 	margin-bottom: 1rem;
 	font-weight: 600;
 }
@@ -778,7 +773,6 @@ input#textSelection {
 .exportWindow > div > div > div {
 	flex-direction: row;
 	display: flex;
-	margin-bottom: 2rem;
 	align-items: center;
 }
 .exportWindow > div > div > div:first-child {
@@ -821,6 +815,9 @@ svg#link, svg#download {
 	background: var(--color-second);
 	color: var(--color-principal);
 	text-decoration: underline;
+}
+.menuShare {
+	font-family: var(--font-family);
 }
 
 @media (min-width : 320px) {
@@ -865,6 +862,7 @@ svg#link, svg#download {
 		width: 100%;
 		vertical-align: middle;
     line-height: unset;
+		font-size: 0.8rem;
 	}
 	.allScrew, .Select {
 		width: 60px;
@@ -904,16 +902,12 @@ svg#link, svg#download {
 	.numberButton {
 		display: flex;
     width: 100vw;
-    justify-content: space-evenly;
-    margin-bottom: 0.2rem;
+    justify-content: center;
+   /*  margin-bottom: 0.2rem; */
 	}
-	.exportWindow {
-		flex-direction: column;
-		align-items: center;
-		bottom: -100px;
-	}
+	
 	.menuImageToShare > img {
-		width: 80%;
+		width: 60%;
 	}
 	.patternList, .colorList, .visorPage {
 		transform: translate3d(50%, 0px, 0px);
@@ -969,7 +963,7 @@ svg#link, svg#download {
 	}
 	.visorPage {
 		width: 90%;
-		justify-content: center;
+		justify-content: flex-start;
 	}
 	.openNumberWindows {
 		top: 0px;
@@ -981,7 +975,7 @@ svg#link, svg#download {
 		-ms-overflow-style: none;
 		overflow: -moz-scrollbars-none;
 		transform: translate3d(50%, 0px, 0px);
-		margin-top: 0.5rem;
+		/* margin-top: 0.5rem; */
 	}
 	.template > .sizeChoice + .pickerScrew:-webkit-scrollbar {
     height: 0px;
@@ -1023,7 +1017,7 @@ svg#link, svg#download {
 		font-size: 0.8rem;
 	}
 	.buttonChoice, .buttonAdd, .SizebuttonChoice, .selectButton {	
-		width: 50px;
+		width: 100px;
 		font-size: 0.5rem;
 		margin: auto 5px;
 		
@@ -1035,7 +1029,10 @@ svg#link, svg#download {
     max-width: 90%;
 		width: 100vw;
     justify-content: space-evenly;
-		margin-top: 0.5rem;
+		/* margin-top: 0.5rem; */
+	}
+	.certifChoice {
+		margin-top: 10px;
 	}
 	.infosNumber {
 		width: 300px;
@@ -1043,6 +1040,25 @@ svg#link, svg#download {
 	}
 	.inputVisorChoice {
 		max-width: 90%;
+	}
+	.exportWindow {
+		flex-direction: column;
+		align-items: center;
+		bottom: 0;
+		height: 100vh;
+	}
+	.exportWindow > div > h3 {
+		font-size: 0.8rem;
+	}
+	.exportWindow > div {
+		height: 40%;
+		width: 100%;
+	}
+	.exportWindow > div > div > div {
+		margin-bottom: 1rem;
+	}
+	.exportWindow > div > div > div:first-child {
+		margin-top: 1rem;
 	}
 }
 @media (min-width: 576px) { 
@@ -1093,6 +1109,7 @@ svg#link, svg#download {
 
 	.elementPicker {
 		width: 300px;
+		font-size: 1rem;
 	}
 	.info_logo {
 		top: -100px;
@@ -1117,8 +1134,26 @@ svg#link, svg#download {
     width: 100vw;
 	}
 	.exportWindow {
-		height: 100vh;
+		flex-direction: row;
+		height: 290px;
+		/* bottom: -100px; */
 	}
+	.exportWindow > div > h3 {
+		font-size: 1rem;
+	}
+	.exportWindow > div {
+		height: 100%;
+		width: 50%;
+	}
+	.exportWindow > div > div > div {
+		margin-bottom: 2rem;
+	}
+	.exportWindow > div > div > div:first-child {
+		margin-top: 2rem;
+	}
+/* 	.menuImageToShare > img {
+		width: 80%;
+	} */
 	.inputVisorChoice {
 		justify-content: space-evenly;
 	}
@@ -1133,9 +1168,6 @@ svg#link, svg#download {
 		transform: translate3d(0px, 0px, 0px);
 		margin-top: 0rem;
 	}
-/* 	.visor > .template {
-		align-items: center;
-	} */
 	.sd-tabs > .sd-tab-label .sd-tab-desc {
 		font-size: 1rem;
 	}
@@ -1152,6 +1184,10 @@ svg#link, svg#download {
 	.infosNumber {
 		width: 400px;
 		font-size: 1rem
+	}
+	.visorPage {
+    transform: translate3d(0px, 0px, 0px);
+		justify-content: center;
 	}
 }
 
@@ -1205,6 +1241,9 @@ svg#link, svg#download {
 		transform: translate3d(0px, 0px, 0px);
 		margin-top: 0rem;
 	}
+	.visorPage {
+		margin-top: 15px;
+	}
 	.patternList {
 		flex-wrap: nowrap;
 		justify-content: center;
@@ -1222,9 +1261,11 @@ svg#link, svg#download {
 		display: block;
 	}
 	.exportWindow {
-		bottom: 0;
+		bottom: 30px;
 		flex-direction: row;
-		align-items: start;
+	}
+	.exportWindow > div {
+		width: 35%;
 	}
  .openExportMenu {
 		bottom: -100px;
@@ -1293,7 +1334,7 @@ svg#link, svg#download {
 		bottom: -100px;
 	}
 	.exportWindow{
-		bottom: -100px;
+/* 		bottom: -100px; */
 	}
 }
 

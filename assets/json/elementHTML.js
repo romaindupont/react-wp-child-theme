@@ -114,7 +114,8 @@ export default [{
 			None: 'none',
 			Bottom: 'Bottom',
 			Top: 'Top',
-			All: 'All'
+			All: 'All',
+			MessageErrorNumber: 'Only two digits are available'
 		}
 	],
 	"fr": [
@@ -232,7 +233,8 @@ export default [{
 			None: 'Aucun',
 			Bottom: 'Bas',
 			Top: 'Haut',
-			All: 'Tous'
+			All: 'Tous',
+			MessageErrorNumber: 'Seulement deux digits possibles'
 		}
 	]
 }]

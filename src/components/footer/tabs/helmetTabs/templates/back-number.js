@@ -6,18 +6,25 @@ import { useHorizontalScroll } from "../../../../../../utils/useHorizontalScroll
 const BackNumber = ({backNumberWindow, setBackNumberWindow, fileNames, traduction}) => {
 	const [ openWindow, setOpenWindow ] = useState(false);
 	const [ backNumberInput, setBackNumberInput ] = useState({
-		numberText: '08',
+		numberText: '00',
 		numberStyle: 'none',
 		numberColorType: 'plain',
 		numberColor: 'white'
 	});
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 	const okClic = () => {
+		let typeColor = backNumberInput.numberColorType;
+		if (backNumberInput.numberColorType === 'gilding') {
+			typeColor = 'metallic'
+		}
+		else {
+			typeColor = backNumberInput.numberColorType;
+		}
 		viewerIframe.postMessage({
 			action : 'updateCustomText',
 			data   : {
 				configurableMaterial : 'Numbering_back',
-				materialVariation : `${backNumberInput.numberColorType}|${backNumberInput.numberColor}`,
+				materialVariation : `${typeColor}|${backNumberInput.numberColor}`,
 				contents : ['opacity'],
 				color : '#FFFFFF',
 				backgroundColor : '#000000',
@@ -51,7 +58,7 @@ const BackNumber = ({backNumberWindow, setBackNumberWindow, fileNames, traductio
 	}
 	const scrollRef = useHorizontalScroll();
 	const scrollEffect = (e) => {
-		let ratio = 4.5;
+		let ratio = 2.5;
 		if(e.target.getBoundingClientRect().width < 900) {
 			let calcul = e.target.clientWidth/ratio - e.target.scrollLeft;
 			if (calcul < `-${e.target.clientWidth/5}`) {
@@ -63,30 +70,36 @@ const BackNumber = ({backNumberWindow, setBackNumberWindow, fileNames, traductio
 		}
 	}
 	useEffect(() => {
-	okClic()
-	}, [backNumberInput.numberText,
-		backNumberInput.numberStyle,
-		backNumberInput.numberColorType,
-		backNumberInput.numberColor]);
+		okClic()
+		}, [
+				backNumberInput.numberText,
+				backNumberInput.numberStyle,
+				backNumberInput.numberColorType,
+				backNumberInput.numberColor
+			]
+	);
 	return (
 		<>
 			<div className="numberListType">
 				<span className={backNumberInput.numberStyle === 'none' ? 'selectButton' : 'buttonChoice'} onClick={() => setBackNumberInput({...backNumberInput, numberStyle:'none'}) & setBackNumberWindow(false) & setOpenWindow(false)}>{traduction.None}</span>
-				<span className={backNumberInput.numberStyle === 'montserrat' ? 'selectButton' : 'buttonChoice'} onClick={() => setBackNumberInput({...backNumberInput, numberStyle:'montserrat'}) & setBackNumberWindow(true) & setOpenWindow(true) & handleClick()}>{traduction.ClassicNumber}</span>
-				<span className={backNumberInput.numberStyle === 'dirt' ? 'selectButton' : 'buttonChoice'} onClick={() => setBackNumberInput({...backNumberInput, numberStyle:'dirt'}) & setBackNumberWindow(true) & setOpenWindow(true) & handleClick()}>{traduction.DirtNumber}</span>
-				<span className={backNumberInput.numberStyle === 'pixel' ? 'selectButton' : 'buttonChoice'} onClick={() => setBackNumberInput({...backNumberInput, numberStyle:'pixel'}) & setBackNumberWindow(true) & setOpenWindow(true) & handleClick()}>{traduction.PixelNumber}</span>
-				<span className={backNumberInput.numberStyle === 'racing' ? 'selectButton' : 'buttonChoice'} onClick={() => setBackNumberInput({...backNumberInput, numberStyle:'racing'}) & setBackNumberWindow(true) & setOpenWindow(true) & handleClick()}>{traduction.RacingNumber}</span>
+				<span className={backNumberInput.numberStyle === 'montserrat' ? 'selectButton' : 'buttonChoice'} onClick={() => setBackNumberInput({...backNumberInput, numberStyle:'montserrat'}) & setBackNumberWindow(true) & setOpenWindow(true)}>{traduction.ClassicNumber}</span>
+				<span className={backNumberInput.numberStyle === 'dirt' ? 'selectButton' : 'buttonChoice'} onClick={() => setBackNumberInput({...backNumberInput, numberStyle:'dirt'}) & setBackNumberWindow(true) & setOpenWindow(true)}>{traduction.DirtNumber}</span>
+				<span className={backNumberInput.numberStyle === 'pixel' ? 'selectButton' : 'buttonChoice'} onClick={() => setBackNumberInput({...backNumberInput, numberStyle:'pixel'}) & setBackNumberWindow(true) & setOpenWindow(true)}>{traduction.PixelNumber}</span>
+				<span className={backNumberInput.numberStyle === 'racing' ? 'selectButton' : 'buttonChoice'} onClick={() => setBackNumberInput({...backNumberInput, numberStyle:'racing'}) & setBackNumberWindow(true) & setOpenWindow(true)}>{traduction.RacingNumber}</span>
 			</div>
 			<div className={!openWindow ? "numberWindows" : "openNumberWindows" }>
 				<p className="infosNumber">{traduction.NumberStyleTitle}</p>
 				<div className="chooseWindows">
 					<div className="chooseWindows_input">
-						<input type="number" name="numberSelection" id="numberSelection" onChange={(e)=>setBackNumberInput({...backNumberInput, numberText: e.target.value })} />
+						<input type="number" name="numberSelection" id="numberSelection" placeholder="00" min="00" max="99" onChange={(e)=>setBackNumberInput({...backNumberInput, numberText: e.target.value })} />
+						{parseInt(backNumberInput.numberText) > 99  || parseInt(backNumberInput.numberText) < 0 ? traduction.MessageErrorNumber : '' }
 						<div className="selectButtonNumber">
-							<div className="selectButtonNumber--right" onClick={okClic}>
-								<Right windowClose={setOpenWindow} setNumberWindow={setBackNumberWindow} fileNames={fileNames} />
-							</div>
 							<Wrong windowClose={setOpenWindow} setNumberWindow={setBackNumberWindow}/>
+							<div className="selectButtonNumber--right" onClick={okClic}>
+								{parseInt(backNumberInput.numberText) > 99  || parseInt(backNumberInput.numberText) < 0 ? '': 
+								<Right windowClose={setOpenWindow} setNumberWindow={setBackNumberWindow} fileNames={fileNames} />
+								}
+							</div>
 						</div>
 					</div>
 				</div>
