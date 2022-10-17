@@ -4,20 +4,21 @@ import ZipperLeather from '../footer/tabs/svg/Zipper/ZipperLeather';
 const Header = ({traduction}) => {
 	var _nonce = "<?php echo wp_create_nonce( 'wc_store_api' ); ?>";
 
-	const Buy = () => {
+	const Buy = async () => {
 		const oauth = {
       consumer: {
           key: 'ck_33e5120009d544c15530ea21c508a732a8504bf6',
           secret: 'cs_0fd3ef403501ec614fab2d3b66449b66512cae02'
       },
       signature_method: 'HMAC-SHA1'
-  };
+  	};
 		var myHeaders = {
 			'X-WC-Store-API-Nonce': _nonce,
 			"Content-Type": "application/json",
 			oauth
 		}
 		let imageToUpload = document.querySelector('.menuImageToShare_quarterPosition').src;
+		let essai;
 		var myInit = { 
 							 method: 'POST',
                headers: myHeaders,
@@ -25,50 +26,15 @@ const Header = ({traduction}) => {
                cache: 'default',
 							 body: JSON.stringify(
 								imageToUpload)
-							/*  body:JSON.stringify({
-								"id" : 201,
-								"quantity": 1
-							}) */
-					/* 		 body: JSON.stringify({data:{
-								id : 201,
-								quantity: 1,
-								variation: [{
-									attribute : [
-										{
-											id: 0,
-											name: "configData",
-											position: 0,
-											visible: true,
-											variation: true,
-											options: [
-												'myConfig'
-											]
-										}
-									],
-						
-								}]
-								}}) */
-								/* "images": [],
-								"attributes": [
-									{
-										"id": 0,
-										"name": "configData",
-										"position": 0,
-										"visible": true,
-										"variation": true,
-										"options": [
-											"'myConfig'"
-										]
-									}
-								], */
 							};
-			fetch("http://localhost:8080/essai/wp-json/imageHandler/v1/upload", myInit)
+		await fetch("http://localhost:8080/essai/wp-json/imageHandler/v1/upload", myInit)
 			.then(response => response.text())
-			.then(data => console.log(data))
-		fetch("http://localhost:8080/essai/cart/?add-to-cart=201", myInit)
+			.then(data => essai = data )
+		console.log(essai)
+		fetch(`http://localhost:8080/essai/cart/?add-to-cart=201&essai=${essai}`)
 				.then(response => response.text())
-				.then(data => /* console.log */(data))
-			} 
+				.then(data => data)
+	} 
   return (
 		<header className="configurator-header">
 			<div className="header-configurator">
