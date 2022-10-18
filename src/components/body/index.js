@@ -41,7 +41,8 @@ const Body = ({
 	nodesConfiguration,
 	setNodesConfiguration,
 	tabsChoice,
-	downMenu
+	downMenu,
+	setMaterialVariation
 }) => {
 	let viewerIframe = null;
 	let viewerActive = false;
@@ -147,11 +148,15 @@ const Body = ({
 				action : 'getCurrentMaterials'
 			}, '*');
 		}
+		if(event.data && event.data.action == 'onCurrentMaterialsConfigurationGet'){
+			setMaterialVariation(event.data.materialVariationConfiguration);
+			
+		}
 		if(event.data && event.data.action == 'onSuccess' && event.data.callAction == 'updateProductNodesInstances'){
 			viewerIframe.postMessage(
 				{
 				action : "getCurrentProductNodesConfiguration",
-				}, "*") ;
+				}, "*");
 		}
 		if(event.data && event.data.action == 'onError'){
 			console.log(event)

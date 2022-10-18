@@ -48,27 +48,58 @@ function uploadImage($request) {
 	file_put_contents( $fileName, $imageData);
 	$newName = 'motorBike' . uniqid() . '.png';
 	copy($fileName, $newName);
-	$src = 'http://' . $upl_base_url . '/' . $newName;
-	$src = stripslashes($src);
-	return $newName;
+	$src = urldecode($newName); 
+	return $src;
 }
 add_filter( 'woocommerce_store_api_disable_nonce_check', '__return_true' );
-/* 
+/* add_action( 'woocommerce_before_order_itemmeta', 'so_32457241_before_order_itemmeta', 10, 3 );
+function so_32457241_before_order_itemmeta( $item_id, $item, $_product ){
+    echo '<p>bacon</p>';
+} */
+ add_filter( 'woocommerce_add_cart_item_data', 'add_custom_fields_data_as_custom_cart_item_data', 10, 2 );
+function add_custom_fields_data_as_custom_cart_item_data( $cart_item_data, $product_id ){
+		$upl_base_url = is_ssl() ? str_replace('http://', 'https://', $_SERVER['SERVER_NAME']. ':8080/essai') : $_SERVER['SERVER_NAME']. ':8080/essai';
+		$targeted_id = 200;
+		$configuration = file_get_contents('php://input');
+		$data = json_decode($configuration);
+		file_put_contents('filename.txt', print_r($data, true));
+    if( isset($_GET['image']) && ! empty($_GET['image']) ) {
+				$productName = stripslashes($_GET['image']);
+				$productName = str_replace('"', "'", $productName);
+				$cart_item_data['imageToFollow'] = ($productName);
+				/* cart_item_data['configuration'] = ($data); */
+        $cart_item_data['unique_key'] = md5( microtime().rand() ); // Avoid merging items
+    }
+    return $cart_item_data;
+}
+
+add_filter( 'woocommerce_get_item_data', 'display_custom_item_data', 10, 2 );
+function display_custom_item_data( $cart_item_data, $cart_item ) {
+    if ( isset( $cart_item['imageToFollow'] ) ) {
+        $cart_item_data[] = array(
+            'name' => __( 'ImageUploaded' ),
+            'value' =>  $cart_item['imageToFollow'],
+        );
+/* 				$cart_item_data[] = array(
+					'name' => __( 'Config' ),
+					'value' =>  $cart_item['configuration'],
+			); */
+    }
+    return $cart_item_data;
+}
+// Save Image data as order item meta data
+add_action( 'woocommerce_checkout_create_order_line_item', 'add_custom_note_order_item_meta', 20, 4 );
+function add_custom_note_order_item_meta( $item, $cart_item_key, $values, $order ) {
+    if ( isset( $values['imageToFollow'] ) ){
+        $item->update_meta_data( 'ImageUploaded',  $values['imageToFollow'] );
+				/* $item->update_meta_data( 'Config',  $values['configuration'] ); */
+    }
+}
 function custom_new_product_image($a, $cart_item, $cart_item_key) {	
 	$targeted_id = 200;
-	$upload_dir   = wp_upload_dir();
 	$upl_base_url = is_ssl() ? str_replace('http://', 'https://', $_SERVER['SERVER_NAME']. ':8080/essai') : $_SERVER['SERVER_NAME']. ':8080/essai';
-	$user_pic = 'motorBike.png';
-	$newName = 'motorBike' . uniqid() . '.png';
-	copy($user_pic, $newName);
-	$cart_item['file_upload'] = array(
-		'guid'      => $upl_base_url .'/', // Url
-		'file_type' => 'png', // File type
-		'file_name' => $newName, // File name
-		'title'     => 'Helmet' .$newName, // Title
-	);
-	$src = 'http://' . $upl_base_url . '/' . $cart_item['file_upload']['file_name'];
 	if( $cart_item['product_id'] == $targeted_id || $cart_item['product_id'] == $targeted_id ){
+		$src = 'http://' . $upl_base_url . '/' . $cart_item['imageToFollow'];
 		$class = 'attachment-shop_thumbnail wp-post-image'; // Default cart thumbnail class.
 		$a = '<img';
 		$a .= ' src="' . $src . '"';
@@ -80,72 +111,14 @@ function custom_new_product_image($a, $cart_item, $cart_item_key) {
 }
 
 add_filter( 'woocommerce_cart_item_thumbnail', 'custom_new_product_image', 20, 3 );
-
-add_filter( 'manage_edit-shop_order_columns', 'admin_orders_list_add_column', 10, 1 );
-function admin_orders_list_add_column( $columns ){
-    $columns['custom_column'] = __( 'New Column', 'woocommerce' );
-
-    return $columns;
-} */
-/* add_action( 'woocommerce_before_add_to_cart_button', 'njengah_additional_product_fields', 9 );
-function njengah_additional_product_fields($image){
-    ?>
-    <p class="form-row validate-required" id="image" >
-        <label for="file_field"><?php echo __("Upload Image") . ': '; ?>
-            <input type='file' name='image' accept='image/*' value=''.$image.''>
-        </label>
-    </p>
-    <?php
-} */
-/* add_action( 'manage_shop_order_posts_custom_column' , 'admin_orders_list_column_content', 10, 2 );
-function admin_orders_list_column_content( $column, $post_id ){
-    global $the_order;
-
-    if( 'custom_column' === $column ){
-        $count = 0;
-
-        // Loop through order items
-        foreach( $the_order->get_items() as $item ) {
-            $product = $item->get_product(); // The WC_Product Object
-            $style   = $count > 0 ? ' style="padding-left:6px;"' : '';
-
-            // Display product thumbnail
-            printf( '<span%s>%s</span>', $style, $product->get_image( array( 50, 50 ) ) );
-
-            $count++;
-        }
-    }
-} */
-add_action( 'woocommerce_before_order_itemmeta', 'so_32457241_before_order_itemmeta', 10, 3 );
-function so_32457241_before_order_itemmeta( $item_id, $item, $_product ){
-    echo '<p>bacon</p>';
-}
- add_filter( 'woocommerce_add_cart_item_data', 'add_custom_fields_data_as_custom_cart_item_data', 10, 2 );
-function add_custom_fields_data_as_custom_cart_item_data( $cart_item_data, $product_id ){
-		$upl_base_url = is_ssl() ? str_replace('http://', 'https://', $_SERVER['SERVER_NAME']. ':8080/essai') : $_SERVER['SERVER_NAME']. ':8080/essai';
-		$targeted_id = 200;
-    if( isset($_GET['essai']) && ! empty($_GET['essai']) ) {
-				$cart_item_data['imageToFollow'] = ( 'http://' . $upl_base_url . '/' . urldecode(stripslashes($_GET['essai'])) );
-        $cart_item_data['unique_key'] = md5( microtime().rand() ); // Avoid merging items
-    }
-    return $cart_item_data;
-}
-
-add_filter( 'woocommerce_get_item_data', 'display_custom_item_data', 10, 2 );
-function display_custom_item_data( $cart_item_data, $cart_item ) {
-    if ( isset( $cart_item['imageToFollow'] ) ){
-        $cart_item_data[] = array(
-            'name' => __( 'ImageUploaded' ),
-            'value' =>  $cart_item['imageToFollow'],
-        );
-    }
-    return $cart_item_data;
-}
-// Save Image data as order item meta data
-add_action( 'woocommerce_checkout_create_order_line_item', 'add_custom_note_order_item_meta', 20, 4 );
-function add_custom_note_order_item_meta( $item, $cart_item_key, $values, $order ) {
-    if ( isset( $values['imageToFollow'] ) ){
-        $item->update_meta_data( 'ImageUploaded',  $values['imageToFollow'] );
+add_action( 'woocommerce_after_order_itemmeta', 'image_link_after_order_itemmeta', 10, 3 );
+function image_link_after_order_itemmeta( $item_id, $item, $product ) {
+	$upl_base_url = is_ssl() ? str_replace('http://', 'https://', $_SERVER['SERVER_NAME']. ':8080/essai') : $_SERVER['SERVER_NAME']. ':8080/essai';
+    // Only in backend for order line items (avoiding errors)
+    if( is_admin() && $item->is_type('line_item') && $file_data = $item->get_meta( 'ImageUploaded' ) ){
+			$src = 'http://' . $upl_base_url . '/' . $file_data;
+        echo '<p><a href="'.$src.'" target="_blank" class="button">'.__("Open Image") . '</a></p>'; // Optional
+        echo '<p><code>'.$src.'</code></p>'; // Optional
     }
 }
 /*

@@ -14,7 +14,6 @@ const exportWindows = ({setOpenOptionMenu, screenshotsWait, traduction, setScree
 		for (let i of images) {
 			let a = document.createElement('a');
 			a.href = i.src;
-			console.log(i);
 			a.download = i.innerHTML = "MyVeldtModel.png";
 			document.body.appendChild(a);
 			a.click();

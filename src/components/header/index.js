@@ -1,39 +1,48 @@
 import VeldtLogo from '../../../assets/images/veldt-logo.svg';
-import ZipperLeather from '../footer/tabs/svg/Zipper/ZipperLeather';
+import ScreenShot from '../body/Camera/ScreenShot';
 
-const Header = ({traduction}) => {
+const Header = ({traduction, screenshotsWait, materialVariation, nodesConfiguration, standardValue, aerationHelmet}) => {
+	const baseUrl = 'http://localhost:8080/essai/';
 	var _nonce = "<?php echo wp_create_nonce( 'wc_store_api' ); ?>";
-
+	const screen = async () => {
+		ScreenShot();
+		setTimeout(()=>{
+			Buy();
+		}, 5000) 
+	}
 	const Buy = async () => {
-		const oauth = {
-      consumer: {
-          key: 'ck_33e5120009d544c15530ea21c508a732a8504bf6',
-          secret: 'cs_0fd3ef403501ec614fab2d3b66449b66512cae02'
-      },
-      signature_method: 'HMAC-SHA1'
-  	};
-		var myHeaders = {
-			'X-WC-Store-API-Nonce': _nonce,
-			"Content-Type": "application/json",
-			oauth
-		}
+		
 		let imageToUpload = document.querySelector('.menuImageToShare_quarterPosition').src;
-		let essai;
-		var myInit = { 
-							 method: 'POST',
-               headers: myHeaders,
-               mode: 'cors',
-               cache: 'default',
-							 body: JSON.stringify(
-								imageToUpload)
-							};
-		await fetch("http://localhost:8080/essai/wp-json/imageHandler/v1/upload", myInit)
-			.then(response => response.text())
-			.then(data => essai = data )
-		console.log(essai)
-		fetch(`http://localhost:8080/essai/cart/?add-to-cart=201&essai=${essai}`)
+			var myHeaders = {
+				'X-WC-Store-API-Nonce': _nonce,
+				"Content-Type": "application/json",
+			}
+			
+			let image;
+			var myInit = { 
+				method: 'POST',
+				headers: myHeaders,
+				mode: 'cors',
+				cache: 'default',
+				body: JSON.stringify(
+				imageToUpload)
+			};
+		console.log(JSON.stringify(aerationHelmet))	
+			var finalObj = JSON.stringify(standardValue) + JSON.parse(aerationHelmet);
+			var myInit2 = { 
+				method: 'POST',
+				headers: myHeaders,
+				mode: 'cors',
+				cache: 'default',
+				body: JSON.stringify(
+					finalObj)
+				};
+			await fetch(`${baseUrl}wp-json/imageHandler/v1/upload`, myInit)
 				.then(response => response.text())
-				.then(data => data)
+				.then(data => image = data )
+			fetch(`${baseUrl}cart/?add-to-cart=201&image=${image}`, myInit2)
+					.then(response => response.text())
+					.then(data => data)	
 	} 
   return (
 		<header className="configurator-header">
@@ -51,7 +60,7 @@ const Header = ({traduction}) => {
 							type="submit"
 							name="add"
 							className="header-configurator-right-priceZone-buy"
-							onClick={Buy}
+							onClick={screen}
 						>
 							<span>
 								{traduction.BuyIT}
@@ -61,6 +70,9 @@ const Header = ({traduction}) => {
 					<div className="header-configurator-right-comment">{traduction.FreeDelivery}</div>
 				</div>
 			</div>
+			<div className="menuImageToShare">
+					<img className="imageDownload menuImageToShare_quarterPosition" src={screenshotsWait.arrayScreen[0]} alt="quarter Position helmet"/>
+				</div>
 		</header>
   );
 };

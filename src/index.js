@@ -33,6 +33,7 @@ const Veldt = () => {
 		Visor_frame: 'full'
 	});
 	const [ nodesConfiguration, setNodesConfiguration ] = useState([]);
+	const [ materialVariation, setMaterialVariation ] = useState([]);
 	const [ aerationHelmet, setAerationHelmet] = useState(true);
 	const [ screwPosition, setScrewPosition ] = useState('all');
 	const [ varnishHelmet, setVarnishHelmet] = useState(true);
@@ -69,7 +70,7 @@ const Veldt = () => {
   return (
 		<div className='veldtConfig'>
 			{!loader && <div className="load"><div className="loader"></div></div>}
-			<Header traduction = {traduction} />
+			<Header traduction = {traduction} screenshotsWait = {screenshotsWait} materialVariation = {materialVariation} nodesConfiguration = {nodesConfiguration} standardValue = {standardValue} aerationHelmet= {aerationHelmet} />
 			<Body
 				aerationHelmet = {aerationHelmet}
 				screwPosition = {screwPosition} 
@@ -87,6 +88,8 @@ const Veldt = () => {
 				nodesConfiguration = {nodesConfiguration}
 				tabsChoice = {tabsChoice}
 				downMenu = {downMenu}
+				screenshotsWait = {screenshotsWait}
+				setMaterialVariation = {setMaterialVariation}
 			/>
 			<Footer
 				aerationHelmet = {aerationHelmet}
