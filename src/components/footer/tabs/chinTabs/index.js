@@ -23,9 +23,10 @@ const ChinTabs = ({
 	setChinPosition,
 	setTabsChoice,
 	tabsChoice,
-	traduction
+	traduction,
+	withChin,
+	setWithChin
 }) => {
-	const [ withChin, setWithChin ] = useState(false);
 	let language = document.querySelector('html').lang;
 	let elementsOfChin = ElementData[0].en;
 	if (language.includes('fr')) {

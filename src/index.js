@@ -33,14 +33,39 @@ const Veldt = () => {
 		Visor_frame: 'full'
 	});
 	const [ nodesConfiguration, setNodesConfiguration ] = useState([]);
-	const [ materialVariation, setMaterialVariation ] = useState([]);
+	const [ materialVariation, setMaterialVariation ] = useState({});
 	const [ aerationHelmet, setAerationHelmet] = useState(true);
 	const [ screwPosition, setScrewPosition ] = useState('all');
 	const [ varnishHelmet, setVarnishHelmet] = useState(true);
+	const [ withChin, setWithChin ] = useState(false);
+	const [ typeChoice, setTypeChoice ] = useState('peak_visor');
+	const [ withVisor, setWithVisor ] = useState(false);
 	const [ backNumberWindow, setBackNumberWindow ] = useState(false);
+	const [ backNumberInput, setBackNumberInput ] = useState({
+		numberText: '00',
+		numberStyle: 'none',
+		numberColorType: 'plain',
+		numberColor: 'white'
+	});
 	const [ leftNumberWindow, setLeftNumberWindow ] = useState(false);
+	const [ leftNumberInput, setLeftNumberInput ] = useState({
+		numberText: '00',
+		numberStyle: 'none',
+		numberColorType: 'plain',
+		numberColor: 'white'
+	});
 	const [ rightNumberWindow, setRightNumberWindow ] = useState(false);
+	const [ rightNumberInput, setRightNumberInput ] = useState({
+		numberText: '00',
+		numberStyle: 'none',
+		numberColorType: 'plain',
+		numberColor: 'white'
+	});
 	const [ backEngraving, setBackEngraving ] = useState(false);
+	const [ engravingInput, setEngravingInput ] = useState({
+		text: 'VELDT',
+		textStyle: 'montserrat'
+	});
 	const [ aerationChin, setAerationChin ] = useState(true);
 	const [ varnishChin, setVarnishChin ] = useState(true);
 	const [ downMenu, setDownMenu ] = useState(false);
@@ -70,7 +95,28 @@ const Veldt = () => {
   return (
 		<div className='veldtConfig'>
 			{!loader && <div className="load"><div className="loader"></div></div>}
-			<Header traduction = {traduction} screenshotsWait = {screenshotsWait} materialVariation = {materialVariation} nodesConfiguration = {nodesConfiguration} standardValue = {standardValue} aerationHelmet= {aerationHelmet} />
+			<Header
+				traduction = {traduction}
+				screenshotsWait = {screenshotsWait}
+				materialVariation = {materialVariation}
+				nodesConfiguration = {nodesConfiguration}
+				standardValue = {standardValue}
+				aerationHelmet= {aerationHelmet}
+				varnishHelmet = {varnishHelmet}
+				backNumberWindow = {backNumberWindow}
+				backNumberInput = {backNumberInput}
+				rightNumberWindow = {rightNumberWindow}
+				rightNumberInput = {rightNumberInput}
+				leftNumberWindow = {leftNumberWindow}
+				leftNumberInput = {leftNumberInput}
+				backEngraving = {backEngraving}
+				engravingInput = {engravingInput}
+				screwPosition = {screwPosition}
+				withChin = {withChin}
+				aerationChin = {aerationChin}
+				varnishChin = {varnishChin}
+				withVisor = {withVisor}
+			/>
 			<Body
 				aerationHelmet = {aerationHelmet}
 				screwPosition = {screwPosition} 
@@ -90,6 +136,13 @@ const Veldt = () => {
 				downMenu = {downMenu}
 				screenshotsWait = {screenshotsWait}
 				setMaterialVariation = {setMaterialVariation}
+				withChin = {withChin}
+				typeChoice = {typeChoice}
+				withVisor = {withVisor}
+				backNumberInput = {backNumberInput}
+				leftNumberInput = {leftNumberInput}
+				rightNumberInput = {rightNumberInput}
+				engravingInput = {engravingInput}
 			/>
 			<Footer
 				aerationHelmet = {aerationHelmet}
@@ -122,6 +175,20 @@ const Veldt = () => {
 				setScreenshotsWait = {setScreenshotsWait}
 				downMenu = {downMenu}
 				setDownMenu = {setDownMenu}
+				backNumberInput = {backNumberInput}
+				setBackNumberInput = {setBackNumberInput}
+				leftNumberInput = {leftNumberInput}
+				setLeftNumberInput = {setLeftNumberInput}
+				rightNumberInput = {rightNumberInput}
+				setRightNumberInput = {setRightNumberInput}
+				engravingInput = {engravingInput}
+				setEngravingInput = {setEngravingInput}
+				withChin = {withChin}
+				setWithChin = {setWithChin}
+				typeChoice = {typeChoice}
+				setTypeChoice = {setTypeChoice}
+				withVisor = {withVisor}
+				setWithVisor = {setWithVisor}
 			/>
 		</div>
   );

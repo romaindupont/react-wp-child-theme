@@ -1,6 +1,6 @@
-const ScreenShot = () => {
+const ScreenShot = async () => {
 	let	viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
-	viewerIframe.postMessage({
+	await viewerIframe.postMessage({
 		action : 'getScreenshots',
 		width : 512,
 		takeBackground : false,

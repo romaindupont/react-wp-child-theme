@@ -3,14 +3,15 @@ import Right from "../../svg/Right";
 import Wrong from "../../svg/Wrong";
 import { useHorizontalScroll } from "../../../../../../utils/useHorizontalScroll";
 
-const BackNumber = ({backNumberWindow, setBackNumberWindow, fileNames, traduction}) => {
+const BackNumber = ({
+	backNumberWindow,
+	setBackNumberWindow,
+	fileNames,
+	traduction,
+	backNumberInput,
+	setBackNumberInput
+}) => {
 	const [ openWindow, setOpenWindow ] = useState(false);
-	const [ backNumberInput, setBackNumberInput ] = useState({
-		numberText: '00',
-		numberStyle: 'none',
-		numberColorType: 'plain',
-		numberColor: 'white'
-	});
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 	const okClic = () => {
 		let typeColor = backNumberInput.numberColorType;

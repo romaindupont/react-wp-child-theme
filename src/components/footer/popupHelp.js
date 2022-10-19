@@ -1,4 +1,9 @@
-const popupHelp = ({setOpenOptionMenu, helmetPosition, chinPosition, tabsCheck}) => {
+const popupHelp = ({
+	setOpenOptionMenu,
+	helmetPosition,
+	chinPosition,
+	tabsCheck
+}) => {
 	const menuClose = () => {
 		setOpenOptionMenu({
 			name: '',

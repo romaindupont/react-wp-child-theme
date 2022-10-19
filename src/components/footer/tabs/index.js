@@ -33,7 +33,21 @@ const Tabs = ({
 	traduction,
 	downMenu,
 	visorPosition,
-	setVisorPosition
+	setVisorPosition,
+	backNumberInput,
+	setBackNumberInput,
+	leftNumberInput,
+	setLeftNumberInput,
+	rightNumberInput,
+	setRightNumberInput,
+	engravingInput,
+	setEngravingInput,
+	withChin,
+	setWithChin,
+	typeChoice,
+	setTypeChoice,
+	withVisor,
+	setWithVisor
 }) => {
 	return (
 		<div className="sd-tabs">
@@ -68,6 +82,14 @@ const Tabs = ({
 				traductionTitle = {traduction.HelmetTitle}
 				traduction = {traduction}
 				downMenu = {downMenu}
+				backNumberInput = {backNumberInput}
+				setBackNumberInput = {setBackNumberInput}
+				leftNumberInput = {leftNumberInput}
+				setLeftNumberInput = {setLeftNumberInput}
+				rightNumberInput = {rightNumberInput}
+				setRightNumberInput = {setRightNumberInput}
+				engravingInput = {engravingInput}
+				setEngravingInput = {setEngravingInput}
 			/>
 			<RadioTabs 
 				id = 'tabtwo'
@@ -90,6 +112,8 @@ const Tabs = ({
 				traductionTitle = {traduction.ChinTitle}
 				traduction = {traduction}
 				downMenu = {downMenu}
+				withChin = {withChin}
+				setWithChin = {setWithChin}
 			/>
 			<RadioTabs 
 				id = 'tabthree'
@@ -108,6 +132,10 @@ const Tabs = ({
 				downMenu = {downMenu}
 				visorPosition = {visorPosition}
 				setVisorPosition = {setVisorPosition}
+				typeChoice = {typeChoice}
+				setTypeChoice = {setTypeChoice}
+				withVisor = {withVisor}
+				setWithVisor = {setWithVisor}
 			/>
 		</div>
 	)

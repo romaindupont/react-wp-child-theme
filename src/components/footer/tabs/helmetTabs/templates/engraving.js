@@ -2,12 +2,15 @@ const { useState } = wp.element;
 import Right from "../../svg/Right";
 import Wrong from "../../svg/Wrong";
 
-const Engraving = ({backEngraving, setBackEngraving, fileNames, traduction}) => {
+const Engraving = ({
+	backEngraving,
+	setBackEngraving,
+	fileNames,
+	traduction,
+	engravingInput,
+	setEngravingInput
+}) => {
 	const [ openWindow, setOpenWindow ] = useState(false);
-	const [ engravingInput, setEngravingInput ] = useState({
-		text: 'VELDT',
-		textStyle: 'montserrat'
-	});
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 	const okClic = () => {
 		viewerIframe.postMessage({

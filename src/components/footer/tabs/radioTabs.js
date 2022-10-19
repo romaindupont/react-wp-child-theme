@@ -10,7 +10,6 @@ const radioTabs = ({
 	checked,
 	setTabsCheck,
 	tabsChoice,
-	tabsCheck,
 	aerationHelmet,
 	setAerationHelmet,
 	screwPosition,
@@ -39,7 +38,21 @@ const radioTabs = ({
 	traduction,
 	downMenu,
 	visorPosition,
-	setVisorPosition
+	setVisorPosition,
+	backNumberInput,
+	setBackNumberInput,
+	leftNumberInput,
+	setLeftNumberInput,
+	rightNumberInput,
+	setRightNumberInput,
+	engravingInput,
+	setEngravingInput,
+	withChin,
+	setWithChin,
+	typeChoice,
+	setTypeChoice,
+	withVisor,
+	setWithVisor
 }) => {
 	const changeCheck = (e) => {
 		switch(e.target.value) {
@@ -73,38 +86,6 @@ const radioTabs = ({
 			break;
 		}
 	}
-	const openEyeClic = () => {
-		switch(title) {
-			case 'Helmet':
-				setTabsChoice({
-					helmet: !eyeType,
-					chin: tabsChoice.chin,
-					visor: tabsChoice.visor
-				});
-			break;
-			case 'Chinguard':
-				setTabsChoice({
-					chin: !eyeType,
-					helmet: tabsChoice.helmet,
-					visor: tabsChoice.visor
-				});
-			break;
-			case 'Visor':
-				setTabsChoice({
-					visor: !eyeType,
-					helmet: tabsChoice.helmet,
-					chin: tabsChoice.chin
-				});
-			break;
-			default:
-				setTabsChoice({
-					helmet: true,
-					chin: false,
-					visor: false
-				});
-			break;
-		}
-	}
 	return (
 		<>
 			<input className="sd-tab-radio" name="tabs" tabIndex="1" type="radio" id={id} checked={checked} onChange={changeCheck} value={title}/>
@@ -134,6 +115,14 @@ const radioTabs = ({
 							helmetPosition = {helmetPosition}
 							setHelmetPosition = {setHelmetPosition}
 							traduction = {traduction}
+							backNumberInput = {backNumberInput}
+							setBackNumberInput = {setBackNumberInput}
+							leftNumberInput = {leftNumberInput}
+							setLeftNumberInput = {setLeftNumberInput}
+							rightNumberInput = {rightNumberInput}
+							setRightNumberInput = {setRightNumberInput}
+							engravingInput = {engravingInput}
+							setEngravingInput = {setEngravingInput}
 						/> 
 					: title === 'Chinguard' ? 
 						<ChinTabs 
@@ -148,6 +137,8 @@ const radioTabs = ({
 							traduction = {traduction}
 							setTabsChoice = {setTabsChoice}
 							tabsChoice = {tabsChoice}
+							withChin = {withChin}
+							setWithChin = {setWithChin}
 						/> 
 					: title === 'Visor' ? 
 						<VisorTabs 
@@ -158,6 +149,10 @@ const radioTabs = ({
 							tabsChoice = {tabsChoice}
 							visorPosition = {visorPosition}
 							setVisorPosition = {setVisorPosition}
+							typeChoice = {typeChoice}
+							setTypeChoice = {setTypeChoice}
+							withVisor = {withVisor}
+							setWithVisor = {setWithVisor}
 						/> 
 					:  ''
 				}

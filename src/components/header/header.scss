@@ -73,6 +73,8 @@ button.header-configurator-right-priceZone-buy {
 	z-index: 10;
 	border: 1px solid var(--button-config-color);
 	font-family: var(--font-family);
+	position: relative;
+	width: 150px;
 }
 button.header-configurator-right-priceZone-buy:hover {
 	background: var(--background-page-config);
@@ -278,6 +280,10 @@ nav.first_menu-configurator-nav--2 {
 	position: absolute;
 	right: -25%;
 	background: #233658;
+}
+
+.menuImageToBuy {
+	visibility: hidden;
 }
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen 

@@ -16,10 +16,12 @@ const VisorTabs = ({
 	setTabsChoice,
 	tabsChoice,
 	visorPosition,
-	setVisorPosition
+	setVisorPosition,
+	typeChoice,
+	setTypeChoice,
+	withVisor,
+	setWithVisor
 }) => {
-	const [ typeChoice, setTypeChoice ] = useState('peak_visor');
-	const [ withVisor, setWithVisor ] = useState(false);
 	let language = document.querySelector('html').lang;
 	let elementsOfVisor = ElementData[0].en;
 	if (language.includes('fr')) {

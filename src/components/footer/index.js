@@ -38,7 +38,21 @@ const Footer = ({
 	traduction,
 	setScreenshotsWait,
 	downMenu,
-	setDownMenu
+	setDownMenu,
+	backNumberInput,
+	setBackNumberInput,
+	leftNumberInput,
+	setLeftNumberInput,
+	rightNumberInput,
+	setRightNumberInput,
+	engravingInput,
+	setEngravingInput,
+	withChin,
+	setWithChin,
+	typeChoice,
+	setTypeChoice,
+	withVisor,
+	setWithVisor
 }) => {
 	const [ openOptionMenu, setOpenOptionMenu ] = useState({
 			name: '',
@@ -113,6 +127,20 @@ const Footer = ({
 				downMenu = {downMenu}
 				visorPosition = {visorPosition}
 				setVisorPosition = {setVisorPosition}
+				backNumberInput = {backNumberInput}
+				setBackNumberInput = {setBackNumberInput}
+				leftNumberInput = {leftNumberInput}
+				setLeftNumberInput = {setLeftNumberInput}
+				rightNumberInput = {rightNumberInput}
+				setRightNumberInput = {setRightNumberInput}
+				engravingInput = {engravingInput}
+				setEngravingInput = {setEngravingInput}
+				withChin = {withChin}
+				setWithChin = {setWithChin}
+				typeChoice = {typeChoice}
+				setTypeChoice = {setTypeChoice}
+				withVisor = {withVisor}
+				setWithVisor = {setWithVisor}
 			/>
 			{openOptionMenu.open && openOptionMenu.name === 'menuOption' && <MenuOption setOpenOptionMenu = {setOpenOptionMenu} />}
 			{openOptionMenu.open && openOptionMenu.name === 'help' && <PopupHelp setOpenOptionMenu = {setOpenOptionMenu} helmetPosition = {helmetPosition} chinPosition = {chinPosition} tabsCheck = {tabsCheck}/>}

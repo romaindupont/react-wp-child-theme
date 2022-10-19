@@ -40,7 +40,15 @@ const HelmetTabs = ({
 	helmetPosition,
 	setHelmetPosition,
 	nodesConfiguration,
-	traduction
+	traduction,
+	backNumberInput,
+	setBackNumberInput,
+	leftNumberInput,
+	setLeftNumberInput,
+	rightNumberInput,
+	setRightNumberInput,
+	engravingInput,
+	setEngravingInput
 }) => {
 	let language = document.querySelector('html').lang;
 	let elementsOfHelmet = ElementData[0].en;
@@ -98,6 +106,8 @@ const HelmetTabs = ({
 							backNumberWindow = {backNumberWindow}
 							fileNames = 'back'
 							traduction = {traduction}
+							backNumberInput = {backNumberInput}
+							setBackNumberInput = {setBackNumberInput}
 						/> :
 					helmetPosition.fileName === 'engraving' ?
 						<Engraving 
@@ -105,6 +115,8 @@ const HelmetTabs = ({
 							setBackEngraving = {setBackEngraving}
 							fileNames = 'engraving'
 							traduction = {traduction}
+							engravingInput = {engravingInput}
+							setEngravingInput = {setEngravingInput}
 						/> :
 					helmetPosition.fileName === 'interior' ?
 						<Interior
@@ -118,6 +130,8 @@ const HelmetTabs = ({
 							setLeftNumberWindow = {setLeftNumberWindow}
 							fileNames = 'left'
 							traduction = {traduction}
+							leftNumberInput = {leftNumberInput}
+							setLeftNumberInput = {setLeftNumberInput}
 						/> :
 					helmetPosition.fileName === 'logo' ?
 						<Logo
@@ -155,6 +169,8 @@ const HelmetTabs = ({
 							setRightNumberWindow = {setRightNumberWindow}
 							fileNames = 'right'
 							traduction = {traduction}
+							rightNumberInput = {rightNumberInput}
+							setRightNumberInput = {setRightNumberInput}
 						/> :
 					helmetPosition.fileName === 'screw' ?
 						<Screw

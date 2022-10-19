@@ -3,7 +3,13 @@ import SubMenu from './subMenu';
 import VeldtLogo from '../../../assets/images/veldt-logo.svg';
 import Caret from '../../../assets/images/caret_right.svg';
 
-const Menu = ({menuOpenClose, load,	titleList, setMenuOpenClose, subMenuList}) => {
+const Menu = ({
+	menuOpenClose,
+	load,
+	titleList,
+	setMenuOpenClose,
+	subMenuList
+}) => {
 	const [ subMenuOpen, setSubMenuOpen ] = useState({name: '', open: false});
 	const closeMenu = () => {
 		setMenuOpenClose(false);

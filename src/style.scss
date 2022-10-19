@@ -88,7 +88,27 @@ a {
 	margin: auto;
 	z-index: 100;
 }
-
+.loadBuy {
+	z-index: 99;
+	position: absolute;
+	border-radius: 25px;
+	padding: 0.5rem 1.2rem;
+	left: 0;
+	top: 0;
+	background: rgb(35 54 88 / 50%);
+	width: 150px;
+}
+.loaderBuy {
+  border: 8px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 8px solid #233658;
+  width: 30px;
+  height: 30px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+	margin: auto;
+	z-index: 100;
+}
 input[type=number] {
 	-moz-appearance: textfield;
 }

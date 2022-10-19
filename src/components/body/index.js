@@ -25,6 +25,8 @@ import TrimChin from './Chinguard/trim';
 
 import VisorChoice from './Visor/VisorChoice';
 
+import {MakeAnObjectToOrder} from '../../../utils/ObjectOrder';
+
 const Body = ({
 	aerationHelmet, 
 	screwPosition, 
@@ -42,7 +44,14 @@ const Body = ({
 	setNodesConfiguration,
 	tabsChoice,
 	downMenu,
-	setMaterialVariation
+	setMaterialVariation,
+	withChin,
+	typeChoice,
+	withVisor,
+	backNumberInput,
+	leftNumberInput,
+	rightNumberInput,
+	engravingInput,
 }) => {
 	let viewerIframe = null;
 	let viewerActive = false;
@@ -140,17 +149,37 @@ const Body = ({
 					event.data.screenshots[2],
 					event.data.screenshots[3]
 				]
-			})
+			});
+			let configuration = MakeAnObjectToOrder(
+				standardValue,
+				aerationHelmet,
+				varnishHelmet,
+				backNumberWindow,
+				backNumberInput,
+				rightNumberWindow,
+				rightNumberInput,
+				leftNumberWindow,
+				leftNumberInput,
+				backEngraving,
+				engravingInput,
+				screwPosition,
+				withChin,
+				aerationChin,
+				varnishChin,
+				withVisor
+			);
+			 let newConfig = JSON.parse(configuration);
+			 setTimeout(()=> {
+				setMaterialVariation({
+					newConfig
+				});
+			 }, 10000)
 		}
 		if(event.data && event.data.action == 'onCurrentProductNodesConfigurationGet'){
 			setNodesConfiguration(event.data.productNodes)
 			viewerIframe.postMessage({
 				action : 'getCurrentMaterials'
 			}, '*');
-		}
-		if(event.data && event.data.action == 'onCurrentMaterialsConfigurationGet'){
-			setMaterialVariation(event.data.materialVariationConfiguration);
-			
 		}
 		if(event.data && event.data.action == 'onSuccess' && event.data.callAction == 'updateProductNodesInstances'){
 			viewerIframe.postMessage(
@@ -333,7 +362,7 @@ useEffect(() => {
 			<iframe
 				id="emersyaIframe"
 				className={downMenu ? 'openTabs' : ''}
-				src="https://emersya.com/showcase/W3C2GS773F"
+				/* src="https://emersya.com/showcase/W3C2GS773F" */
 				frameBorder="0"
 				width="100%"
 				height="100%"
