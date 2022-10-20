@@ -39,7 +39,6 @@ const HelmetTabs = ({
 	setBackEngraving,
 	helmetPosition,
 	setHelmetPosition,
-	nodesConfiguration,
 	traduction,
 	backNumberInput,
 	setBackNumberInput,

@@ -36,6 +36,7 @@ add_action( 'rest_api_init', function () {
 
 function uploadImage($request) {
 	$upl_base_url = is_ssl() ? str_replace('http://', 'https://', $_SERVER['SERVER_NAME']. ':8080/essai') : $_SERVER['SERVER_NAME']. ':8080/essai';
+	$upload_dir   = wp_upload_dir();
 	$base64Image = file_get_contents('php://input');
 	$base64Image = str_replace('"', '', $base64Image);
 	list($type, $base64Image) = explode(';', $base64Image);
@@ -46,13 +47,13 @@ function uploadImage($request) {
 	file_put_contents( $fileName, $imageData);
 	$newName = 'motorBike' . uniqid() . '.png';
 	copy($fileName, $newName);
-	$src = urldecode($newName); 
+	$src = urldecode($newName);
 	return $src;
 }
 add_filter( 'woocommerce_store_api_disable_nonce_check', '__return_true' );
 
 add_filter( 'woocommerce_add_cart_item_data', 'add_custom_fields_data_as_custom_cart_item_data', 10, 2 );
-function add_custom_fields_data_as_custom_cart_item_data( $cart_item_data, $product_id ){
+function add_custom_fields_data_as_custom_cart_item_data( $cart_item_data, $product_id ) {
 		$upl_base_url = is_ssl() ? str_replace('http://', 'https://', $_SERVER['SERVER_NAME']. ':8080/essai') : $_SERVER['SERVER_NAME']. ':8080/essai';
 		$configuration = file_get_contents('php://input');
 		$data = json_decode($configuration);
@@ -85,7 +86,7 @@ function display_custom_item_data( $cart_item_data, $cart_item ) {
 // Save Image data as order item meta data
 add_action( 'woocommerce_checkout_create_order_line_item', 'add_custom_note_order_item_meta', 20, 4 );
 function add_custom_note_order_item_meta( $item, $cart_item_key, $values, $order ) {
-    if ( isset( $values['imageToFollow'] ) ){
+    if ( isset( $values['imageToFollow'] ) ) {
         $item->update_meta_data( 'ImageUploaded',  $values['imageToFollow'] );
 				$item->update_meta_data( 'Config',  $values['configuration'] );
     }
@@ -93,7 +94,7 @@ function add_custom_note_order_item_meta( $item, $cart_item_key, $values, $order
 function custom_new_product_image($a, $cart_item, $cart_item_key) {	
 	$targeted_id = 200;
 	$upl_base_url = is_ssl() ? str_replace('http://', 'https://', $_SERVER['SERVER_NAME']. ':8080/essai') : $_SERVER['SERVER_NAME']. ':8080/essai';
-	if( $cart_item['product_id'] == $targeted_id || $cart_item['product_id'] == $targeted_id ){
+	if( $cart_item['product_id'] == $targeted_id || $cart_item['product_id'] == $targeted_id ) {
 		$src = 'http://' . $upl_base_url . '/' . $cart_item['imageToFollow'];
 		$class = 'attachment-shop_thumbnail wp-post-image';
 		$a = '<img';
