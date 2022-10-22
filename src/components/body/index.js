@@ -24,7 +24,6 @@ import VarnishChin from './Chinguard/varnish';
 import TrimChin from './Chinguard/trim';
 
 import VisorChoice from './Visor/VisorChoice';
-
 import {MakeAnObjectToOrder} from '../../../utils/ObjectOrder';
 
 const Body = ({

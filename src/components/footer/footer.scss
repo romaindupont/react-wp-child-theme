@@ -1186,7 +1186,7 @@ svg#link, svg#download {
 		display: none;
 	}
 	.sd-tabs > .sd-tab-content {
-    height: 230px;
+    height: 20vh;
 	}
 	.sd-tabs > .sd-tab-label::after,
 	.sd-tabs > .sd-tab-label::before {
@@ -1299,6 +1299,10 @@ svg#link, svg#download {
 	.helmet, .chinguard, .visor {
 		margin-top: 0px;
 	}
+	.exportWindow {
+    bottom: 0;
+		height: 35vh;
+	}
 }
 
 @media (min-width : 1224px) {
@@ -1332,9 +1336,9 @@ and (min-width : 1824px) {
 	.positionExportLogo {
     top: 70vh !important;
 	}
-	.exportWindow {
+/* 	.exportWindow {
     bottom: -100px;
-	}
+	} */
 	.openExportMenu {
     bottom: -100px !important;
 	}

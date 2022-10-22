@@ -24,7 +24,7 @@ const Header = ({
 	varnishChin,
 	withVisor
 }) => {
-	const baseUrl = 'http://localhost:8080/essai/';
+	const baseUrl = 'http://localhost/essai/';
 	const [ buyLoader, setBuyLoader] = useState(false);
 	var _nonce = "<?php echo wp_create_nonce( 'wc_store_api' ); ?>";
 	const screen = () => {
@@ -77,7 +77,7 @@ const Header = ({
 		await fetch(`${baseUrl}wp-json/imageHandler/v1/upload`, myInit)
 			.then(response => response.text())
 			.then(data => image = data )
-		await fetch(`${baseUrl}cart/?add-to-cart=201&image=${image}`, myInit2)
+		await fetch(`${baseUrl}cart/?add-to-cart=227&image=${image}`, myInit2)
 			.then(response => response.text())
 			.then(data => data)
 		setBuyLoader(false);
