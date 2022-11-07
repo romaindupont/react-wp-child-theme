@@ -92,7 +92,7 @@ function add_custom_note_order_item_meta( $item, $cart_item_key, $values, $order
     }
 }
 function custom_new_product_image($a, $cart_item, $cart_item_key) {	
-	$targeted_id = 200;
+	$targeted_id = 226;
 	$upl_base_url = is_ssl() ? str_replace('http://', 'https://', $_SERVER['SERVER_NAME']. '/essai') : $_SERVER['SERVER_NAME']. '/essai';
 	if( $cart_item['product_id'] == $targeted_id || $cart_item['product_id'] == $targeted_id ) {
 		$src = 'http://' . $upl_base_url . '/' . $cart_item['imageToFollow'];
@@ -110,7 +110,7 @@ add_filter( 'woocommerce_cart_item_thumbnail', 'custom_new_product_image', 20, 3
 add_action( 'woocommerce_after_order_itemmeta', 'image_link_after_order_itemmeta', 10, 3 );
 function image_link_after_order_itemmeta( $item_id, $item, $product ) {
 	$upl_base_url = is_ssl() ? str_replace('http://', 'https://', $_SERVER['SERVER_NAME']. '/essai') : $_SERVER['SERVER_NAME']. '/essai';
-    if( is_admin() && $item->is_type('line_item') && $file_data = $item->get_meta( 'ImageUploaded' ) ){
+    if( is_admin() && $item->is_type('line_item') && $file_data = $item  ){
 			$src = 'http://' . $upl_base_url . '/' . $file_data;
         echo '<p><a href="'.$src.'" target="_blank" class="button">'.__("Open Image") . '</a></p>';
 			$srcText = 'http://' . $upl_base_url . '/' . $item->get_meta( 'Config' );
