@@ -3,7 +3,13 @@ import SubMenu from './subMenu';
 import VeldtLogo from '../../../assets/images/veldt-logo.svg';
 import Caret from '../../../assets/images/caret_right.svg';
 
-const Menu = ({ menuOpenClose, load,	titleList, setMenuOpenClose, subMenuList }) => {
+const Menu = ({
+	menuOpenClose,
+	load,
+	titleList,
+	setMenuOpenClose,
+	subMenuList
+}) => {
 	const [ subMenuOpen, setSubMenuOpen ] = useState({name: '', open: false});
 	const closeMenu = () => {
 		setMenuOpenClose(false);
@@ -19,7 +25,6 @@ const Menu = ({ menuOpenClose, load,	titleList, setMenuOpenClose, subMenuList })
 			select.classList.remove('select');
 		}
 		e.target.offsetParent.classList.add('select');
-
 	}
 	return (
 		<>
@@ -36,14 +41,14 @@ const Menu = ({ menuOpenClose, load,	titleList, setMenuOpenClose, subMenuList })
 							{load && titleList.map((title, i) => (
 								<li key={i} className={`sub-menu--li ${title[0]}`}>
 									{title[0].includes('Mark') ? title[0] : <a href={title[1]} className='sub-menu--a'>{title[0]}</a>}
-									{title[0].includes('Mark') ? <img src= {Caret} alt="caret" className={`caret caret--${i}` } onClick={clicCaret}/> : ''}
+									{title[0].includes('Mark') ? <img src= {Caret} alt="caret" className={`caret caret--${i}`} onClick={clicCaret}/> : ''}
 								</li>
 							))}
 						</ul>
 					</nav>
 				</div>
 			</div>
-			{subMenuOpen.open && <SubMenu subMenuList={subMenuList} subMenuOpenName={subMenuOpen.name} setSubMenuOpen={setSubMenuOpen}/>}
+			{subMenuOpen.open && <SubMenu subMenuList = {subMenuList} subMenuOpenName = {subMenuOpen.name} setSubMenuOpen = {setSubMenuOpen}/>}
 		</>
 	)
 }

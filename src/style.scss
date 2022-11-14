@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 .mc0{fill:#233658;}
 .mc1{fill:#FFFFFF;}
 
 .lv0{fill:#233658;}
+.st0{fill:#FFFFFF;stroke:#231F20;stroke-width:0.4956;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+.st1{fill:#231F20;stroke:#231F20;stroke-width:0.4956;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -30,6 +34,10 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	font-family: 'Montserrat', sans-serif;
+}
+html {
+	font-family: 'Montserrat', sans-serif;
 }
 ol, ul {
 	list-style: none;
@@ -49,5 +57,88 @@ table {
 a {
 	text-decoration: none;
 }
+#site-content {
+	overflow: hidden;
+ 	width: 100vw;
+	/*height: 100vh; */
+}
+.veldtConfig {
+	overflow: hidden;
+/* 	width: 100vw;
+	height: 100vh; */
+}
+.load {
+	width: 100vw;
+	height: 230px;
+	background: #FFFFFF;
+	z-index: 99;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	opacity: 0.7;
+	filter: blur(5rem);
+}
+/* .loader {
+  border: 8px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 8px solid #233658;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+	margin: auto;
+	z-index: 100;
+} */
+.loadBuy {
+	z-index: 99;
+	position: absolute;
+	border-radius: 25px;
+	padding: 0.5rem 1.2rem;
+	left: 0;
+	top: 0;
+	background: rgb(35 54 88 / 50%);
+	width: 150px;
+}
+.loaderBuy {
+  border: 8px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 8px solid #233658;
+  width: 30px;
+  height: 30px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+	margin: auto;
+	z-index: 100;
+}
+input[type=number] {
+	-moz-appearance: textfield;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button { 
+-webkit-appearance: none;
+margin:0;
+}
+input::-o-inner-spin-button,
+input::-o-outer-spin-button { 
+	-o-appearance: none;
+	margin:0
+}
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
 @import './components/header/header.scss';
 
+@import './components/body/body.scss';
+
+@import './components/footer/footer.scss';
+@import './components/footer/tabs/svg/svgConfigurator.scss';

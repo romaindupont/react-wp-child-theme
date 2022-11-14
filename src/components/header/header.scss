@@ -4,25 +4,21 @@
 	background-color: var(--background-page-config);
 	overflow-y: hidden;
 }
-
 .configurator-header {
 	width: 100vw;
 	z-index: 1;
 }
-
 .header-configurator {
 	display: flex;
   justify-content: space-between;
 	width: 100vw;
 }
-
 .header-configurator-left {
 	width: 50vw;
 	display: flex;
 	flex-direction: row;
 	margin: 2rem;
 }
-
 .header-configurator-left-menu {
 	width: 40px;
 	height: 40px;
@@ -30,12 +26,11 @@
 	cursor: pointer;
 	z-index: 2;
 }
-
 .header-configurator-left-title {
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 }
-
 .header-configurator-left-title-2 {
 	color: #233658;
 	font-size: 1rem;
@@ -43,14 +38,13 @@
 	font-weight: 600;
 	padding-top: .3rem;
 }
-
 .header-configurator-right {
 	width: 50vw;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: flex-end;
-	margin: 2rem;
+	margin: 0 30px;
 }
 .header-configurator-right-comment {
 	margin-top: 0.6rem;
@@ -59,35 +53,34 @@
 	display: flex;
 	align-items: center;
 }
-
 .header-configurator-right-priceZone-price {
 	color: var(--price-config-color);
 	font-size: 1.3rem;
 	font-weight: bold;
 	padding: 0rem 1rem;
+	font-family: var(--font-family);
 }
-
 button.header-configurator-right-priceZone-buy {
 	background: var(--button-config-bg-color);
 	border-radius: 25px;
 	padding: 0.5rem 1.2rem;
 	text-transform: uppercase;
 	color: var(--button-config-color);
-	font-size: 0.8rem;
 	cursor: pointer;
 	letter-spacing: 0.2rem;
 	border: none;
 	outline: inherit;
 	z-index: 10;
 	border: 1px solid var(--button-config-color);
+	font-family: var(--font-family);
+	position: relative;
+	width: 150px;
 }
-
 button.header-configurator-right-priceZone-buy:hover {
-	background: var(--button-config-color);
+	background: var(--background-page-config);
 	color: var(--button-config-bg-color);
 	border: 1px solid var(--button-config-bg-color);
 }
-
 .first_menu-configurator-nav {
   width: 100%;
   height: 100vh;
@@ -99,7 +92,6 @@ button.header-configurator-right-priceZone-buy:hover {
 	background: #233658;
 	position: absolute;
 	bottom: 0;
-
 }
 .menu-depth-1 >.sub-menu--li:hover::after {
 	width: 50%;
@@ -117,7 +109,8 @@ button.header-configurator-right-priceZone-buy:hover {
 		transform: scaleX(1);
 	}
 }
-a.sub-menu--a, .sub_item {
+a.sub-menu--a,
+.sub_item {
 	text-decoration: none;
 	color: #233658 !important;
 	font-size: 1rem;
@@ -194,7 +187,6 @@ a.personnalize {
 	border-radius: 25px;
 	justify-content: center;
 }
-
 @keyframes menuMobileSubAppear {
 	0% {
 		left: -50%;
@@ -203,7 +195,6 @@ a.personnalize {
 		left: 20%;
 	}
 }
-
 .active::before {
 	content: '';
     width: 10px;
@@ -214,7 +205,6 @@ a.personnalize {
     z-index: 6;
     top: 5px;
 }
-
 .first_menu-configurator {
   display: flex;
 	visibility: visible;
@@ -232,7 +222,6 @@ a.personnalize {
 		left: 0;
 	}
 }
-
 .first_menu-configurator-nav-title {
   display: flex;
 	margin-top: 0rem;
@@ -263,7 +252,6 @@ a.personnalize {
 	right: 0;
 	fill: #233658;
 }
-
 .cross{
 	fill: var(--color-principal);
 }
@@ -292,6 +280,10 @@ nav.first_menu-configurator-nav--2 {
 	position: absolute;
 	right: -25%;
 	background: #233658;
+}
+
+.menuImageToBuy {
+	visibility: hidden;
 }
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen 
@@ -348,7 +340,9 @@ and (max-device-width : 768px) {
 		width: 100%;
 		justify-content: unset;
 	}
-	
+	button.header-configurator-right-priceZone-buy {
+		font-size: 0.5rem;
+	}
 	@keyframes menuMobileSubAppear {
 		0% {
 			left: -200%;
@@ -359,6 +353,12 @@ and (max-device-width : 768px) {
 	}
 	.closeMenu {
 		right: 100px;
+	}
+	button.header-configurator-right-priceZone-buy {
+		width: 100px;
+	}
+	.header-configurator-right {
+		margin: 0.5rem;
 	}
 }
 /* iPads (portrait and landscape) ----------- */
@@ -406,6 +406,13 @@ and (max-device-width : 1024px) {
 	}
 	.personnalize {
     text-align: right;
+	}
+	button.header-configurator-right-priceZone-buy {
+		font-size: 0.8rem;
+		width: 250px;
+	}
+	.header-configurator-right {
+		margin: 2rem;
 	}
 }
 

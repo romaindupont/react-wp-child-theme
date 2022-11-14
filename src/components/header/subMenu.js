@@ -26,8 +26,11 @@ const SubMenu = ({subMenuList, subMenuOpenName, setSubMenuOpen}) => {
 				<li className="sub-menu--li"><a href="" className='sub_item'>Configurator {titleMenu}</a></li>
 				<li className="sub-menu--li"><a href="" className='sub_item--item'>Make your own</a></li>
 				<li className="sub-menu--li"><a href="" className='personnalize'><img src={Spectre} alt="spectre" /> personnalize</a></li>
-			{newList.map((title, i) =>  (
-				<li key={i} className="sub-menu--li"><a href={title[1]} className={`${title[3]}`}>{title[0]}</a></li>))}
+				{newList.map((title, i) =>  (
+					<li key={i} className="sub-menu--li">
+						<a href={title[1]} className={`${title[3]}`}>{title[0]}</a>
+					</li>
+				))}
 			</ul>
 		</nav>
 	)
