@@ -145,7 +145,7 @@ export default [
 				0, 0, 0, 1],
 				SKU: "custom_numberingBack"
 			},
-			rearEngraving:
+			rearEngravingECE:
 			{
 				parentLocalId: 1,
 				localId: 16,
@@ -153,7 +153,17 @@ export default [
 				0, 1, 0, 0,
 				0, 0, 1, 0,
 				0, 0, 0, 1],
-				SKU: "custom_backEngraving"
+				SKU: "custom_backEngravingECE"
+			},
+			rearEngravingDOT:
+			{
+				parentLocalId: 1,
+				localId: 39,
+				matrix: [1, 0, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1],
+				SKU: "custom_backEngravingDOT"
 			}
 		},
 		screw: {

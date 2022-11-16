@@ -291,7 +291,7 @@ const Body = ({
 	}, [rightNumberWindow]);
 useEffect(() => {
 		if (notInitialRender.current) {
-			Engraving(backEngraving, nodesConfiguration, setLoader);
+			Engraving(backEngraving, nodesConfiguration, setLoader, standardValue);
 		} else {
 			notInitialRender.current = true;
 		}

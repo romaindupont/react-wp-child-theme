@@ -79,6 +79,15 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 								},
 								{
 									parentLocalId: 1,
+									localId: parseInt(`${Noeud[0].chinguard.chinguardTrimRubber.localId}` + Date.now()),
+									matrix: [1, 0, 0, 0,
+									0, 1, 0, 0,
+									0, 0, 1, 0,
+									0, 0, 0, 1],
+									SKU: Noeud[0].chinguard.chinguardTrimRubber.SKU
+								},
+								{
+									parentLocalId: 1,
 									localId: parseInt(`${Noeud[0].screw.screwsBaseChinguard.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
 									0, 1, 0, 0,
@@ -168,6 +177,15 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 									0, 0, 1, 0,
 									0, 0, 0, 1],
 									SKU: Noeud[0].chinguard.chinguardCoatingNoGroove.SKU
+								},
+								{
+									parentLocalId: 1,
+									localId: parseInt(`${Noeud[0].chinguard.chinguardTrimRubber.localId}` + Date.now()),
+									matrix: [1, 0, 0, 0,
+									0, 1, 0, 0,
+									0, 0, 1, 0,
+									0, 0, 0, 1],
+									SKU: Noeud[0].chinguard.chinguardTrimRubber.SKU
 								},
 								{
 									parentLocalId: 1,
@@ -264,6 +282,15 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 								},
 								{
 									parentLocalId: 1,
+									localId: parseInt(`${Noeud[0].chinguard.chinguardTrimRubber.localId}` + Date.now()),
+									matrix: [1, 0, 0, 0,
+									0, 1, 0, 0,
+									0, 0, 1, 0,
+									0, 0, 0, 1],
+									SKU: Noeud[0].chinguard.chinguardTrimRubber.SKU
+								},
+								{
+									parentLocalId: 1,
 									localId: parseInt(`${Noeud[0].screw.screwsBaseChinguard.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
 									0, 1, 0, 0,
@@ -353,6 +380,15 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 									0, 0, 1, 0,
 									0, 0, 0, 1],
 									SKU: Noeud[0].chinguard.chinguardCoatingGroove.SKU
+								},
+								{
+									parentLocalId: 1,
+									localId: parseInt(`${Noeud[0].chinguard.chinguardTrimRubber.localId}` + Date.now()),
+									matrix: [1, 0, 0, 0,
+									0, 1, 0, 0,
+									0, 0, 1, 0,
+									0, 0, 0, 1],
+									SKU: Noeud[0].chinguard.chinguardTrimRubber.SKU
 								},
 								{
 									parentLocalId: 1,

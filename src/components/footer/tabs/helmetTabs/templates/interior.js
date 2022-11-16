@@ -10,7 +10,7 @@ const Interior = ({setStandardValue, standardValue, traduction}) => {
 				<InteriorSuedeBlue />
 				<span className="textAction">{traduction.SuedeBlue}</span>
 			</div>
-			<div className={standardValue.Interior === 'suede|beige' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Interior:'suede|beige'})}>
+			<div className={standardValue.Interior === 'suede|black' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Interior:'suede|black'})}>
 				<InteriorSuedeBlack />
 				<span className="textAction">{traduction.SuedeBlack}</span>
 			</div>

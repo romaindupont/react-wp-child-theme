@@ -14,7 +14,7 @@ const Trim = ({setStandardValue, standardValue, traduction}) => {
 				<TrimBlackRubber />
 				<span className="textAction">{traduction.BlackRubber}</span>
 			</div>
-			<div className={standardValue.Chinguard_trim === 'leather_brown' ? 'Select' : 'allScrew'}  onClick={()=>setStandardValue({...standardValue, Chinguard_trim:'leather_brown'})}>
+			<div className={standardValue.Chinguard_trim === 'leather|brown' ? 'Select' : 'allScrew'}  onClick={()=>setStandardValue({...standardValue, Chinguard_trim:'leather|brown'})}>
 				<TrimBrownLeather />
 				<span className="textAction">{traduction.BrownLeather}</span>
 			</div>

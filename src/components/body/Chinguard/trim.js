@@ -216,6 +216,7 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 		}
 	}
 	if (standardValue.Chinguard_trim.includes('leather')) {
+		console.log(standardValue.Chinguard_trim);
 		viewerIframe.postMessage(
 			{
 				action : "updateProductNodesInstances",
@@ -237,6 +238,7 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 		localIdToRemove = [];
 		setLoader(false);
 		if (varnishChin && aerationChin) {
+	
 			setTimeout(() => {
 				viewerIframe.postMessage({
 					action : 'setMaterialsGroups',
