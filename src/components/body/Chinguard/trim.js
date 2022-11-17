@@ -11,6 +11,34 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 			localIdToRemove.push(nodes.localId);
 		}
 	}) 
+	let typeColorChin = standardValue.Chinguard_color_type;
+		if (standardValue.Chinguard_color_type === 'gilding') {
+			typeColorChin = 'metallic'
+		}
+		else {
+			typeColorChin = standardValue.Chinguard_color_type;
+		}
+		let typeColorHelmet = standardValue.Helmet_color_type;
+		if (standardValue.Helmet_color_type === 'gilding') {
+			typeColorHelmet = 'metallic'
+		}
+		else {
+			typeColorHelmet = standardValue.Helmet_color_type;
+		}
+		let typeDesignHelmet = standardValue.Helmet_design_type;
+		if (standardValue.Helmet_design_type === 'gilding') {
+			typeDesignHelmet = 'metallic'
+		}
+		else {
+			typeDesignHelmet = standardValue.Helmet_design_type;
+		}
+		let typeDesignChin = standardValue.Chinguard_design_type;
+		if (standardValue.Chinguard_design_type === 'gilding') {
+			typeDesignChin = 'metallic'
+		}
+		else {
+			typeDesignChin = standardValue.Chinguard_design_type;
+		}
 	if (standardValue.Chinguard_trim.includes('rubber')) {
 		viewerIframe.postMessage(
 			{
@@ -39,11 +67,11 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 					values : 
 						[
 							{
-								configurationName : `${standardValue.Chinguard_color_type}|${standardValue.Chinguard_color}`,
+								configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
 								groupName : 'Chinguard_color'
 							},
 								{
-								configurationName : `${standardValue.Chinguard_design}|${standardValue.Chinguard_design_type}|${standardValue.Chinguard_design_color}`,
+								configurationName : `${standardValue.Chinguard_design}|${typeDesignChin}|${standardValue.Chinguard_design_color}`,
 								groupName : 'Chinguard_design_color'
 							},
 							{
@@ -70,11 +98,11 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 					values : 
 						[
 							{
-								configurationName : `${standardValue.Chinguard_color_type}|${standardValue.Chinguard_color}`,
+								configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
 								groupName : 'Chinguard_color'
 							},
 								{
-								configurationName : `${standardValue.Chinguard_design}|${standardValue.Chinguard_design_type}|${standardValue.Chinguard_design_color}`,
+								configurationName : `${standardValue.Chinguard_design}|${typeDesignChin}|${standardValue.Chinguard_design_color}`,
 								groupName : 'Chinguard_design_color'
 							},
 							{
@@ -102,7 +130,7 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 							values : 
 								[
 									{
-										configurationName : `${standardValue.Chinguard_color_type}|${standardValue.Chinguard_color}`,
+										configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
 										groupName : 'Chinguard_color'
 									},
 									{
@@ -129,11 +157,11 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 						values : 
 							[
 								{
-									configurationName : `${standardValue.Chinguard_color_type}|${standardValue.Chinguard_color}`,
+									configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
 									groupName : 'Chinguard_color'
 								},
 									{
-									configurationName : `${standardValue.Chinguard_design}|${standardValue.Chinguard_design_type}|${standardValue.Chinguard_design_color}`,
+									configurationName : `${standardValue.Chinguard_design}|${typeDesignChin}|${standardValue.Chinguard_design_color}`,
 									groupName : 'Helmet_design_color'
 								},
 								{
@@ -162,7 +190,7 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 						values : 
 							[
 								{
-									configurationName : `${standardValue.Chinguard_color_type}|${standardValue.Chinguard_color}`,
+									configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
 									groupName : 'Chinguard_color'
 								},
 								{
@@ -189,11 +217,11 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 						values : 
 							[
 								{
-									configurationName : `${standardValue.Chinguard_color_type}|${standardValue.Chinguard_color}`,
+									configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
 									groupName : 'Chinguard_color'
 								},
 									{
-									configurationName : `${standardValue.Chinguard_design}|${standardValue.Chinguard_design_type}|${standardValue.Chinguard_design_color}`,
+									configurationName : `${standardValue.Chinguard_design}|${typeDesignChin}|${standardValue.Chinguard_design_color}`,
 									groupName : 'Chinguard_design_color'
 								},
 								{
@@ -245,11 +273,11 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 					values : 
 						[
 							{
-								configurationName : `${standardValue.Chinguard_color_type}|${standardValue.Chinguard_color}`,
+								configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
 								groupName : 'Chinguard_color'
 							},
 								{
-								configurationName : `${standardValue.Chinguard_design}|${standardValue.Chinguard_design_type}|${standardValue.Chinguard_design_color}`,
+								configurationName : `${standardValue.Chinguard_design}|${typeDesignChin}|${standardValue.Chinguard_design_color}`,
 								groupName : 'Chinguard_design_color'
 							},
 							{
@@ -276,11 +304,11 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 					values : 
 						[
 							{
-								configurationName : `${standardValue.Chinguard_color_type}|${standardValue.Chinguard_color}`,
+								configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
 								groupName : 'Chinguard_color'
 							},
 								{
-								configurationName : `${standardValue.Chinguard_design}|${standardValue.Chinguard_design_type}|${standardValue.Chinguard_design_color}`,
+								configurationName : `${standardValue.Chinguard_design}|${typeDesignChin}|${standardValue.Chinguard_design_color}`,
 								groupName : 'Chinguard_design_color'
 							},
 							{
@@ -308,7 +336,7 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 							values : 
 								[
 									{
-										configurationName : `${standardValue.Chinguard_color_type}|${standardValue.Chinguard_color}`,
+										configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
 										groupName : 'Chinguard_color'
 									},
 									{
@@ -335,11 +363,11 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 						values : 
 							[
 								{
-									configurationName : `${standardValue.Chinguard_color_type}|${standardValue.Chinguard_color}`,
+									configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
 									groupName : 'Chinguard_color'
 								},
 								{
-									configurationName : `${standardValue.Chinguard_design}|${standardValue.Chinguard_design_type}|${standardValue.Chinguard_design_color}`,
+									configurationName : `${standardValue.Chinguard_design}|${typeDesignChin}|${standardValue.Chinguard_design_color}`,
 									groupName : 'Chinguard_design_color'
 								},
 								{
@@ -368,7 +396,7 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 						values : 
 							[
 								{
-									configurationName : `${standardValue.Chinguard_color_type}|${standardValue.Chinguard_color}`,
+									configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
 									groupName : 'Chinguard_color'
 								},
 								{
@@ -395,7 +423,7 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 						values : 
 							[
 								{
-									configurationName : `${standardValue.Chinguard_color_type}|${standardValue.Chinguard_color}`,
+									configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
 									groupName : 'Chinguard_color'
 								},
 								{

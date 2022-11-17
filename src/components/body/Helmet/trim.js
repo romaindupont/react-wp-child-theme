@@ -18,6 +18,34 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 			localIdToRemove.push(nodes.localId);
 		}
 	}) 
+	let typeColorChin = standardValue.Chinguard_color_type;
+		if (standardValue.Chinguard_color_type === 'gilding') {
+			typeColorChin = 'metallic'
+		}
+		else {
+			typeColorChin = standardValue.Chinguard_color_type;
+		}
+		let typeColorHelmet = standardValue.Helmet_color_type;
+		if (standardValue.Helmet_color_type === 'gilding') {
+			typeColorHelmet = 'metallic'
+		}
+		else {
+			typeColorHelmet = standardValue.Helmet_color_type;
+		}
+	let typeDesignHelmet = standardValue.Helmet_design_type;
+	if (standardValue.Helmet_design_type === 'gilding') {
+		typeDesignHelmet = 'metallic'
+	}
+	else {
+		typeDesignHelmet = standardValue.Helmet_design_type;
+	}
+	let typeDesignChin = standardValue.Chinguard_design_type;
+	if (standardValue.Chinguard_design_type === 'gilding') {
+		typeDesignChin = 'metallic'
+	}
+	else {
+		typeDesignChin = standardValue.Chinguard_design_type;
+	}
 	if (standardValue.Helmet_trim.includes('rubber')) {
 		viewerIframe.postMessage(
 			{
@@ -47,7 +75,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 						values : 
 							[
 								{
-									configurationName : `${typeColor}|${standardValue.Helmet_color}`,
+									configurationName : `${typeColorHelmet}|${standardValue.Helmet_color}`,
 									groupName : 'Helmet_color'
 								},
 								{
@@ -74,11 +102,11 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 						values : 
 							[
 								{
-									configurationName : `${typeColor}|${standardValue.Helmet_color}`,
+									configurationName : `${typeColorHelmet}|${standardValue.Helmet_color}`,
 									groupName : 'Helmet_color'
 								},
 									{
-									configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
+									configurationName : `${standardValue.Helmet_design}|${typeDesignHelmet}|${standardValue.Helmet_design_color}`,
 									groupName : 'Helmet_design_color'
 								},
 								{
@@ -107,7 +135,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 						values : 
 							[
 								{
-									configurationName : `${typeColor}|${standardValue.Helmet_color}`,
+									configurationName : `${typeColorHelmet}|${standardValue.Helmet_color}`,
 									groupName : 'Helmet_color'
 								},
 								{
@@ -134,11 +162,11 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 						values : 
 							[
 								{
-									configurationName : `${typeColor}|${standardValue.Helmet_color}`,
+									configurationName : `${typeColorHelmet}|${standardValue.Helmet_color}`,
 									groupName : 'Helmet_color'
 								},
 									{
-									configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
+									configurationName : `${standardValue.Helmet_design}|${typeDesignHelmet}|${standardValue.Helmet_design_color}`,
 									groupName : 'Helmet_design_color'
 								},
 								{
@@ -167,7 +195,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 							values : 
 								[
 									{
-										configurationName : `${typeColor}|${standardValue.Helmet_color}`,
+										configurationName : `${typeColorHelmet}|${standardValue.Helmet_color}`,
 										groupName : 'Helmet_color'
 									},
 									{
@@ -194,11 +222,11 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 						values : 
 							[
 								{
-									configurationName : `${typeColor}|${standardValue.Helmet_color}`,
+									configurationName : `${typeColorHelmet}|${standardValue.Helmet_color}`,
 									groupName : 'Helmet_color'
 								},
 									{
-									configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
+									configurationName : `${standardValue.Helmet_design}|${typeDesignHelmet}|${standardValue.Helmet_design_color}`,
 									groupName : 'Helmet_design_color'
 								},
 								{
@@ -227,7 +255,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 						values : 
 							[
 								{
-									configurationName : `${typeColor}|${standardValue.Helmet_color}`,
+									configurationName : `${typeColorHelmet}|${standardValue.Helmet_color}`,
 									groupName : 'Helmet_color'
 								},
 								{
@@ -254,11 +282,11 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 						values : 
 							[
 								{
-									configurationName : `${typeColor}|${standardValue.Helmet_color}`,
+									configurationName : `${typeColorHelmet}|${standardValue.Helmet_color}`,
 									groupName : 'Helmet_color'
 								},
 									{
-									configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
+									configurationName : `${standardValue.Helmet_design}|${typeDesignHelmet}|${standardValue.Helmet_design_color}`,
 									groupName : 'Helmet_design_color'
 								},
 								{
@@ -309,7 +337,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 						values : 
 							[
 								{
-									configurationName : `${typeColor}|${standardValue.Helmet_color}`,
+									configurationName : `${typeColorHelmet}|${standardValue.Helmet_color}`,
 									groupName : 'Helmet_color'
 								},
 								{
@@ -336,11 +364,11 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 						values : 
 							[
 								{
-									configurationName : `${typeColor}|${standardValue.Helmet_color}`,
+									configurationName : `${typeColorHelmet}|${standardValue.Helmet_color}`,
 									groupName : 'Helmet_color'
 								},
 									{
-									configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
+									configurationName : `${standardValue.Helmet_design}|${typeDesignHelmet}|${standardValue.Helmet_design_color}`,
 									groupName : 'Helmet_design_color'
 								},
 								{
@@ -369,7 +397,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 						values : 
 							[
 								{
-									configurationName : `${typeColor}|${standardValue.Helmet_color}`,
+									configurationName : `${typeColorHelmet}|${standardValue.Helmet_color}`,
 									groupName : 'Helmet_color'
 								},
 								{
@@ -396,11 +424,11 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 						values : 
 							[
 								{
-									configurationName : `${typeColor}|${standardValue.Helmet_color}`,
+									configurationName : `${typeColorHelmet}|${standardValue.Helmet_color}`,
 									groupName : 'Helmet_color'
 								},
 									{
-									configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
+									configurationName : `${standardValue.Helmet_design}|${typeDesignHelmet}|${standardValue.Helmet_design_color}`,
 									groupName : 'Helmet_design_color'
 								},
 								{
@@ -429,7 +457,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 							values : 
 								[
 									{
-										configurationName : `${typeColor}|${standardValue.Helmet_color}`,
+										configurationName : `${typeColorHelmet}|${standardValue.Helmet_color}`,
 										groupName : 'Helmet_color'
 									},
 									{
@@ -456,11 +484,11 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 						values : 
 							[
 								{
-									configurationName : `${typeColor}|${standardValue.Helmet_color}`,
+									configurationName : `${typeColorHelmet}|${standardValue.Helmet_color}`,
 									groupName : 'Helmet_color'
 								},
 									{
-									configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
+									configurationName : `${standardValue.Helmet_design}|${typeDesignHelmet}|${standardValue.Helmet_design_color}`,
 									groupName : 'Helmet_design_color'
 								},
 								{
@@ -489,7 +517,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 						values : 
 							[
 								{
-									configurationName : `${typeColor}|${standardValue.Helmet_color}`,
+									configurationName : `${typeColorHelmet}|${standardValue.Helmet_color}`,
 									groupName : 'Helmet_color'
 								},
 								{
@@ -516,11 +544,11 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 						values : 
 							[
 								{
-									configurationName : `${typeColor}|${standardValue.Helmet_color}`,
+									configurationName : `${typeColorHelmet}|${standardValue.Helmet_color}`,
 									groupName : 'Helmet_color'
 								},
 									{
-									configurationName : `${standardValue.Helmet_design}|${standardValue.Helmet_design_type}|${standardValue.Helmet_design_color}`,
+									configurationName : `${standardValue.Helmet_design}|${typeDesignHelmet}|${standardValue.Helmet_design_color}`,
 									groupName : 'Helmet_design_color'
 								},
 								{
