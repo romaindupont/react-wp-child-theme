@@ -701,7 +701,7 @@ input#textSelection {
 	width: 100vw;
 	height: 80vh;
 	position: absolute;
-	z-index: 94;
+	z-index: 102;
 	grid-template-columns: repeat(3, 1fr);
 	align-items: center;
 	justify-items: center;
@@ -739,10 +739,10 @@ input#textSelection {
 	width: 40px;
 	height: 40px;
 	position: absolute;
-	top: 0px;
-	right: 0px;
+	top: 10px;
+	right: 25px;
 	cursor: pointer;
-	margin: 1rem 2rem;
+	/* margin: 1rem 2rem; */
 }
 .exportWindow > #exportWindow_closeLogo {
 	width: 40px;
@@ -1005,9 +1005,9 @@ svg#link, svg#download {
 		width: 70%;
 		height: 20%;
 	}
-	.menu_option {
+/* 	.menu_option {
 		top: -65%;
-	}
+	} */
 	.sd-tabs > .sd-tab-label .sd-tab-desc {
 		font-size: 0.8rem;
 	}
@@ -1034,7 +1034,7 @@ svg#link, svg#download {
 	.inputVisorChoice {
 		max-width: 90%;
 	}
-	.exportWindow {
+	.exportWindow, .menu_option {
 		flex-direction: column;
 		align-items: center;
 		bottom: 0;
@@ -1122,7 +1122,7 @@ svg#link, svg#download {
 	.openColorList > .colorListType {
     width: 100vw;
 	}
-	.exportWindow {
+	.exportWindow, .menu_option {
 		flex-direction: row;
 		height: 290px;
 	}
@@ -1248,7 +1248,7 @@ svg#link, svg#download {
 	.logoAppear {
 		display: block;
 	}
-	.exportWindow {
+	.exportWindow, .menu_option {
 		bottom: 30px;
 		flex-direction: row;
 	}
@@ -1267,9 +1267,9 @@ svg#link, svg#download {
 	.colorListType, .sizeChoice, .certifChoice {
 		justify-content: center;
 	}
-	.menu_option {
+/* 	.menu_option {
 		bottom: -100px;
-	}
+	} */
 	.peak_visor_page > .colorList {
 		justify-content: center;
 	}
@@ -1299,7 +1299,7 @@ svg#link, svg#download {
 	.helmet, .chinguard, .visor {
 		margin-top: 0px;
 	}
-	.exportWindow {
+	.exportWindow, .menu_option {
     bottom: 0;
 		height: 35vh;
 	}
@@ -1316,23 +1316,23 @@ svg#link, svg#download {
 	.sd-tabs > .sd-tab-radio:checked + .sd-tab-label::after {
 		right: -250%;
 	}
-	.menu_option {
+/* 	.menu_option {
 		bottom: -100px;
-	}
+	} */
 }
 
 @media (min-width : 1400px) {
-	.menu_option {
+/* 	.menu_option {
 		bottom: -100px;
-	}
+	} */
 }
 
 /* Large screens ----------- */
 @media only screen 
 and (min-width : 1824px) {
-	.menu_option {
+/* 	.menu_option {
 		bottom: -100px;
-	}
+	} */
 	.positionExportLogo {
     top: 70vh !important;
 	}

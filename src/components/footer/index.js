@@ -142,7 +142,7 @@ const Footer = ({
 				withVisor = {withVisor}
 				setWithVisor = {setWithVisor}
 			/>
-			{openOptionMenu.open && openOptionMenu.name === 'menuOption' && <MenuOption setOpenOptionMenu = {setOpenOptionMenu} />}
+			{openOptionMenu.open && openOptionMenu.name === 'menuOption' && <MenuOption setOpenOptionMenu = {setOpenOptionMenu} elementsOfHelmet = {elementsOfHelmet} elementsOfChin = {elementsOfChin} elementsOfVisor = {elementsOfVisor}/>}
 			{openOptionMenu.open && openOptionMenu.name === 'help' && <PopupHelp setOpenOptionMenu = {setOpenOptionMenu} helmetPosition = {helmetPosition} chinPosition = {chinPosition} tabsCheck = {tabsCheck}/>}
 			{openOptionMenu.open && openOptionMenu.name === 'export' && screenshotsWait.wait  && <ExportWindows setOpenOptionMenu = {setOpenOptionMenu} screenshotsWait = {screenshotsWait} traduction = {traduction} setScreenshotsWait = {setScreenshotsWait} />}
 		</footer>
