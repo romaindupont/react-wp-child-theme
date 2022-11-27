@@ -7,8 +7,8 @@ const CameraPosition = (fileName) => {
 			viewerIframe.postMessage(CameraPositionChange[0].chinguard.aeration,'*');
     	break;
 		default:
-			viewerIframe.postMessage({action : 'resetCamera'},'*');
-			viewerIframe.postMessage({action : 'play'},'*');
+		/* 	viewerIframe.postMessage({action : 'resetCamera'},'*');
+			viewerIframe.postMessage({action : 'play'},'*'); */
 		
 	}
 }

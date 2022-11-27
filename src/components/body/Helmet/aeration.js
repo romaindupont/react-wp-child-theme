@@ -22,6 +22,34 @@ const Aeration = (viewerIframe, aerationHelmet, nodesConfiguration, setLoader, s
 			localIdToRemove.push(nodes.localId);
 		}
 	}) 
+	let typeColorChin = standardValue.Chinguard_color_type;
+		if (standardValue.Chinguard_color_type === 'gilding') {
+			typeColorChin = 'metallic'
+		}
+		else {
+			typeColorChin = standardValue.Chinguard_color_type;
+		}
+		let typeColorHelmet = standardValue.Helmet_color_type;
+		if (standardValue.Helmet_color_type === 'gilding') {
+			typeColorHelmet = 'metallic'
+		}
+		else {
+			typeColorHelmet = standardValue.Helmet_color_type;
+		}
+	let typeDesignHelmet = standardValue.Helmet_design_type;
+	if (standardValue.Helmet_design_type === 'gilding') {
+		typeDesignHelmet = 'metallic'
+	}
+	else {
+		typeDesignHelmet = standardValue.Helmet_design_type;
+	}
+	let typeDesignChin = standardValue.Chinguard_design_type;
+	if (standardValue.Chinguard_design_type === 'gilding') {
+		typeDesignChin = 'metallic'
+	}
+	else {
+		typeDesignChin = standardValue.Chinguard_design_type;
+	}
 	if (!aerationHelmet) {
 		if (standardValue.Helmet_design === 'plain' || standardValue.Helmet_design === '') {
 			viewerIframe.postMessage(

@@ -1,7 +1,7 @@
 import Noeud from '../../../../assets/json/helmetid';
 
 const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aerationChin) => {
-	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
+	let viewerIframe = document.getElementById('emersyaIframe').contentWindow;
 	let localIdToRemove = [];
 	nodesConfiguration.find((nodes) => { 
 		if (nodes.SKU === 'chinguardTrim_rubber') {
@@ -25,20 +25,20 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 		else {
 			typeColorHelmet = standardValue.Helmet_color_type;
 		}
-		let typeDesignHelmet = standardValue.Helmet_design_type;
-		if (standardValue.Helmet_design_type === 'gilding') {
-			typeDesignHelmet = 'metallic'
-		}
-		else {
-			typeDesignHelmet = standardValue.Helmet_design_type;
-		}
-		let typeDesignChin = standardValue.Chinguard_design_type;
-		if (standardValue.Chinguard_design_type === 'gilding') {
-			typeDesignChin = 'metallic'
-		}
-		else {
-			typeDesignChin = standardValue.Chinguard_design_type;
-		}
+	let typeDesignHelmet = standardValue.Helmet_design_type;
+	if (standardValue.Helmet_design_type === 'gilding') {
+		typeDesignHelmet = 'metallic'
+	}
+	else {
+		typeDesignHelmet = standardValue.Helmet_design_type;
+	}
+	let typeDesignChin = standardValue.Chinguard_design_type;
+	if (standardValue.Chinguard_design_type === 'gilding') {
+		typeDesignChin = 'metallic'
+	}
+	else {
+		typeDesignChin = standardValue.Chinguard_design_type;
+	}
 	if (standardValue.Chinguard_trim.includes('rubber')) {
 		viewerIframe.postMessage(
 			{
@@ -61,66 +61,124 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 		localIdToRemove = [];
 		setLoader(false);
 		if (varnishChin && aerationChin) {
-			setTimeout(() => {
-				viewerIframe.postMessage({
-					action : 'setMaterialsGroups',
-					values : 
-						[
-							{
-								configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
-								groupName : 'Chinguard_color'
-							},
+			if (standardValue.Chinguard_design === '' || standardValue.Chinguard_design === 'plain') {
+				setTimeout(() => {
+					viewerIframe.postMessage({
+						action : 'setMaterialsGroups',
+						values : 
+							[
 								{
-								configurationName : `${standardValue.Chinguard_design}|${typeDesignChin}|${standardValue.Chinguard_design_color}`,
-								groupName : 'Chinguard_design_color'
-							},
-							{
-								configurationName : standardValue.Interior,
-								groupName : 'Interior'
-							},
-							{
-								configurationName : standardValue.Metal_pieces,
-								groupName : 'Metal_pieces'
-							},
-							{
-								configurationName : standardValue.Chinguard_trim,
-								groupName : 'Chinguard_trim'
-							}	
-						]
+									configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
+									groupName : 'Chinguard_color'
+								},
+								{
+									configurationName : standardValue.Interior,
+									groupName : 'Interior'
+								},
+								{
+									configurationName : standardValue.Metal_pieces,
+									groupName : 'Metal_pieces'
+								},
+								{
+									configurationName : standardValue.Chinguard_trim,
+									groupName : 'Chinguard_trim'
+								}	
+							]
+						}, '*');
+					setLoader(true);
+				}, '2000');
+			}
+			else {
+				setTimeout(() => {
+					viewerIframe.postMessage({
+						action : 'setMaterialsGroups',
+						values : 
+							[
+								{
+									configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
+									groupName : 'Chinguard_color'
+								},
+									{
+									configurationName : `${standardValue.Chinguard_design}|${typeDesignChin}|${standardValue.Chinguard_design_color}`,
+									groupName : 'Chinguard_design_color'
+								},
+								{
+									configurationName : standardValue.Interior,
+									groupName : 'Interior'
+								},
+								{
+									configurationName : standardValue.Metal_pieces,
+									groupName : 'Metal_pieces'
+								},
+								{
+									configurationName : standardValue.Chinguard_trim,
+									groupName : 'Chinguard_trim'
+								}	
+							]
 					}, '*');
-				setLoader(true);
-			}, '2000');
+					setLoader(true);
+				}, '2000');
+			}
 		}
 		if (varnishChin && !aerationChin) {
-			setTimeout(() => {
-				viewerIframe.postMessage({
-					action : 'setMaterialsGroups',
-					values : 
-						[
-							{
-								configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
-								groupName : 'Chinguard_color'
-							},
+			if (standardValue.Chinguard_design === '' || standardValue.Chinguard_design === 'plain') {
+				setTimeout(() => {
+					viewerIframe.postMessage({
+						action : 'setMaterialsGroups',
+						values : 
+							[
 								{
-								configurationName : `${standardValue.Chinguard_design}|${typeDesignChin}|${standardValue.Chinguard_design_color}`,
-								groupName : 'Chinguard_design_color'
-							},
-							{
-								configurationName : standardValue.Interior,
-								groupName : 'Interior'
-							},
-							{
-								configurationName : standardValue.Metal_pieces,
-								groupName : 'Metal_pieces'
-							},
-							{
-								configurationName : standardValue.Chinguard_trim,
-								groupName : 'Chinguard_trim'
-							}		
-						]
-					}, '*');
-				setLoader(true);
-			}, '2000');
+									configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
+									groupName : 'Chinguard_color'
+								},
+								{
+									configurationName : standardValue.Interior,
+									groupName : 'Interior'
+								},
+								{
+									configurationName : standardValue.Metal_pieces,
+									groupName : 'Metal_pieces'
+								},
+								{
+									configurationName : standardValue.Chinguard_trim,
+									groupName : 'Chinguard_trim'
+								}		
+							]
+						}, '*');
+					setLoader(true);
+				}, '2000');
+			}
+			else {
+				setTimeout(() => {
+					viewerIframe.postMessage({
+						action : 'setMaterialsGroups',
+						values : 
+							[
+								{
+									configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
+									groupName : 'Chinguard_color'
+								},
+									{
+									configurationName : `${standardValue.Chinguard_design}|${typeDesignChin}|${standardValue.Chinguard_design_color}`,
+									groupName : 'Chinguard_design_color'
+								},
+								{
+									configurationName : standardValue.Interior,
+									groupName : 'Interior'
+								},
+								{
+									configurationName : standardValue.Metal_pieces,
+									groupName : 'Metal_pieces'
+								},
+								{
+									configurationName : standardValue.Chinguard_trim,
+									groupName : 'Chinguard_trim'
+								}		
+							]
+						}, '*');
+					setLoader(true);
+				}, '2000');
+			}
 		}
 		if (!varnishChin && !aerationChin) {
 			if (standardValue.Chinguard_design === '' || standardValue.Chinguard_design === 'plain') {
@@ -149,7 +207,7 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 							}, '*');
 						setLoader(true);
 					}, '2000');
-				}
+			}
 			else {
 				setTimeout(() => {
 					viewerIframe.postMessage({
@@ -162,7 +220,7 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 								},
 									{
 									configurationName : `${standardValue.Chinguard_design}|${typeDesignChin}|${standardValue.Chinguard_design_color}`,
-									groupName : 'Helmet_design_color'
+									groupName : 'Chinguard_design_color'
 								},
 								{
 									configurationName : standardValue.Interior,
@@ -183,7 +241,7 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 			}
 		}
 		if (!varnishChin && aerationChin) {
-			if (standardValue.Chinguard_design === '' || standardValue.Chinguard_design === 'plain') {
+			if (standardValue.Chinguard_design === '' || standardValue.Chinguard_design === 'plain'){
 				setTimeout(() => {
 					viewerIframe.postMessage({
 						action : 'setMaterialsGroups',
@@ -244,7 +302,6 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 		}
 	}
 	if (standardValue.Chinguard_trim.includes('leather')) {
-		console.log(standardValue.Chinguard_trim);
 		viewerIframe.postMessage(
 			{
 				action : "updateProductNodesInstances",
@@ -263,70 +320,127 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 				localIdsToRemove :
 					localIdToRemove
 			}, "*");
-		localIdToRemove = [];
+			localIdToRemove = [];
 		setLoader(false);
 		if (varnishChin && aerationChin) {
-	
-			setTimeout(() => {
-				viewerIframe.postMessage({
-					action : 'setMaterialsGroups',
-					values : 
-						[
-							{
-								configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
-								groupName : 'Chinguard_color'
-							},
+			if (standardValue.Chinguard_design === '' || standardValue.Chinguard_design === 'plain') {
+				setTimeout(() => {
+					viewerIframe.postMessage({
+						action : 'setMaterialsGroups',
+						values : 
+							[
 								{
-								configurationName : `${standardValue.Chinguard_design}|${typeDesignChin}|${standardValue.Chinguard_design_color}`,
-								groupName : 'Chinguard_design_color'
-							},
-							{
-								configurationName : standardValue.Interior,
-								groupName : 'Interior'
-							},
-							{
-								configurationName : standardValue.Metal_pieces,
-								groupName : 'Metal_pieces'
-							},
-							{
-								configurationName : standardValue.Chinguard_trim,
-								groupName : 'Chinguard_trim'
-							}	
-						]
-					}, '*');
-				setLoader(true);
-			}, '2000');
+									configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
+									groupName : 'Chinguard_color'
+								},
+								{
+									configurationName : standardValue.Interior,
+									groupName : 'Interior'
+								},
+								{
+									configurationName : standardValue.Metal_pieces,
+									groupName : 'Metal_pieces'
+								},
+								{
+									configurationName : standardValue.Chinguard_trim,
+									groupName : 'Chinguard_trim'
+								}	
+							]
+						}, '*');
+					setLoader(true);
+				}, '2000');
+			}
+			else {
+				setTimeout(() => {
+					viewerIframe.postMessage({
+						action : 'setMaterialsGroups',
+						values : 
+							[
+								{
+									configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
+									groupName : 'Chinguard_color'
+								},
+									{
+									configurationName : `${standardValue.Chinguard_design}|${typeDesignChin}|${standardValue.Chinguard_design_color}`,
+									groupName : 'Chinguard_design_color'
+								},
+								{
+									configurationName : standardValue.Interior,
+									groupName : 'Interior'
+								},
+								{
+									configurationName : standardValue.Metal_pieces,
+									groupName : 'Metal_pieces'
+								},
+								{
+									configurationName : standardValue.Chinguard_trim,
+									groupName : 'Chinguard_trim'
+								}	
+							]
+						}, '*');
+					setLoader(true);
+				}, '2000');
+			}
 		}
 		if (varnishChin && !aerationChin) {
-			setTimeout(() => {
-				viewerIframe.postMessage({
-					action : 'setMaterialsGroups',
-					values : 
-						[
-							{
-								configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
-								groupName : 'Chinguard_color'
-							},
+			if (standardValue.Chinguard_design === '' || standardValue.Chinguard_design === 'plain') {
+				setTimeout(() => {
+					viewerIframe.postMessage({
+						action : 'setMaterialsGroups',
+						values : 
+							[
 								{
-								configurationName : `${standardValue.Chinguard_design}|${typeDesignChin}|${standardValue.Chinguard_design_color}`,
-								groupName : 'Chinguard_design_color'
-							},
-							{
-								configurationName : standardValue.Interior,
-								groupName : 'Interior'
-							},
-							{
-								configurationName : standardValue.Metal_pieces,
-								groupName : 'Metal_pieces'
-							},
-							{
-								configurationName : standardValue.Chinguard_trim,
-								groupName : 'Chinguard_trim'
-							}		
-						]
-					}, '*');
-				setLoader(true);
-			}, '2000');
+									configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
+									groupName : 'Chinguard_color'
+								},
+								{
+									configurationName : standardValue.Interior,
+									groupName : 'Interior'
+								},
+								{
+									configurationName : standardValue.Metal_pieces,
+									groupName : 'Metal_pieces'
+								},
+								{
+									configurationName : standardValue.Chinguard_trim,
+									groupName : 'Chinguard_trim'
+								}		
+							]
+						}, '*');
+					setLoader(true);
+				}, '2000');
+			}
+			else {
+				setTimeout(() => {
+					viewerIframe.postMessage({
+						action : 'setMaterialsGroups',
+						values : 
+							[
+								{
+									configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
+									groupName : 'Chinguard_color'
+								},
+									{
+									configurationName : `${standardValue.Chinguard_design}|${typeDesignChin}|${standardValue.Chinguard_design_color}`,
+									groupName : 'Chinguard_design_color'
+								},
+								{
+									configurationName : standardValue.Interior,
+									groupName : 'Interior'
+								},
+								{
+									configurationName : standardValue.Metal_pieces,
+									groupName : 'Metal_pieces'
+								},
+								{
+									configurationName : standardValue.Chinguard_trim,
+									groupName : 'Chinguard_trim'
+								}		
+							]
+						}, '*');
+					setLoader(true);
+				}, '2000');
+			}
 		}
 		if (!varnishChin && !aerationChin) {
 			if (standardValue.Chinguard_design === '' || standardValue.Chinguard_design === 'plain') {
@@ -366,7 +480,7 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 									configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
 									groupName : 'Chinguard_color'
 								},
-								{
+									{
 									configurationName : `${standardValue.Chinguard_design}|${typeDesignChin}|${standardValue.Chinguard_design_color}`,
 									groupName : 'Chinguard_design_color'
 								},
@@ -425,6 +539,10 @@ const TrimChin = (standardValue, nodesConfiguration, setLoader, varnishChin, aer
 								{
 									configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
 									groupName : 'Chinguard_color'
+								},
+									{
+									configurationName : `${standardValue.Chinguard_design}|${typeDesignChin}|${standardValue.Chinguard_design_color}`,
+									groupName : 'Chinguard_design_color'
 								},
 								{
 									configurationName : standardValue.Interior,

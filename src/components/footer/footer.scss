@@ -692,20 +692,18 @@ input#textSelection {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
-	height: 70%;
+	height: 30vh;
 	column-gap: 1.5rem;
 }
 .menu_option {
-	display: flex;
+	display: grid;
 	background: var(--background-menu);
 	width: 100vw;
 	height: 80vh;
 	position: absolute;
 	z-index: 102;
-	grid-template-columns: repeat(3, 1fr);
 	align-items: center;
 	justify-items: center;
-	padding: 4rem 0;
 }
 .exportWindow {
 	display: flex;
@@ -730,7 +728,6 @@ input#textSelection {
 .menu_option > div > div > p {
 	text-transform: uppercase;
 	color: var(--tabs-notChecked-color);
-	font-size: 0.8rem;
 	margin-bottom: 0.5rem;
 	font-weight: 600;
 	cursor: pointer;
@@ -1040,6 +1037,12 @@ svg#link, svg#download {
 		bottom: 0;
 		height: 100vh;
 	}
+	.menu_option {
+		grid-template-columns: repeat(1, 1fr);
+	}
+	.menu_option > div > div > p {
+		font-size: 0.5rem;
+	}
 	.exportWindow > div > h3 {
 		font-size: 0.8rem;
 	}
@@ -1179,6 +1182,12 @@ svg#link, svg#download {
 		top: unset;
 		left: unset;
 	}
+	.menu_option {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	.menu_option > div > div > p {
+		font-size: 0.7rem;
+	}
 }
 
 @media (min-width : 1024px) {
@@ -1267,9 +1276,9 @@ svg#link, svg#download {
 	.colorListType, .sizeChoice, .certifChoice {
 		justify-content: center;
 	}
-/* 	.menu_option {
-		bottom: -100px;
-	} */
+	.menu_option > div > div > p {
+		font-size: 0.8rem;
+	}
 	.peak_visor_page > .colorList {
 		justify-content: center;
 	}

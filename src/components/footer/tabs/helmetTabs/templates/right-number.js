@@ -83,9 +83,9 @@ const RightNumber = ({
 		<>
 			<div className="numberListType">
 				<span className={rightNumberInput.numberStyle === 'none' ? 'selectButton' : 'buttonChoice'} onClick={() => setRightNumberInput({...rightNumberInput, numberStyle:'none'}) & setRightNumberWindow(false) & setOpenWindow(false)}>{traduction.None}</span>
-				<span className={rightNumberInput.numberStyle === 'montserrat' ? 'selectButton' : 'buttonChoice'} onClick={() => setRightNumberInput({...rightNumberInput, numberStyle:'montserrat'}) & setRightNumberWindow(true) & setOpenWindow(true)}>{traduction.ClassicNumber}</span>
+				<span className={rightNumberInput.numberStyle === 'montserrat-bold' ? 'selectButton' : 'buttonChoice'} onClick={() => setRightNumberInput({...rightNumberInput, numberStyle:'montserrat-bold'}) & setRightNumberWindow(true) & setOpenWindow(true)}>{traduction.ClassicNumber}</span>
 				<span className={rightNumberInput.numberStyle === 'dirt' ? 'selectButton' : 'buttonChoice'} onClick={() => setRightNumberInput({...rightNumberInput, numberStyle:'dirt'}) & setRightNumberWindow(true) & setOpenWindow(true)}>{traduction.DirtNumber}</span>
-				<span className={rightNumberInput.numberStyle === 'pixel' ? 'selectButton' : 'buttonChoice'} onClick={() => setRightNumberInput({...rightNumberInput, numberStyle:'pixel'}) & setRightNumberWindow(true) & setOpenWindow(true)}>{traduction.PixelNumber}</span>
+				<span className={rightNumberInput.numberStyle === 'PressStart2P-Regular' ? 'selectButton' : 'buttonChoice'} onClick={() => setRightNumberInput({...rightNumberInput, numberStyle:'PressStart2P-Regular'}) & setRightNumberWindow(true) & setOpenWindow(true)}>{traduction.PixelNumber}</span>
 				<span className={rightNumberInput.numberStyle === 'racing' ? 'selectButton' : 'buttonChoice'} onClick={() => setRightNumberInput({...rightNumberInput, numberStyle:'racing'}) & setRightNumberWindow(true) & setOpenWindow(true)}>{traduction.RacingNumber}</span>
 			</div>
 			<div className={!openWindow ? "numberWindows" : "openNumberWindows" }>

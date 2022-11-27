@@ -83,9 +83,9 @@ const LeftNumber = ({
 		<>
 			<div className="numberListType">
 				<span className={leftNumberInput.numberStyle === 'none' ? 'selectButton' : 'buttonChoice'} onClick={() => setLeftNumberInput({...leftNumberInput, numberStyle:'none'}) & setLeftNumberWindow(false) & setOpenWindow(false)}>{traduction.None}</span>
-				<span className={leftNumberInput.numberStyle === 'montserrat' ? 'selectButton' : 'buttonChoice'} onClick={() => setLeftNumberInput({...leftNumberInput, numberStyle:'montserrat'}) & setLeftNumberWindow(true) & setOpenWindow(true)}>{traduction.ClassicNumber}</span>
+				<span className={leftNumberInput.numberStyle === 'montserrat-bold' ? 'selectButton' : 'buttonChoice'} onClick={() => setLeftNumberInput({...leftNumberInput, numberStyle:'montserrat-bold'}) & setLeftNumberWindow(true) & setOpenWindow(true)}>{traduction.ClassicNumber}</span>
 				<span className={leftNumberInput.numberStyle === 'dirt' ? 'selectButton' : 'buttonChoice'} onClick={() => setLeftNumberInput({...leftNumberInput, numberStyle:'dirt'}) & setLeftNumberWindow(true) & setOpenWindow(true)}>{traduction.DirtNumber}</span>
-				<span className={leftNumberInput.numberStyle === 'pixel' ? 'selectButton' : 'buttonChoice'} onClick={() => setLeftNumberInput({...leftNumberInput, numberStyle:'pixel'}) & setLeftNumberWindow(true) & setOpenWindow(true)}>{traduction.PixelNumber}</span>
+				<span className={leftNumberInput.numberStyle === 'PressStart2P-Regular' ? 'selectButton' : 'buttonChoice'} onClick={() => setLeftNumberInput({...leftNumberInput, numberStyle:'PressStart2P-Regular'}) & setLeftNumberWindow(true) & setOpenWindow(true)}>{traduction.PixelNumber}</span>
 				<span className={leftNumberInput.numberStyle === 'racing' ? 'selectButton' : 'buttonChoice'} onClick={() => setLeftNumberInput({...leftNumberInput, numberStyle:'racing'}) & setLeftNumberWindow(true) & setOpenWindow(true)}>{traduction.RacingNumber}</span>
 			</div>
 			<div className={!openWindow ? "numberWindows" : "openNumberWindows" }>

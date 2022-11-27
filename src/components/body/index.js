@@ -116,10 +116,10 @@ const Body = ({
 								configurationName : standardValue.Metal_pieces,
 								groupName : 'Metal_pieces'
 							},
-							{
+							/* {
 								configurationName :`${standardValue.Logo}|${standardValue.Logo_color}`,
 								groupName : 'Logo'
-							},
+							}, */
 							{
 								configurationName : standardValue.Interior,
 								groupName : 'Interior'

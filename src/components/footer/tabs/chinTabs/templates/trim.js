@@ -6,11 +6,11 @@ import TrimWhiteRubber from "../../svg/Trim/TrimWhiteRubber";
 const Trim = ({setStandardValue, standardValue, traduction}) => {
 	return (
 		<div className="varnishList">
-			<div className={standardValue.Chinguard_trim === 'leather_black' ? 'Select' : 'allScrew'} onClick={()=>setStandardValue({...standardValue, Chinguard_trim:'leather_black'})}>
+			<div className={standardValue.Chinguard_trim === 'leather|black' ? 'Select' : 'allScrew'} onClick={()=>setStandardValue({...standardValue, Chinguard_trim:'leather|black'})}>
 				<TrimBlackLeather />
 				<span className="textAction">{traduction.BlackLeather}</span>
 			</div>
-			<div className={standardValue.Chinguard_trim === 'rubber_black' ? 'Select' : 'allScrew'}  onClick={()=>setStandardValue({...standardValue, Chinguard_trim:'rubber_black'})}>
+			<div className={standardValue.Chinguard_trim === 'rubber|black' ? 'Select' : 'allScrew'}  onClick={()=>setStandardValue({...standardValue, Chinguard_trim:'rubber|black'})}>
 				<TrimBlackRubber />
 				<span className="textAction">{traduction.BlackRubber}</span>
 			</div>
@@ -18,7 +18,7 @@ const Trim = ({setStandardValue, standardValue, traduction}) => {
 				<TrimBrownLeather />
 				<span className="textAction">{traduction.BrownLeather}</span>
 			</div>
-			<div className={standardValue.Chinguard_trim === 'rubber_white' ? 'Select' : 'allScrew'}  onClick={()=>setStandardValue({...standardValue, Chinguard_trim:'rubber_white'})}>
+			<div className={standardValue.Chinguard_trim === 'rubber|white' ? 'Select' : 'allScrew'}  onClick={()=>setStandardValue({...standardValue, Chinguard_trim:'rubber|white'})}>
 				<TrimWhiteRubber />
 				<span className="textAction">{traduction.WhiteRubber}</span>
 			</div>
