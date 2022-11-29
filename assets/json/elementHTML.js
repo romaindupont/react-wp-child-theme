@@ -115,7 +115,12 @@ export default [{
 			Bottom: 'Bottom',
 			Top: 'Top',
 			All: 'All',
-			MessageErrorNumber: 'Only two digits are available'
+			MessageErrorNumber: 'Only two digits are available',
+			FabricBeige: 'Fabric Beige',
+			TartanRed: 'Tartan Red',
+			TartanWhite: 'Tartan White',
+			LeatherRed: 'Leather Red',
+			BlueRubber: 'Blue Rubber'
 		}
 	],
 	"fr": [
@@ -216,7 +221,7 @@ export default [{
 			Glossy: 'Vernis',
 			Mat: 'Mat',
 			Nylon: 'Nylon',
-			Leather: 'Leather',
+			Leather: 'Cuir',
 			VisorFrameFull: 'Complet',
 			VisorFrameLight: 'Léger',			
 			Transparant: 'Transparant',
@@ -234,7 +239,12 @@ export default [{
 			Bottom: 'Bas',
 			Top: 'Haut',
 			All: 'Tous',
-			MessageErrorNumber: 'Seulement deux digits possibles'
+			MessageErrorNumber: 'Seulement deux digits possibles',
+			FabricBeige : 'Fabric Beige',
+			TartanRed : 'Tartan Rouge',
+			TartanWhite : 'Tartan blanc',
+			LeatherRed : 'Cuir Rouge',
+			BlueRubber: 'rubber bleu'
 		}
 	]
 }]
