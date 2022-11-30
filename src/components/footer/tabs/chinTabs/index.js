@@ -113,9 +113,6 @@ const ChinTabs = ({
 									traduction = {traduction}
 								/> 
 							:
-							chinPosition.fileName === 'metal-parts' ?
-								<MetalsParts /> 
-							:
 							chinPosition.fileName === 'pattern-color' ?
 								<PatternColor
 									setStandardValue = {setStandardValue}

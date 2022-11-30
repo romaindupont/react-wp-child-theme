@@ -31,37 +31,17 @@ const Pattern = ({setStandardValue, standardValue, traduction}) => {
 	}
 	return (
 		<div className="patternList" onScroll={scrollEffect} ref={scrollRef}>
+				<div className={standardValue.Helmet_design === '' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Helmet_design:''})}>
+					<PatternShellPlain />
+				<span className="textAction">{traduction.Plain}</span>
+			</div>
 			<div className={standardValue.Helmet_design === 'band' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Helmet_design:'band'})}>
 				<PatternShellBand />
 				<span className="textAction">{traduction.Band}</span>
 			</div>
-			<div className={standardValue.Helmet_design === 'checker' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Helmet_design:'checker'})}>
-				<PatternShellChecker />
-				<span className="textAction">{traduction.Checker}</span>
-			</div>
-			<div className={standardValue.Helmet_design === 'chester' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Helmet_design:'chester'})}>
-				<PatternShellChester />
-				<span className="textAction">{traduction.Chester}</span>
-			</div>
-			<div className={standardValue.Helmet_design === 'around' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Helmet_design:'around'})}>
-				<PatternShellContour />
-				<span className="textAction">{traduction.Around}</span>
-			</div>
-			<div className={standardValue.Helmet_design === 'dots' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Helmet_design:'dots'})}>
-				<PatternShellDots />
-				<span className="textAction">{traduction.Dots}</span>
-			</div>
 			<div className={standardValue.Helmet_design === 'dual' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Helmet_design:'dual'})}>
 				<PatternShellDual />
 				<span className="textAction">{traduction.Dual}</span>
-			</div>
-			<div className={standardValue.Helmet_design === 'extend' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Helmet_design:'extend'})}>
-				<PatternShellExtend />
-				<span className="textAction">{traduction.Extend}</span>
-			</div>
-			<div className={standardValue.Helmet_design === 'gradient' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Helmet_design:'gradient'})}>
-				<PatternShellGradient />
-				<span className="textAction">{traduction.Gradient}</span>
 			</div>
 			<div className={standardValue.Helmet_design === 'half' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Helmet_design:'half'})}>
 				<PatternShellHalf />
@@ -71,25 +51,45 @@ const Pattern = ({setStandardValue, standardValue, traduction}) => {
 				<PatternShellHorizontal />
 				<span className="textAction">{traduction.Horizontal}</span>
 			</div>
+			<div className={standardValue.Helmet_design === 'vertical' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Helmet_design:'vertical'})}>
+				<PatternShellVertical />
+				<span className="textAction">{traduction.Vertical}</span>
+			</div>
+			<div className={standardValue.Helmet_design === 'around' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Helmet_design:'around'})}>
+				<PatternShellContour />
+				<span className="textAction">{traduction.Around}</span>
+			</div>
 			<div className={standardValue.Helmet_design === 'outline' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Helmet_design:'outline'})}>
 				<PatternShellOutline />
 				<span className="textAction">{traduction.Outline}</span>
+			</div>
+			<div className={standardValue.Helmet_design === 'extend' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Helmet_design:'extend'})}>
+				<PatternShellExtend />
+				<span className="textAction">{traduction.Extend}</span>
 			</div>
 			<div className={standardValue.Helmet_design === 'parabol' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Helmet_design:'parabol'})}>
 				<PatternShellParabol />
 				<span className="textAction">{traduction.Parabol}</span>
 			</div>
-			<div className={standardValue.Helmet_design === '' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Helmet_design:''})}>
-				<PatternShellPlain />
-				<span className="textAction">{traduction.Plain}</span>
+			<div className={standardValue.Helmet_design === 'gradient' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Helmet_design:'gradient'})}>
+				<PatternShellGradient />
+				<span className="textAction">{traduction.Gradient}</span>
+			</div>
+			<div className={standardValue.Helmet_design === 'dots' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Helmet_design:'dots'})}>
+				<PatternShellDots />
+				<span className="textAction">{traduction.Dots}</span>
 			</div>
 			<div className={standardValue.Helmet_design === 'star' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Helmet_design:'star'})}>
 				<PatternShellStars />
 				<span className="textAction">{traduction.Stars}</span>
 			</div>
-			<div className={standardValue.Helmet_design === 'vertical' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Helmet_design:'vertical'})}>
-				<PatternShellVertical />
-				<span className="textAction">{traduction.Vertical}</span>
+			<div className={standardValue.Helmet_design === 'chester' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Helmet_design:'chester'})}>
+				<PatternShellChester />
+				<span className="textAction">{traduction.Chester}</span>
+			</div>
+			<div className={standardValue.Helmet_design === 'checker' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Helmet_design:'checker'})}>
+				<PatternShellChecker />
+				<span className="textAction">{traduction.Checker}</span>
 			</div>
 		</div>
 	)

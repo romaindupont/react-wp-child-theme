@@ -17,13 +17,22 @@ const PatternColor = ({setStandardValue, standardValue, traduction}) => {
 	return (
 		<>
 			<div className="colorListType">
+			{standardValue.Helmet_design === 'checker' ? 
+				<>
+				 <span className={standardValue.Helmet_design_type === 'plain' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Helmet_design_type:'plain'})}>{traduction.Plain}</span>
+				</> : <>
 				<span className={standardValue.Helmet_design_type === 'plain' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Helmet_design_type:'plain'})}>{traduction.Plain}</span>
 				<span className={standardValue.Helmet_design_type === 'metallic' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Helmet_design_type:'metallic'})}>{traduction.Metallic}</span>
 				<span className={standardValue.Helmet_design_type === 'glitter' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Helmet_design_type:'glitter'})}>{traduction.Glitter}</span>
 				<span className={standardValue.Helmet_design_type === 'gilding' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Helmet_design_type:'gilding'})}>{traduction.Gilding}</span>
+				</>}
 			</div>
 			<div className="colorList" onScroll={scrollEffect} ref={scrollRef}>
-				{standardValue.Helmet_design_type === 'plain' ? 
+				{standardValue.Helmet_design_type === 'plain' ? standardValue.Helmet_design === 'checker' ? 
+				<>
+					<div className={standardValue.Helmet_design_color === 'white' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_design_color:'white'})}><div className="roundColor white"></div><span className="textAction">{traduction.White}</span></div>
+					<div className={standardValue.Helmet_design_color === 'black' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_design_color:'black'})}><div className="roundColor black"></div><span className="textAction">{traduction.Black}</span></div>
+				</> :
 				<>
 					<div className={standardValue.Helmet_design_color === 'carbon' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_design_color:'carbon'})}><div className="roundColor carbon"></div><span className="textAction">{traduction.Carbon}</span></div>
 					<div className={standardValue.Helmet_design_color === 'white' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_design_color:'white'})}><div className="roundColor white"></div><span className="textAction">{traduction.White}</span></div>

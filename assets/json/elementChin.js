@@ -86,11 +86,6 @@ export default [{
 			fileName : 'trim',
 			title: 'jonc',
 			helpMessage: 'Choisir la couleur du jonc'
-		},
-		{
-			fileName : 'metal-parts',
-			title: 'pièces métalliques',
-			helpMessage: 'Choisir la couleur des pièces métalliques'
 		}
 	]
 }]

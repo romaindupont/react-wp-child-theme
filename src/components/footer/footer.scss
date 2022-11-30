@@ -557,7 +557,7 @@ background: #000;
 	margin: 0.5rem;
 }
 .roundColor:hover + .textAction {
-	visibility: visible;
+	/* visibility: visible; */
 }
 .selectColor > .roundColor + .textAction {
 	text-align: center;
@@ -823,6 +823,12 @@ svg#link, svg#download {
 	z-index: 99;
 	justify-content: space-between;
 	align-items: flex-start;
+}
+.messageNotAvailable{
+	text-transform: uppercase;
+	font-weight: 600;
+	color: var(--color-principal);
+	font-family: var(--font-family);
 }
 @media (min-width : 320px) {
 	.sd-tabs > .sd-tab-label::after,

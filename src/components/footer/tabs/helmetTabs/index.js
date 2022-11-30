@@ -151,11 +151,12 @@ const HelmetTabs = ({
 							traduction = {traduction}
 						/> :
 					helmetPosition.fileName === 'pattern-color' ?
+					standardValue.Helmet_design !== '' ?
 						<PatternColor
 							setStandardValue = {setStandardValue}
 							standardValue = {standardValue}
 							traduction = {traduction}
-						/> :
+						/> : <p className='messageNotAvailable'>Not available with this helmet</p> :
 					helmetPosition.fileName === 'pattern' ?
 						<Pattern
 							setStandardValue = {setStandardValue}
@@ -194,6 +195,7 @@ const HelmetTabs = ({
 							varnishHelmet = {varnishHelmet}
 							setVarnishHelmet = {setVarnishHelmet}
 							traduction = {traduction}
+							standardValue = {standardValue}
 						/> :
 					helmetPosition.fileName === 'zippers' ?
 						<Zippers

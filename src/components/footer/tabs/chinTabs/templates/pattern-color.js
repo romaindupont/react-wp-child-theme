@@ -17,13 +17,24 @@ const PatternColor = ({setStandardValue, standardValue, traduction}) => {
 	return (
 		<>
 			<div className="colorListType">
-				<span className={standardValue.Chinguard_design_type === 'plain' ? 'selectButton' : 'buttonChoice'} onClick={()=>setStandardValue({...standardValue, Chinguard_design_type:'plain'})}>{traduction.Plain}</span>
-				<span className={standardValue.Chinguard_design_type === 'metallic' ? 'selectButton' : 'buttonChoice'} onClick={()=>setStandardValue({...standardValue, Chinguard_design_type:'metallic'})}>{traduction.Metallic}</span>
-				<span className={standardValue.Chinguard_design_type === 'glitter' ? 'selectButton' : 'buttonChoice'} onClick={()=>setStandardValue({...standardValue, Chinguard_design_type:'glitter'})}>{traduction.Glitter}</span>
-				<span className={standardValue.Chinguard_design_type === 'gilding' ? 'selectButton' : 'buttonChoice'} onClick={()=>setStandardValue({...standardValue, Chinguard_design_type:'gilding'})}>{traduction.Gilding}</span>
+			{standardValue.Chinguard_design === 'checker' ? 
+				<>
+					<span className={standardValue.Chinguard_design_type === 'plain' ? 'selectButton' : 'buttonChoice'} onClick={()=>setStandardValue({...standardValue, Chinguard_design_type:'plain'})}>{traduction.Plain}</span>
+				</> : <>
+					<span className={standardValue.Chinguard_design_type === 'plain' ? 'selectButton' : 'buttonChoice'} onClick={()=>setStandardValue({...standardValue, Chinguard_design_type:'plain'})}>{traduction.Plain}</span>
+					<span className={standardValue.Chinguard_design_type === 'metallic' ? 'selectButton' : 'buttonChoice'} onClick={()=>setStandardValue({...standardValue, Chinguard_design_type:'metallic'})}>{traduction.Metallic}</span>
+					<span className={standardValue.Chinguard_design_type === 'glitter' ? 'selectButton' : 'buttonChoice'} onClick={()=>setStandardValue({...standardValue, Chinguard_design_type:'glitter'})}>{traduction.Glitter}</span>
+					<span className={standardValue.Chinguard_design_type === 'gilding' ? 'selectButton' : 'buttonChoice'} onClick={()=>setStandardValue({...standardValue, Chinguard_design_type:'gilding'})}>{traduction.Gilding}</span>
+				</>
+			}
 			</div>
 			<div className="colorList" onScroll={scrollEffect} ref={scrollRef}>
-				{standardValue.Chinguard_design_type === 'plain' ? 
+				{standardValue.Chinguard_design_type === 'plain' ? standardValue.Chinguard_design === 'checker' ? 
+				<>
+					<div className={standardValue.Chinguard_design_color === 'white' ? 'selectColor' : 'colorP'} onClick={()=>setStandardValue({...standardValue, Chinguard_design_color:'white'})}><div className="roundColor white"></div><span className="textAction">{traduction.White}</span></div>
+					<div className={standardValue.Chinguard_design_color === 'black' ? 'selectColor' : 'colorP'} onClick={()=>setStandardValue({...standardValue, Chinguard_design_color:'black'})}><div className="roundColor black"></div><span className="textAction">{traduction.Black}</span></div>
+				</>
+				:
 				<>
 					<div className={standardValue.Chinguard_design_color === 'carbon' ? 'selectColor' : 'colorP'} onClick={()=>setStandardValue({...standardValue, Chinguard_design_color:'carbon'})}><div className="roundColor carbon"></div><span className="textAction">{traduction.Carbon}</span></div>
 					<div className={standardValue.Chinguard_design_color === 'white' ? 'selectColor' : 'colorP'} onClick={()=>setStandardValue({...standardValue, Chinguard_design_color:'white'})}><div className="roundColor white"></div><span className="textAction">{traduction.White}</span></div>
