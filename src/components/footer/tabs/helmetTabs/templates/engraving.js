@@ -56,10 +56,10 @@ const Engraving = ({
 					<form className="chooseWindows_input">
 						<input type="text" name="textSelection" id="textSelection" placeholder="TEXT" onChange={(e)=>setEngravingInput({...engravingInput, text: e.target.value })}/>
 						<div className="selectButtonNumber">
+								<Wrong windowClose={setOpenWindow} setNumberWindow={setBackEngraving}/>
 							<div className="selectButtonNumber--right" onClick={okClic}>
 								<Right windowClose={setOpenWindow} setNumberWindow={setBackEngraving} fileNames={fileNames}/>
 							</div>
-								<Wrong windowClose={setOpenWindow} setNumberWindow={setBackEngraving}/>
 						</div>
 					</form>
 				</div>

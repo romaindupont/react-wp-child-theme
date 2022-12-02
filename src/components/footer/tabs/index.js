@@ -136,6 +136,7 @@ const Tabs = ({
 				setTypeChoice = {setTypeChoice}
 				withVisor = {withVisor}
 				setWithVisor = {setWithVisor}
+				withChin = {withChin}
 			/>
 		</div>
 	)

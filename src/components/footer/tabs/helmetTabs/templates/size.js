@@ -8,8 +8,7 @@ const Size = ({setStandardValue,	standardValue}) => {
 			</div>
 			<div className="certifChoice">
 				<span className={standardValue.Rear_text_certification === 'ECE' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Rear_text_certification:'ECE'})}>ECE R22-05</span>
-				<span className={standardValue.Rear_text_certification === 'DOT' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Rear_text_certification:'DOT'})}>DOT</span>
-				<span className={standardValue.Rear_text_certification === 'CCC' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Rear_text_certification:'CCC'})}>CCC</span>
+				<span className={standardValue.Rear_text_certification === 'DOT' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Rear_text_certification:'DOT'})}>DOT - CCC</span>
 			</div>
 		</>
 	)

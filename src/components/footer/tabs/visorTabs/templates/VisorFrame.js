@@ -1,6 +1,3 @@
-import FullFrame from "../../svg/Frame/FullFrame";
-import LightFrame from "../../svg/Frame/LightFrame";
-
 const VisorFrame = ({setStandardValue,	standardValue, traduction}) => {
 	return (
 		<div className="colorListType">

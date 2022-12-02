@@ -323,9 +323,14 @@ svg#menu_option {
 	font-family: var(--font-family);
 }
 .buttonAdd {
-	background:  var(--color-principal);
-  color:  var(--color-second);
-	border: 2px solid var(--color-principal);
+	background: var(--color-second);
+	color: var(--color-border-bottom-header);
+	border: 2px solid var(--color-border-bottom-header);
+	&:hover {
+		background: var(--color-second);
+		border: 2px solid var(--color-principal);
+		color: var(--color-principal);
+	}
 }
 .inputVisorChoice input[type="radio"]:checked + label {
 	background:var(--color-second);
@@ -386,6 +391,15 @@ svg#menu_option {
 	cursor: pointer;
 	align-items: center;
 	font-size: 0.8rem;
+}
+.Select > svg > .mat_varnish_st0 {
+	fill: #233658;
+}
+.Select > svg > g > .glossy_varnish_st222, .Select > svg > g > g > .glossy_varnish_st222 {
+	fill: #233658;
+}
+.allScrew > svg > g > .glossy_varnish_st222, .allScrew > svg > g > g > .glossy_varnish_st222 {
+	fill: #939598;
 }
 .textAction {
 	font-weight: 500;
@@ -610,6 +624,7 @@ input#numberSelection {
 	text-align: center;
 	border: 2px solid rgba(35, 54, 88, 0.2);
 	font-family: var(--font-family);
+	width: 200px;
 	&:focus {
 		border: 2px solid rgba(35, 54, 88);
 	}
@@ -652,10 +667,6 @@ input#textSelection {
 	width: 40px;
 	height: 40px;
 	cursor: pointer;
-}
-#wrong:hover, #right:hover {
-	background-color: #233658;
-	border-radius: 50%;
 }
 .allScrew > svg,
 .Select > svg {

@@ -267,23 +267,31 @@
 	stroke-linejoin: round;
 	stroke-miterlimit: 10;
 }
-.glossy_varnish_st222 {
+/* .glossy_varnish_st222 {
 	fill:#233658;
-}
+} */
 .mat_varnish_st0 {
 	fill:#939598;
 }
 .right_st0 {
-	fill:#233658;
+	fill:var(--color-border-bottom-header);
 }
 .right_st1 {
-	fill:#3CB54A;
+	fill:var(--color-border-bottom-header);
+}
+#wrong:hover, #right:hover {
+	background-color: var(--color-second);
+	border-radius: 50%;
+	border: 1px solid var(--color-principal);
+}
+#wrong:hover > .wrong_st1, #right:hover > .right_st1 {
+	fill: var(--color-principal);
 }
 .wrong_st0 {
-	fill:#233658;
+	fill:var(--color-border-bottom-header);
 }
 .wrong_st1 {
-	fill:#ED2024;
+	fill:var(--color-border-bottom-header);
 }
 .classic_st0 {
 	fill:#233658;

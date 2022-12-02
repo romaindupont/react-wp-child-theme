@@ -153,6 +153,7 @@ const radioTabs = ({
 							setTypeChoice = {setTypeChoice}
 							withVisor = {withVisor}
 							setWithVisor = {setWithVisor}
+							withChin = {withChin}
 						/> 
 					:  ''
 				}

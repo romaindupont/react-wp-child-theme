@@ -20,7 +20,8 @@ const VisorTabs = ({
 	typeChoice,
 	setTypeChoice,
 	withVisor,
-	setWithVisor
+	setWithVisor,
+	withChin
 }) => {
 	let language = document.querySelector('html').lang;
 	let elementsOfVisor = ElementData[0].en;
@@ -97,6 +98,7 @@ const VisorTabs = ({
 									setStandardValue={setStandardValue}
 									standardValue={standardValue}
 									traduction = {traduction}
+									withChin = {withChin}
 								/> 
 							:
 							visorPosition.fileName === 'visorColor' && typeChoice === 'long_visor' ?

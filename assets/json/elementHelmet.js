@@ -67,8 +67,8 @@ export default [{
 	},
 	{
 		fileName : 'zippers',
-		title: 'zippers',
-		helpMessage: 'Choose the zippers between two technologies'
+		title: 'double-d tab',
+		helpMessage: 'Choose the double-d tab between two technologies'
 	},
 	{
 		fileName : 'engraving',

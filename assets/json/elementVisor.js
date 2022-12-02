@@ -12,8 +12,8 @@ export default [{
 		},
 		{
 			fileName : 'visorColor',
-			title: 'main color',
-			helpMessage: 'Choose the main color'
+			title: 'Frame and Color',
+			helpMessage: 'Choose the frame and the color'
 		}
 	],
 	"fr": [
