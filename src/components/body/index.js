@@ -207,7 +207,7 @@ const Body = ({
 	}, [aerationHelmet]);
 	useEffect(() => {
 		if (notInitialRender.current) {
-			ScrewFunction(screwPosition, nodesConfiguration);
+			ScrewFunction(screwPosition, nodesConfiguration, withChin, withVisor);
 		} else {
 			notInitialRender.current = true;
 		}

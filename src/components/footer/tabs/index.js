@@ -90,6 +90,8 @@ const Tabs = ({
 				setRightNumberInput = {setRightNumberInput}
 				engravingInput = {engravingInput}
 				setEngravingInput = {setEngravingInput}
+				withChin = {withChin}
+				withVisor = {withVisor}
 			/>
 			<RadioTabs 
 				id = 'tabtwo'

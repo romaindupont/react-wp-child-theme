@@ -47,7 +47,9 @@ const HelmetTabs = ({
 	rightNumberInput,
 	setRightNumberInput,
 	engravingInput,
-	setEngravingInput
+	setEngravingInput,
+	withChin,
+	withVisor
 }) => {
 	let language = document.querySelector('html').lang;
 	let elementsOfHelmet = ElementData[0].en;
@@ -156,7 +158,8 @@ const HelmetTabs = ({
 							setStandardValue = {setStandardValue}
 							standardValue = {standardValue}
 							traduction = {traduction}
-						/> : <p className='messageNotAvailable'>Not available with this helmet</p> :
+						/> : 
+							<p className='messageNotAvailable'>Not available with this helmet</p> :
 					helmetPosition.fileName === 'pattern' ?
 						<Pattern
 							setStandardValue = {setStandardValue}
@@ -177,6 +180,8 @@ const HelmetTabs = ({
 							screwPosition = {screwPosition}
 							setScrewPosition = {setScrewPosition}
 							traduction = {traduction}
+							withChin = {withChin}
+							withVisor = {withVisor}
 						/> :
 					helmetPosition.fileName === 'size' ?
 						<Size 

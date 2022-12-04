@@ -123,6 +123,8 @@ const radioTabs = ({
 							setRightNumberInput = {setRightNumberInput}
 							engravingInput = {engravingInput}
 							setEngravingInput = {setEngravingInput}
+							withChin = {withChin}
+							withVisor = {withVisor}
 						/> 
 					: title === 'Chinguard' ? 
 						<ChinTabs 
