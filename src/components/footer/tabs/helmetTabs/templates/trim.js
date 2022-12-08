@@ -37,7 +37,7 @@ const Trim = ({setStandardValue, standardValue, traduction}) => {
 				<TrimWhiteRubber />
 				<span className="textAction">{traduction.WhiteRubber}</span>
 			</div>
-			<div className={standardValue.Helmet_trim === 'rubber|blue' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Helmet_trim:'rubber|blue'})}>
+			<div className={standardValue.Helmet_trim === 'leather|blue' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Helmet_trim:'leather|blue'})}>
 				<TrimBlueLeather />
 				<span className="textAction">{traduction.BlueRubber}</span>
 			</div>

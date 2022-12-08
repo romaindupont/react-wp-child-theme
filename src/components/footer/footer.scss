@@ -79,7 +79,7 @@
 	transition: all 1s ease-in-out;
 }
 .sd-tab-content.downContent {
-	height: 70px !important;
+	height: 100px !important;
 }
 .sd-tab-content.downContent > .infos {
 	display: none;
@@ -549,6 +549,7 @@ background: #000;
 	align-items: center;
 	width: 40px;
 	height: 70px;
+	margin-top: 0.5rem;
 }
 .selectColor::after {
 	content: '';
@@ -557,7 +558,7 @@ background: #000;
 	height: 40px;
 	border-radius: 50%;
 	position: absolute;
-	top: 2.5px;
+	top: -5px;
 	left: 0;
 }
 .colorP:first-of-type {
@@ -568,7 +569,7 @@ background: #000;
 	height: 30px;
 	border-radius: 50%;
 	cursor: pointer;
-	margin: 0.5rem;
+/* 	margin: 0.5rem; */
 }
 .roundColor:hover + .textAction {
 	/* visibility: visible; */

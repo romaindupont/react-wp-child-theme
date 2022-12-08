@@ -90,6 +90,26 @@ export default [
 				0, 0, 1, 0,
 				0, 0, 0, 1],
 				SKU: "helmetTrim_leather"
+			},
+			helmetLogoStandard:
+			{
+				parentLocalId: 1,
+				localId: 50,
+				matrix: [1, 0, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1],
+				SKU: "logo_standard"
+			},
+			helmetLogoHigher:
+			{
+				parentLocalId: 1,
+				localId: 51,
+				matrix: [1, 0, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1],
+				SKU: "logo_higher"
 			}
 		},
 		flap: {

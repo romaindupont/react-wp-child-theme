@@ -93,6 +93,7 @@ const Body = ({
 							Noeud[0].helmet.helmetElements,
 							Noeud[0].helmet.helmetCoatingGroove,
 							Noeud[0].helmet.helmetTrimRubber,
+							Noeud[0].helmet.helmetLogoStandard,
 							Noeud[0].flap.pullingFlapNylon,
 							Noeud[0].screw.screwsBaseHelmet,
 							Noeud[0].screw.screwsSideNoChinguard,
@@ -116,10 +117,10 @@ const Body = ({
 								configurationName : standardValue.Metal_pieces,
 								groupName : 'Metal_pieces'
 							},
-							/* {
+							{
 								configurationName :`${standardValue.Logo}|${standardValue.Logo_color}`,
 								groupName : 'Logo'
-							}, */
+							},
 							{
 								configurationName : standardValue.Interior,
 								groupName : 'Interior'
@@ -235,7 +236,7 @@ const Body = ({
 	}, [varnishHelmet]);
  	useEffect(() => {
 		if (notInitialRenderThree.current) {
-			Logo(standardValue);
+			Logo(standardValue, nodesConfiguration, setLoader);
 		} else {
 			notInitialRenderThree.current = true;
 		}
