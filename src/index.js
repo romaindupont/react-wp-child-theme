@@ -1,4 +1,4 @@
-const { render, useState } = wp.element;
+const { render, useState, useEffect } = wp.element;
 import './style.scss';
 import Header from './components/header';
 import Body from './components/body';
@@ -6,6 +6,25 @@ import Footer from './components/footer';
 import Traduction from '../assets/json/elementHTML';
 
 const Veldt = () => {
+	const [ mySku, setMySku ] = useState({
+		position1: 'ht',
+		position2: 'xx',
+		position3: 'xx',
+		position4: 'xx',
+		position5: 'xx',
+		position6: 'xxx',
+		position7: 'xxx',
+		position8: 'xx',
+		position9: 'xx',
+		position10: 'xx',
+		position11: 'xx',
+		position12: 'xx',
+		position13: 'x',
+		position14: 'xx',
+		position15: 'xxx',
+		position16: 'xxx',
+		position17: 'xx',
+	})
 	const [ standardValue, setStandardValue ] = useState({
 		Helmet_color: 'black',
 		Helmet_color_type: 'plain',
@@ -32,6 +51,7 @@ const Veldt = () => {
 		Visor_type: 'peak_visor',
 		Visor_frame: 'full'
 	});
+	const [ price, setPrice ] = useState(690)
 	const [ nodesConfiguration, setNodesConfiguration ] = useState([]);
 	const [ materialVariation, setMaterialVariation ] = useState({});
 	const [ aerationHelmet, setAerationHelmet] = useState(true);
@@ -92,6 +112,26 @@ const Veldt = () => {
 	if (language.includes('es')) {
 		traduction = Traduction[0].en[0];
 	}
+	useEffect(async () => {
+			const baseUrl = 'http://localhost/essai/';
+			let myHeaders = {
+				'Content-Type': 'application/json',
+        'Accept': 'application/json',
+			}
+			let customSku = `${mySku.position1}-${mySku.position2}-${mySku.position3}-${mySku.position4}-${mySku.position5}-${mySku.position6}-${mySku.position7}-${mySku.position8}-${mySku.position9}-${mySku.position10}-${mySku.position11}-${mySku.position12}-${mySku.position13}-${mySku.position14}-${mySku.position15}-${mySku.position16}-${mySku.position17}`
+			let myInit = { 
+				method: 'POST',
+				headers: myHeaders,
+				mode: 'cors',
+				cache: 'default',
+				body: JSON.stringify(customSku)
+			};
+			let thePrice;
+			await fetch(`${baseUrl}wp-json/helmet/price`, myInit)
+				.then(response => response.text())
+				.then(data => thePrice = data/*  setPrice(data) */ )
+			setPrice(thePrice)
+	}, [mySku]);
   return (
 		<div className='veldtConfig'>
 			{!loader && <div className="load"><div className="loader"></div></div>}
@@ -116,6 +156,7 @@ const Veldt = () => {
 				aerationChin = {aerationChin}
 				varnishChin = {varnishChin}
 				withVisor = {withVisor}
+				price = {price}
 			/>
 			<Body
 				aerationHelmet = {aerationHelmet}
@@ -143,6 +184,8 @@ const Veldt = () => {
 				leftNumberInput = {leftNumberInput}
 				rightNumberInput = {rightNumberInput}
 				engravingInput = {engravingInput}
+				mySku = {mySku}
+				setMySku = {setMySku}
 			/>
 			<Footer
 				aerationHelmet = {aerationHelmet}
@@ -189,6 +232,8 @@ const Veldt = () => {
 				setTypeChoice = {setTypeChoice}
 				withVisor = {withVisor}
 				setWithVisor = {setWithVisor}
+				mySku = {mySku}
+				setMySku = {setMySku}
 			/>
 		</div>
   );

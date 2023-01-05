@@ -11,7 +11,7 @@ import LogoV from "../../svg/Logo/LogoV";
 import LogoVText from "../../svg/Logo/LogoVText";
 import { useHorizontalScroll } from "../../../../../../utils/useHorizontalScroll";
 
-const Logo = ({setStandardValue, standardValue, traduction}) => {
+const Logo = ({setStandardValue, standardValue, traduction, mySku, setMySku}) => {
 	const scrollRef = useHorizontalScroll();
 	const scrollEffect = (e) => {
 		let ratio = 4.5;
@@ -28,9 +28,9 @@ const Logo = ({setStandardValue, standardValue, traduction}) => {
 	return (
 		<>
 		<div className="sizeChoice">
-			<span className={standardValue.Logo_color === 'none' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Logo_color:'none'})}>{traduction.None}</span>
-			<span className={standardValue.Logo_color === 'white' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Logo_color:'white'})}>{traduction.White}</span>
-			<span className={standardValue.Logo_color === 'black' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Logo_color:'black'})}>{traduction.Black}</span>
+			<span className={standardValue.Logo_color === 'none' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Logo_color:'none'}) & setMySku({...mySku, position9: 'wl'})}>{traduction.None}</span>
+			<span className={standardValue.Logo_color === 'white' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Logo_color:'white'}) & setMySku({...mySku, position9: 'xx'})}>{traduction.White}</span>
+			<span className={standardValue.Logo_color === 'black' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Logo_color:'black'}) & setMySku({...mySku, position9: 'xx'})}>{traduction.Black}</span>
 		</div>
 		{standardValue.Logo_color === 'none' ? <></> : 
 			<div className="pickerScrew" onScroll={scrollEffect} ref={scrollRef}>

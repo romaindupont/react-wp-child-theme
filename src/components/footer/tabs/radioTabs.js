@@ -52,7 +52,9 @@ const radioTabs = ({
 	typeChoice,
 	setTypeChoice,
 	withVisor,
-	setWithVisor
+	setWithVisor,
+	mySku,
+	setMySku
 }) => {
 	const changeCheck = (e) => {
 		switch(e.target.value) {
@@ -125,6 +127,8 @@ const radioTabs = ({
 							setEngravingInput = {setEngravingInput}
 							withChin = {withChin}
 							withVisor = {withVisor}
+							mySku = {mySku}
+							setMySku = {setMySku}
 						/> 
 					: title === 'Chinguard' ? 
 						<ChinTabs 
@@ -141,6 +145,8 @@ const radioTabs = ({
 							tabsChoice = {tabsChoice}
 							withChin = {withChin}
 							setWithChin = {setWithChin}
+							mySku= {mySku}
+							setMySku= {setMySku}
 						/> 
 					: title === 'Visor' ? 
 						<VisorTabs 
@@ -156,6 +162,8 @@ const radioTabs = ({
 							withVisor = {withVisor}
 							setWithVisor = {setWithVisor}
 							withChin = {withChin}
+							mySku= {mySku}
+							setMySku= {setMySku}
 						/> 
 					:  ''
 				}

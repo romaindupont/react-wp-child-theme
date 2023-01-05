@@ -8,7 +8,9 @@ const Engraving = ({
 	fileNames,
 	traduction,
 	engravingInput,
-	setEngravingInput
+	setEngravingInput,
+	mySku,
+	setMySku
 }) => {
 	const [ openWindow, setOpenWindow ] = useState(false);
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
@@ -43,10 +45,10 @@ const Engraving = ({
 		<div className="numberChoice">
 			{
 				!backEngraving ? 
-					<button className="buttonAdd" onClick={() => setBackEngraving(true) & setOpenWindow(true)}>{`\u002B`} {traduction.Add}</button>
+					<button className="buttonAdd" onClick={() => setBackEngraving(true) & setOpenWindow(true) & setMySku({...mySku, position13:'e'})}>{`\u002B`} {traduction.Add}</button>
 				:
 				<div className="numberButton">
-					<button className="buttonAdd" onClick={() => setBackEngraving(false) & setOpenWindow(false)}>{`\u002D`} {traduction.Delete}</button>
+					<button className="buttonAdd" onClick={() => setBackEngraving(false) & setOpenWindow(false) & setMySku({...mySku, position13:'x'})}>{`\u002D`} {traduction.Delete}</button>
 					<button className="buttonAdd" onClick={() => setBackEngraving(false) & setOpenWindow(true)}>{`\u002B`} {traduction.Modify}</button>
 				</div>
 			}

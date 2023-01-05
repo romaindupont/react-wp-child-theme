@@ -22,7 +22,8 @@ const Header = ({
 	withChin,
 	aerationChin,
 	varnishChin,
-	withVisor
+	withVisor,
+	price
 }) => {
 	const baseUrl = 'http://localhost/essai/';
 	const [ buyLoader, setBuyLoader] = useState(false);
@@ -94,7 +95,7 @@ const Header = ({
 				</div>
 				<div className="header-configurator-right">
 					<div className="header-configurator-right-priceZone">
-						<div className="header-configurator-right-priceZone-price">950<span>{traduction.Money}</span></div>
+						<div className="header-configurator-right-priceZone-price">{price}<span>{traduction.Money}</span></div>
 						<button
 							type="submit"
 							name="add"

@@ -49,7 +49,9 @@ const HelmetTabs = ({
 	engravingInput,
 	setEngravingInput,
 	withChin,
-	withVisor
+	withVisor,
+	mySku,
+	setMySku
 }) => {
 	let language = document.querySelector('html').lang;
 	let elementsOfHelmet = ElementData[0].en;
@@ -109,6 +111,8 @@ const HelmetTabs = ({
 							traduction = {traduction}
 							backNumberInput = {backNumberInput}
 							setBackNumberInput = {setBackNumberInput}
+							mySku = {mySku}
+							setMySku = {setMySku}
 						/> :
 					helmetPosition.fileName === 'engraving' ?
 						<Engraving 
@@ -118,12 +122,16 @@ const HelmetTabs = ({
 							traduction = {traduction}
 							engravingInput = {engravingInput}
 							setEngravingInput = {setEngravingInput}
+							mySku = {mySku}
+							setMySku = {setMySku}
 						/> :
 					helmetPosition.fileName === 'interior' ?
 						<Interior
 							setStandardValue = {setStandardValue}
 							standardValue = {standardValue}
 							traduction = {traduction}
+							mySku = {mySku}
+							setMySku = {setMySku}
 						/> :
 					helmetPosition.fileName === 'left-number' ?
 						<LeftNumber 
@@ -133,18 +141,24 @@ const HelmetTabs = ({
 							traduction = {traduction}
 							leftNumberInput = {leftNumberInput}
 							setLeftNumberInput = {setLeftNumberInput}
+							mySku = {mySku}
+							setMySku = {setMySku}
 						/> :
 					helmetPosition.fileName === 'logo' ?
 						<Logo
 							setStandardValue = {setStandardValue}
 							standardValue = {standardValue}
 							traduction = {traduction}
+							mySku = {mySku}
+							setMySku = {setMySku}
 						/> :
 					helmetPosition.fileName === 'main-color' ?
 						<MainColor
 							setStandardValue = {setStandardValue}
 							standardValue = {standardValue}
 							traduction = {traduction}
+							mySku = {mySku}
+							setMySku = {setMySku}
 						/> :
 					helmetPosition.fileName === 'metal-parts' ?
 						<MetalsParts
@@ -165,6 +179,8 @@ const HelmetTabs = ({
 							setStandardValue = {setStandardValue}
 							standardValue = {standardValue}
 							traduction = {traduction}
+							mySku = {mySku}
+							setMySku = {setMySku}
 						/> :
 					helmetPosition.fileName === 'right-number' ?
 						<RightNumber 
@@ -174,6 +190,8 @@ const HelmetTabs = ({
 							traduction = {traduction}
 							rightNumberInput = {rightNumberInput}
 							setRightNumberInput = {setRightNumberInput}
+							mySku = {mySku}
+							setMySku = {setMySku}
 						/> :
 					helmetPosition.fileName === 'screw' ?
 						<Screw
@@ -194,6 +212,8 @@ const HelmetTabs = ({
 							setStandardValue = {setStandardValue}
 							standardValue = {standardValue}
 							traduction = {traduction}
+							mySku = {mySku}
+							setMySku = {setMySku}
 						/> :
 					helmetPosition.fileName === 'varnish' ?
 						<Varnish
@@ -207,6 +227,8 @@ const HelmetTabs = ({
 							setStandardValue = {setStandardValue}
 							standardValue = {standardValue}
 							traduction = {traduction}
+							mySku = {mySku}
+							setMySku = {setMySku}
 						/> 
 					: ''
 				}

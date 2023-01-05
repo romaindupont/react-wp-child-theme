@@ -25,7 +25,9 @@ const ChinTabs = ({
 	tabsChoice,
 	traduction,
 	withChin,
-	setWithChin
+	setWithChin,
+	mySku,
+	setMySku
 }) => {
 	let language = document.querySelector('html').lang;
 	let elementsOfChin = ElementData[0].en;
@@ -59,6 +61,7 @@ const ChinTabs = ({
 			helpMessage : elementsOfChin[position].helpMessage
 		})
 	}
+
 	useEffect(() => {
 		CameraPosition(chinPosition.fileName)
 	}, [chinPosition]);
@@ -74,8 +77,8 @@ const ChinTabs = ({
 						<div className="template">
 						<div className="aerationList">
 							<div className="aerationDisplay">
-								<span className={withChin ? 'buttonChoice' : 'selectButton'} onClick={()=>setTabsChoice({...tabsChoice, chin: false}) & setWithChin(false)}>{traduction.Without}</span>
-								<span className={withChin ? 'selectButton' : 'buttonChoice'} onClick={()=>setTabsChoice({...tabsChoice, chin: true}) & setWithChin(true)}>{traduction.With}</span>
+								<span className={withChin ? 'buttonChoice' : 'selectButton'} onClick={()=>setTabsChoice({...tabsChoice, chin: false}) & setWithChin(false) & setMySku({...mySku, position2: 'xx'})}>{traduction.Without}</span>
+								<span className={withChin ? 'selectButton' : 'buttonChoice'} onClick={()=>setTabsChoice({...tabsChoice, chin: true}) & setWithChin(true) & setMySku({...mySku, position2: 'ch'})}>{traduction.With}</span>
 							</div>
 						</div>
 						</div>
@@ -91,8 +94,8 @@ const ChinTabs = ({
 							chinPosition.fileName === 'chinguard' ?
 							<div className="aerationList">
 							<div className="aerationDisplay">
-								<span className={withChin ? 'buttonChoice' : 'selectButton'} onClick={()=>setTabsChoice({...tabsChoice, chin: false}) & setWithChin(false)}>{traduction.Without}</span>
-								<span className={withChin ? 'selectButton' : 'buttonChoice'} onClick={()=>setTabsChoice({...tabsChoice, chin: true}) & setWithChin(true)}>{traduction.With}</span>
+								<span className={withChin ? 'buttonChoice' : 'selectButton'} onClick={()=>setTabsChoice({...tabsChoice, chin: false}) & setWithChin(false) & setMySku({...mySku, position2: 'xx'})}>{traduction.Without}</span>
+								<span className={withChin ? 'selectButton' : 'buttonChoice'} onClick={()=>setTabsChoice({...tabsChoice, chin: true}) & setWithChin(true) & setMySku({...mySku, position2: 'ch'})}>{traduction.With}</span>
 							</div>
 						</div>
 						:  
@@ -111,6 +114,8 @@ const ChinTabs = ({
 									setStandardValue = {setStandardValue}
 									standardValue = {standardValue}
 									traduction = {traduction}
+									mySku = {mySku}
+									setMySku = {setMySku}
 								/> 
 							:
 							chinPosition.fileName === 'pattern-color' ?
@@ -125,6 +130,8 @@ const ChinTabs = ({
 									setStandardValue = {setStandardValue}
 									standardValue = {standardValue}
 									traduction = {traduction}
+									mySku = {mySku}
+									setMySku = {setMySku}
 								/> 
 							:
 							chinPosition.fileName === 'trim' ?
@@ -132,6 +139,8 @@ const ChinTabs = ({
 									setStandardValue = {setStandardValue}
 									standardValue = {standardValue}
 									traduction = {traduction}
+									mySku = {mySku}
+									setMySku = {setMySku}
 								/> 
 							:
 							chinPosition.fileName === 'varnish' ?

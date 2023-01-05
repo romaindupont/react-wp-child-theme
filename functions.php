@@ -28,6 +28,289 @@ function get_menu() {
 } 
 
 add_action( 'rest_api_init', function () {
+	register_rest_route( '/helmet', '/price', array(
+			'methods' => 'POST',
+			'callback' => 'priceTest',
+	) );
+} );
+
+function priceTest($request) {
+	$json = file_get_contents('php://input');
+	$data = json_decode($json);
+	$explode = explode('-', $data);
+	$server_lang= filter_var($_SERVER['HTTP_ACCEPT_LANGUAGE'], FILTER_SANITIZE_STRING );
+	$browserlang = substr($server_lang, 0, 2);
+	$price690 = 690;
+	$price150 = 150;
+	$price35 = 35;
+	$price10 = 10;
+	$price125 = 125;
+	$price95 = 95;
+	$price70 = 70;
+	$price115 = 115;
+	$price50 = 50;
+	$price20 = 20;
+	$price10 = 10;
+	$price30 = 30;
+	if( $browserlang == "us" ){
+		$set_lang = 'us_US';
+		$price690 = 690;
+		$price150 = 150;
+		$price125 = 125;
+		$price115 = 115;
+		$price95 = 95;
+		$price70 = 70;
+		$price50 = 50;
+		$price35 = 35;
+		$price30 = 30;
+		$price20 = 20;
+		$price10 = 10;
+	}
+	if( $browserlang == "zh" ) {
+		$set_lang = 'zh_CN';
+		$price690 = 4020;
+		$price150 = 1000;
+		$price125 = 810;
+		$price115 = 790;
+		$price95 = 660;
+		$price70 = 460;
+		$price50 = 330;
+		$price35 = 240;
+		$price30 = 200;
+		$price20 = 130;
+		$price10 = 60;
+	}
+	else {
+		$price690 = 690;
+		$price150 = 150;
+		$price125 = 125;
+		$price115 = 115;
+		$price95 = 95;
+		$price70 = 70;
+		$price50 = 50;
+		$price35 = 35;
+		$price30 = 30;
+		$price20 = 20;
+		$price10 = 10;
+	}
+	$total = 0;
+	$position1 = $explode[0];
+	if ($position1 === 'ht') {
+		$total += $price690;
+	}
+	$position2 = $explode[1];
+	if ($position2 === 'ch') {
+		$total += $price150;
+	}
+	if ($position2 === 'xx') {
+		$total += 0;
+	}
+	$position3 = $explode[2];
+	if ($position3 === 'xx') {
+		$total += 0;
+	}
+	if ($position3 === 'vb') {
+		$total += $price35;
+	}
+	if ($position3 === 'vw') {
+		$total += $price35;
+	}
+	if ($position3 === 'vp') {
+		$total += $price10;
+	}
+	if ($position3 === 'vs') {
+		$total += $price125;
+	}
+	if ($position3 === 'vl') {
+		$total += $price95;
+	}
+	$position4 = $explode[3];
+	if ($position4 === 'xx') {
+		$total += 0;
+	}
+	if ($position4 === 'hg') {
+		$total += $price70;
+	}
+	$position5 = $explode[4];
+	if ($position5 === 'xx') {
+		$total += 0;
+	}
+	if ($position5 === 'hk') {
+		$total += $price70;
+	}
+	if ($position5 === 'hr') {
+		$total += $price70;
+	}
+	if ($position5 === 'hc') {
+		$total += $price115;
+	}
+	if ($position5 === 'ht') {
+		$total += $price115;
+	}
+	if ($position5 === 'hd') {
+		$total += $price115;
+	}
+	if ($position5 === 'he') {
+		$total += $price115;
+	}
+	if ($position5 === 'hg') {
+		$total += $price115;
+	}
+	if ($position5 === 'hh') {
+		$total += $price115;
+	}
+	if ($position5 === 'hz') {
+		$total += $price115;
+	}
+	if ($position5 === 'hb') {
+		$total += $price115;
+	}
+	if ($position5 === 'ho') {
+		$total += $price115;
+	}
+	if ($position5 === 'hp') {
+		$total += $price115;
+	}
+	if ($position5 === 'hs') {
+		$total += $price115;
+	}
+	if ($position5 === 'hv') {
+		$total += $price115;
+	}
+	$position6 = $explode[5];
+	if ($position6 === 'xxx') {
+		$total += 0;
+	}
+	if ($position6 === 'htl') {
+		$total += $price50;
+	}
+	$position7 = $explode[6];
+	if ($position7 === 'xxx') {
+		$total += 0;
+	}
+	if ($position7 === 'til') {
+		$total += $price150;
+	}
+	if ($position7 === 'hif') {
+		$total += $price115;
+	}
+	$position8 = $explode[7];
+	if ($position8 === 'xx') {
+		$total += 0;
+	}
+	if ($position8 === 'pl') {
+		$total += $price20;
+	}
+	$position9 = $explode[8];
+	if ($position9 === 'xx') {
+		$total += 0;
+	}
+	if ($position9 === 'wl') {
+		$total += $price10;
+	}
+	$position10 = $explode[9];
+	if ($position10 === 'xx') {
+		$total += 0;
+	}
+	if ($position10 === 'ng') {
+		$total += $price50;
+	}
+	$position11 = $explode[10];
+	if ($position11 === 'xx') {
+		$total += 0;
+	}
+	if ($position11 === 'nd') {
+		$total += $price50;
+	}
+	$position12 = $explode[11];
+	if ($position12 === 'xx') {
+		$total += 0;
+	}
+	if ($position12 === 'nb') {
+		$total += $price50;
+	}
+	$position13 = $explode[12];
+	if ($position13 === 'x') {
+		$total += 0;
+	}
+	if ($position13 === 'e') {
+		$total += $price20;
+	}
+	$position14 = $explode[13];
+	if ($position14 === 'xx') {
+		$total += 0;
+	}
+	if ($position14 === 'cg') {
+		$total += $price70;
+	}
+	$position15 = $explode[14];
+	if ($position15 === 'xxx') {
+		$total += 0;
+	}
+	if ($position15 === 'ctl') {
+		$total += $price50;
+	}
+	$position16 = $explode[15];
+	if ($position16 === 'xxx') {
+		$total += 0;
+	}
+	if ($position16 === 'cif') {
+		$total += $price30;
+	}
+	if ($position16 === 'cil') {
+		$total += $price150;
+	}
+	$position17 = $explode[16];
+	if ($position17 === 'xx') {
+		$total += 0;
+	}
+	if ($position17 === 'ck') {
+		$total += $price20;
+	}
+	if ($position17 === 'cr') {
+		$total += $price20;
+	}
+	if ($position17 === 'cc') {
+		$total += $price30;
+	}
+	if ($position17 === 'cd') {
+		$total += $price30;
+	}
+	if ($position17 === 'cu') {
+		$total += $price30;
+	}
+	if ($position17 === 'ce') {
+		$total += $price30;
+	}
+	if ($position17 === 'cg') {
+		$total += $price30;
+	}
+	if ($position17 === 'ch') {
+		$total += $price30;
+	}
+	if ($position17 === 'cz') {
+		$total += $price30;
+	}
+	if ($position17 === 'cb') {
+		$total += $price30;
+	}
+	if ($position17 === 'co') {
+		$total += $price30;
+	}
+	if ($position17 === 'cp') {
+		$total += $price30;
+	}
+	if ($position17 === 'cs') {
+		$total += $price30;
+	}
+	if ($position17 === 'cv') {
+		$total += $price30;
+	}
+	
+	return $total;
+}
+
+add_action( 'rest_api_init', function () {
 	register_rest_route( '/imageHandler/v1', '/upload', array(
 			'methods' => 'POST',
 			'callback' => 'uploadImage',

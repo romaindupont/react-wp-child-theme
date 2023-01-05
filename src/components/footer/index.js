@@ -52,7 +52,9 @@ const Footer = ({
 	typeChoice,
 	setTypeChoice,
 	withVisor,
-	setWithVisor
+	setWithVisor,
+	mySku,
+	setMySku
 }) => {
 	const [ openOptionMenu, setOpenOptionMenu ] = useState({
 			name: '',
@@ -141,6 +143,8 @@ const Footer = ({
 				setTypeChoice = {setTypeChoice}
 				withVisor = {withVisor}
 				setWithVisor = {setWithVisor}
+				mySku = {mySku}
+				setMySku = {setMySku}
 			/>
 			{openOptionMenu.open && openOptionMenu.name === 'menuOption' && <MenuOption setOpenOptionMenu = {setOpenOptionMenu} elementsOfHelmet = {elementsOfHelmet} elementsOfChin = {elementsOfChin} elementsOfVisor = {elementsOfVisor} traduction = {traduction} />}
 			{openOptionMenu.open && openOptionMenu.name === 'help' && <PopupHelp setOpenOptionMenu = {setOpenOptionMenu} helmetPosition = {helmetPosition} chinPosition = {chinPosition} tabsCheck = {tabsCheck}/>}

@@ -1,6 +1,6 @@
 import { useHorizontalScroll } from "../../../../../../utils/useHorizontalScroll";
 
-const MainColor = ({setStandardValue, standardValue, traduction}) => {
+const MainColor = ({setStandardValue, standardValue, traduction, mySku, setMySku}) => {
 	const scrollRef = useHorizontalScroll();
 	const scrollEffect = (e) => {
 		let ratio = 2.5;
@@ -17,10 +17,10 @@ const MainColor = ({setStandardValue, standardValue, traduction}) => {
 	return (
 		<>
 		<div className="colorListType">
-			<span className={standardValue.Helmet_color_type === 'plain' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Helmet_color_type:'plain'})}>{traduction.Plain}</span>
-			<span className={standardValue.Helmet_color_type === 'metallic' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Helmet_color_type:'metallic'})}>{traduction.Metallic}</span>
-			<span className={standardValue.Helmet_color_type === 'glitter' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Helmet_color_type:'glitter'})}>{traduction.Glitter}</span>
-			<span className={standardValue.Helmet_color_type === 'gilding' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Helmet_color_type:'gilding'})}>{traduction.Gilding}</span>
+			<span className={standardValue.Helmet_color_type === 'plain' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Helmet_color_type:'plain'}) & setMySku({...mySku, position4: 'xx'})}>{traduction.Plain}</span>
+			<span className={standardValue.Helmet_color_type === 'metallic' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Helmet_color_type:'metallic'}) & setMySku({...mySku, position4: 'xx'})}>{traduction.Metallic}</span>
+			<span className={standardValue.Helmet_color_type === 'glitter' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Helmet_color_type:'glitter'}) & setMySku({...mySku, position4: 'hg'})}>{traduction.Glitter}</span>
+			<span className={standardValue.Helmet_color_type === 'gilding' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Helmet_color_type:'gilding'}) & setMySku({...mySku, position4: 'xx'})}>{traduction.Gilding}</span>
 		</div>
 		<div className="colorList" onScroll={scrollEffect} ref={scrollRef}>
 			{standardValue.Helmet_color_type === 'plain' ? 
@@ -40,7 +40,7 @@ const MainColor = ({setStandardValue, standardValue, traduction}) => {
 				<div className={standardValue.Helmet_color === 'green double' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'green double'})}><div className="roundColor greenDouble"></div><span className="textAction">{traduction.GreenDouble}</span></div>
 				<div className={standardValue.Helmet_color === 'blazing orange' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'blazing orange'})}><div className="roundColor blazingOrange"></div><span className="textAction">{traduction.BlazingOrange}</span></div>
 				<div className={standardValue.Helmet_color === 'lime green' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'lime green'})}><div className="roundColor limeGreen"></div><span className="textAction">{traduction.LimeGreen}</span></div>
-				<div className={standardValue.Helmet_color === 'vermillion' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'vermillion'})}><div className="roundColor vermillion"></div><span className="textAction">{traduction.Vermillion}</span></div>
+				<div className={standardValue.Helmet_color === 'vermillon' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'vermillon'})}><div className="roundColor vermillion"></div><span className="textAction">{traduction.Vermillion}</span></div>
 				<div className={standardValue.Helmet_color === 'green gables' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'green gables'})}><div className="roundColor greenGables"></div><span className="textAction">{traduction.GreenGables}</span></div>
 				<div className={standardValue.Helmet_color === 'orchid pink' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'orchid pink'})}><div className="roundColor orchidPink"></div><span className="textAction">{traduction.OrchidPink}</span></div>
 				<div className={standardValue.Helmet_color === 'camel' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'camel'})}><div className="roundColor camel"></div><span className="textAction">{traduction.Camel}</span></div>
@@ -67,7 +67,7 @@ const MainColor = ({setStandardValue, standardValue, traduction}) => {
 				<div className={standardValue.Helmet_color === 'green double' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'green double'})}><div className="roundColor greenDouble"></div><span className="textAction">{traduction.GreenDouble}</span></div>
 				<div className={standardValue.Helmet_color === 'blazing orange' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'blazing orange'})}><div className="roundColor blazingOrange"></div><span className="textAction">{traduction.BlazingOrange}</span></div>
 				<div className={standardValue.Helmet_color === 'lime green' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'lime green'})}><div className="roundColor limeGreen"></div><span className="textAction">{traduction.LimeGreen}</span></div>
-				<div className={standardValue.Helmet_color === 'vermillion' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'vermillion'})}><div className="roundColor vermillion"></div><span className="textAction">{traduction.Vermillion}</span></div>
+				<div className={standardValue.Helmet_color === 'vermillon' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'vermillon'})}><div className="roundColor vermillion"></div><span className="textAction">{traduction.Vermillion}</span></div>
 				<div className={standardValue.Helmet_color === 'green gables' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'green gables'})}><div className="roundColor greenGables"></div><span className="textAction">{traduction.GreenGables}</span></div>
 				<div className={standardValue.Helmet_color === 'orchid pink' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'orchid pink'})}><div className="roundColor orchidPink"></div><span className="textAction">{traduction.OrchidPink}</span></div>
 				<div className={standardValue.Helmet_color === 'camel' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'camel'})}><div className="roundColor camel"></div><span className="textAction">{traduction.Camel}</span></div>
@@ -94,7 +94,7 @@ const MainColor = ({setStandardValue, standardValue, traduction}) => {
 				<div className={standardValue.Helmet_color === 'green double' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'green double'})}><div className="roundColor greenDouble"></div><span className="textAction">{traduction.GreenDouble}</span></div>
 				<div className={standardValue.Helmet_color === 'blazing orange' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'blazing orange'})}><div className="roundColor blazingOrange"></div><span className="textAction">{traduction.BlazingOrange}</span></div>
 				<div className={standardValue.Helmet_color === 'lime green' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'lime green'})}><div className="roundColor limeGreen"></div><span className="textAction">{traduction.LimeGreen}</span></div>
-				<div className={standardValue.Helmet_color === 'vermillion' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'vermillion'})}><div className="roundColor vermillion"></div><span className="textAction">{traduction.Vermillion}</span></div>
+				<div className={standardValue.Helmet_color === 'vermillon' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'vermillon'})}><div className="roundColor vermillion"></div><span className="textAction">{traduction.Vermillion}</span></div>
 				<div className={standardValue.Helmet_color === 'green gables' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'green gables'})}><div className="roundColor greenGables"></div><span className="textAction">{traduction.GreenGables}</span></div>
 				<div className={standardValue.Helmet_color === 'orchid pink' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'orchid pink'})}><div className="roundColor orchidPink"></div><span className="textAction">{traduction.OrchidPink}</span></div>
 				<div className={standardValue.Helmet_color === 'camel' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'camel'})}><div className="roundColor camel"></div><span className="textAction">{traduction.Camel}</span></div>

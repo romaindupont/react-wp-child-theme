@@ -269,7 +269,6 @@ const VisorChoice = (standardValue, nodesConfiguration, setLoader, tabsChoice) =
 				}
 			break;
 			default:
-			console.log('no default theme')
 		}
 		setTimeout(() => {
 			viewerIframe.postMessage({
@@ -290,7 +289,6 @@ const VisorChoice = (standardValue, nodesConfiguration, setLoader, tabsChoice) =
 		}, '2000');
 	}
 	else {
-		console.log(screwsVisor);
 		if (screwsVisor){
 			viewerIframe.postMessage(
 				{

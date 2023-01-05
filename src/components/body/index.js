@@ -51,6 +51,8 @@ const Body = ({
 	leftNumberInput,
 	rightNumberInput,
 	engravingInput,
+	mySku,
+	setMySku
 }) => {
 	let viewerIframe = null;
 	let viewerActive = false;
@@ -66,6 +68,7 @@ const Body = ({
 	const notInitialRenderTen = useRef(false);
 	const notInitialRenderEleven = useRef(false);
 	const notInitialRenderTwelve = useRef(false);
+	const notInitialRenderThirteen = useRef(false);
 	let helmetAereationListener = (e) => {
 		viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 		Aeration(viewerIframe, aerationHelmet, nodesConfiguration, setLoader, standardValue) 
@@ -74,7 +77,6 @@ const Body = ({
 		}, '*');
 	}
 	let viewerEventListener =  function(event){
-		console.log(event.data.action, event, event.data.callAction )
 		if(event.data && event.data.action == 'onStateChange'){
 			if(event.data.state.viewerState == 'loaded' || event.data.state.viewerState == 'fallbackloaded'){
 				setLoader(false)
@@ -83,7 +85,6 @@ const Body = ({
 					action : 'setSceneryBackgroundColor',
 					color : '#f2f2f2'
 				},'*');
-					
 				viewerIframe.postMessage(
 				{
 					action : "updateProductNodesInstances",
@@ -98,6 +99,7 @@ const Body = ({
 							Noeud[0].screw.screwsBaseHelmet,
 							Noeud[0].screw.screwsSideNoChinguard,
 							Noeud[0].screw.screwsTopNoVisor, 
+							Noeud[0].custom.helmetCarbonWindowECE, 
 						],
 					localIdsToRemove :
 						[]
@@ -299,7 +301,7 @@ useEffect(() => {
 	}, [backEngraving]);
 	useEffect(() => {
 		if (notInitialRender.current) {
-			RearText(standardValue);
+			RearText(standardValue, nodesConfiguration, setLoader);
 		} else {
 			notInitialRender.current = true;
 		}
@@ -353,7 +355,6 @@ useEffect(() => {
 			notInitialRenderTwelve.current = true;
 		}
 	}, [standardValue.Visor_peak_color, standardValue.Visor_peak_type, standardValue.Visor_color, standardValue.Visor_type, standardValue.Visor_frame, tabsChoice.visor]);
- 
 	useEffect(() => {
 		console.log(nodesConfiguration)
 	}, [nodesConfiguration]);	

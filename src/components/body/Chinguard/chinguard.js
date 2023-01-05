@@ -238,7 +238,6 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 					}, "*");
 				localIdToRemove = [];
 				setLoader(false);
-				console.log( `${standardValue.Chinguard_design}|${typeDesignChin}|${standardValue.Chinguard_design_color}`);
 				setTimeout(() => {
 					viewerIframe.postMessage({
 						action : 'setMaterialsGroups',
@@ -442,8 +441,6 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 					}, "*");
 				localIdToRemove = [];
 				setLoader(false);
-				console.log( `${standardValue.Chinguard_design}|${typeDesignChin}|${standardValue.Chinguard_design_color}`);
-
 				setTimeout(() => {
 					viewerIframe.postMessage({
 						action : 'setMaterialsGroups',

@@ -184,7 +184,27 @@ export default [
 				0, 0, 1, 0,
 				0, 0, 0, 1],
 				SKU: "custom_backEngravingDOT"
-			}
+			},
+			helmetCarbonWindowECE:
+			{
+				parentLocalId: 1,
+				localId: 40,
+				matrix: [1, 0, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1],
+				SKU: "helmet_carbonWindowECE"
+			},
+			helmetCarbonWindowDOT:
+			{
+				parentLocalId: 1,
+				localId: 41,
+				matrix: [1, 0, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1],
+				SKU: "helmet_carbonWindowDOT"
+			},
 		},
 		screw: {
 			screwsBaseHelmet:

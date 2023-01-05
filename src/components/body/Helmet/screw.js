@@ -21,7 +21,6 @@ const ScrewFunction = (screwPosition, nodesConfiguration, withChin, withVisor) =
 		}
 	})
 	if (withChin && !withVisor) {// chin et pas de visiere
-		console.log('with chin sans visor');
 		if (screwPosition === 'none') {
 				// on enleve que le top
 				viewerIframe.postMessage(
@@ -129,7 +128,6 @@ const ScrewFunction = (screwPosition, nodesConfiguration, withChin, withVisor) =
 		}
 	}
 	if (!withChin && withVisor) {// sans chin mais avec visiere
-		console.log('sans chin avec visor');
 		if (screwPosition === 'none') {
 			// on enleve que le bottom
 			viewerIframe.postMessage(
@@ -219,7 +217,6 @@ const ScrewFunction = (screwPosition, nodesConfiguration, withChin, withVisor) =
 		}
 	}
 	if (withChin && withVisor) {// avec chin et avec visiere
-		console.log('avec chin avec visor');
 
 		if (screwPosition === 'none') {
 			// impossible on propse pas
@@ -235,7 +232,6 @@ const ScrewFunction = (screwPosition, nodesConfiguration, withChin, withVisor) =
 		}
 	}
 	if (!withChin && !withVisor) { // sans chin et sans vicor
-		console.log('sans chin et sans visor');
 
 		if (screwPosition === 'none') {
 			// on enleve tout

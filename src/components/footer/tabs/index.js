@@ -47,7 +47,9 @@ const Tabs = ({
 	typeChoice,
 	setTypeChoice,
 	withVisor,
-	setWithVisor
+	setWithVisor,
+	mySku,
+	setMySku
 }) => {
 	return (
 		<div className="sd-tabs">
@@ -92,6 +94,8 @@ const Tabs = ({
 				setEngravingInput = {setEngravingInput}
 				withChin = {withChin}
 				withVisor = {withVisor}
+				mySku= {mySku}
+				setMySku= {setMySku}
 			/>
 			<RadioTabs 
 				id = 'tabtwo'
@@ -116,6 +120,8 @@ const Tabs = ({
 				downMenu = {downMenu}
 				withChin = {withChin}
 				setWithChin = {setWithChin}
+				mySku= {mySku}
+				setMySku= {setMySku}
 			/>
 			<RadioTabs 
 				id = 'tabthree'
@@ -139,6 +145,8 @@ const Tabs = ({
 				withVisor = {withVisor}
 				setWithVisor = {setWithVisor}
 				withChin = {withChin}
+				mySku= {mySku}
+				setMySku= {setMySku}
 			/>
 		</div>
 	)

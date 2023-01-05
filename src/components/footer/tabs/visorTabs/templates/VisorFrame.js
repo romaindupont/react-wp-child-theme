@@ -1,4 +1,4 @@
-const VisorFrame = ({setStandardValue,	standardValue, traduction}) => {
+const VisorFrame = ({setStandardValue, standardValue, traduction}) => {
 	return (
 		<div className="colorListType">
 			<span className={standardValue.Visor_frame === 'full' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Visor_frame:'full'})}>{traduction.VisorFrameFull}</span>

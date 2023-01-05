@@ -1,8 +1,4 @@
 const MenuOption = ({setOpenOptionMenu, elementsOfHelmet, elementsOfChin,	elementsOfVisor, traduction}) => {
-/* 	let language = document.querySelector('html').lang; */
-/* 	if (language.includes('fr')) {}
-	if (language.includes('en')) {}*/
-	console.log(elementsOfHelmet); 
 	const menuClose = () => {
 		setOpenOptionMenu({
 			name: '',

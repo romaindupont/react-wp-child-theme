@@ -18,7 +18,6 @@ const Right = ({windowClose, setNumberWindow, fileNames}) => {
 				windowClose(false);
 				break	
 			default:
-				console.log('rien')
 		}
 	}
 	return (

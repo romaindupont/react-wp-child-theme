@@ -21,7 +21,9 @@ const VisorTabs = ({
 	setTypeChoice,
 	withVisor,
 	setWithVisor,
-	withChin
+	withChin,
+	mySku,
+	setMySku
 }) => {
 	let language = document.querySelector('html').lang;
 	let elementsOfVisor = ElementData[0].en;
@@ -70,8 +72,8 @@ const VisorTabs = ({
 					<div className="template">
 					<div className="aerationList">
 						<div className="aerationDisplay">
-							<span className={withVisor ? 'buttonChoice' : 'selectButton'} onClick={()=>setTabsChoice({...tabsChoice, visor: false}) & setWithVisor(false)}>{traduction.Without}</span>
-							<span className={withVisor ? 'selectButton' : 'buttonChoice'} onClick={()=>setTabsChoice({...tabsChoice, visor: true}) & setWithVisor(true)}>{traduction.With}</span>
+							<span className={withVisor ? 'buttonChoice' : 'selectButton'} onClick={()=>setTabsChoice({...tabsChoice, visor: false}) & setWithVisor(false) & setMySku({...mySku, position3: 'xx'})}>{traduction.Without}</span>
+							<span className={withVisor ? 'selectButton' : 'buttonChoice'} onClick={()=>setTabsChoice({...tabsChoice, visor: true}) & setWithVisor(true) & setMySku({...mySku, position3: 'vb'})}>{traduction.With}</span>
 						</div>
 					</div>
 					</div>
@@ -87,8 +89,8 @@ const VisorTabs = ({
 							visorPosition.fileName === 'visor' ?
 								<div className="aerationList">
 									<div className="aerationDisplay">
-										<span className={withVisor ? 'buttonChoice' : 'selectButton'} onClick={()=>setTabsChoice({...tabsChoice, visor: false}) & setWithVisor(false)}>{traduction.Without}</span>
-										<span className={withVisor ? 'selectButton' : 'buttonChoice'} onClick={()=>setTabsChoice({...tabsChoice, visor: true}) & setWithVisor(true)}>{traduction.With}</span>
+										<span className={withVisor ? 'buttonChoice' : 'selectButton'} onClick={()=>setTabsChoice({...tabsChoice, visor: false}) & setWithVisor(false) & setMySku({...mySku, position3: 'xx'})}>{traduction.Without}</span>
+										<span className={withVisor ? 'selectButton' : 'buttonChoice'} onClick={()=>setTabsChoice({...tabsChoice, visor: true}) & setWithVisor(true) & setMySku({...mySku, position3: 'vb'})}>{traduction.With}</span>
 									</div>
 								</div>
 							:  
@@ -99,6 +101,8 @@ const VisorTabs = ({
 									standardValue={standardValue}
 									traduction = {traduction}
 									withChin = {withChin}
+									mySku = {mySku}
+									setMySku = {setMySku}
 								/> 
 							:
 							visorPosition.fileName === 'visorColor' && typeChoice === 'long_visor' ?
@@ -134,6 +138,8 @@ const VisorTabs = ({
 									setStandardValue = {setStandardValue}
 									standardValue = {standardValue}
 									traduction = {traduction}
+									mySku = {mySku}
+									setMySku = {setMySku}
 								/>
 							: ''}
 					</div>
