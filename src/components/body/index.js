@@ -21,7 +21,6 @@ import AerationChin from './Chinguard/aeration';
 import PatternChin from './Chinguard/pattern';
 import MainColorChin from './Chinguard/mainColor';
 import VarnishChin from './Chinguard/varnish';
-import TrimChin from './Chinguard/trim';
 
 import VisorChoice from './Visor/VisorChoice';
 import {MakeAnObjectToOrder} from '../../../utils/ObjectOrder';
@@ -245,14 +244,14 @@ const Body = ({
 	}, [standardValue.Logo_color, standardValue.Logo]);
 	useEffect(() => {
 		if (notInitialRenderFour.current) {
-			Interior(standardValue, setLoader);
+			Interior(standardValue, setLoader, withChin);
 		} else {
 			notInitialRenderFour.current = true;
 		}
 	}, [standardValue.Interior]);
 	useEffect(() => {
 		if (notInitialRenderFive.current) {
-			Trim(standardValue, nodesConfiguration, setLoader, aerationHelmet, varnishHelmet);
+			Trim(standardValue, nodesConfiguration, setLoader, aerationHelmet, varnishHelmet, withChin);
 		} else {
 			notInitialRenderFive.current = true;
 		}
@@ -341,13 +340,6 @@ useEffect(() => {
 			notInitialRenderTen.current = true;
 		}
 	}, [varnishChin]);
-	useEffect(() => {
-		if (notInitialRenderEleven.current) {
-			TrimChin(standardValue, nodesConfiguration, setLoader, aerationChin, varnishChin);
-		} else {
-			notInitialRenderEleven.current = true;
-		}
-	}, [standardValue.Chinguard_trim]);
 	useEffect(() => {
 		if (notInitialRenderTwelve.current) {
 			VisorChoice(standardValue, nodesConfiguration, setLoader, tabsChoice);

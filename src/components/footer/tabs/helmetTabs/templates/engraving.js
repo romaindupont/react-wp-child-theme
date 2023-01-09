@@ -25,7 +25,7 @@ const Engraving = ({
 				backgroundColor : '#000000',
 				italic : false,
 				bold : false,
-				imageWidth : 2048,
+				imageWidth : 1024,
 				imageHeight : 512,
 				verticalAlignment : 'middle',
 				horizontalAlignment : 'middle',

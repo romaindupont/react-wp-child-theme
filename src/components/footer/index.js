@@ -146,7 +146,10 @@ const Footer = ({
 				mySku = {mySku}
 				setMySku = {setMySku}
 			/>
-			{openOptionMenu.open && openOptionMenu.name === 'menuOption' && <MenuOption setOpenOptionMenu = {setOpenOptionMenu} elementsOfHelmet = {elementsOfHelmet} elementsOfChin = {elementsOfChin} elementsOfVisor = {elementsOfVisor} traduction = {traduction} />}
+			{openOptionMenu.open && openOptionMenu.name === 'menuOption' && <MenuOption setOpenOptionMenu = {setOpenOptionMenu} elementsOfHelmet = {elementsOfHelmet} elementsOfChin = {elementsOfChin} elementsOfVisor = {elementsOfVisor} traduction = {traduction} setHelmetPosition = {setHelmetPosition}
+setChinPosition = {setChinPosition}
+setVisorPosition = {setVisorPosition} tabsCheck = {tabsCheck}
+setTabsCheck = {setTabsCheck}/>}
 			{openOptionMenu.open && openOptionMenu.name === 'help' && <PopupHelp setOpenOptionMenu = {setOpenOptionMenu} helmetPosition = {helmetPosition} chinPosition = {chinPosition} tabsCheck = {tabsCheck}/>}
 			{openOptionMenu.open && openOptionMenu.name === 'export' && screenshotsWait.wait  && <ExportWindows setOpenOptionMenu = {setOpenOptionMenu} screenshotsWait = {screenshotsWait} traduction = {traduction} setScreenshotsWait = {setScreenshotsWait} />}
 		</footer>

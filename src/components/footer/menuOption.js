@@ -1,9 +1,50 @@
-const MenuOption = ({setOpenOptionMenu, elementsOfHelmet, elementsOfChin,	elementsOfVisor, traduction}) => {
+const MenuOption = ({setOpenOptionMenu, elementsOfHelmet, elementsOfChin,	elementsOfVisor, traduction,setHelmetPosition, setChinPosition,	setVisorPosition, tabsCheck, setTabsCheck}) => {
 	const menuClose = () => {
 		setOpenOptionMenu({
 			name: '',
 			open: false
 		})
+	}
+	const choiceMenuName = (type, i) => {
+		if (type === 'helmet' ) {
+			setHelmetPosition({
+				title: elementsOfHelmet[i].title,
+				fileName: elementsOfHelmet[i].fileName,
+				position: i,
+				helpMessage : elementsOfHelmet[i].helpMessage
+			});
+			setTabsCheck({
+				helmetCheck: true,
+				chinCheck: false,
+				visorCheck: false
+			});
+		}
+		if (type === 'visor' ) {
+			setVisorPosition({
+				title: elementsOfVisor[i].title,
+				fileName: elementsOfVisor[i].fileName,
+				position: i,
+				helpMessage : elementsOfVisor[i].helpMessage
+			});
+			setTabsCheck({
+				helmetCheck: false,
+				chinCheck: false,
+				visorCheck: true
+			});
+		}
+		if (type === 'chin' ) {
+			setChinPosition({
+				title: elementsOfChin[i].title,
+				fileName: elementsOfChin[i].fileName,
+				position: i,
+				helpMessage : elementsOfChin[i].helpMessage
+			});
+			setTabsCheck({
+				helmetCheck: false,
+				chinCheck: true,
+				visorCheck: false
+			});
+		}
 	}
 	return (
 		<div className="menu_option">
@@ -16,19 +57,19 @@ const MenuOption = ({setOpenOptionMenu, elementsOfHelmet, elementsOfChin,	elemen
 			<div>
 				<h3>{traduction.HelmetTitle}</h3>
 				<div>
-					{elementsOfHelmet.map((element, i)=> (<p key={i}>{element.title}</p>) )}
+					{elementsOfHelmet.map((element, i)=> (<p key={i} onClick={()=>choiceMenuName('helmet', i)}>{element.title}</p>) )}
 				</div>
 			</div>
 			<div>
 				<h3>{traduction.ChinTitle}</h3>
 				<div>
-					{elementsOfChin.map((element, i)=> (<p key={i}>{element.title}</p>) )}
+					{elementsOfChin.map((element, i)=> (<p key={i} onClick={()=>choiceMenuName('chin', i)}>{element.title}</p>) )}
 				</div>
 			</div>
 			<div>
 				<h3>{traduction.VisorTitle}</h3>
 				<div>
-					{elementsOfVisor.map((element, i)=> (<p key={i}>{element.title}</p>) )}
+					{elementsOfVisor.map((element, i)=> (<p key={i} onClick={()=>choiceMenuName('visor', i)}>{element.title}</p>) )}
 				</div>
 			</div>
 		</div>

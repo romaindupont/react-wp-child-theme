@@ -48,6 +48,11 @@
 }
 .header-configurator-right-comment {
 	margin-top: 0.6rem;
+	color: var(--price-config-color);
+	font-size: 0.8rem;
+	font-weight: bold;
+	padding: 0rem 1rem;
+	font-family: var(--font-family);
 	z-index: 100;
 }
 .header-configurator-right-priceZone {

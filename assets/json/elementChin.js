@@ -31,16 +31,6 @@ export default [{
 			helpMessage: 'Choose the finishing varnish'
 		},
 		{
-			fileName : 'interior',
-			title: 'interior',
-			helpMessage: 'Choose the material interior for your helmet'
-		},
-		{
-			fileName : 'trim',
-			title: 'trim',
-			helpMessage: 'Choose color and trim material'
-		},
-		{
 			fileName : 'metal-parts',
 			title: 'metal parts',
 			helpMessage: 'Choose the color of the metal parts'
@@ -76,16 +66,6 @@ export default [{
 			fileName : 'varnish',
 			title: 'vernis',
 			helpMessage: 'Choisir la finition vernis'
-		},
-		{
-			fileName : 'interior',
-			title: 'interieur',
-			helpMessage: 'Choisir le revêtement de l\'intérieur du casque'
-		},
-		{
-			fileName : 'trim',
-			title: 'jonc',
-			helpMessage: 'Choisir la couleur du jonc'
 		}
 	]
 }]

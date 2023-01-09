@@ -45,6 +45,7 @@ const Veldt = () => {
 		Chinguard_design_type: 'plain',
 		Chinguard_design: '',
 		Chinguard_trim: 'rubber|black',
+		Chinguard_interior: 'suede|blue',
 		Visor_peak_color: 'black',
 		Visor_peak_type: 'plain',
 		Visor_color: 'clear',
@@ -129,7 +130,7 @@ const Veldt = () => {
 			let thePrice;
 			await fetch(`${baseUrl}wp-json/helmet/price`, myInit)
 				.then(response => response.text())
-				.then(data => thePrice = data/*  setPrice(data) */ )
+				.then(data => thePrice = data )
 			setPrice(thePrice)
 	}, [mySku]);
   return (

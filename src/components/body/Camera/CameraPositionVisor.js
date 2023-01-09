@@ -6,10 +6,10 @@ const CameraPosition = (fileName) => {
 		case 'visorType':
 			viewerIframe.postMessage(CameraPositionChange[0].visor.visor,'*');
     	break;
-		default:
-			/* viewerIframe.postMessage({action : 'resetCamera'},'*');
-				viewerIframe.postMessage({action : 'play'},'*'); */
-		
+		case 'visor':
+			viewerIframe.postMessage({action : 'resetCamera'},'*');
+			break;
+		default:		
 	}
 }
 

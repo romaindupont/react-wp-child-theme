@@ -157,7 +157,15 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 								{
 									configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
 									groupName : 'Chinguard_color'
-								}				
+								},
+								{
+									configurationName : standardValue.Interior,
+									groupName : 'Chinguard_interior'
+								},
+								{
+									configurationName : standardValue.Helmet_trim,
+									groupName : 'Chinguard_trim'
+								}			
 							]
 					}, '*');
 				setLoader(true);
@@ -266,7 +274,15 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 								{
 									configurationName : `${standardValue.Chinguard_design}|${typeDesignChin}|${standardValue.Chinguard_design_color}`,
 									groupName : 'Chinguard_design_color'
-								}						
+								},
+								{
+									configurationName : standardValue.Interior,
+									groupName : 'Chinguard_interior'
+								},
+								{
+									configurationName : standardValue.Helmet_trim,
+									groupName : 'Chinguard_trim'
+								}								
 							]
 					}, '*');
 				setLoader(true);
@@ -360,7 +376,15 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 								{
 									configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
 									groupName : 'Chinguard_color'
-								}
+								},
+								{
+									configurationName : standardValue.Interior,
+									groupName : 'Chinguard_interior'
+								},
+								{
+									configurationName : standardValue.Helmet_trim,
+									groupName : 'Chinguard_trim'
+								}		
 							]
 						}, '*');
 					setLoader(true);
@@ -469,7 +493,15 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 								{
 									configurationName : `${standardValue.Chinguard_design}|${typeDesignChin}|${standardValue.Chinguard_design_color}`,
 									groupName : 'Chinguard_design_color'
-								}
+								},
+								{
+									configurationName : standardValue.Interior,
+									groupName : 'Chinguard_interior'
+								},
+								{
+									configurationName : standardValue.Helmet_trim,
+									groupName : 'Chinguard_trim'
+								}		
 							]
 						}, '*');
 					setLoader(true);

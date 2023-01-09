@@ -6,10 +6,13 @@ const CameraPosition = (fileName) => {
 		case 'aeration':
 			viewerIframe.postMessage(CameraPositionChange[0].chinguard.aeration,'*');
     	break;
+		case 'chinguard':
+			viewerIframe.postMessage({action : 'resetCamera'},'*');
+			break;
+			case 'pattern':
+				viewerIframe.postMessage({action : 'resetCamera'},'*');
+				break;
 		default:
-		/* 	viewerIframe.postMessage({action : 'resetCamera'},'*');
-			viewerIframe.postMessage({action : 'play'},'*'); */
-		
 	}
 }
 

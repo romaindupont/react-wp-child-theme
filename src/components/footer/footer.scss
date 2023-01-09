@@ -169,14 +169,12 @@ svg#eye, #eye {
 	opacity: 0.4;
 }
 svg#down {
-/* 	position: absolute; */
 	width: 30px;
 	z-index: 94;
 	height: 30px;
 	transform: rotate(180deg);
 	cursor: pointer;
 	transition: all 1s ease-in-out;
-/* 	left: 0; */
 }
 #down:hover {
 	transition: all 1s ease-in-out;
@@ -209,7 +207,6 @@ svg#menu_option {
 	width: 100vw;
 }
 .info_logo {
-/* 	position: absolute; */
 	display: none;
 	cursor: pointer;
 }
@@ -261,7 +258,6 @@ svg#menu_option {
 	justify-content: center;
 	display: flex;
 	width: 90%;
-/* 	margin-top: 0.5rem; */
 }
 .patternList, .colorList, .visorPage {
 	display: flex;
@@ -280,7 +276,6 @@ svg#menu_option {
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	/* margin-top: 0.5rem; */
 }
 .chooseStyleNumber {
 	margin-top: 1rem;
@@ -559,7 +554,6 @@ background: #000;
 	border-radius: 50%;
 	position: absolute;
 	top: -5px;
-	left: 0;
 }
 .colorP:first-of-type {
 	margin-left: 0.5rem;
@@ -569,7 +563,6 @@ background: #000;
 	height: 30px;
 	border-radius: 50%;
 	cursor: pointer;
-/* 	margin: 0.5rem; */
 }
 .roundColor:hover + .textAction {
 	/* visibility: visible; */
@@ -750,7 +743,6 @@ input#textSelection {
 	top: 10px;
 	right: 25px;
 	cursor: pointer;
-	/* margin: 1rem 2rem; */
 }
 .exportWindow > #exportWindow_closeLogo {
 	width: 40px;
@@ -762,7 +754,6 @@ input#textSelection {
 }
 .exportWindow > div {
 	height: 100%;
-	/* width: 35%; */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -1019,9 +1010,6 @@ svg#link, svg#download {
 		width: 70%;
 		height: 20%;
 	}
-/* 	.menu_option {
-		top: -65%;
-	} */
 	.sd-tabs > .sd-tab-label .sd-tab-desc {
 		font-size: 0.8rem;
 	}
@@ -1342,29 +1330,18 @@ svg#link, svg#download {
 	.sd-tabs > .sd-tab-radio:checked + .sd-tab-label::after {
 		right: -250%;
 	}
-/* 	.menu_option {
-		bottom: -100px;
-	} */
 }
 
 @media (min-width : 1400px) {
-/* 	.menu_option {
-		bottom: -100px;
-	} */
 }
 
 /* Large screens ----------- */
 @media only screen 
 and (min-width : 1824px) {
-/* 	.menu_option {
-		bottom: -100px;
-	} */
+
 	.positionExportLogo {
     top: 70vh !important;
 	}
-/* 	.exportWindow {
-    bottom: -100px;
-	} */
 	.openExportMenu {
     bottom: -100px !important;
 	}
