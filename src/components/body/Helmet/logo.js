@@ -79,19 +79,20 @@ const Logo = (standardValue, nodesConfiguration, setLoader) => {
 			localIdToRemove = [];
 			setLoader(false);
 			setTimeout(() => {
-	viewerIframe.postMessage({
-		action : 'setMaterialsGroups',
-		values : 
-			[
-				{
-					configurationName :`${standardValue.Logo}|${standardValue.Logo_color}`,
-					groupName : 'Logo'
-				}
-			]
-	}, '*');
-	setLoader(true);
+				viewerIframe.postMessage({
+					action : 'setMaterialsGroups',
+					values : 
+						[
+							{
+								configurationName :`${standardValue.Logo}|${standardValue.Logo_color}`,
+								groupName : 'Logo'
+							}
+						]
+				}, '*');
+				setLoader(true);
 			}, '2000');
-		}}
+		}
+	}
 }
 
 export default Logo;

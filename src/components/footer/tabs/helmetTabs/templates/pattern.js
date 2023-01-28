@@ -55,7 +55,7 @@ const Pattern = ({setStandardValue, standardValue, traduction, mySku, setMySku})
 				<PatternShellVertical />
 				<span className="textAction">{traduction.Vertical}</span>
 			</div>
-			<div className={standardValue.Helmet_design === 'around' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Helmet_design:'around'}) & setMySku({...mySku, position5: 'hc'})}>
+			<div className={standardValue.Helmet_design === 'contour' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Helmet_design:'contour'}) & setMySku({...mySku, position5: 'hc'})}>
 				<PatternShellContour />
 				<span className="textAction">{traduction.Around}</span>
 			</div>

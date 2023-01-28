@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-.mc0{fill:#233658;}
-.mc1{fill:#FFFFFF;}
+.mc0{fill:var(--color-principal);}
+.mc1{fill:var(--color-second);}
 
-.lv0{fill:#233658;}
-.st0{fill:#FFFFFF;stroke:#231F20;stroke-width:0.4956;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+.lv0{fill:var(--color-principal);}
+.st0{fill:var(--color-second);stroke:#231F20;stroke-width:0.4956;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
 .st1{fill:#231F20;stroke:#231F20;stroke-width:0.4956;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
 
 html, body, div, span, applet, object, iframe,
@@ -60,17 +60,14 @@ a {
 #site-content {
 	overflow: hidden;
  	width: 100vw;
-	/*height: 100vh; */
 }
 .veldtConfig {
 	overflow: hidden;
-/* 	width: 100vw;
-	height: 100vh; */
 }
 .load {
 	width: 100vw;
 	height: 230px;
-	background: #FFFFFF;
+	background: var(--color-second);
 	z-index: 99;
 	position: absolute;
 	bottom: 0;
@@ -79,17 +76,6 @@ a {
 	opacity: 0.7;
 	filter: blur(5rem);
 }
-/* .loader {
-  border: 8px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 8px solid #233658;
-  width: 120px;
-  height: 120px;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite;
-	margin: auto;
-	z-index: 100;
-} */
 .loadBuy {
 	z-index: 99;
 	position: absolute;
@@ -103,7 +89,7 @@ a {
 .loaderBuy {
   border: 8px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 8px solid #233658;
+  border-top: 8px solid var(--color-principal);
   width: 30px;
   height: 30px;
   -webkit-animation: spin 2s linear infinite; /* Safari */

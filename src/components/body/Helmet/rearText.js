@@ -48,18 +48,18 @@ const RearText = (standardValue, nodesConfiguration, setLoader) => {
 		localIdToRemove = [];
 		setLoader(false);
 			setTimeout(() => {
-		viewerIframe.postMessage({
-			action : 'setMaterialsGroups',
-			values : 
-				[
-					{
-						configurationName : `${standardValue.Rear_text_certification}|${standardValue.Rear_text_size}`,
-						groupName : 'Rear_text'
-					}
-				]
-		}, '*');
-		setLoader(true);
-	}, 2000)
+				viewerIframe.postMessage({
+					action : 'setMaterialsGroups',
+					values : 
+						[
+							{
+								configurationName : `${standardValue.Rear_text_certification}|${standardValue.Rear_text_size}`,
+								groupName : 'Rear_text'
+							}
+						]
+				}, '*');
+				setLoader(true);
+			}, 2000)
 	} else {
 		viewerIframe.postMessage(
 			{
@@ -91,18 +91,18 @@ const RearText = (standardValue, nodesConfiguration, setLoader) => {
 		localIdToRemove = [];
 		setLoader(false);
 			setTimeout(() => {
-		viewerIframe.postMessage({
-			action : 'setMaterialsGroups',
-			values : 
-				[
-					{
-						configurationName : `${standardValue.Rear_text_certification}|${standardValue.Rear_text_size}`,
-						groupName : 'Rear_text'
-					}
-				]
-		}, '*');
-		setLoader(true);
-	}, 2000)
+				viewerIframe.postMessage({
+					action : 'setMaterialsGroups',
+					values : 
+						[
+							{
+								configurationName : `${standardValue.Rear_text_certification}|${standardValue.Rear_text_size}`,
+								groupName : 'Rear_text'
+							}
+						]
+				}, '*');
+				setLoader(true);
+		}, 2000)
 	}
 }
 

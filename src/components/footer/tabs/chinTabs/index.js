@@ -3,12 +3,9 @@ import ArrowLeft from '../../../../../assets/images/arrow_left.svg';
 import ArrowRight from '../../../../../assets/images/arrow_right.svg';
 import ElementData from '../../../../../assets/json/elementChin';
 import Aeration from './templates/aeration';
-import Interior from './templates/interior';
 import MainColor from './templates/main-color';
-import MetalsParts from './templates/metal-parts';
 import Pattern from './templates/pattern';
 import PatternColor from './templates/pattern-color';
-import Trim from './templates/trim';
 import Varnish from './templates/varnish';
 import CameraPosition from '../../../body/Camera/CameraPositionChin';
 

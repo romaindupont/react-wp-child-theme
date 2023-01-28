@@ -21,20 +21,20 @@ const Interior = (standardValue, setLoader, withChin) => {
 		}, '2000');
 
 	} else {
-	setTimeout(() => {
-		viewerIframe.postMessage({
-			action : 'setMaterialsGroups',
-			values : 
-				[
-					{
-						configurationName : standardValue.Interior,
-						groupName : 'Interior'
-					}
-				]
-		}, '*');
-		setLoader(true);
-	}, '2000');
-}
+		setTimeout(() => {
+			viewerIframe.postMessage({
+				action : 'setMaterialsGroups',
+				values : 
+					[
+						{
+							configurationName : standardValue.Interior,
+							groupName : 'Interior'
+						}
+					]
+			}, '*');
+			setLoader(true);
+		}, '2000');
+	}
 }
 
 export default Interior;

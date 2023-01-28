@@ -1,5 +1,5 @@
 .suede_blue {
-	fill:#253658;
+	fill: var(--color-principal);
 }
 .suede_black {
 	fill:#000000;
@@ -267,9 +267,6 @@
 	stroke-linejoin: round;
 	stroke-miterlimit: 10;
 }
-/* .glossy_varnish_st222 {
-	fill:#233658;
-} */
 .mat_varnish_st0 {
 	fill:#939598;
 }
@@ -294,16 +291,16 @@
 	fill:var(--color-border-bottom-header);
 }
 .classic_st0 {
-	fill:#233658;
+	fill:var(--color-principal);
 }
 .dirt_st0 {
-	fill:#233658;
+	fill:var(--color-principal);
 }
 .pixel_st0 {
-	fill:#233658;
+	fill:var(--color-principal);
 }
 .racing_st0 {
-	fill:#233658;
+	fill:var(--color-principal);
 }
 .shell_band_st0 {
 	fill:#FFFFFF;
@@ -582,7 +579,7 @@
 	stroke-miterlimit: 10;
 }
 .screwNone_st1 {
-	fill:#233658;
+	fill:var(--color-principal);
 }
 .screwBottom_st0 {
 	fill:#F2F2F2;
@@ -591,7 +588,7 @@
 	stroke-miterlimit: 10;
 }
 .screwBottom_st1 {
-	fill:#233658;
+	fill:var(--color-principal);
 }
 .screwTop_st0 {
 	fill:#F2F2F2;
@@ -600,7 +597,7 @@
 	stroke-miterlimit: 10;
 }
 .screwTop_st1 {
-	fill:#233658;
+	fill:var(--color-principal);
 }
 .screwAll_st0 {
 	fill:#F2F2F2;
@@ -609,16 +606,16 @@
 	stroke-miterlimit: 10;
 }
 .screwAll_st1 {
-	fill:#233658;
+	fill:var(--color-principal);
 }
 .export_st0 {
-	fill:#233658;
+	fill:var(--color-principal);
 }
 .menuOption {
-	fill:#233658;
+	fill:var(--color-principal);
 }
 .info_logo_st0 {
-	fill:#233658;
+	fill:var(--color-principal);
 }
 svg#info_logo:hover > g > .info_logo_st0 {
 	filter: invert(0.6);
@@ -627,19 +624,19 @@ svg#info_logo:hover > g > .info_logo_st0 {
 	fill:#FFFFFF;
 }
 .closeOption_st101 {
-	fill:#233658;
+	fill:var(--color-principal);
 }
 .exportWindow_closeLogo_st100 {
 	fill:#FFFFFF;
 }
 .exportWindow_closeLogo_st101 {
-	fill:#233658;
+	fill:var(--color-principal);
 }
 .link_st0 {
-	fill:#233658;
+	fill:var(--color-principal);
 }
 .download_st0 {
-	fill:#233658;
+	fill:var(--color-principal);
 }
 .frame_full_st0 {
 	fill:#CCCCCC;

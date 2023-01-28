@@ -1,4 +1,14 @@
-const MenuOption = ({setOpenOptionMenu, elementsOfHelmet, elementsOfChin,	elementsOfVisor, traduction,setHelmetPosition, setChinPosition,	setVisorPosition, tabsCheck, setTabsCheck}) => {
+const MenuOption = ({
+	setOpenOptionMenu, 
+	elementsOfHelmet, 
+	elementsOfChin,	
+	elementsOfVisor, 
+	traduction,
+	setHelmetPosition, 
+	setChinPosition,	
+	setVisorPosition, 
+	setTabsCheck
+}) => {
 	const menuClose = () => {
 		setOpenOptionMenu({
 			name: '',
@@ -45,6 +55,7 @@ const MenuOption = ({setOpenOptionMenu, elementsOfHelmet, elementsOfChin,	elemen
 				visorCheck: false
 			});
 		}
+		menuClose();
 	}
 	return (
 		<div className="menu_option">

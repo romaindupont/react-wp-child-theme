@@ -7,20 +7,20 @@ import { useHorizontalScroll } from "../../../../../../utils/useHorizontalScroll
 
 const Trim = ({setStandardValue, standardValue, traduction, mySku, setMySku}) => {
 	const scrollRef = useHorizontalScroll();
-	const scrollEffect = (e) => {
+	/* const scrollEffect = (e) => {
 		let ratio = 3.5;
 		if(e.target.getBoundingClientRect().width < 900) {
 			let calcul = e.target.clientWidth/ratio - e.target.scrollLeft;
-			if (calcul < `-${e.target.clientWidth/5}`) {
+			if (calcul < `-${e.target.clientWidth/6}`) {
 				e.target.style.transform = `translate3d(-${calcul}, 0px, 0px)`; 
 			}
 			else {
 				e.target.style.transform = `translate3d(${calcul}px, 0px, 0px)`; 
 			}
 		}
-	}
+	} */
 	return (
-		<div className="patternList" onScroll={scrollEffect} ref={scrollRef}>
+		<div className="pickerScrew">
 			<div className={standardValue.Helmet_trim === 'leather|black' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Helmet_trim:'leather|black'}) & setMySku({...mySku, position6: 'htl'})}>
 				<TrimBlackLeather />
 				<span className="textAction">{traduction.BlackLeather}</span>

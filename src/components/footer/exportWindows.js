@@ -20,14 +20,14 @@ const exportWindows = ({setOpenOptionMenu, screenshotsWait, traduction, setScree
 			document.body.removeChild(a);
 		}
 	}
-const saveConfig = () => {
-	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
-	viewerIframe.postMessage({
-		action : 'saveConfiguration',
-		screenshot : false,
-		shortLink : true
-	},'*');
-}
+	const saveConfig = () => {
+		let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
+		viewerIframe.postMessage({
+			action : 'saveConfiguration',
+			screenshot : false,
+			shortLink : true
+		},'*');
+	}
 	return (
 		<div className="exportWindow">
 				<svg version="1.1" id="exportWindow_closeLogo" className="exportWindow_closeLogo" onClick={menuClose}>

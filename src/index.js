@@ -4,6 +4,7 @@ import Header from './components/header';
 import Body from './components/body';
 import Footer from './components/footer';
 import Traduction from '../assets/json/elementHTML';
+import { REACT_APP_BASEURL } from '../env';
 
 const Veldt = () => {
 	const [ mySku, setMySku ] = useState({
@@ -114,7 +115,7 @@ const Veldt = () => {
 		traduction = Traduction[0].en[0];
 	}
 	useEffect(async () => {
-			const baseUrl = 'http://localhost/essai/';
+			const baseUrl = REACT_APP_BASEURL;
 			let myHeaders = {
 				'Content-Type': 'application/json',
         'Accept': 'application/json',

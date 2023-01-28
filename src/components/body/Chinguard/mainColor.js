@@ -1,12 +1,12 @@
 const MainColorChin = (standardValue) => {
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 	let typeColor = standardValue.Chinguard_color_type;
-		if (standardValue.Chinguard_color_type === 'gilding') {
-			typeColor = 'metallic'
-		}
-		else {
-			typeColor = standardValue.Chinguard_color_type;
-		}
+	if (standardValue.Chinguard_color_type === 'gilding') {
+		typeColor = 'metallic'
+	}
+	else {
+		typeColor = standardValue.Chinguard_color_type;
+	}
 	viewerIframe.postMessage({
 		action : 'setMaterialsGroups',
 		values : 

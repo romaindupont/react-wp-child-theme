@@ -7,7 +7,7 @@ export default [{
 			HelmetTitle: 'Helmet',
 			ChinTitle: 'Chinguard',
 			VisorTitle: 'Visor',
-			BuyIT: 'Buy it',
+			BuyIT: 'add to cart',
 			FreeDelivery: 'Free delivery 10 weeks',
 			Money : '$',
 			With: 'With',

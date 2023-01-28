@@ -25,19 +25,19 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 		}
 	}) 
 	let typeColorChin = standardValue.Chinguard_color_type;
-		if (standardValue.Chinguard_color_type === 'gilding') {
-			typeColorChin = 'metallic'
-		}
-		else {
-			typeColorChin = standardValue.Chinguard_color_type;
-		}
-		let typeColorHelmet = standardValue.Helmet_color_type;
-		if (standardValue.Helmet_color_type === 'gilding') {
-			typeColorHelmet = 'metallic'
-		}
-		else {
-			typeColorHelmet = standardValue.Helmet_color_type;
-		}
+	if (standardValue.Chinguard_color_type === 'gilding') {
+		typeColorChin = 'metallic'
+	}
+	else {
+		typeColorChin = standardValue.Chinguard_color_type;
+	}
+	let typeColorHelmet = standardValue.Helmet_color_type;
+	if (standardValue.Helmet_color_type === 'gilding') {
+		typeColorHelmet = 'metallic'
+	}
+	else {
+		typeColorHelmet = standardValue.Helmet_color_type;
+	}
 	let typeDesignHelmet = standardValue.Helmet_design_type;
 	if (standardValue.Helmet_design_type === 'gilding') {
 		typeDesignHelmet = 'metallic'

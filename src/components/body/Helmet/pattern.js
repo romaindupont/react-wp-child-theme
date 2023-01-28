@@ -396,79 +396,79 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 			}, '2000');
 			}
 			else {
-			viewerIframe.postMessage(
-				{
-					action : "updateProductNodesInstances",
-					nodesToAdd :
-						[
-							{
-								parentLocalId: 1,
-								localId: parseInt(`${Noeud[0].helmet.helmetNoGroove.localId}` + Date.now()),
-								matrix: [1, 0, 0, 0,
-								0, 1, 0, 0,
-								0, 0, 1, 0,
-								0, 0, 0, 1],
-								SKU: Noeud[0].helmet.helmetNoGroove.SKU
-							},
-							{
-								parentLocalId: 1,
-								localId: parseInt(`${Noeud[0].helmet.helmetDesignNoGroove.localId}` + Date.now()),
-								matrix: [1, 0, 0, 0,
-								0, 1, 0, 0,
-								0, 0, 1, 0,
-								0, 0, 0, 1],
-								SKU: Noeud[0].helmet.helmetDesignNoGroove.SKU
-							},
-							{
-								parentLocalId: 1,
-								localId: parseInt(`${Noeud[0].helmet.helmetLogoStandard.localId}` + Date.now()),
-								matrix: [1, 0, 0, 0,
-								0, 1, 0, 0,
-								0, 0, 1, 0,
-								0, 0, 0, 1],
-								SKU: Noeud[0].helmet.helmetLogoStandard.SKU
-							}
-						],
-					localIdsToRemove :
-						localIdToRemove
-				}, "*");
-			localIdToRemove = [];
-			setLoader(false);
-			setTimeout(() => {
-				viewerIframe.postMessage({
-					action : 'setMaterialsGroups',
-					values : 
-						[
-							{
-								configurationName : `${typeColorHelmet}|${standardValue.Helmet_color}`,
-								groupName : 'Helmet_color'
-							},
-							{
-								configurationName : `${standardValue.Helmet_design}|${typeDesignHelmet}|${standardValue.Helmet_design_color}`,
-								groupName : 'Helmet_design_color'
-							},
-							{
-								configurationName : standardValue.Interior,
-								groupName : 'Interior'
-							},
-							{
-								configurationName : standardValue.Metal_pieces,
-								groupName : 'Metal_pieces'
-							},
-							{
-								configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
-								groupName : 'Chinguard_color'
-							},
-							{
-								configurationName :`${standardValue.Logo}|${standardValue.Logo_color}`,
-								groupName : 'Logo'
-							}
-						]
-				}, '*');
-				setLoader(true);
-			}, '2000');
+				viewerIframe.postMessage(
+					{
+						action : "updateProductNodesInstances",
+						nodesToAdd :
+							[
+								{
+									parentLocalId: 1,
+									localId: parseInt(`${Noeud[0].helmet.helmetNoGroove.localId}` + Date.now()),
+									matrix: [1, 0, 0, 0,
+									0, 1, 0, 0,
+									0, 0, 1, 0,
+									0, 0, 0, 1],
+									SKU: Noeud[0].helmet.helmetNoGroove.SKU
+								},
+								{
+									parentLocalId: 1,
+									localId: parseInt(`${Noeud[0].helmet.helmetDesignNoGroove.localId}` + Date.now()),
+									matrix: [1, 0, 0, 0,
+									0, 1, 0, 0,
+									0, 0, 1, 0,
+									0, 0, 0, 1],
+									SKU: Noeud[0].helmet.helmetDesignNoGroove.SKU
+								},
+								{
+									parentLocalId: 1,
+									localId: parseInt(`${Noeud[0].helmet.helmetLogoStandard.localId}` + Date.now()),
+									matrix: [1, 0, 0, 0,
+									0, 1, 0, 0,
+									0, 0, 1, 0,
+									0, 0, 0, 1],
+									SKU: Noeud[0].helmet.helmetLogoStandard.SKU
+								}
+							],
+						localIdsToRemove :
+							localIdToRemove
+					}, "*");
+				localIdToRemove = [];
+				setLoader(false);
+				setTimeout(() => {
+					viewerIframe.postMessage({
+						action : 'setMaterialsGroups',
+						values : 
+							[
+								{
+									configurationName : `${typeColorHelmet}|${standardValue.Helmet_color}`,
+									groupName : 'Helmet_color'
+								},
+								{
+									configurationName : `${standardValue.Helmet_design}|${typeDesignHelmet}|${standardValue.Helmet_design_color}`,
+									groupName : 'Helmet_design_color'
+								},
+								{
+									configurationName : standardValue.Interior,
+									groupName : 'Interior'
+								},
+								{
+									configurationName : standardValue.Metal_pieces,
+									groupName : 'Metal_pieces'
+								},
+								{
+									configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
+									groupName : 'Chinguard_color'
+								},
+								{
+									configurationName :`${standardValue.Logo}|${standardValue.Logo_color}`,
+									groupName : 'Logo'
+								}
+							]
+					}, '*');
+					setLoader(true);
+				}, '2000');
+			}
 		}
-	}
 	}
 }
 

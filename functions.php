@@ -309,6 +309,13 @@ function priceTest($request) {
 	
 	return $total;
 }
+add_filter( 'woocommerce_get_price_html', 'cw_change_product_price_display' );
+function cw_change_product_price_display( $price ) {
+	var_dump($price);
+	/* $price = $cart_item['price']; */
+
+	return $price;
+}
 
 add_action( 'rest_api_init', function () {
 	register_rest_route( '/imageHandler/v1', '/upload', array(
@@ -361,7 +368,11 @@ function display_custom_item_data( $cart_item_data, $cart_item ) {
 				$cart_item_data[] = array(
 					'name' => __( 'Config' ),
 					'value' =>  $cart_item['configuration'],
-			);
+				);
+				/* $cart_item_data[] = array(
+					'name' => __( 'Price' ),
+					'value' =>  $cart_item['price'],
+				); */
     }
     return $cart_item_data;
 }

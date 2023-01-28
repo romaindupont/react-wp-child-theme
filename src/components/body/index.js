@@ -68,77 +68,90 @@ const Body = ({
 	const notInitialRenderEleven = useRef(false);
 	const notInitialRenderTwelve = useRef(false);
 	const notInitialRenderThirteen = useRef(false);
-	let helmetAereationListener = (e) => {
-		viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
-		Aeration(viewerIframe, aerationHelmet, nodesConfiguration, setLoader, standardValue) 
-		viewerIframe.postMessage({
-			action : 'getCurrentMaterials'
-		}, '*');
+
+	let updateProduct = () => {
+		viewerIframe.postMessage(
+			{
+				action : "updateProductNodesInstances",
+				nodesToAdd :
+					[
+						Noeud[0].helmet.helmetGroove,
+						Noeud[0].helmet.helmetElements,
+						Noeud[0].helmet.helmetCoatingGroove,
+						Noeud[0].helmet.helmetTrimRubber,
+						Noeud[0].helmet.helmetLogoStandard,
+						Noeud[0].flap.pullingFlapNylon,
+						Noeud[0].screw.screwsBaseHelmet,
+						Noeud[0].screw.screwsSideNoChinguard,
+						Noeud[0].screw.screwsTopNoVisor, 
+						Noeud[0].custom.helmetCarbonWindowECE, 
+					],
+				localIdsToRemove :
+					[]
+			}, 
+			"*"
+			)
+			setTimeout(()=> {
+				updateMaterial()
+			}, 2000)
+				
 	}
-	let viewerEventListener =  function(event){
+	let updateMaterial = () => {
+		viewerIframe.postMessage({
+			action : 'setMaterialsGroups',
+			values : 
+				[
+					{
+						configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
+						groupName : 'Helmet_color'
+					},
+					{
+						configurationName : standardValue.Metal_pieces,
+						groupName : 'Metal_pieces'
+					},
+					{
+						configurationName :`${standardValue.Logo}|${standardValue.Logo_color}`,
+						groupName : 'Logo'
+					},
+					{
+						configurationName : standardValue.Interior,
+						groupName : 'Interior'
+					},
+					{
+						configurationName : standardValue.Helmet_trim,
+						groupName : 'Helmet_trim'
+					},
+				 {
+						configurationName : `${standardValue.Rear_text_certification}|${standardValue.Rear_text_size}`,
+						groupName : 'Rear_text'
+					},
+				]
+			}, '*');
+			setLoader(true);
+	}
+	let play = () => {
+		viewerIframe.postMessage({action : 'play'},'*');
+	}
+	let bgLoad = () => {
+		viewerIframe.postMessage({
+			action : 'setSceneryBackgroundColor',
+			color : '#f2f2f2'
+		},'*');
+	}
+	const viewerEventListener = function(event){
 		if(event.data && event.data.action == 'onStateChange'){
+			console.log(event.data);
 			if(event.data.state.viewerState == 'loaded' || event.data.state.viewerState == 'fallbackloaded'){
 				setLoader(false)
 				viewerActive = true;
-				viewerIframe.postMessage({
-					action : 'setSceneryBackgroundColor',
-					color : '#f2f2f2'
+				bgLoad()
+				/* viewerIframe.postMessage({
+					action : 'freezeRendering'
 				},'*');
-				viewerIframe.postMessage(
-				{
-					action : "updateProductNodesInstances",
-					nodesToAdd :
-						[
-							Noeud[0].helmet.helmetGroove,
-							Noeud[0].helmet.helmetElements,
-							Noeud[0].helmet.helmetCoatingGroove,
-							Noeud[0].helmet.helmetTrimRubber,
-							Noeud[0].helmet.helmetLogoStandard,
-							Noeud[0].flap.pullingFlapNylon,
-							Noeud[0].screw.screwsBaseHelmet,
-							Noeud[0].screw.screwsSideNoChinguard,
-							Noeud[0].screw.screwsTopNoVisor, 
-							Noeud[0].custom.helmetCarbonWindowECE, 
-						],
-					localIdsToRemove :
-						[]
-				}, 
-				"*"
-				);
-				setTimeout(() => {
+
 				viewerIframe.postMessage({
-					action : 'setMaterialsGroups',
-					values : 
-						[
-							{
-								configurationName : `${standardValue.Helmet_color_type}|${standardValue.Helmet_color}`,
-								groupName : 'Helmet_color'
-							},
-							{
-								configurationName : standardValue.Metal_pieces,
-								groupName : 'Metal_pieces'
-							},
-							{
-								configurationName :`${standardValue.Logo}|${standardValue.Logo_color}`,
-								groupName : 'Logo'
-							},
-							{
-								configurationName : standardValue.Interior,
-								groupName : 'Interior'
-							},
-							{
-								configurationName : standardValue.Helmet_trim,
-								groupName : 'Helmet_trim'
-							},
-							{
-								configurationName : `${standardValue.Rear_text_certification}|${standardValue.Rear_text_size}`,
-								groupName : 'Rear_text'
-							},	
-						]
-					}, '*');
-				setLoader(true);
-				}, '2000');
-				viewerIframe.postMessage({action : 'play'},'*');
+					action : 'unfreezeRendering'
+				},'*'); */
 			}
 		}
 		if(event.data && event.data.action == 'onScreenshots'){
@@ -182,6 +195,12 @@ const Body = ({
 				action : 'getCurrentMaterials'
 			}, '*');
 		}
+		if(event.data && event.data.action == 'onSuccess') {
+			console.log(event,'succès');
+		}
+		if(event.data.action == 'onSuccess' && event.data.callAction === 'setSceneryBackgroundColor') {
+			updateProduct()
+		}
 		if(event.data && event.data.action == 'onSuccess' && event.data.callAction == 'updateProductNodesInstances'){
 			viewerIframe.postMessage(
 				{
@@ -193,16 +212,19 @@ const Body = ({
 		}
 	};
 	window.addEventListener('load', function() {
-		viewerIframe = document.getElementById('emersyaIframe').contentWindow;  
+		viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 		window.removeEventListener('message', viewerEventListener, false);
 		viewerIframe.postMessage({ 
 			action : "registerCallback" 
 		}, '*');
 		window.addEventListener('message', viewerEventListener, false);
+		viewerIframe.postMessage({
+			action:'getViewerState'
+	}, '*')
 	}, false);
  	useEffect(() => {
 		if (notInitialRender.current) {
-			helmetAereationListener();
+			Aeration(aerationHelmet, nodesConfiguration, setLoader, standardValue) 
 		} else {
 			notInitialRender.current = true;
 		}
@@ -291,7 +313,7 @@ const Body = ({
 			notInitialRender.current = true;
 		}
 	}, [rightNumberWindow]);
-useEffect(() => {
+	useEffect(() => {
 		if (notInitialRender.current) {
 			Engraving(backEngraving, nodesConfiguration, setLoader, standardValue);
 		} else {
@@ -347,9 +369,9 @@ useEffect(() => {
 			notInitialRenderTwelve.current = true;
 		}
 	}, [standardValue.Visor_peak_color, standardValue.Visor_peak_type, standardValue.Visor_color, standardValue.Visor_type, standardValue.Visor_frame, tabsChoice.visor]);
-	useEffect(() => {
+	/* useEffect(() => {
 		console.log(nodesConfiguration)
-	}, [nodesConfiguration]);	
+	}, [nodesConfiguration]);	 */
 	return (
 		<main className="configurator" id="configurator">
 			<iframe

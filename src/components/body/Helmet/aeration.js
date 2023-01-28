@@ -1,7 +1,8 @@
 import Noeud from '../../../../assets/json/helmetid';
 
-const Aeration = (viewerIframe, aerationHelmet, nodesConfiguration, setLoader, standardValue) => {
+const Aeration = (aerationHelmet, nodesConfiguration, setLoader, standardValue) => {
 	let localIdToRemove = [];
+	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 	nodesConfiguration.find((nodes) => { 
 		if (nodes.SKU === 'helmetDesign_groove') {
 			localIdToRemove.push(nodes.localId);

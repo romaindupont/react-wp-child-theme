@@ -10,12 +10,12 @@ const Engraving = async (backEngraving, nodesConfiguration,setLoader, standardVa
 		if (nodes.SKU === 'custom_backEngravingDOT') {
 			localIdToRemove.push(nodes.localId);
 		}
-		if (nodes.SKU === 'helmet_carbonWindowECE') {
+/* 		if (nodes.SKU === 'helmet_carbonWindowECE') {
 			localIdToRemove.push(nodes.localId);
 		}
 		if (nodes.SKU === 'helmet_carbonWindowDOT') {
 			localIdToRemove.push(nodes.localId);
-		}
+		} */
 	}) 
 	if (backEngraving) {
 		if (standardValue.Rear_text_certification === 'DOT') {
@@ -32,15 +32,6 @@ const Engraving = async (backEngraving, nodesConfiguration,setLoader, standardVa
 								0, 0, 1, 0,
 								0, 0, 0, 1],
 								SKU: Noeud[0].custom.rearEngravingDOT.SKU
-							},
-							{
-								parentLocalId: 1,
-								localId: parseInt(`${Noeud[0].custom.helmetCarbonWindowDOT.localId}` + Date.now()),
-								matrix: [1, 0, 0, 0,
-								0, 1, 0, 0,
-								0, 0, 1, 0,
-								0, 0, 0, 1],
-								SKU: Noeud[0].custom.helmetCarbonWindowDOT.SKU
 							}
 						],
 					localIdsToRemove :
@@ -61,15 +52,6 @@ const Engraving = async (backEngraving, nodesConfiguration,setLoader, standardVa
 								0, 0, 1, 0,
 								0, 0, 0, 1],
 								SKU: Noeud[0].custom.rearEngravingECE.SKU
-							},
-							{
-								parentLocalId: 1,
-								localId: parseInt(`${Noeud[0].custom.helmetCarbonWindowECE.localId}` + Date.now()),
-								matrix: [1, 0, 0, 0,
-								0, 1, 0, 0,
-								0, 0, 1, 0,
-								0, 0, 0, 1],
-								SKU: Noeud[0].custom.helmetCarbonWindowECE.SKU
 							}
 						],
 					localIdsToRemove :

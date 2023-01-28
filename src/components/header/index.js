@@ -2,7 +2,7 @@ const { useState } = wp.element;
 import VeldtLogo from '../../../assets/images/veldt-logo.svg';
 import { MakeAnObjectToOrder } from '../../../utils/ObjectOrder';
 import ScreenShot from '../body/Camera/ScreenShot';
-
+import { REACT_APP_BASEURL } from '../../../env';
 
 const Header = ({
 	traduction,
@@ -25,7 +25,7 @@ const Header = ({
 	withVisor,
 	price
 }) => {
-	const baseUrl = 'http://localhost/essai/';
+	const baseUrl = REACT_APP_BASEURL;
 	const [ buyLoader, setBuyLoader] = useState(false);
 	var _nonce = "<?php echo wp_create_nonce( 'wc_store_api' ); ?>";
 	const screen = () => {
@@ -68,12 +68,14 @@ const Header = ({
 			withVisor
 		);
 		let newConfig = JSON.parse(configuration);
+		let customPrice = {"price": price}
+		console.log(customPrice);
 		let myInit2 = { 
 			method: 'POST',
 			headers: myHeaders,
 			mode: 'cors',
 			cache: 'default',
-			body: JSON.stringify(newConfig)
+			body: JSON.stringify(newConfig), customPrice
 		};
 		await fetch(`${baseUrl}wp-json/imageHandler/v1/upload`, myInit)
 			.then(response => response.text())

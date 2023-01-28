@@ -1,4 +1,12 @@
-const VisorTypeChoice = ({setTypeChoice, setStandardValue,	standardValue, traduction, withChin, mySku, setMySku}) => {
+const VisorTypeChoice = ({
+	setTypeChoice, 
+	setStandardValue,	
+	standardValue, 
+	traduction, 
+	withChin, 
+	mySku, 
+	setMySku
+}) => {
 	const clickChoice = (e) => {
 		setTypeChoice(e.target.value);
 		setStandardValue({...standardValue, Visor_type: e.target.value})

@@ -23,7 +23,7 @@ const VisorPeakPage = ({setStandardValue,	standardValue, traduction, mySku, setM
 				<label className={standardValue.Visor_peak_type === 'metallic' ? 'selectButton' : 'buttonChoice'} htmlFor="metallic">{traduction.Metallic}</label>
 				<input className="inputVisor_peak" type="radio" name="peak_visor" id="glitter" value="glitter" onClick={()=>setStandardValue({...standardValue, Visor_peak_type:'glitter'})}/>
 				<label className={standardValue.Visor_peak_type === 'glitter' ? 'selectButton' : 'buttonChoice'} htmlFor="glitter">{traduction.Glitter}</label>
-				<input className="inputVisor_peak" type="radio" name="peak_visor" id="gilding" value="gilding" onClick={()=>setStandardValue({...standardValue, Visor_peak_type:'gilding'})}/>
+				<input className="inputVisor_peak" type="radio" name="peak_visor" id="gilding" value="gilding" onClick={()=>setStandardValue({...standardValue, Visor_peak_type:'gilding', Visor_peak_color:'copper foil'})}/>
 				<label className={standardValue.Visor_peak_type === 'gilding' ? 'selectButton' : 'buttonChoice'} htmlFor="gilding">{traduction.Gilding}</label>
 			</div>
 			<div className="colorList" onScroll={scrollEffect} ref={scrollRef}>
@@ -48,7 +48,7 @@ const VisorPeakPage = ({setStandardValue,	standardValue, traduction, mySku, setM
 					<div className={standardValue.Visor_peak_color === 'fluo yellow' ? 'selectColor' : 'colorP'} onClick={()=>setStandardValue({...standardValue, Visor_peak_color:'fluo yellow'}) & setMySku({...mySku, position3: 'vp'})}><div className="roundColor fluoYellow"></div><span className="textAction">{traduction.FluoYellow}</span></div>
 					<div className={standardValue.Visor_peak_color === 'fluo pink' ? 'selectColor' : 'colorP'} onClick={()=>setStandardValue({...standardValue, Visor_peak_color:'fluo pink'}) & setMySku({...mySku, position3: 'vp'})}><div className="roundColor fluoPink"></div><span className="textAction">{traduction.FluoPink}</span></div>
 				</>
-				: standardValue.Chinguard_design_type === 'metallic' || standardValue.Chinguard_design_type === 'glitter' ? 
+				: standardValue.Visor_peak_type === 'metallic' || standardValue.Visor_peak_type === 'glitter' ? 
 				<>
 					<div className={standardValue.Visor_peak_color === 'white' ? 'selectColor' : 'colorP'} onClick={()=>setStandardValue({...standardValue, Visor_peak_color:'white'}) & setMySku({...mySku, position3: 'vw'})}><div className="roundColor white"></div><span className="textAction">{traduction.White}</span></div>
 					<div className={standardValue.Visor_peak_color === 'black' ? 'selectColor' : 'colorP'} onClick={()=>setStandardValue({...standardValue, Visor_peak_color:'black'}) & setMySku({...mySku, position3: 'vb'})}><div className="roundColor black"></div><span className="textAction">{traduction.Black}</span></div>

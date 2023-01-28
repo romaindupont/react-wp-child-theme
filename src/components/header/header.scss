@@ -32,7 +32,7 @@
 	justify-content: center;
 }
 .header-configurator-left-title-2 {
-	color: #233658;
+	color: var(--color-principal);
 	font-size: 1rem;
 	text-transform: uppercase;
 	font-weight: 600;
@@ -96,7 +96,7 @@ button.header-configurator-right-priceZone-buy:hover {
 	content: '';
 	width: 0;
 	height: 5px;
-	background: #233658;
+	background: var(--color-principal);
 	position: absolute;
 	bottom: 0;
 }
@@ -119,7 +119,7 @@ button.header-configurator-right-priceZone-buy:hover {
 a.sub-menu--a,
 .sub_item {
 	text-decoration: none;
-	color: #233658 !important;
+	color: var(--color-principal) !important;
 	font-size: 1rem;
 	text-transform: uppercase;
 	color: var(--button-config-color);
@@ -162,7 +162,7 @@ li.sub-menu--li {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	color: #233658 !important;
+	color: var(--color-principal) !important;
 	font-size: 1rem;
 	text-transform: uppercase;
 	color: var(--button-config-color);
@@ -189,7 +189,7 @@ a.personnalize {
 	font-size: 0.7rem;
 	text-transform: uppercase;
 	font-weight: 400;
-	background: #233658;
+	background: var(--color-principal);
 	padding: 0.2rem 0.4rem;
 	border-radius: 25px;
 	justify-content: center;
@@ -257,7 +257,7 @@ a.personnalize {
 	cursor: pointer;
 	position: absolute;
 	right: 0;
-	fill: #233658;
+	fill: var(--color-principal);
 }
 .cross{
 	fill: var(--color-principal);
@@ -268,7 +268,7 @@ nav.first_menu-configurator-nav--2 {
 	position: absolute;
 	top: 0;
 	left: 20%;
-	background: white;
+	background: var(--color-principal);
 	display: flex;
 	visibility: visible;
 	position: absolute;
@@ -286,7 +286,7 @@ nav.first_menu-configurator-nav--2 {
 	height: 25px;
 	position: absolute;
 	right: -25%;
-	background: #233658;
+	background: var(--color-principal);
 }
 
 .menuImageToBuy {
@@ -330,6 +330,7 @@ and (max-device-width : 768px) {
 	}
 	.header-configurator-right-priceZone-price {
     margin-right: 0rem;
+		/* width: 100%; */
 	}
 	.first_menu-configurator-nav > #menu-main-menu > .mark1 > .menu-depth-1,  .first_menu-configurator-nav > #menu-main-menu > .mark2 > .menu-depth-1 {
 		background: var(--background-menu);
@@ -362,10 +363,10 @@ and (max-device-width : 768px) {
 		right: 100px;
 	}
 	button.header-configurator-right-priceZone-buy {
-		width: 100px;
+		width: 150px;
 	}
 	.header-configurator-right {
-		margin: 0.5rem;
+		margin: 0.5rem 15px;
 	}
 }
 /* iPads (portrait and landscape) ----------- */
