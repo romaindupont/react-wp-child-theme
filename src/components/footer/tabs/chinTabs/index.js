@@ -8,6 +8,7 @@ import Pattern from './templates/pattern';
 import PatternColor from './templates/pattern-color';
 import Varnish from './templates/varnish';
 import CameraPosition from '../../../body/Camera/CameraPositionChin';
+import matchToHelmet from '../../../body/Chinguard/matchToHelmet';
 
 const ChinTabs = ({
 	aerationChin,
@@ -89,12 +90,14 @@ const ChinTabs = ({
 						<div className="template">
 							{
 							chinPosition.fileName === 'chinguard' ?
+							<>
 							<div className="aerationList">
 							<div className="aerationDisplay">
 								<span className={withChin ? 'buttonChoice' : 'selectButton'} onClick={()=>setTabsChoice({...tabsChoice, chin: false}) & setWithChin(false) & setMySku({...mySku, position2: 'xx'}) & CameraPosition('chinguard')}>{traduction.Without}</span>
 								<span className={withChin ? 'selectButton' : 'buttonChoice'} onClick={()=>setTabsChoice({...tabsChoice, chin: true}) & setWithChin(true) & setMySku({...mySku, position2: 'ch'}) & CameraPosition('chinguard')}>{traduction.With}</span>
 							</div>
 						</div>
+							<button className="matchButton" onClick={()=>matchToHelmet(standardValue, setStandardValue)}><span>Match all helmet option</span></button></>
 						:  
 							chinPosition.fileName === 'aeration' ?
 								<Aeration

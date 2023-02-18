@@ -32,14 +32,14 @@ const LeftNumber = ({
 				color : '#FFFFFF',
 				backgroundColor : '#000000',
 				italic : false,
-				bold : true,
-				imageWidth : 1024,
+				bold : false,
+				imageWidth : 512,
 				imageHeight : 512,
 				verticalAlignment : 'middle',
 				horizontalAlignment : 'middle',
-				size : 350,
+				size : 250,
 				textOffsetY : 70,
-				textOffsetX : -30,
+				textOffsetX : 0,
 				text : leftNumberInput.numberText,
 				font : leftNumberInput.numberStyle,
 				underline : false,
@@ -53,7 +53,7 @@ const LeftNumber = ({
 			values : 
 				[
 					{
-						configurationName : `${leftNumberInput.numberColorType}|${leftNumberInput.numberColor}`,
+						configurationName : `${typeColor}|${leftNumberInput.numberColor}`,
 						groupName : 'Numbering_left_color'
 					}
 				]

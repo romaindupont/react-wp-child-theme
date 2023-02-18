@@ -69,6 +69,36 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 		else {
 			typeDesignChin = standardValue.Chinguard_design_type;
 		}
+		let leatherOrRubber = {
+			parentLocalId: 1,
+			localId: parseInt(`${Noeud[0].chinguard.chinguardTrimRubber.localId}` + Date.now()),
+			matrix: [1, 0, 0, 0,
+			0, 1, 0, 0,
+			0, 0, 1, 0,
+			0, 0, 0, 1],
+			SKU: Noeud[0].chinguard.chinguardTrimRubber.SKU
+		}
+		if (standardValue.Helmet_trim.includes('leather')) {
+			leatherOrRubber = {
+				parentLocalId: 1,
+				localId: parseInt(`${Noeud[0].chinguard.chinguardTrimLeather.localId}` + Date.now()),
+				matrix: [1, 0, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1],
+				SKU: Noeud[0].chinguard.chinguardTrimLeather.SKU
+			}
+		} else {
+			leatherOrRubber = {
+				parentLocalId: 1,
+				localId: parseInt(`${Noeud[0].chinguard.chinguardTrimRubber.localId}` + Date.now()),
+				matrix: [1, 0, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1],
+				SKU: Noeud[0].chinguard.chinguardTrimRubber.SKU
+			}
+		}
 	if (tabsChoice.chin) {
 		if (!aerationChin) {
 			if (standardValue.Chinguard_design === 'plain' || standardValue.Chinguard_design === '') {
@@ -104,15 +134,7 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 									0, 0, 0, 1],
 									SKU: Noeud[0].chinguard.chinguardCoatingNoGroove.SKU
 								},
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].chinguard.chinguardTrimRubber.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].chinguard.chinguardTrimRubber.SKU
-								},
+								leatherOrRubber,
 								{
 									parentLocalId: 1,
 									localId: parseInt(`${Noeud[0].screw.screwsBaseChinguard.localId}` + Date.now()),
@@ -213,15 +235,7 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 									0, 0, 0, 1],
 									SKU: Noeud[0].chinguard.chinguardCoatingNoGroove.SKU
 								},
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].chinguard.chinguardTrimRubber.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].chinguard.chinguardTrimRubber.SKU
-								},
+								leatherOrRubber,
 								{
 									parentLocalId: 1,
 									localId: parseInt(`${Noeud[0].screw.screwsBaseChinguard.localId}` + Date.now()),
@@ -323,15 +337,7 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 									0, 0, 0, 1],
 									SKU: Noeud[0].chinguard.chinguardCoatingGroove.SKU
 								},
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].chinguard.chinguardTrimRubber.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].chinguard.chinguardTrimRubber.SKU
-								},
+								leatherOrRubber,
 								{
 									parentLocalId: 1,
 									localId: parseInt(`${Noeud[0].screw.screwsBaseChinguard.localId}` + Date.now()),
@@ -432,15 +438,7 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 									0, 0, 0, 1],
 									SKU: Noeud[0].chinguard.chinguardCoatingGroove.SKU
 								},
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].chinguard.chinguardTrimRubber.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].chinguard.chinguardTrimRubber.SKU
-								},
+								leatherOrRubber,
 								{
 									parentLocalId: 1,
 									localId: parseInt(`${Noeud[0].screw.screwsBaseChinguard.localId}` + Date.now()),

@@ -69,7 +69,6 @@ const Header = ({
 		);
 		let newConfig = JSON.parse(configuration);
 		let customPrice = {"price": price}
-		console.log(customPrice);
 		let myInit2 = { 
 			method: 'POST',
 			headers: myHeaders,

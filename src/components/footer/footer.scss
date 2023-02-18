@@ -216,12 +216,12 @@ svg#menu_option {
 	width: 45%;
 	height: 10%;
 	background: #e9e4e4;;
-	bottom: 30%;
+	bottom: 20%;
 	z-index: 101;
 	box-shadow: 0px 0px 5px 1px black;
 	left: 50%;
 	transform: translate(-50%,-50%);
-	border-radius: 15px;
+	border-radius: 10px;
 	color: var(--color-principal);
 }
 .popupHelp > #popupHelp_closeLogo {
@@ -237,9 +237,9 @@ svg#menu_option {
 }
 .messagesHelp {
 	text-align: center;
-	margin-top: 1.6rem;
+	margin: auto;
 	text-transform: uppercase;
-	font-size: 0.7rem;
+	font-size: 1rem;
 	font-style: italic;
 	width: 100%;
 	flex-wrap: wrap;
@@ -402,7 +402,7 @@ svg#menu_option {
 	font-family: var(--font-family);
 }
 .allScrew:hover > .textAction {
-	visibility: visible;
+	/* visibility: visible; */
 }
 .Select > .textAction {
 	visibility: visible;
@@ -825,7 +825,7 @@ svg#link, svg#download {
 }
 .footer-configurator-header-left {
 	position: relative;
-	width: 90px;
+	width: 70px;
 	display: flex;
 	height: 50px;
 	z-index: 99;
@@ -837,6 +837,13 @@ svg#link, svg#download {
 	font-weight: 600;
 	color: var(--color-principal);
 	font-family: var(--font-family);
+}
+
+.titleSize {
+	color: var(--tabs-notChecked-color);
+	text-transform: uppercase;
+	font-size: .8rem;
+	margin: 5px 0px;
 }
 @media (min-width : 320px) {
 	.sd-tabs > .sd-tab-label::after,
@@ -981,7 +988,7 @@ svg#link, svg#download {
     overflow-y: hidden;
 		-ms-overflow-style: none;
 		overflow: -moz-scrollbars-none;
-		transform: translate3d(50%, 0px, 0px);
+		transform: translate3d(30%, 0px, 0px);
 	}
 	.template > .sizeChoice + .pickerScrew:-webkit-scrollbar {
     height: 0px;
@@ -990,7 +997,7 @@ svg#link, svg#download {
 		justify-content: flex-start;
 		overflow-y: hidden;
     overflow-x: scroll;
-		transform: translate3d(50%, 0px, 0px);
+		transform: translate3d(30%, 0px, 0px);
 		-ms-overflow-style: none;
 		overflow: -moz-scrollbars-none;
 	}
@@ -1032,7 +1039,7 @@ svg#link, svg#download {
     justify-content: space-evenly;
 	}
 	.certifChoice {
-		margin-top: 10px;
+		/* margin-top: 10px; */
 	}
 	.infosNumber {
 		width: 300px;
@@ -1208,7 +1215,7 @@ svg#link, svg#download {
 		display: none;
 	}
 	.sd-tabs > .sd-tab-content {
-    height: 20vh;
+    height: 25vh;
 	}
 	.sd-tabs > .sd-tab-label::after,
 	.sd-tabs > .sd-tab-label::before {
@@ -1275,7 +1282,7 @@ svg#link, svg#download {
 		flex-direction: row;
 	}
 	.exportWindow > div {
-		width: 35%;
+		/* width: 35%; */
 	}
  .openExportMenu {
 		bottom: -100px;
@@ -1308,11 +1315,11 @@ svg#link, svg#download {
 		width: 100vw;
 	}
 	.openNumberWindows {
-		top: -50px;
+		/* top: -50px; */
 	}
 	.popupHelp {
-		width: 45%;
-		height: 10%;
+		width: 800px;
+		height: 100px;
 	}
 	.buttonChoice, .buttonAdd, .SizebuttonChoice, .selectButton {	
 		width: 150px;

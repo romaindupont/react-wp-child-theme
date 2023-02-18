@@ -1,4 +1,4 @@
-const { useEffect, useRef } = wp.element;
+const { useEffect, useRef, useCallback } = wp.element;
 import Noeud from '../../../assets/json/helmetid';
 import Aeration from './Helmet/aeration';
 import ScrewFunction from './Helmet/screw';
@@ -145,13 +145,6 @@ const Body = ({
 				setLoader(false)
 				viewerActive = true;
 				bgLoad()
-				/* viewerIframe.postMessage({
-					action : 'freezeRendering'
-				},'*');
-
-				viewerIframe.postMessage({
-					action : 'unfreezeRendering'
-				},'*'); */
 			}
 		}
 		if(event.data && event.data.action == 'onScreenshots'){
@@ -211,17 +204,26 @@ const Body = ({
 			console.log(event)
 		}
 	};
-	window.addEventListener('load', function() {
-		viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
-		window.removeEventListener('message', viewerEventListener, false);
-		viewerIframe.postMessage({ 
-			action : "registerCallback" 
-		}, '*');
+
+	const iframeRef = useRef(null)
+	const onLoadIframe = () => {
+		viewerIframe = iframeRef.current ? iframeRef.current.contentWindow || iframeRef.current.contentDocument.defaultView : null;
+		viewerIframe.postMessage({ action: 'registerCallback' }, '*');
+		viewerIframe.postMessage({ action: 'getViewerState' }, '*');
+	}
+	const setIframeRef = useCallback(iframe => {
+		if (iframeRef.current) {
+			iframeRef.current.removeEventListener('load', onLoadIframe)
+		}
+		iframeRef.current = iframe
+		if (iframeRef.current) {
+			iframeRef.current.addEventListener('load', onLoadIframe)
+		}
+	}, [])
+	useEffect(() => {
 		window.addEventListener('message', viewerEventListener, false);
-		viewerIframe.postMessage({
-			action:'getViewerState'
-	}, '*')
-	}, false);
+		return () => window.removeEventListener('message', viewerEventListener, false);
+	}, [])
  	useEffect(() => {
 		if (notInitialRender.current) {
 			Aeration(aerationHelmet, nodesConfiguration, setLoader, standardValue) 
@@ -369,12 +371,13 @@ const Body = ({
 			notInitialRenderTwelve.current = true;
 		}
 	}, [standardValue.Visor_peak_color, standardValue.Visor_peak_type, standardValue.Visor_color, standardValue.Visor_type, standardValue.Visor_frame, tabsChoice.visor]);
-	/* useEffect(() => {
+	useEffect(() => {
 		console.log(nodesConfiguration)
-	}, [nodesConfiguration]);	 */
+	}, [nodesConfiguration]);	
 	return (
-		<main className="configurator" id="configurator">
+		<main className={downMenu ? "configuratorDownContent" : "configurator"} id="configurator">
 			<iframe
+			ref={setIframeRef}
 				id="emersyaIframe"
 				className={downMenu ? 'openTabs' : ''}
 				src="https://emersya.com/showcase/W3C2GS773F"

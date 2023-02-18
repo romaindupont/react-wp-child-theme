@@ -32,6 +32,10 @@ const Interior = ({setStandardValue, standardValue, traduction, mySku, setMySku}
 				<InteriorSuedeBlack />
 				<span className="textAction">{traduction.SuedeBlack}</span>
 			</div>
+			<div className={standardValue.Interior === 'suede|beige' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Interior:'suede|beige'}) & setMySku({...mySku, position7: 'hif'})}>
+				<InteriorFabricBeige />
+				<span className="textAction">{traduction.FabricBeige}</span>
+			</div>
 			<div className={standardValue.Interior === 'leather|brown' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Interior:'leather|brown'}) & setMySku({...mySku, position7: 'til'})}>
 				<InteriorLeatherBrown />
 				<span className="textAction">{traduction.LeatherBrown}</span>
@@ -40,9 +44,9 @@ const Interior = ({setStandardValue, standardValue, traduction, mySku, setMySku}
 				<InteriorLeatherBlack />
 				<span className="textAction">{traduction.LeatherBlack}</span>
 			</div>
-			<div className={standardValue.Interior === 'suede|beige' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Interior:'suede|beige'}) & setMySku({...mySku, position7: 'hif'})}>
-				<InteriorFabricBeige />
-				<span className="textAction">{traduction.FabricBeige}</span>
+			<div className={standardValue.Interior === 'leather|red' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Interior:'leather|red'}) & setMySku({...mySku, position7: 'til'})}>
+				<InteriorLeatherRed />
+				<span className="textAction">{traduction.LeatherRed}</span>
 			</div>
 			<div className={standardValue.Interior === 'tartan|red' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Interior:'tartan|red'}) & setMySku({...mySku, position7: 'hif'})}>
 				<InteriorFabricTartanRed />
@@ -51,10 +55,6 @@ const Interior = ({setStandardValue, standardValue, traduction, mySku, setMySku}
 			<div className={standardValue.Interior === 'tartan|white' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Interior:'tartan|white'}) & setMySku({...mySku, position7: 'hif'})}>
 				<InteriorFabricTartanWhite />
 				<span className="textAction">{traduction.TartanWhite}</span>
-			</div>
-			<div className={standardValue.Interior === 'leather|red' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Interior:'leather|red'}) & setMySku({...mySku, position7: 'til'})}>
-				<InteriorLeatherRed />
-				<span className="textAction">{traduction.LeatherRed}</span>
 			</div>
 		</div>
 	)

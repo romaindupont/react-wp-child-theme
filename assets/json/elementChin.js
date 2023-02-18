@@ -29,11 +29,6 @@ export default [{
 			fileName : 'varnish',
 			title: 'varnish',
 			helpMessage: 'Choose the finishing varnish'
-		},
-		{
-			fileName : 'metal-parts',
-			title: 'metal parts',
-			helpMessage: 'Choose the color of the metal parts'
 		}
 	],
 	"fr": [

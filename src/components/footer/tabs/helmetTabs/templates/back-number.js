@@ -32,13 +32,13 @@ const BackNumber = ({
 				color : '#FFFFFF',
 				backgroundColor : '#000000',
 				italic : false,
-				bold : true,
-				imageWidth : 1024,
+				bold : false,
+				imageWidth : 512,
 				imageHeight : 512,
 				verticalAlignment : 'middle',
 				horizontalAlignment : 'middle',
-				size : 350,
-				textOffsetY : 0,
+				size : 300,
+				textOffsetY : 150,
 				textOffsetX : 0,
 				text : backNumberInput.numberText,
 				font : backNumberInput.numberStyle,
@@ -53,7 +53,7 @@ const BackNumber = ({
 			values : 
 				[
 					{
-						configurationName : `${backNumberInput.numberColorType}|${backNumberInput.numberColor}`,
+						configurationName : `${typeColor}|${backNumberInput.numberColor}`,
 						groupName : 'Numbering_back_color'
 					}
 				]

@@ -32,14 +32,14 @@ const RightNumber = ({
 				color : '#FFFFFF',
 				backgroundColor : '#000000',
 				italic : false,
-				bold : true,
-				imageWidth : 1024,
+				bold : false,
+				imageWidth : 512,
 				imageHeight : 512,
 				verticalAlignment : 'middle',
 				horizontalAlignment : 'middle',
-				size : 350,
+				size : 250,
 				textOffsetY : 70,
-				textOffsetX : -30,
+				textOffsetX : 0,
 				text : rightNumberInput.numberText,
 				font : rightNumberInput.numberStyle,
 				underline : false,
@@ -53,7 +53,7 @@ const RightNumber = ({
 			values : 
 				[
 					{
-						configurationName : `${rightNumberInput.numberColorType}|${rightNumberInput.numberColor}`,
+						configurationName : `${typeColor}|${rightNumberInput.numberColor}`,
 						groupName : 'Numbering_right_color'
 					}
 				]

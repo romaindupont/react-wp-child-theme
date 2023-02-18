@@ -107,9 +107,9 @@ export default [{
 			VisorChoiceShort: 'short',
 			VisorChoiceLong: 'long',
 			VisorChoicePeak: 'peak',
-			TitaniumMetalParts: 'titanium',
-			BlackMetalParts: 'black',
-			GoldMetalParts: 'copper Foil',
+			TitaniumMetalParts: 'Titanium',
+			BlackMetalParts: 'Black',
+			GoldMetalParts: 'Copper Foil',
 			YourText: 'Your Text',
 			None: 'none',
 			Bottom: 'Bottom',
@@ -120,7 +120,9 @@ export default [{
 			TartanRed: 'Tartan Red',
 			TartanWhite: 'Tartan White',
 			LeatherRed: 'Leather Red',
-			BlueRubber: 'Blue Rubber'
+			BlueRubber: 'Blue Rubber',
+			ChooseSize: 'Choose your size',
+			ChooseCertification: 'Choose your certification'
 		}
 	],
 	"fr": [
@@ -231,9 +233,9 @@ export default [{
 			VisorChoiceShort: 'court',
 			VisorChoiceLong: 'long',
 			VisorChoicePeak: 'visière',
-			TitaniumMetalParts: 'titane',
-			BlackMetalParts: 'noire',
-			GoldMetalParts: 'dorée',
+			TitaniumMetalParts: 'Titane',
+			BlackMetalParts: 'Noire',
+			GoldMetalParts: 'Dorée',
 			YourText: 'Votre Texte',
 			None: 'Aucun',
 			Bottom: 'Bas',
@@ -244,7 +246,9 @@ export default [{
 			TartanRed : 'Tartan Rouge',
 			TartanWhite : 'Tartan blanc',
 			LeatherRed : 'Cuir Rouge',
-			BlueRubber: 'rubber bleu'
+			BlueRubber: 'rubber bleu',
+			ChooseSize: 'Choisir une taille',
+			ChooseCertification: 'Choisir une certification'
 		}
 	]
 }]

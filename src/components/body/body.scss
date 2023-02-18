@@ -1,4 +1,4 @@
-.configurator {
+.configurator, .configuratorDownContent {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -33,7 +33,7 @@ div#testPanelCtn {
 	#emersyaIframe {
 		max-height: 80%;
 	}
-	.configurator {
+	.configurator, .configuratorDownContent {
 		height: 90vh;
 	}
 	
@@ -47,7 +47,12 @@ div#testPanelCtn {
 }
 @media (min-width : 1224px) {
 	.configurator {
+		height: 80vh;
+		transition: all 1s ease-in-out;
+	}
+	.configuratorDownContent {
 		height: 95vh;
+		transition: all 1s ease-in-out;
 	}
 }
 @media (min-width : 1400px) {}
