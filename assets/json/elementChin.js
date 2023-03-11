@@ -5,11 +5,7 @@ export default [{
 			title: 'chinguard',
 			helpMessage: 'Choose to add or not chinguard'
 		},
-		{
-			fileName : 'aeration',
-			title: 'aeration',
-			helpMessage: 'Choose if you want aeration or not'
-		},
+	
 		{
 			fileName : 'pattern',
 			title: 'pattern',
@@ -29,6 +25,11 @@ export default [{
 			fileName : 'varnish',
 			title: 'varnish',
 			helpMessage: 'Choose the finishing varnish'
+		},
+		{
+			fileName : 'aeration',
+			title: 'aeration',
+			helpMessage: 'Choose if you want aeration or not'
 		}
 	],
 	"fr": [
@@ -36,11 +37,6 @@ export default [{
 			fileName : 'chinguard',
 			title: 'mentonnière',
 			helpMessage: 'Ajouter ou non la mentonnière'
-		},
-		{
-			fileName : 'aeration',
-			title: 'aération',
-			helpMessage: 'Choisir d\'ajouter ou d\'enlever les aérations'
 		},
 		{
 			fileName : 'pattern',
@@ -61,6 +57,11 @@ export default [{
 			fileName : 'varnish',
 			title: 'vernis',
 			helpMessage: 'Choisir la finition vernis'
+		},
+		{
+			fileName : 'aeration',
+			title: 'aération',
+			helpMessage: 'Choisir d\'ajouter ou d\'enlever les aérations'
 		}
 	]
 }]

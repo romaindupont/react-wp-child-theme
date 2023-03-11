@@ -32,7 +32,7 @@ const Menu = ({
 				<div className="first_menu-configurator-nav-title">
 					<div className="first_menu-configurator-nav-title--top">
 						<img className="configurator-header__heading-menu" src={VeldtLogo} alt="logo-veldt"/>
-						<svg version="1.1" id="closeLogo" className="closeLogo" viewBox="0 0 41 41" onClick={closeMenu}>
+						<svg version="1.1" id="closeLogo" className="closeLogo" viewBox="0 0 31 31" onClick={closeMenu}>
 							<polygon className="cross" points="28.3,14.1 26.9,12.7 20.5,19.1 14.1,12.7 12.7,14.1 19.1,20.5 12.7,26.9 14.1,28.3 20.5,21.9   26.9,28.3 28.3,26.9 21.9,20.5 "></polygon>
 						</svg>
 					</div>

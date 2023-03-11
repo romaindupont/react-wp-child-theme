@@ -37,9 +37,9 @@ add_action( 'rest_api_init', function () {
 function priceTest($request) {
 	$json = file_get_contents('php://input');
 	$data = json_decode($json);
-	$explode = explode('-', $data);
+	$explode = explode('-', $data->sku);
 	$server_lang= filter_var($_SERVER['HTTP_ACCEPT_LANGUAGE'], FILTER_SANITIZE_STRING );
-	$browserlang = substr($server_lang, 0, 2);
+	$browserlang = substr($data->devise, 0, 2);
 	$price690 = 690;
 	$price150 = 150;
 	$price35 = 35;
@@ -369,10 +369,10 @@ function display_custom_item_data( $cart_item_data, $cart_item ) {
 					'name' => __( 'Config' ),
 					'value' =>  $cart_item['configuration'],
 				);
-				/* $cart_item_data[] = array(
+				$cart_item_data[] = array(
 					'name' => __( 'Price' ),
 					'value' =>  $cart_item['price'],
-				); */
+				);
     }
     return $cart_item_data;
 }
@@ -383,6 +383,7 @@ function add_custom_note_order_item_meta( $item, $cart_item_key, $values, $order
     if ( isset( $values['imageToFollow'] ) ) {
         $item->update_meta_data( 'ImageUploaded',  $values['imageToFollow'] );
 				$item->update_meta_data( 'Config',  $values['configuration'] );
+				$item->update_meta_data( 'Price',  $values['price'] );
     }
 }
 function custom_new_product_image($a, $cart_item, $cart_item_key) {	
@@ -427,3 +428,20 @@ function njengah_email_new_order_custom_meta_data( $order, $sent_to_admin, $plai
         }
     }
 } */
+
+// Set custom cart item price
+add_action( 'woocommerce_before_calculate_totals', 'add_custom_price', 1000, 1);
+function add_custom_price( $cart ) {
+    // This is necessary for WC 3.0+
+    if ( is_admin() && ! defined( 'DOING_AJAX' ) )
+        return;
+
+    // Avoiding hook repetition (when using price calculations for example | optional)
+    if ( did_action( 'woocommerce_before_calculate_totals' ) >= 2 )
+        return;
+
+    // Loop through cart items
+    foreach ( $cart->get_cart() as $cart_item ) {
+        $cart_item['data']->set_price( 100 );
+    }
+}

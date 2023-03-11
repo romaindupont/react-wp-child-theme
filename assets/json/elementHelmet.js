@@ -1,16 +1,6 @@
 export default [{
 	"en": [
 	{
-		fileName : 'aeration',
-		title: 'aeration',
-		helpMessage: 'Choose if you want aeration or not'
-	},
-	{
-		fileName : 'screw',
-		title: 'screw and rivets',
-		helpMessage: 'Choose screw and rivets position'
-	},
-	{
 		fileName : 'pattern',
 		title: 'pattern',
 		helpMessage: 'Choose the pattern style you want'
@@ -71,6 +61,16 @@ export default [{
 		helpMessage: 'Choose the double-d tab between two technologies'
 	},
 	{
+		fileName : 'aeration',
+		title: 'aeration',
+		helpMessage: 'Choose if you want aeration or not'
+	},
+	{
+		fileName : 'screw',
+		title: 'screw and rivets',
+		helpMessage: 'Choose screw and rivets position'
+	},
+	{
 		fileName : 'engraving',
 		title: 'engraving',
 		helpMessage: 'Choose the message behind'
@@ -82,16 +82,6 @@ export default [{
 	},
 ],
 "fr": [
-		{
-			fileName : 'aeration',
-			title: 'aération',
-			helpMessage: 'Choisir d\'ajouter ou d\'enlever les aérations'
-		},
-		{
-			fileName : 'screw',
-			title: 'vis et rivets',
-			helpMessage: 'Choisir la position des vis et rivets'
-		},
 		{
 			fileName : 'pattern',
 			title: 'modèle',
@@ -151,6 +141,16 @@ export default [{
 			fileName : 'zippers',
 			title: 'Fermeture',
 			helpMessage: 'Choisir le type de fermeture entre deux technologies'
+		},
+		{
+			fileName : 'aeration',
+			title: 'aération',
+			helpMessage: 'Choisir d\'ajouter ou d\'enlever les aérations'
+		},
+		{
+			fileName : 'screw',
+			title: 'vis et rivets',
+			helpMessage: 'Choisir la position des vis et rivets'
 		},
 		{
 			fileName : 'engraving',

@@ -305,6 +305,47 @@ nav.first_menu-configurator-nav--2 {
 .menuImageToBuy {
 	visibility: hidden;
 }
+
+.header-configurator-select {
+	z-index: 100;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+select#devise {
+	background: transparent;
+	z-index: 99;
+	border: none;
+	font-weight: bold;
+	color: var(--color-principal);
+	margin-right: 0.3rem;
+	padding: 0 0.2rem;
+	font-size: 1.3rem;
+	& > option {
+		font-weight: bold;
+		color: var(--color-principal);
+		font-size: 1.3rem;
+	}
+	&:focus {
+		background: #f2f2f2;
+    outline: none;
+    box-shadow: 1px 1px 2px 1px var(--color-principal);
+    border-radius: 10px;
+	}
+}
+
+span.focus {
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 5px solid var(--color-principal);
+	position: absolute;
+	right: 5px;
+	top: 45%;
+	z-index: 98;
+}
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen 
 and (min-device-width : 320px) 
@@ -343,8 +384,16 @@ and (max-device-width : 768px) {
 	}
 	.header-configurator-right-priceZone-price {
     margin-right: 0rem;
-		/* width: 100%; */
+		align-items: flex-end;
+    flex-direction: column;
+		order: 3;
 	}
+	.header-configurator-select {
+    order: 2;
+}
+select#devise {
+	font-size: 0.8rem;
+}
 	.first_menu-configurator-nav > #menu-main-menu > .mark1 > .menu-depth-1,  .first_menu-configurator-nav > #menu-main-menu > .mark2 > .menu-depth-1 {
 		background: var(--background-menu);
 		width: 100vw;
@@ -377,10 +426,15 @@ and (max-device-width : 768px) {
 	}
 	button.header-configurator-right-priceZone-buy {
 		width: 200px;
+		order: 1;
 	}
 	.header-configurator-right {
 		margin: 0.5rem 15px;
 	}
+	.header-configurator-right-priceZone {
+    align-items: flex-end;
+    flex-direction: column;
+}
 }
 /* iPads (portrait and landscape) ----------- */
 @media only screen 

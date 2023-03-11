@@ -23,7 +23,9 @@ const Header = ({
 	aerationChin,
 	varnishChin,
 	withVisor,
-	price
+	price,
+	setDeviseChoice,
+	deviseChoice
 }) => {
 	const baseUrl = REACT_APP_BASEURL;
 	const [ buyLoader, setBuyLoader] = useState(false);
@@ -34,6 +36,17 @@ const Header = ({
 		setTimeout(()=>{
 			Buy();
 		}, 10000) 
+	}
+	const myDeviseChoice = (devise) => {
+		if(devise === 'us') {
+			setDeviseChoice({name: devise, logo: '$'})
+		}
+		if(devise === 'zh') {
+			setDeviseChoice({name: devise, logo: '¥'})
+		}
+		if(devise === 'eur') {
+			setDeviseChoice({name: devise, logo: '€'})
+		}
 	}
 	const Buy = async () => {	
 		let imageToUpload = document.querySelector('.menuImageToShare_quarterPosition').src;
@@ -79,7 +92,7 @@ const Header = ({
 		await fetch(`${baseUrl}wp-json/imageHandler/v1/upload`, myInit)
 			.then(response => response.text())
 			.then(data => image = data )
-		await fetch(`${baseUrl}cart/?add-to-cart=227&image=${image}`, myInit2)
+		await fetch(`${baseUrl}cart/?add-to-cart=227&image=${image}&price=${price}`, myInit2)
 			.then(response => response.text())
 			.then(data => data)
 		setBuyLoader(false);
@@ -96,7 +109,15 @@ const Header = ({
 				</div>
 				<div className="header-configurator-right">
 					<div className="header-configurator-right-priceZone">
-						<div className="header-configurator-right-priceZone-price">{price}<span>{traduction.Money}</span></div>
+						<div className="header-configurator-right-priceZone-price">{price}<span>{deviseChoice.logo}</span></div>
+						<div className='header-configurator-select'>
+							<select name="devise" id="devise" onChange={(e)=> myDeviseChoice(e.target.value)}>
+								<option value="us">USD</option>
+								<option value="eur">EUR</option>
+								<option value="zh">CNY</option>
+							</select>
+							<span className="focus"></span>
+						</div>
 						<button
 							type="submit"
 							name="add"

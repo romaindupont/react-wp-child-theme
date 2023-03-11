@@ -53,7 +53,7 @@ const Veldt = () => {
 		Visor_type: 'peak_visor',
 		Visor_frame: 'full'
 	});
-	const [ price, setPrice ] = useState(690)
+	const [ price, setPrice ] = useState(690);
 	const [ nodesConfiguration, setNodesConfiguration ] = useState([]);
 	const [ materialVariation, setMaterialVariation ] = useState({});
 	const [ aerationHelmet, setAerationHelmet] = useState(true);
@@ -106,6 +106,7 @@ const Veldt = () => {
 		chinCheck: false,
 		visorCheck: false
 	});
+	const [ deviseChoice, setDeviseChoice ] = useState({name: 'us', logo: '$'});
 	let language = document.querySelector('html').lang;
 	let traduction = Traduction[0].en[0];
 	if (language.includes('fr')) {
@@ -121,19 +122,23 @@ const Veldt = () => {
         'Accept': 'application/json',
 			}
 			let customSku = `${mySku.position1}-${mySku.position2}-${mySku.position3}-${mySku.position4}-${mySku.position5}-${mySku.position6}-${mySku.position7}-${mySku.position8}-${mySku.position9}-${mySku.position10}-${mySku.position11}-${mySku.position12}-${mySku.position13}-${mySku.position14}-${mySku.position15}-${mySku.position16}-${mySku.position17}`
+			let makeData = {
+				'sku': customSku,
+				'devise': deviseChoice.name
+			}
 			let myInit = { 
 				method: 'POST',
 				headers: myHeaders,
 				mode: 'cors',
 				cache: 'default',
-				body: JSON.stringify(customSku)
+				body: JSON.stringify(makeData)
 			};
 			let thePrice;
 			await fetch(`${baseUrl}wp-json/helmet/price`, myInit)
 				.then(response => response.text())
 				.then(data => thePrice = data )
 			setPrice(thePrice)
-	}, [mySku]);
+	}, [mySku, deviseChoice]);
   return (
 		<div className='veldtConfig'>
 			{!loader && <div className="load"><div className="loader"></div></div>}
@@ -159,6 +164,8 @@ const Veldt = () => {
 				varnishChin = {varnishChin}
 				withVisor = {withVisor}
 				price = {price}
+				setDeviseChoice = {setDeviseChoice}
+				deviseChoice = {deviseChoice}
 			/>
 			<Body
 				aerationHelmet = {aerationHelmet}

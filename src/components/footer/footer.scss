@@ -216,13 +216,13 @@ svg#menu_option {
 	width: 45%;
 	height: 10%;
 	background: #e9e4e4;;
-	bottom: 20%;
+	bottom: 50%;
 	z-index: 101;
-	box-shadow: 0px 0px 5px 1px black;
 	left: 50%;
 	transform: translate(-50%,-50%);
 	border-radius: 10px;
 	color: var(--color-principal);
+	opacity: 0.9;
 }
 .popupHelp > #popupHelp_closeLogo {
 	width: 30px;
@@ -745,7 +745,7 @@ input#textSelection {
 	width: 40px;
 	height: 40px;
 	position: absolute;
-	top: 10px;
+	top: 25px;
 	right: 25px;
 	cursor: pointer;
 }
@@ -753,7 +753,7 @@ input#textSelection {
 	width: 40px;
 	height: 40px;
 	position: absolute;
-	top: 10px;
+	top: 25px;
 	right: 25px;
 	cursor: pointer;
 }
@@ -1288,7 +1288,7 @@ svg#link, svg#download {
 		bottom: -100px;
 	}
 	.menuImageToShare > img {
-		width: 50%;
+		width: 35%;
 	}
 	svg#eye, #eye {
 		display: block;
