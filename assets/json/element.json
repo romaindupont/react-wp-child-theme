@@ -76,9 +76,9 @@
 			"helpMessage" : "Choose the message behind"
 		},
 		"size": {
-			"title": "size and certification",
+			"title": "size",
 			"file":"size",
-			"helpMessage" : "Choose the helmet size and the certification"
+			"helpMessage" : "Choose the helmet size"
 		}	
 	},
 	"chinguardElement" : {

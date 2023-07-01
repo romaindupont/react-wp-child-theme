@@ -167,8 +167,6 @@ const LeftNumber = ({
 							<div className={leftNumberInput.numberColor === 'brown stone' ? 'selectColor' : 'colorP'} onClick={() => setLeftNumberInput({...leftNumberInput, numberColor:'brown stone'})}><div className="roundColor brownStone"></div><span className="textAction">{traduction.BrownStone}</span></div>
 							<div className={leftNumberInput.numberColor === 'cayenne red' ? 'selectColor' : 'colorP'} onClick={() => setLeftNumberInput({...leftNumberInput, numberColor:'cayenne red'})}><div className="roundColor cayenneRed"></div><span className="textAction">{traduction.CayenneRed}</span></div>
 							<div className={leftNumberInput.numberColor === 'chinese red' ? 'selectColor' : 'colorP'} onClick={() => setLeftNumberInput({...leftNumberInput, numberColor:'chinese red'})}><div className="roundColor chinesesRed"></div><span className="textAction">{traduction.ChinesesRed}</span></div>
-							<div className={leftNumberInput.numberColor === 'fluo yellow' ? 'selectColor' : 'colorP'} onClick={() => setLeftNumberInput({...leftNumberInput, numberColor:'fluo yellow'})}><div className="roundColor fluoYellow"></div><span className="textAction">{traduction.FluoYellow}</span></div>
-							<div className={leftNumberInput.numberColor === 'fluo pink' ? 'selectColor' : 'colorP'} onClick={() => setLeftNumberInput({...leftNumberInput, numberColor:'fluo pink'})}><div className="roundColor fluoPink"></div><span className="textAction">{traduction.FluoPink}</span></div>
 						</>
 						: leftNumberInput.numberColorType === 'glitter' ? 
 						<>
@@ -196,8 +194,6 @@ const LeftNumber = ({
 							<div className={leftNumberInput.numberColor === 'iridecent blue' ? 'selectColor' : 'colorP'} onClick={() => setLeftNumberInput({...leftNumberInput, numberColor:'iridecent blue'})}><div className="roundColor iridescentBlue"></div><span className="textAction">{traduction.IridescentBlue}</span></div>
 							<div className={leftNumberInput.numberColor === 'chinese red' ? 'selectColor' : 'colorP'} onClick={() => setLeftNumberInput({...leftNumberInput, numberColor:'chinese red'})}><div className="roundColor chinesesRed"></div><span className="textAction">{traduction.ChinesesRed}</span></div>
 							<div className={leftNumberInput.numberColor === 'iridecent pink' ? 'selectColor' : 'colorP'} onClick={() => setLeftNumberInput({...leftNumberInput, numberColor:'iridecent pink'})}><div className="roundColor iridescentPink"></div><span className="textAction">{traduction.IridescentPink}</span></div>
-							<div className={leftNumberInput.numberColor === 'fluo yellow' ? 'selectColor' : 'colorP'} onClick={() => setLeftNumberInput({...leftNumberInput, numberColor:'fluo yellow'})}><div className="roundColor fluoYellow"></div><span className="textAction">{traduction.FluoYellow}</span></div>
-							<div className={leftNumberInput.numberColor === 'fluo pink' ? 'selectColor' : 'colorP'} onClick={() => setLeftNumberInput({...leftNumberInput, numberColor:'fluo pink'})}><div className="roundColor fluoPink"></div><span className="textAction">{traduction.FluoPink}</span></div>
 						</>
 							: 
 						<>

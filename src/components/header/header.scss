@@ -304,6 +304,7 @@ nav.first_menu-configurator-nav--2 {
 
 .menuImageToBuy {
 	visibility: hidden;
+	position: absolute;
 }
 
 .header-configurator-select {
@@ -350,11 +351,18 @@ span.focus {
 @media only screen 
 and (min-device-width : 320px) 
 and (max-device-width : 768px) {
+	.configurator-header {
+    width: 100vw;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+}
 	.header-configurator-left {
-		width: 100vw;
+		display: none;
+		/* width: 100vw;
 		align-items: center;
 		margin-left: 0;
-		justify-content: center;
+		justify-content: center; */
 	}
 	.header-configurator-left-menu {
 		margin: 2rem;
@@ -387,6 +395,8 @@ and (max-device-width : 768px) {
 		align-items: flex-end;
     flex-direction: column;
 		order: 3;
+		width: 100%;
+    text-align: center;
 	}
 	.header-configurator-select {
     order: 2;
@@ -429,7 +439,13 @@ select#devise {
 		order: 1;
 	}
 	.header-configurator-right {
-		margin: 0.5rem 15px;
+		width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  /*   align-items: flex-end; */
+		align-items: center;
+		/* margin: 0.5rem 15px; */
 	}
 	.header-configurator-right-priceZone {
     align-items: flex-end;

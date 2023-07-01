@@ -77,8 +77,8 @@ export default [{
 	},
 	{
 		fileName : 'size',
-		title: 'size and certification',
-		helpMessage: 'Choose the helmet size and the certification'
+		title: 'size',
+		helpMessage: 'Choose the helmet size'
 	},
 ],
 "fr": [
@@ -159,8 +159,8 @@ export default [{
 		},
 		{
 			fileName : 'size',
-			title: 'taille et certification',
-			helpMessage: 'Choisir la taille et certification'
+			title: 'taille',
+			helpMessage: 'Choisir la taille'
 		},
 	]
 }]

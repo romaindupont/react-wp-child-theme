@@ -34,7 +34,7 @@ const Veldt = () => {
 		Logo_color: 'white',
 		Interior: 'suede|blue',
 		Helmet_trim: 'rubber|black',
-		Rear_text_certification: 'ECE',
+		Rear_text_certification: 'DOT',
 		Rear_text_size: 'M',
 		Helmet_design_color: 'white',
 		Helmet_design_type: 'plain',
@@ -106,15 +106,33 @@ const Veldt = () => {
 		chinCheck: false,
 		visorCheck: false
 	});
-	const [ deviseChoice, setDeviseChoice ] = useState({name: 'us', logo: '$'});
+	const [ deviseChoice, setDeviseChoice ] = useState({name: 'USD', logo: '$'});
+
+	const [ shortLink, setShortLink ] = useState('');
+
 	let language = document.querySelector('html').lang;
 	let traduction = Traduction[0].en[0];
 	if (language.includes('fr')) {
 		traduction = Traduction[0].fr[0];
 	}
 	if (language.includes('es')) {
-		traduction = Traduction[0].en[0];
+		traduction = Traduction[0].es[0];
 	}
+	if (language.includes('zh')) {
+		traduction = Traduction[0].cn[0];
+	}
+	useEffect(() => {
+		const doc = document.querySelector('#wcml-mc-scripts-js-extra').innerHTML;
+		if(doc.includes('CNY')) {
+			setDeviseChoice({name: 'CNY', logo: '¥'});
+		}	
+		if(doc.includes('EUR')) {
+			setDeviseChoice({name: 'EUR', logo: '€'});
+		}	
+		if(doc.includes('USD')) {
+			setDeviseChoice({name: 'USD', logo: '$'});
+		} 
+	}, [])
 	useEffect(async () => {
 			const baseUrl = REACT_APP_BASEURL;
 			let myHeaders = {
@@ -135,10 +153,11 @@ const Veldt = () => {
 			};
 			let thePrice;
 			await fetch(`${baseUrl}wp-json/helmet/price`, myInit)
-				.then(response => response.text())
-				.then(data => thePrice = data )
-			setPrice(thePrice)
-	}, [mySku, deviseChoice]);
+			.then(response => response.text())
+			.then(data => thePrice = data )
+			setPrice(thePrice);
+	}, [mySku, deviseChoice]); 
+
   return (
 		<div className='veldtConfig'>
 			{!loader && <div className="load"><div className="loader"></div></div>}
@@ -166,6 +185,8 @@ const Veldt = () => {
 				price = {price}
 				setDeviseChoice = {setDeviseChoice}
 				deviseChoice = {deviseChoice}
+				shortLink = {shortLink}
+				setShortLink = {setShortLink}
 			/>
 			<Body
 				aerationHelmet = {aerationHelmet}
@@ -195,6 +216,8 @@ const Veldt = () => {
 				engravingInput = {engravingInput}
 				mySku = {mySku}
 				setMySku = {setMySku}
+				shortLink = {shortLink}
+				setShortLink = {setShortLink}
 			/>
 			<Footer
 				aerationHelmet = {aerationHelmet}
@@ -243,6 +266,8 @@ const Veldt = () => {
 				setWithVisor = {setWithVisor}
 				mySku = {mySku}
 				setMySku = {setMySku}
+				shortLink = {shortLink}
+				setShortLink = {setShortLink}
 			/>
 		</div>
   );

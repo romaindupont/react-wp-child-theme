@@ -75,8 +75,6 @@ const MainColor = ({setStandardValue, standardValue, traduction, mySku, setMySku
 				<div className={standardValue.Helmet_color === 'brown stone' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'brown stone'})}><div className="roundColor brownStone"></div><span className="textAction">{traduction.BrownStone}</span></div>
 				<div className={standardValue.Helmet_color === 'cayenne red' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'cayenne red'})}><div className="roundColor cayenneRed"></div><span className="textAction">{traduction.CayenneRed}</span></div>
 				<div className={standardValue.Helmet_color === 'chinese red' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'chinese red'})}><div className="roundColor chinesesRed"></div><span className="textAction">{traduction.ChinesesRed}</span></div>
-				<div className={standardValue.Helmet_color === 'fluo yellow' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'fluo yellow'})}><div className="roundColor fluoYellow"></div><span className="textAction">{traduction.FluoYellow}</span></div>
-				<div className={standardValue.Helmet_color === 'fluo pink' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'fluo pink'})}><div className="roundColor fluoPink"></div><span className="textAction">{traduction.FluoPink}</span></div>
 			</>
 			: standardValue.Helmet_color_type === 'glitter' ?
 			<>
@@ -104,8 +102,6 @@ const MainColor = ({setStandardValue, standardValue, traduction, mySku, setMySku
 				<div className={standardValue.Helmet_color === 'iridecent blue' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'iridecent blue'})}><div className="roundColor iridescentBlue"></div><span className="textAction">{traduction.IridescentBlue}</span></div>
 				<div className={standardValue.Helmet_color === 'chinese red' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'chinese red'})}><div className="roundColor chinesesRed"></div><span className="textAction">{traduction.ChinesesRed}</span></div>
 				<div className={standardValue.Helmet_color === 'iridecent pink' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'iridecent pink'})}><div className="roundColor iridescentPink"></div><span className="textAction">{traduction.IridescentPink}</span></div>
-				<div className={standardValue.Helmet_color === 'fluo yellow' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'fluo yellow'})}><div className="roundColor fluoYellow"></div><span className="textAction">{traduction.FluoYellow}</span></div>
-				<div className={standardValue.Helmet_color === 'fluo pink' ? 'selectColor' : 'colorP'} onClick={() => setStandardValue({...standardValue, Helmet_color:'fluo pink'})}><div className="roundColor fluoPink"></div><span className="textAction">{traduction.FluoPink}</span></div>
 			</>
 			:
 			<>

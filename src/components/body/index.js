@@ -51,7 +51,9 @@ const Body = ({
 	rightNumberInput,
 	engravingInput,
 	mySku,
-	setMySku
+	setMySku,
+	shortLink,
+	setShortLink
 }) => {
 	let viewerIframe = null;
 	let viewerActive = false;
@@ -84,7 +86,7 @@ const Body = ({
 						Noeud[0].screw.screwsBaseHelmet,
 						Noeud[0].screw.screwsSideNoChinguard,
 						Noeud[0].screw.screwsTopNoVisor, 
-						Noeud[0].custom.helmetCarbonWindowECE, 
+						Noeud[0].custom.helmetCarbonWindowDOT, 
 					],
 				localIdsToRemove :
 					[]
@@ -199,6 +201,11 @@ const Body = ({
 				{
 				action : "getCurrentProductNodesConfiguration",
 				}, "*");
+		}
+		if(event.data && event.data.action == 'onSavedConfiguration'){
+			console.log(event.data.shortLink);
+			setShortLink(event.data.shortLink)
+			/* console.log(shortLink); */
 		}
 		if(event.data && event.data.action == 'onError'){
 			console.log(event)

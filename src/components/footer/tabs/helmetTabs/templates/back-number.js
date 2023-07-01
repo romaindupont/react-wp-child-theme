@@ -167,8 +167,6 @@ const BackNumber = ({
 							<div className={backNumberInput.numberColor === 'brown stone' ? 'selectColor' : 'colorP'} onClick={() => setBackNumberInput({...backNumberInput, numberColor:'brown stone'})}><div className="roundColor brownStone"></div><span className="textAction">{traduction.BrownStone}</span></div>
 							<div className={backNumberInput.numberColor === 'cayenne red' ? 'selectColor' : 'colorP'} onClick={() => setBackNumberInput({...backNumberInput, numberColor:'cayenne red'})}><div className="roundColor cayenneRed"></div><span className="textAction">{traduction.CayenneRed}</span></div>
 							<div className={backNumberInput.numberColor === 'chinese red' ? 'selectColor' : 'colorP'} onClick={() => setBackNumberInput({...backNumberInput, numberColor:'chinese red'})}><div className="roundColor chinesesRed"></div><span className="textAction">{traduction.ChinesesRed}</span></div>
-							<div className={backNumberInput.numberColor === 'fluo yellow' ? 'selectColor' : 'colorP'} onClick={() => setBackNumberInput({...backNumberInput, numberColor:'fluo yellow'})}><div className="roundColor fluoYellow"></div><span className="textAction">{traduction.FluoYellow}</span></div>
-							<div className={backNumberInput.numberColor === 'fluo pink' ? 'selectColor' : 'colorP'} onClick={() => setBackNumberInput({...backNumberInput, numberColor:'fluo pink'})}><div className="roundColor fluoPink"></div><span className="textAction">{traduction.FluoPink}</span></div>
 						</>
 							: backNumberInput.numberColorType === 'glitter' ?
 							<>
@@ -196,8 +194,6 @@ const BackNumber = ({
 							<div className={backNumberInput.numberColor === 'iridecent blue' ? 'selectColor' : 'colorP'} onClick={() => setBackNumberInput({...backNumberInput, numberColor:'iridecent blue'})}><div className="roundColor iridescentBlue"></div><span className="textAction">{traduction.IridescentBlue}</span></div>
 							<div className={backNumberInput.numberColor === 'chinese red' ? 'selectColor' : 'colorP'} onClick={() => setBackNumberInput({...backNumberInput, numberColor:'chinese red'})}><div className="roundColor chinesesRed"></div><span className="textAction">{traduction.ChinesesRed}</span></div>
 							<div className={backNumberInput.numberColor === 'iridecent pink' ? 'selectColor' : 'colorP'} onClick={() => setBackNumberInput({...backNumberInput, numberColor:'iridecent pink'})}><div className="roundColor iridescentPink"></div><span className="textAction">{traduction.IridescentPink}</span></div>
-							<div className={backNumberInput.numberColor === 'fluo yellow' ? 'selectColor' : 'colorP'} onClick={() => setBackNumberInput({...backNumberInput, numberColor:'fluo yellow'})}><div className="roundColor fluoYellow"></div><span className="textAction">{traduction.FluoYellow}</span></div>
-							<div className={backNumberInput.numberColor === 'fluo pink' ? 'selectColor' : 'colorP'} onClick={() => setBackNumberInput({...backNumberInput, numberColor:'fluo pink'})}><div className="roundColor fluoPink"></div><span className="textAction">{traduction.FluoPink}</span></div>
 						</>
 						:
 						<>

@@ -1,4 +1,4 @@
-const exportWindows = ({setOpenOptionMenu, screenshotsWait, traduction, setScreenshotsWait}) => {
+const exportWindows = ({setOpenOptionMenu, screenshotsWait, traduction, setScreenshotsWait, shortLink}) => {
 	const menuClose = () => {
 		setOpenOptionMenu({
 			name: '',
@@ -8,6 +8,7 @@ const exportWindows = ({setOpenOptionMenu, screenshotsWait, traduction, setScree
 			wait: false,
 			arrayScreen: []
 		})
+		
 	}
 	const downloadAll = () => {
 		let images = document.querySelectorAll(".imageDownload");
@@ -27,6 +28,8 @@ const exportWindows = ({setOpenOptionMenu, screenshotsWait, traduction, setScree
 			screenshot : false,
 			shortLink : true
 		},'*');
+		setTimeout(()=> { console.log(shortLink);}, 2000)
+		console.log(shortLink);
 	}
 	return (
 		<div className="exportWindow">

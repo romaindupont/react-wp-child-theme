@@ -25,7 +25,9 @@ const Header = ({
 	withVisor,
 	price,
 	setDeviseChoice,
-	deviseChoice
+	deviseChoice,
+	shortLink,
+	setShortLink
 }) => {
 	const baseUrl = REACT_APP_BASEURL;
 	const [ buyLoader, setBuyLoader] = useState(false);
@@ -37,18 +39,14 @@ const Header = ({
 			Buy();
 		}, 10000) 
 	}
-	const myDeviseChoice = (devise) => {
-		if(devise === 'us') {
-			setDeviseChoice({name: devise, logo: '$'})
-		}
-		if(devise === 'zh') {
-			setDeviseChoice({name: devise, logo: '¥'})
-		}
-		if(devise === 'eur') {
-			setDeviseChoice({name: devise, logo: '€'})
-		}
-	}
+	
 	const Buy = async () => {	
+		let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
+		viewerIframe.postMessage({
+			action : 'saveConfiguration',
+			screenshot : false,
+			shortLink : true
+		},'*');
 		let imageToUpload = document.querySelector('.menuImageToShare_quarterPosition').src;
 		let myHeaders = {
 			'X-WC-Store-API-Nonce': _nonce,
@@ -92,9 +90,19 @@ const Header = ({
 		await fetch(`${baseUrl}wp-json/imageHandler/v1/upload`, myInit)
 			.then(response => response.text())
 			.then(data => image = data )
-		await fetch(`${baseUrl}cart/?add-to-cart=227&image=${image}&price=${price}`, myInit2)
+		await fetch(`${baseUrl}cart/?add-to-cart=62262&image=${image}&price=${price}&shortLink=${shortLink}`, myInit2)
 			.then(response => response.text())
 			.then(data => data)
+			let formData = new FormData();
+			formData.append('action', 'wcml_client_currency');
+			formData.append('new_currency', `${deviseChoice.name}`);
+			let myInit3 = { 
+				method: 'POST',
+				headers: myHeaders,
+				mode: 'cors',
+				cache: 'default',
+			  contentType: 'application/json'
+			};
 		setBuyLoader(false);
 		window.location.href = `${baseUrl}cart/`;
 	} 
@@ -110,14 +118,14 @@ const Header = ({
 				<div className="header-configurator-right">
 					<div className="header-configurator-right-priceZone">
 						<div className="header-configurator-right-priceZone-price">{price}<span>{deviseChoice.logo}</span></div>
-						<div className='header-configurator-select'>
+						{/* <div className='header-configurator-select'>
 							<select name="devise" id="devise" onChange={(e)=> myDeviseChoice(e.target.value)}>
-								<option value="us">USD</option>
-								<option value="eur">EUR</option>
-								<option value="zh">CNY</option>
+								<option value="USD">USD</option>
+								<option value="EUR">EUR</option>
+								<option value="CNY">CNY</option>
 							</select>
 							<span className="focus"></span>
-						</div>
+						</div> */}
 						<button
 							type="submit"
 							name="add"

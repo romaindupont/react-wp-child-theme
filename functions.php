@@ -14,6 +14,9 @@ function my_theme_enqueue_styles() {
 		[],
 		'20220413'
 	); 
+	if(is_page('configurator')) {
+	    var_dump(get_woocommerce_currency());
+	}
 }
 
 function remove_admin_login_header() {
@@ -309,6 +312,16 @@ function priceTest($request) {
 	
 	return $total;
 }
+
+add_action( 'rest_api_init', function () {
+	register_rest_route( '/helmet', '/devise', array(
+			'methods' => 'GET',
+			'callback' => 'deviseName',
+	) );
+} );
+function deviseName() {
+	return get_woocommerce_currency();
+}
 add_filter( 'woocommerce_get_price_html', 'cw_change_product_price_display' );
 function cw_change_product_price_display( $price ) {
 	var_dump($price);
@@ -323,7 +336,58 @@ add_action( 'rest_api_init', function () {
 			'callback' => 'uploadImage',
 	) );
 } );
-
+add_action('rest_api_init', function () {
+	//Example: wp-json/woocs/v3/products/eur/
+	register_rest_route('wc/v3', '/products/(?P<currency>.+)', array(
+			'methods' => 'GET',
+			'callback' => function($request) {
+				global $WOOCS;
+				$currency = strtoupper(sanitize_key($request['currency']));
+				switch ( $currency) {
+					case 'EUR':
+						$new_currency = 'EUR';
+						break;
+						case 'ZH':
+							$new_currency = 'CNY';
+							break;
+							default:
+							$new_currency = 'USD';
+							break;
+						}
+						var_dump($new_currency);
+						$settings = get_option( '_wcml_settings' );
+						$currencies = $settings['currency_options'];
+						$currency_codes = array_keys( $currencies );
+						var_dump(in_array( $new_currency, $currency_codes ));
+/* 						if( in_array( $new_currency, $currency_codes ) ) {
+								return $new_currency;
+						} */
+					return $new_currency;
+				}
+					/* $products_ids = wc_get_products([
+							'return' => 'ids',
+					]);
+					var_dump($currency);
+					//***
+					$res = [];
+					if (!empty($products_ids)) {
+						$_REQUEST['woocs_raw_woocommerce_price_currency'] = $currency;
+						foreach ($products_ids as $product_id) {
+							$product = wc_get_product($product_id);
+								if ($WOOCS->default_currency === $currency) {
+									$res[$product_id] = $product->get_price();
+								} else {
+									$res[$product_id] = $WOOCS->raw_woocommerce_price($product->get_price(), $product);
+								}
+							}
+						}
+						 */
+						
+						/* return 'ok'; */
+			/* },
+			'permission_callback' => '__return_true' */
+	));
+});
 function uploadImage($request) {
 	$upl_base_url = is_ssl() ? str_replace('http://', 'https://', $_SERVER['SERVER_NAME']. '/essai') : $_SERVER['SERVER_NAME']. '/essai';
 	$upload_dir   = wp_upload_dir();
@@ -442,6 +506,61 @@ function add_custom_price( $cart ) {
 
     // Loop through cart items
     foreach ( $cart->get_cart() as $cart_item ) {
+			var_dump($cart_item['product_id']);
         $cart_item['data']->set_price( 100 );
     }
 }
+
+/* add_filter('wcml_client_currency', 'wcmlc');
+
+function change_existing_currency_symbol($currency ) {
+    switch( $currency ) {
+        case 'US': return 'USD'; break;
+        case 'EUR': return 'EUR'; break;
+        case 'zh': return 'CNY'; break;
+    }
+} */
+
+/* add_action( 'wcml_client_currency', 'ironikus_force_currency', 10 );
+function ironikus_force_currency( $current_currency ){
+    //We only want to force it within the frontend
+    if( is_admin() ){
+        return $current_currency;
+    }
+
+    global $woocommerce;
+
+    //This is the current country code we force the currency to
+    //You should get this value dynamically from wherever you want the currency to be forced from
+    $new_country_code = $_GET['wcmlc'];
+
+    //These are the currencies we redirect. In our example, we only have two.
+    //Make sure you map the country to the language code you want to map it to.
+    $multicurrencies = array(
+        'DEFAULT' => 'USD',
+        'EUR' => 'EUR',
+        'ZH' => 'CNY',
+				'US' => 'USD'
+    );
+
+    //Validate the new currency regarding its availability
+    if( isset( $multicurrencies[ $new_country_code ] ) ){
+
+        //To save performance, we only switch the language if the new one is not the current one
+        if( $multicurrencies[ $new_country_code ] !== $current_currency ){
+
+            $current_currency = $multicurrencies[ $new_country_code ]; // Set the current currency to the new one
+
+            //$woocommerce->session->set( 'client_currency', $multicurrencies[ $new_country_code ] );
+            //$woocommerce->session->set('client_currency_switched', true );
+
+            // Other functions that might come handy
+            // WC()->session->set('client_currency', $multicurrencies['DEFAULT']);
+           // #$woocommerce->session->set( 'client_currency_language', $sitepress->get_current_language() );
+
+        }
+
+    }
+
+    return $current_currency;
+} */

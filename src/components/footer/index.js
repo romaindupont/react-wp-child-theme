@@ -54,7 +54,9 @@ const Footer = ({
 	withVisor,
 	setWithVisor,
 	mySku,
-	setMySku
+	setMySku,
+	shortLink,
+	setShortLink
 }) => {
 	const [ openOptionMenu, setOpenOptionMenu ] = useState({
 			name: '',
@@ -174,6 +176,7 @@ const Footer = ({
 					screenshotsWait = {screenshotsWait} 
 					traduction = {traduction} 
 					setScreenshotsWait = {setScreenshotsWait} 
+					shortLink = {shortLink}
 				/>
 			}
 		</footer>
