@@ -52,8 +52,8 @@ const Body = ({
 	engravingInput,
 	mySku,
 	setMySku,
-	shortLink,
-	setShortLink
+	shortLinkCreate,
+	setShortLinkCreate
 }) => {
 	let viewerIframe = null;
 	let viewerActive = false;
@@ -140,7 +140,7 @@ const Body = ({
 			color : '#f2f2f2'
 		},'*');
 	}
-	const viewerEventListener = function(event){
+	const viewerEventListener = async (event) => {
 		if(event.data && event.data.action == 'onStateChange'){
 			console.log(event.data);
 			if(event.data.state.viewerState == 'loaded' || event.data.state.viewerState == 'fallbackloaded'){
@@ -202,10 +202,10 @@ const Body = ({
 				action : "getCurrentProductNodesConfiguration",
 				}, "*");
 		}
-		if(event.data && event.data.action == 'onSavedConfiguration'){
-			console.log(event.data.shortLink);
-			setShortLink(event.data.shortLink)
-			/* console.log(shortLink); */
+	
+		if(event.data && event.data.action == 'onSavedModularConfiguration'){
+			setShortLinkCreate({wait: true, link: event.data.shortLink})
+
 		}
 		if(event.data && event.data.action == 'onError'){
 			console.log(event)
@@ -381,6 +381,7 @@ const Body = ({
 	useEffect(() => {
 		console.log(nodesConfiguration)
 	}, [nodesConfiguration]);	
+
 	return (
 		<main className={downMenu ? "configuratorDownContent" : "configurator"} id="configurator">
 			<iframe

@@ -3,6 +3,8 @@ import VeldtLogo from '../../../assets/images/veldt-logo.svg';
 import { MakeAnObjectToOrder } from '../../../utils/ObjectOrder';
 import ScreenShot from '../body/Camera/ScreenShot';
 import { REACT_APP_BASEURL } from '../../../env';
+import Replay from '../body/Camera/Replay';
+
 
 const Header = ({
 	traduction,
@@ -26,28 +28,24 @@ const Header = ({
 	price,
 	setDeviseChoice,
 	deviseChoice,
-	shortLink,
-	setShortLink
+	shortLinkCreate,
+	setShortLinkCreate
 }) => {
 	const baseUrl = REACT_APP_BASEURL;
 	const [ buyLoader, setBuyLoader] = useState(false);
 	var _nonce = "<?php echo wp_create_nonce( 'wc_store_api' ); ?>";
-	const screen = () => {
+	const screen = async () => {
 		setBuyLoader(true);
-		ScreenShot();
+		await Replay();
+		await ScreenShot();
 		setTimeout(()=>{
 			Buy();
 		}, 10000) 
 	}
 	
-	const Buy = async () => {	
-		let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
-		viewerIframe.postMessage({
-			action : 'saveConfiguration',
-			screenshot : false,
-			shortLink : true
-		},'*');
+	const Buy = async () => {		
 		let imageToUpload = document.querySelector('.menuImageToShare_quarterPosition').src;
+		let srcLink = document.querySelector('.linkToReplay').href;
 		let myHeaders = {
 			'X-WC-Store-API-Nonce': _nonce,
 			"Content-Type": "application/json",
@@ -90,19 +88,9 @@ const Header = ({
 		await fetch(`${baseUrl}wp-json/imageHandler/v1/upload`, myInit)
 			.then(response => response.text())
 			.then(data => image = data )
-		await fetch(`${baseUrl}cart/?add-to-cart=62262&image=${image}&price=${price}&shortLink=${shortLink}`, myInit2)
+		await fetch(`${baseUrl}cart/?add-to-cart=62262&image=${image}&price=${price}&shortLink=${srcLink}`, myInit2)
 			.then(response => response.text())
 			.then(data => data)
-			let formData = new FormData();
-			formData.append('action', 'wcml_client_currency');
-			formData.append('new_currency', `${deviseChoice.name}`);
-			let myInit3 = { 
-				method: 'POST',
-				headers: myHeaders,
-				mode: 'cors',
-				cache: 'default',
-			  contentType: 'application/json'
-			};
 		setBuyLoader(false);
 		window.location.href = `${baseUrl}cart/`;
 	} 
@@ -118,14 +106,6 @@ const Header = ({
 				<div className="header-configurator-right">
 					<div className="header-configurator-right-priceZone">
 						<div className="header-configurator-right-priceZone-price">{price}<span>{deviseChoice.logo}</span></div>
-						{/* <div className='header-configurator-select'>
-							<select name="devise" id="devise" onChange={(e)=> myDeviseChoice(e.target.value)}>
-								<option value="USD">USD</option>
-								<option value="EUR">EUR</option>
-								<option value="CNY">CNY</option>
-							</select>
-							<span className="focus"></span>
-						</div> */}
 						<button
 							type="submit"
 							name="add"
@@ -143,6 +123,7 @@ const Header = ({
 			</div>
 			<div className="menuImageToBuy">
 					<img className="imageDownload menuImageToShare_quarterPosition" src={screenshotsWait.arrayScreen[0]} alt="quarter Position helmet"/>
+					<a className='linkToReplay' href={shortLinkCreate.link}></a>
 				</div>
 		</header>
   );

@@ -10,12 +10,6 @@ const Engraving = async (backEngraving, nodesConfiguration,setLoader, standardVa
 		if (nodes.SKU === 'custom_backEngravingDOT') {
 			localIdToRemove.push(nodes.localId);
 		}
-/* 		if (nodes.SKU === 'helmet_carbonWindowECE') {
-			localIdToRemove.push(nodes.localId);
-		}
-		if (nodes.SKU === 'helmet_carbonWindowDOT') {
-			localIdToRemove.push(nodes.localId);
-		} */
 	}) 
 	if (backEngraving) {
 		if (standardValue.Rear_text_certification === 'DOT') {

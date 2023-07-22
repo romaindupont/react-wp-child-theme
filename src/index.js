@@ -49,9 +49,9 @@ const Veldt = () => {
 		Chinguard_interior: 'suede|blue',
 		Visor_peak_color: 'black',
 		Visor_peak_type: 'plain',
-		Visor_color: 'clear',
-		Visor_type: 'peak_visor',
-		Visor_frame: 'full'
+		Visor_color: 'smoke',
+		Visor_type: 'short_visor',
+		Visor_frame: 'light'
 	});
 	const [ price, setPrice ] = useState(690);
 	const [ nodesConfiguration, setNodesConfiguration ] = useState([]);
@@ -108,7 +108,7 @@ const Veldt = () => {
 	});
 	const [ deviseChoice, setDeviseChoice ] = useState({name: 'USD', logo: '$'});
 
-	const [ shortLink, setShortLink ] = useState('');
+	const [ shortLinkCreate, setShortLinkCreate ] = useState({wait: false, link: ''});
 
 	let language = document.querySelector('html').lang;
 	let traduction = Traduction[0].en[0];
@@ -157,7 +157,9 @@ const Veldt = () => {
 			.then(data => thePrice = data )
 			setPrice(thePrice);
 	}, [mySku, deviseChoice]); 
-
+	useEffect(() => {
+		navigator.clipboard.writeText(shortLinkCreate.link)
+	}, [shortLinkCreate.link]);	
   return (
 		<div className='veldtConfig'>
 			{!loader && <div className="load"><div className="loader"></div></div>}
@@ -185,8 +187,8 @@ const Veldt = () => {
 				price = {price}
 				setDeviseChoice = {setDeviseChoice}
 				deviseChoice = {deviseChoice}
-				shortLink = {shortLink}
-				setShortLink = {setShortLink}
+				shortLinkCreate = {shortLinkCreate}
+				setShortLinkCreate = {setShortLinkCreate}
 			/>
 			<Body
 				aerationHelmet = {aerationHelmet}
@@ -216,8 +218,8 @@ const Veldt = () => {
 				engravingInput = {engravingInput}
 				mySku = {mySku}
 				setMySku = {setMySku}
-				shortLink = {shortLink}
-				setShortLink = {setShortLink}
+				shortLinkCreate = {shortLinkCreate}
+				setShortLinkCreate = {setShortLinkCreate}
 			/>
 			<Footer
 				aerationHelmet = {aerationHelmet}
@@ -266,8 +268,8 @@ const Veldt = () => {
 				setWithVisor = {setWithVisor}
 				mySku = {mySku}
 				setMySku = {setMySku}
-				shortLink = {shortLink}
-				setShortLink = {setShortLink}
+				shortLinkCreate = {shortLinkCreate}
+				setShortLinkCreate = {setShortLinkCreate}
 			/>
 		</div>
   );

@@ -405,6 +405,18 @@ function uploadImage($request) {
 	return $src;
 }
 add_filter( 'woocommerce_store_api_disable_nonce_check', '__return_true' );
+add_action( 'rest_api_init', function () {
+	register_rest_route( '/', 'replay', array(
+			'methods' => 'POST',
+			'callback' => 'replayLink',
+	) );
+} );
+function replayLink($request) {
+	$upl_base_url = is_ssl() ? str_replace('http://', 'https://', $_SERVER['SERVER_NAME']. '/essai') : $_SERVER['SERVER_NAME']. '/essai';
+	$upload_dir = $_GET['link'];
+	
+	return $upload_dir;
+}
 
 add_filter( 'woocommerce_add_cart_item_data', 'add_custom_fields_data_as_custom_cart_item_data', 10, 2 );
 function add_custom_fields_data_as_custom_cart_item_data( $cart_item_data, $product_id ) {

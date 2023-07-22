@@ -1,4 +1,6 @@
-const exportWindows = ({setOpenOptionMenu, screenshotsWait, traduction, setScreenshotsWait, shortLink}) => {
+import Replay from "../body/Camera/Replay";
+
+const exportWindows = ({setOpenOptionMenu, screenshotsWait, traduction, setScreenshotsWait, shortLinkCreate}) => {
 	const menuClose = () => {
 		setOpenOptionMenu({
 			name: '',
@@ -22,14 +24,7 @@ const exportWindows = ({setOpenOptionMenu, screenshotsWait, traduction, setScree
 		}
 	}
 	const saveConfig = () => {
-		let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
-		viewerIframe.postMessage({
-			action : 'saveConfiguration',
-			screenshot : false,
-			shortLink : true
-		},'*');
-		setTimeout(()=> { console.log(shortLink);}, 2000)
-		console.log(shortLink);
+		Replay();
 	}
 	return (
 		<div className="exportWindow">
