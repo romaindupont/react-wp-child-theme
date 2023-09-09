@@ -15,7 +15,8 @@ export function MakeAnObjectToOrder(
 		withChin,
 		aerationChin,
 		varnishChin,
-		withVisor
+		withVisor,
+		varnishVisor
 	) {
 	let configuration;
 	return configuration = `{
@@ -81,7 +82,8 @@ export function MakeAnObjectToOrder(
 			"Visor_type": "${standardValue.Visor_type}",
 			"Visor_peak_color": "${standardValue.Visor_peak_type} / ${standardValue.Visor_peak_color}",
 			"Frame": "${standardValue.Visor_frame}",
-			"visor_Color": "${standardValue.Visor_color}"
+			"visor_Color": "${standardValue.Visor_color}",
+			"varnish_peak_visor": "${varnishVisor}"
 		}
 	}`;	
 }

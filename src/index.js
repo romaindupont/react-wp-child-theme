@@ -60,7 +60,7 @@ const Veldt = () => {
 	const [ screwPosition, setScrewPosition ] = useState('all');
 	const [ varnishHelmet, setVarnishHelmet] = useState(true);
 	const [ withChin, setWithChin ] = useState(false);
-	const [ typeChoice, setTypeChoice ] = useState('peak_visor');
+	const [ typeChoice, setTypeChoice ] = useState('short_visor');
 	const [ withVisor, setWithVisor ] = useState(false);
 	const [ backNumberWindow, setBackNumberWindow ] = useState(false);
 	const [ backNumberInput, setBackNumberInput ] = useState({
@@ -90,6 +90,7 @@ const Veldt = () => {
 	});
 	const [ aerationChin, setAerationChin ] = useState(true);
 	const [ varnishChin, setVarnishChin ] = useState(true);
+	const [ varnishVisor, setVarnishVisor ] = useState(false);
 	const [ downMenu, setDownMenu ] = useState(false);
 	const [ screenshotsWait, setScreenshotsWait ] = useState({
 		wait: false,
@@ -189,6 +190,7 @@ const Veldt = () => {
 				deviseChoice = {deviseChoice}
 				shortLinkCreate = {shortLinkCreate}
 				setShortLinkCreate = {setShortLinkCreate}
+				varnishVisor = {varnishVisor}
 			/>
 			<Body
 				aerationHelmet = {aerationHelmet}
@@ -220,6 +222,7 @@ const Veldt = () => {
 				setMySku = {setMySku}
 				shortLinkCreate = {shortLinkCreate}
 				setShortLinkCreate = {setShortLinkCreate}
+				varnishVisor = {varnishVisor}
 			/>
 			<Footer
 				aerationHelmet = {aerationHelmet}
@@ -270,6 +273,8 @@ const Veldt = () => {
 				setMySku = {setMySku}
 				shortLinkCreate = {shortLinkCreate}
 				setShortLinkCreate = {setShortLinkCreate}
+				setVarnishVisor = {setVarnishVisor}
+				varnishVisor = {varnishVisor}
 			/>
 		</div>
   );

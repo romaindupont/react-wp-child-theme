@@ -49,7 +49,9 @@ const Tabs = ({
 	withVisor,
 	setWithVisor,
 	mySku,
-	setMySku
+	setMySku,
+	setVarnishVisor,
+	varnishVisor
 }) => {
 	return (
 		<div className="sd-tabs">
@@ -147,6 +149,8 @@ const Tabs = ({
 				withChin = {withChin}
 				mySku= {mySku}
 				setMySku= {setMySku}
+				setVarnishVisor = {setVarnishVisor}
+				varnishVisor = {varnishVisor}
 			/>
 		</div>
 	)

@@ -29,7 +29,8 @@ const Header = ({
 	setDeviseChoice,
 	deviseChoice,
 	shortLinkCreate,
-	setShortLinkCreate
+	setShortLinkCreate,
+	varnishVisor
 }) => {
 	const baseUrl = REACT_APP_BASEURL;
 	const [ buyLoader, setBuyLoader] = useState(false);
@@ -49,6 +50,10 @@ const Header = ({
 		let myHeaders = {
 			'X-WC-Store-API-Nonce': _nonce,
 			"Content-Type": "application/json",
+			"Access-Control-Allow-Origin":"*",
+			"Access-Control-Allow-Headers":"*",
+			"Access-Control-Allow-Methods":"POST,GET,OPTIONS,DELETE",
+			"Access-Control-Allow-Credentials": true
 		}
 		let image;
 		let myInit = { 
@@ -74,8 +79,10 @@ const Header = ({
 			withChin,
 			aerationChin,
 			varnishChin,
-			withVisor
+			withVisor,
+			varnishVisor
 		);
+		console.log(configuration);
 		let newConfig = JSON.parse(configuration);
 		let customPrice = {"price": price}
 		let myInit2 = { 
@@ -122,7 +129,7 @@ const Header = ({
 				</div>
 			</div>
 			<div className="menuImageToBuy">
-					<img className="imageDownload menuImageToShare_quarterPosition" src={screenshotsWait.arrayScreen[0]} alt="quarter Position helmet"/>
+					<img className="menuImageToShare_quarterPosition" src={screenshotsWait.arrayScreen[0]} alt="quarter Position helmet"/>
 					<a className='linkToReplay' href={shortLinkCreate.link}></a>
 				</div>
 		</header>

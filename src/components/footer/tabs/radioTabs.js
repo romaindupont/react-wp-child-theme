@@ -54,7 +54,9 @@ const radioTabs = ({
 	withVisor,
 	setWithVisor,
 	mySku,
-	setMySku
+	setMySku,
+	setVarnishVisor,
+	varnishVisor
 }) => {
 	const changeCheck = (e) => {
 		switch(e.target.value) {
@@ -164,6 +166,8 @@ const radioTabs = ({
 							withChin = {withChin}
 							mySku= {mySku}
 							setMySku= {setMySku}
+							setVarnishVisor={setVarnishVisor}
+							varnishVisor={varnishVisor}
 						/> 
 					:  ''
 				}

@@ -29,7 +29,6 @@ const VisorPeakPage = ({setStandardValue,	standardValue, traduction, mySku, setM
 			<div className="colorList" onScroll={scrollEffect} ref={scrollRef}>
 			{standardValue.Visor_peak_type === 'plain' ? 
 				<>
-					<div className={standardValue.Visor_peak_color === 'carbon' ? 'selectColor' : 'colorP'} onClick={()=>setStandardValue({...standardValue, Visor_peak_color:'carbon'}) & setMySku({...mySku, position3: 'vp'})}><div className="roundColor carbon"></div><span className="textAction">{traduction.Carbon}</span></div>
 					<div className={standardValue.Visor_peak_color === 'white' ? 'selectColor' : 'colorP'} onClick={()=>setStandardValue({...standardValue, Visor_peak_color:'white'}) & setMySku({...mySku, position3: 'vw'})}><div className="roundColor white"></div><span className="textAction">{traduction.White}</span></div>
 					<div className={standardValue.Visor_peak_color === 'black' ? 'selectColor' : 'colorP'} onClick={()=>setStandardValue({...standardValue, Visor_peak_color:'black'}) & setMySku({...mySku, position3: 'vb'})}><div className="roundColor black"></div><span className="textAction">{traduction.Black}</span></div>
 					<div className={standardValue.Visor_peak_color === 'estate blue' ? 'selectColor' : 'colorP'} onClick={()=>setStandardValue({...standardValue, Visor_peak_color:'estate blue'}) & setMySku({...mySku, position3: 'vp'})}><div className="roundColor EstateBlue"></div><span className="textAction">{traduction.EstateBlue}</span></div>

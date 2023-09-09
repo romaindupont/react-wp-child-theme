@@ -47,6 +47,7 @@ function priceTest($request) {
 	$price150 = 150;
 	$price35 = 35;
 	$price10 = 10;
+	$price130 = 130;
 	$price125 = 125;
 	$price95 = 95;
 	$price70 = 70;
@@ -55,15 +56,18 @@ function priceTest($request) {
 	$price20 = 20;
 	$price10 = 10;
 	$price30 = 30;
+	$price40 = 40;
 	if( $browserlang == "us" ){
 		$set_lang = 'us_US';
 		$price690 = 690;
 		$price150 = 150;
+		$price130 = 130;
 		$price125 = 125;
 		$price115 = 115;
 		$price95 = 95;
 		$price70 = 70;
 		$price50 = 50;
+		$price40 = 40;
 		$price35 = 35;
 		$price30 = 30;
 		$price20 = 20;
@@ -73,11 +77,13 @@ function priceTest($request) {
 		$set_lang = 'zh_CN';
 		$price690 = 4020;
 		$price150 = 1000;
+		$price130 = 900;
 		$price125 = 810;
 		$price115 = 790;
 		$price95 = 660;
 		$price70 = 460;
 		$price50 = 330;
+		$price40 = 260;
 		$price35 = 240;
 		$price30 = 200;
 		$price20 = 130;
@@ -86,11 +92,13 @@ function priceTest($request) {
 	else {
 		$price690 = 690;
 		$price150 = 150;
+		$price130 = 130;
 		$price125 = 125;
 		$price115 = 115;
 		$price95 = 95;
 		$price70 = 70;
 		$price50 = 50;
+		$price40 = 40;
 		$price35 = 35;
 		$price30 = 30;
 		$price20 = 20;
@@ -190,12 +198,21 @@ function priceTest($request) {
 	$position7 = $explode[6];
 	if ($position7 === 'xxx') {
 		$total += 0;
+		if ($position2 !== 'xx') {
+			$total += $price130;
+		}
 	}
 	if ($position7 === 'til') {
 		$total += $price150;
+		if ($position2 !== 'xx') {
+			$total += $price40;
+		}
 	}
 	if ($position7 === 'hif') {
 		$total += $price115;
+		if ($position2 !== 'xx') {
+			$total += $price130;
+		}
 	}
 	$position8 = $explode[7];
 	if ($position8 === 'xx') {
@@ -354,11 +371,9 @@ add_action('rest_api_init', function () {
 							$new_currency = 'USD';
 							break;
 						}
-						var_dump($new_currency);
 						$settings = get_option( '_wcml_settings' );
 						$currencies = $settings['currency_options'];
 						$currency_codes = array_keys( $currencies );
-						var_dump(in_array( $new_currency, $currency_codes ));
 /* 						if( in_array( $new_currency, $currency_codes ) ) {
 								return $new_currency;
 						} */
@@ -518,7 +533,6 @@ function add_custom_price( $cart ) {
 
     // Loop through cart items
     foreach ( $cart->get_cart() as $cart_item ) {
-			var_dump($cart_item['product_id']);
         $cart_item['data']->set_price( 100 );
     }
 }

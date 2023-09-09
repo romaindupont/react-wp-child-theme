@@ -1,6 +1,6 @@
 import Noeud from '../../../../assets/json/helmetid';
 
-const VisorChoice = (standardValue, nodesConfiguration, setLoader, tabsChoice) => {
+const VisorChoice = (standardValue, nodesConfiguration, setLoader, tabsChoice, varnishVisor) => {
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 	let localIdToRemove = [];
 	let screwsVisor = false;
@@ -38,35 +38,68 @@ const VisorChoice = (standardValue, nodesConfiguration, setLoader, tabsChoice) =
 	if (tabsChoice.visor) {
 		switch (standardValue.Visor_type) {
 			case 'peak_visor':
-				viewerIframe.postMessage(
-					{
-						action : "updateProductNodesInstances",
-						nodesToAdd :
-							[
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].visor.visorPeak.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].visor.visorPeak.SKU
-								},
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].screw.screwsTopVisor.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].screw.screwsTopVisor.SKU
-								}
-							],
-						localIdsToRemove :
-							localIdToRemove
-					}, "*");
-					localIdToRemove = [];
-					setLoader(false);
+				if (varnishVisor) {
+					viewerIframe.postMessage(
+						{
+							action : "updateProductNodesInstances",
+							nodesToAdd :
+								[
+									{
+										parentLocalId: 1,
+										localId: parseInt(`${Noeud[0].visor.visorPeak.localId}` + Date.now()),
+										matrix: [1, 0, 0, 0,
+										0, 1, 0, 0,
+										0, 0, 1, 0,
+										0, 0, 0, 1],
+										SKU: Noeud[0].visor.visorPeak.SKU
+									},
+									{
+										parentLocalId: 1,
+										localId: parseInt(`${Noeud[0].screw.screwsTopVisor.localId}` + Date.now()),
+										matrix: [1, 0, 0, 0,
+										0, 1, 0, 0,
+										0, 0, 1, 0,
+										0, 0, 0, 1],
+										SKU: Noeud[0].screw.screwsTopVisor.SKU
+									}
+								],
+							localIdsToRemove :
+								localIdToRemove
+						}, "*");
+						localIdToRemove = [];
+						setLoader(false);
+				} else {
+					viewerIframe.postMessage(
+						{
+							action : "updateProductNodesInstances",
+							nodesToAdd :
+								[
+									{
+										parentLocalId: 1,
+										localId: parseInt(`${Noeud[0].visor.visorPeak.localId}` + Date.now()),
+										matrix: [1, 0, 0, 0,
+										0, 1, 0, 0,
+										0, 0, 1, 0,
+										0, 0, 0, 1],
+										SKU: Noeud[0].visor.visorPeak.SKU
+									},
+									{
+										parentLocalId: 1,
+										localId: parseInt(`${Noeud[0].screw.screwsTopVisor.localId}` + Date.now()),
+										matrix: [1, 0, 0, 0,
+										0, 1, 0, 0,
+										0, 0, 1, 0,
+										0, 0, 0, 1],
+										SKU: Noeud[0].screw.screwsTopVisor.SKU
+									}
+								],
+							localIdsToRemove :
+								localIdToRemove
+						}, "*");
+						localIdToRemove = [];
+						setLoader(false);
+				}
+
 			break;
 			case 'short_visor':
 				if (standardValue.Visor_frame === 'full') {

@@ -133,7 +133,7 @@ const HelmetTabs = ({
 							mySku = {mySku}
 							setMySku = {setMySku}
 						/> :
-					helmetPosition.fileName === 'left-number' ?
+					helmetPosition.fileName === 'right-number' ?
 						<LeftNumber 
 							leftNumberWindow = {leftNumberWindow}
 							setLeftNumberWindow = {setLeftNumberWindow}
@@ -182,7 +182,7 @@ const HelmetTabs = ({
 							mySku = {mySku}
 							setMySku = {setMySku}
 						/> :
-					helmetPosition.fileName === 'right-number' ?
+					helmetPosition.fileName === 'left-number' ?
 						<RightNumber 
 							rightNumberWindow = {rightNumberWindow}
 							setRightNumberWindow = {setRightNumberWindow}

@@ -5,9 +5,11 @@ import VisorPeakPage from "./templates/VisorPeakPage";
 import VisorShortPage from "./templates/VisorShortPage";
 import VisorTypeChoice from "./templates/VisorTypeChoice";
 import ElementData from '../../../../../assets/json/elementVisor';
+import ElementDataVisorPeak from '../../../../../assets/json/elementVisorPeak';
 import ArrowLeft from '../../../../../assets/images/arrow_left.svg';
 import ArrowRight from '../../../../../assets/images/arrow_right.svg';
 import CameraPosition from '../../../body/Camera/CameraPositionVisor';
+import Varnish from "./templates/varnish";
 
 const VisorTabs = ({
 	setStandardValue,
@@ -23,15 +25,28 @@ const VisorTabs = ({
 	setWithVisor,
 	withChin,
 	mySku,
-	setMySku
+	setMySku,
+	setVarnishVisor,
+	varnishVisor
 }) => {
 	let language = document.querySelector('html').lang;
 	let elementsOfVisor = ElementData[0].en;
-	if (language.includes('fr')) {
-		elementsOfVisor = ElementData[0].fr;
-	}
-	if (language.includes('es')) {
+	if (standardValue.Visor_type !== 'peak_visor') {
 		elementsOfVisor = ElementData[0].en;
+		if (language.includes('fr')) {
+			elementsOfVisor = ElementData[0].fr;
+		}
+		if (language.includes('es')) {
+			elementsOfVisor = ElementData[0].en;
+		}
+	} else {
+		elementsOfVisor = ElementDataVisorPeak[0].en;
+		if (language.includes('fr')) {
+			elementsOfVisor = ElementDataVisorPeak[0].fr;
+		}
+		if (language.includes('es')) {
+			elementsOfVisor = ElementDataVisorPeak[0].en;
+		}
 	}
 	const minus = () => {
 		let position = visorPosition.position -= 1;
@@ -141,7 +156,16 @@ const VisorTabs = ({
 									mySku = {mySku}
 									setMySku = {setMySku}
 								/>
-							: ''}
+							:
+							visorPosition.fileName === 'varnish' && typeChoice === 'peak_visor' ?	
+								<Varnish
+									setVarnishVisor = {setVarnishVisor}
+									varnishVisor = {varnishVisor}
+									traduction = {traduction}
+								/>
+							
+							:''
+						}
 					</div>
 				</> }
 		</div>

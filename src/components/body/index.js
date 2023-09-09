@@ -53,7 +53,8 @@ const Body = ({
 	mySku,
 	setMySku,
 	shortLinkCreate,
-	setShortLinkCreate
+	setShortLinkCreate,
+	varnishVisor
 }) => {
 	let viewerIframe = null;
 	let viewerActive = false;
@@ -142,7 +143,6 @@ const Body = ({
 	}
 	const viewerEventListener = async (event) => {
 		if(event.data && event.data.action == 'onStateChange'){
-			console.log(event.data);
 			if(event.data.state.viewerState == 'loaded' || event.data.state.viewerState == 'fallbackloaded'){
 				setLoader(false)
 				viewerActive = true;
@@ -373,15 +373,16 @@ const Body = ({
 	}, [varnishChin]);
 	useEffect(() => {
 		if (notInitialRenderTwelve.current) {
-			VisorChoice(standardValue, nodesConfiguration, setLoader, tabsChoice);
+			VisorChoice(standardValue, nodesConfiguration, setLoader, tabsChoice, varnishVisor);
 		} else {
 			notInitialRenderTwelve.current = true;
 		}
-	}, [standardValue.Visor_peak_color, standardValue.Visor_peak_type, standardValue.Visor_color, standardValue.Visor_type, standardValue.Visor_frame, tabsChoice.visor]);
+	}, [standardValue.Visor_peak_color, standardValue.Visor_peak_type, standardValue.Visor_color, standardValue.Visor_type, standardValue.Visor_frame, tabsChoice.visor, varnishVisor]);
 	useEffect(() => {
 		console.log(nodesConfiguration)
 	}, [nodesConfiguration]);	
 
+	
 	return (
 		<main className={downMenu ? "configuratorDownContent" : "configurator"} id="configurator">
 			<iframe
