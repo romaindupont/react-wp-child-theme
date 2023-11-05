@@ -186,6 +186,88 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 					setLoader(true);
 				}, '2000');
 				}
+				if (standardValue.Helmet_design === 'checker') {
+					viewerIframe.postMessage(
+						{
+							action : "updateProductNodesInstances",
+							nodesToAdd :
+								[
+									{
+										parentLocalId: 1,
+										localId: parseInt(`${Noeud[0].helmet.helmetGroove.localId}` + Date.now()),
+										matrix: [1, 0, 0, 0,
+										0, 1, 0, 0,
+										0, 0, 1, 0,
+										0, 0, 0, 1],
+										SKU: Noeud[0].helmet.helmetGroove.SKU
+									},
+									{
+										parentLocalId: 1,
+										localId: parseInt(`${Noeud[0].helmet.helmetDesignGroove.localId}` + Date.now()),
+										matrix: [1, 0, 0, 0,
+										0, 1, 0, 0,
+										0, 0, 1, 0,
+										0, 0, 0, 1],
+										SKU: Noeud[0].helmet.helmetDesignGroove.SKU
+									},
+									{
+										parentLocalId: 1,
+										localId: parseInt(`${Noeud[0].helmet.helmetLogoHigher.localId}` + Date.now()),
+										matrix: [1, 0, 0, 0,
+										0, 1, 0, 0,
+										0, 0, 1, 0,
+										0, 0, 0, 1],
+										SKU: Noeud[0].helmet.helmetLogoHigher.SKU
+									}
+								],
+							localIdsToRemove :
+								localIdToRemove
+						}, "*");
+					localIdToRemove = [];
+					setLoader(false);
+					let colorChecker = standardValue.Helmet_design_color;
+					if (colorChecker !== 'black' || colorChecker !== 'white') {
+						if (colorChecker === 'black') {
+							colorChecker === 'black'
+						} else {
+							colorChecker = 'white';
+						}
+
+					}
+					setTimeout(() => {
+						viewerIframe.postMessage({
+							action : 'setMaterialsGroups',
+							values : 
+								[
+									{
+										configurationName : `${typeColorHelmet}|${standardValue.Helmet_color}`,
+										groupName : 'Helmet_color'
+									},
+									{
+										configurationName : `${standardValue.Helmet_design}|${typeDesignHelmet}|${colorChecker}`,
+										groupName : 'Helmet_design_color'
+									},
+									{
+										configurationName : standardValue.Interior,
+										groupName : 'Interior'
+									},
+									{
+										configurationName : standardValue.Metal_pieces,
+										groupName : 'Metal_pieces'
+									},
+									{
+										configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
+										groupName : 'Chinguard_color'
+									},
+									{
+										configurationName :`${standardValue.Logo}|${standardValue.Logo_color}`,
+										groupName : 'Logo'
+									}
+							]
+							}, '*');
+						setLoader(true);
+					}, '2000');
+				}
 				else {
 				viewerIframe.postMessage(
 					{
@@ -394,6 +476,83 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 				}, '*');
 				setLoader(true);
 			}, '2000');
+			}
+			if (standardValue.Helmet_design === 'checker') {
+				viewerIframe.postMessage(
+					{
+						action : "updateProductNodesInstances",
+						nodesToAdd :
+							[
+								{
+									parentLocalId: 1,
+									localId: parseInt(`${Noeud[0].helmet.helmetNoGroove.localId}` + Date.now()),
+									matrix: [1, 0, 0, 0,
+									0, 1, 0, 0,
+									0, 0, 1, 0,
+									0, 0, 0, 1],
+									SKU: Noeud[0].helmet.helmetNoGroove.SKU
+								},
+								{
+									parentLocalId: 1,
+									localId: parseInt(`${Noeud[0].helmet.helmetDesignNoGroove.localId}` + Date.now()),
+									matrix: [1, 0, 0, 0,
+									0, 1, 0, 0,
+									0, 0, 1, 0,
+									0, 0, 0, 1],
+									SKU: Noeud[0].helmet.helmetDesignNoGroove.SKU
+								},
+								{
+									parentLocalId: 1,
+									localId: parseInt(`${Noeud[0].helmet.helmetLogoHigher.localId}` + Date.now()),
+									matrix: [1, 0, 0, 0,
+									0, 1, 0, 0,
+									0, 0, 1, 0,
+									0, 0, 0, 1],
+									SKU: Noeud[0].helmet.helmetLogoHigher.SKU
+								}
+							],
+						localIdsToRemove :
+							localIdToRemove
+					}, "*");
+				localIdToRemove = [];
+				setLoader(false);
+				let colorChecker = standardValue.Helmet_design_color;
+				if (colorChecker !== 'black' || colorChecker !== 'white') {
+					colorChecker = 'white';
+				}
+				setTimeout(() => {
+					viewerIframe.postMessage({
+						action : 'setMaterialsGroups',
+						values : 
+							[
+								{
+									configurationName : `${typeColorHelmet}|${standardValue.Helmet_color}`,
+									groupName : 'Helmet_color'
+								},
+								{
+									configurationName : `${standardValue.Helmet_design}|${typeDesignHelmet}|${colorChecker}`,
+									groupName : 'Helmet_design_color'
+								},
+								{
+									configurationName : standardValue.Interior,
+									groupName : 'Interior'
+								},
+								{
+									configurationName : standardValue.Metal_pieces,
+									groupName : 'Metal_pieces'
+								},
+								{
+									configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
+									groupName : 'Chinguard_color'
+								},
+								{
+									configurationName :`${standardValue.Logo}|${standardValue.Logo_color}`,
+									groupName : 'Logo'
+								}
+						]
+						}, '*');
+					setLoader(true);
+				}, '2000');
 			}
 			else {
 				viewerIframe.postMessage(

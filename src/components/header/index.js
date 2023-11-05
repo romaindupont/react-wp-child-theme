@@ -2,7 +2,7 @@ const { useState } = wp.element;
 import VeldtLogo from '../../../assets/images/veldt-logo.svg';
 import { MakeAnObjectToOrder } from '../../../utils/ObjectOrder';
 import ScreenShot from '../body/Camera/ScreenShot';
-import { REACT_APP_BASEURL } from '../../../env';
+import { ORDER_VARIATION_CODE, REACT_APP_BASEURL } from '../../../env';
 import Replay from '../body/Camera/Replay';
 
 
@@ -33,6 +33,7 @@ const Header = ({
 	varnishVisor
 }) => {
 	const baseUrl = REACT_APP_BASEURL;
+	const orderVariation = ORDER_VARIATION_CODE;
 	const [ buyLoader, setBuyLoader] = useState(false);
 	var _nonce = "<?php echo wp_create_nonce( 'wc_store_api' ); ?>";
 	const screen = async () => {
@@ -82,7 +83,6 @@ const Header = ({
 			withVisor,
 			varnishVisor
 		);
-		console.log(configuration);
 		let newConfig = JSON.parse(configuration);
 		let customPrice = {"price": price}
 		let myInit2 = { 
@@ -95,7 +95,7 @@ const Header = ({
 		await fetch(`${baseUrl}wp-json/imageHandler/v1/upload`, myInit)
 			.then(response => response.text())
 			.then(data => image = data )
-		await fetch(`${baseUrl}cart/?add-to-cart=62262&image=${image}&price=${price}&shortLink=${srcLink}`, myInit2)
+		await fetch(`${baseUrl}cart/?add-to-cart=${orderVariation}&image=${image}&price=${price}&shortLink=${srcLink}`, myInit2)
 			.then(response => response.text())
 			.then(data => data)
 		setBuyLoader(false);

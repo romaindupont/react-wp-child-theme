@@ -120,7 +120,7 @@ export default [{
 			TartanRed: 'Tartan Red',
 			TartanWhite: 'Tartan White',
 			LeatherRed: 'Leather Red',
-			BlueRubber: 'Blue Rubber',
+			BlueRubber: 'Blue Leather',
 			ChooseSize: 'Choose your size',
 			ChooseCertification: 'Choose your certification'
 		}

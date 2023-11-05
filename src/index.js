@@ -25,6 +25,7 @@ const Veldt = () => {
 		position15: 'xxx',
 		position16: 'xxx',
 		position17: 'xx',
+		position18: 'xx',
 	})
 	const [ standardValue, setStandardValue ] = useState({
 		Helmet_color: 'black',
@@ -140,7 +141,7 @@ const Veldt = () => {
 				'Content-Type': 'application/json',
         'Accept': 'application/json',
 			}
-			let customSku = `${mySku.position1}-${mySku.position2}-${mySku.position3}-${mySku.position4}-${mySku.position5}-${mySku.position6}-${mySku.position7}-${mySku.position8}-${mySku.position9}-${mySku.position10}-${mySku.position11}-${mySku.position12}-${mySku.position13}-${mySku.position14}-${mySku.position15}-${mySku.position16}-${mySku.position17}`
+			let customSku = `${mySku.position1}-${mySku.position2}-${mySku.position3}-${mySku.position4}-${mySku.position5}-${mySku.position6}-${mySku.position7}-${mySku.position8}-${mySku.position9}-${mySku.position10}-${mySku.position11}-${mySku.position12}-${mySku.position13}-${mySku.position14}-${mySku.position15}-${mySku.position16}-${mySku.position17}-${mySku.position18}`
 			let makeData = {
 				'sku': customSku,
 				'devise': deviseChoice.name

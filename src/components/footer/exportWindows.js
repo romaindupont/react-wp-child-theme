@@ -14,7 +14,6 @@ const exportWindows = ({setOpenOptionMenu, screenshotsWait, traduction, setScree
 	}
 	const downloadAll = () => {
 		let images = document.querySelectorAll(".imageDownload");
-		console.log(images);
 		for (let i of images) {
 			let a = document.createElement('a');
 			a.href = i.src;

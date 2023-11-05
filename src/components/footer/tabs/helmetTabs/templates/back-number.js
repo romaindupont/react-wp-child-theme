@@ -85,10 +85,10 @@ const BackNumber = ({
 		<>
 			<div className="numberListType">
 				<span className={backNumberInput.numberStyle === 'none' ? 'selectButton' : 'buttonChoice'} onClick={() => setBackNumberInput({...backNumberInput, numberStyle:'none'}) & setBackNumberWindow(false) & setOpenWindow(false) & setMySku({...mySku, position12: 'xx'})}>{traduction.None}</span>
-				<span className={backNumberInput.numberStyle === 'montserrat' ? 'selectButton' : 'buttonChoice'} onClick={() => setBackNumberInput({...backNumberInput, numberStyle:'montserrat'}) & setBackNumberWindow(true) & setOpenWindow(true) & setMySku({...mySku, position12: 'ng'})}>{traduction.ClassicNumber}</span>
-				<span className={backNumberInput.numberStyle === 'dirt' ? 'selectButton' : 'buttonChoice'} onClick={() => setBackNumberInput({...backNumberInput, numberStyle:'dirt'}) & setBackNumberWindow(true) & setOpenWindow(true) & setMySku({...mySku, position12: 'ng'})}>{traduction.DirtNumber}</span>
-				<span className={backNumberInput.numberStyle === 'PressStart2P-Regular' ? 'selectButton' : 'buttonChoice'} onClick={() => setBackNumberInput({...backNumberInput, numberStyle:'PressStart2P-Regular'}) & setBackNumberWindow(true) & setOpenWindow(true) & setMySku({...mySku, position12: 'ng'})}>{traduction.PixelNumber}</span>
-				<span className={backNumberInput.numberStyle === 'racing' ? 'selectButton' : 'buttonChoice'} onClick={() => setBackNumberInput({...backNumberInput, numberStyle:'racing'}) & setBackNumberWindow(true) & setOpenWindow(true) & setMySku({...mySku, position12: 'ng'})}>{traduction.RacingNumber}</span>
+				<span className={backNumberInput.numberStyle === 'montserrat' ? 'selectButton' : 'buttonChoice'} onClick={() => setBackNumberInput({...backNumberInput, numberStyle:'montserrat'}) & setBackNumberWindow(true) & setOpenWindow(true) & setMySku({...mySku, position12: 'nb'})}>{traduction.ClassicNumber}</span>
+				<span className={backNumberInput.numberStyle === 'dirt' ? 'selectButton' : 'buttonChoice'} onClick={() => setBackNumberInput({...backNumberInput, numberStyle:'dirt'}) & setBackNumberWindow(true) & setOpenWindow(true) & setMySku({...mySku, position12: 'nb'})}>{traduction.DirtNumber}</span>
+				<span className={backNumberInput.numberStyle === 'PressStart2P-Regular' ? 'selectButton' : 'buttonChoice'} onClick={() => setBackNumberInput({...backNumberInput, numberStyle:'PressStart2P-Regular'}) & setBackNumberWindow(true) & setOpenWindow(true) & setMySku({...mySku, position12: 'nb'})}>{traduction.PixelNumber}</span>
+				<span className={backNumberInput.numberStyle === 'racing' ? 'selectButton' : 'buttonChoice'} onClick={() => setBackNumberInput({...backNumberInput, numberStyle:'racing'}) & setBackNumberWindow(true) & setOpenWindow(true) & setMySku({...mySku, position12: 'nb'})}>{traduction.RacingNumber}</span>
 			</div>
 			<div className={!openWindow ? "numberWindows" : "openNumberWindows" }>
 				<p className="infosNumber">{traduction.NumberStyleTitle}</p>

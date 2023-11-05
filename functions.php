@@ -1,7 +1,8 @@
 <?php
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 function my_theme_enqueue_styles() {
- 
+	$current_url = get_permalink( get_the_ID() );
+	if($current_url === 'http://localhost/essai/configurator/' || $current_url === 'https://veldt.fr/fr/casque-de-moto/configurateur/' || $current_url === 'https://veldt.fr/es/marca-1/configurador/' || $current_url === 'https://veldt.fr/zh-hans/%e6%a0%87%e8%ae%b0-1/%e9%85%8d%e7%bd%ae%e5%99%a8/') {
   wp_enqueue_script(
     'my-theme-frontend',
     get_stylesheet_directory_uri() . '/build/index.js',
@@ -14,8 +15,8 @@ function my_theme_enqueue_styles() {
 		[],
 		'20220413'
 	); 
+}
 	if(is_page('configurator')) {
-	    var_dump(get_woocommerce_currency());
 	}
 }
 
@@ -44,12 +45,14 @@ function priceTest($request) {
 	$server_lang= filter_var($_SERVER['HTTP_ACCEPT_LANGUAGE'], FILTER_SANITIZE_STRING );
 	$browserlang = substr($data->devise, 0, 2);
 	$price690 = 690;
+	$price200 = 200;
 	$price150 = 150;
 	$price35 = 35;
 	$price10 = 10;
 	$price130 = 130;
 	$price125 = 125;
 	$price95 = 95;
+	$price80 = 80;
 	$price70 = 70;
 	$price115 = 115;
 	$price50 = 50;
@@ -60,11 +63,13 @@ function priceTest($request) {
 	if( $browserlang == "us" ){
 		$set_lang = 'us_US';
 		$price690 = 690;
+		$price200 = 200;
 		$price150 = 150;
 		$price130 = 130;
 		$price125 = 125;
 		$price115 = 115;
 		$price95 = 95;
+		$price80 = 80;
 		$price70 = 70;
 		$price50 = 50;
 		$price40 = 40;
@@ -76,11 +81,13 @@ function priceTest($request) {
 	if( $browserlang == "zh" ) {
 		$set_lang = 'zh_CN';
 		$price690 = 4020;
+		$price200 = 1400;
 		$price150 = 1000;
 		$price130 = 900;
 		$price125 = 810;
 		$price115 = 790;
 		$price95 = 660;
+		$price80 = 500;
 		$price70 = 460;
 		$price50 = 330;
 		$price40 = 260;
@@ -91,11 +98,13 @@ function priceTest($request) {
 	}
 	else {
 		$price690 = 690;
+		$price200 = 200;
 		$price150 = 150;
 		$price130 = 130;
 		$price125 = 125;
 		$price115 = 115;
 		$price95 = 95;
+		$price80 = 80;
 		$price70 = 70;
 		$price50 = 50;
 		$price40 = 40;
@@ -111,7 +120,7 @@ function priceTest($request) {
 	}
 	$position2 = $explode[1];
 	if ($position2 === 'ch') {
-		$total += $price150;
+		$total += $price200;
 	}
 	if ($position2 === 'xx') {
 		$total += 0;
@@ -147,53 +156,53 @@ function priceTest($request) {
 		$total += 0;
 	}
 	if ($position5 === 'hk') {
-		$total += $price70;
+		$total += $price115;
 	}
 	if ($position5 === 'hr') {
-		$total += $price70;
+		$total += $price115;
 	}
 	if ($position5 === 'hc') {
-		$total += $price115;
+		$total += $price70;
 	}
 	if ($position5 === 'ht') {
 		$total += $price115;
 	}
 	if ($position5 === 'hd') {
-		$total += $price115;
+		$total += $price70;
 	}
 	if ($position5 === 'he') {
-		$total += $price115;
+		$total += $price70;
 	}
 	if ($position5 === 'hg') {
 		$total += $price115;
 	}
 	if ($position5 === 'hh') {
-		$total += $price115;
+		$total += $price70;
 	}
 	if ($position5 === 'hz') {
-		$total += $price115;
+		$total += $price70;
 	}
 	if ($position5 === 'hb') {
-		$total += $price115;
+		$total += $price70;
 	}
 	if ($position5 === 'ho') {
-		$total += $price115;
+		$total += $price70;
 	}
 	if ($position5 === 'hp') {
-		$total += $price115;
+		$total += $price70;
 	}
 	if ($position5 === 'hs') {
 		$total += $price115;
 	}
 	if ($position5 === 'hv') {
-		$total += $price115;
+		$total += $price70;
 	}
 	$position6 = $explode[5];
 	if ($position6 === 'xxx') {
 		$total += 0;
 	}
 	if ($position6 === 'htl') {
-		$total += $price50;
+		$total += $price80;
 	}
 	$position7 = $explode[6];
 	if ($position7 === 'xxx') {
@@ -261,7 +270,7 @@ function priceTest($request) {
 		$total += 0;
 	}
 	if ($position14 === 'cg') {
-		$total += $price70;
+		$total += $price20;
 	}
 	$position15 = $explode[14];
 	if ($position15 === 'xxx') {
@@ -285,40 +294,40 @@ function priceTest($request) {
 		$total += 0;
 	}
 	if ($position17 === 'ck') {
-		$total += $price20;
+		$total += $price30;
 	}
 	if ($position17 === 'cr') {
-		$total += $price20;
+		$total += $price30;
 	}
 	if ($position17 === 'cc') {
-		$total += $price30;
+		$total += $price20;
 	}
 	if ($position17 === 'cd') {
-		$total += $price30;
+		$total += $price20;
 	}
 	if ($position17 === 'cu') {
-		$total += $price30;
+		$total += $price20;
 	}
 	if ($position17 === 'ce') {
-		$total += $price30;
+		$total += $price20;
 	}
 	if ($position17 === 'cg') {
 		$total += $price30;
 	}
 	if ($position17 === 'ch') {
-		$total += $price30;
+		$total += $price20;
 	}
 	if ($position17 === 'cz') {
 		$total += $price30;
 	}
 	if ($position17 === 'cb') {
-		$total += $price30;
+		$total += $price20;
 	}
 	if ($position17 === 'co') {
-		$total += $price30;
+		$total += $price20;
 	}
 	if ($position17 === 'cp') {
-		$total += $price30;
+		$total += $price20;
 	}
 	if ($position17 === 'cs') {
 		$total += $price30;
@@ -326,7 +335,18 @@ function priceTest($request) {
 	if ($position17 === 'cv') {
 		$total += $price30;
 	}
-	
+	$position18 = $explode[17];
+	if ($position18 === 'xx') {
+		$total += 0;
+	}
+	$position18 = $explode[17];
+	if ($position18 === 'sv') {
+		$total += $price10;
+	}
+	$position18 = $explode[17];
+	if ($position18 === 'sp') {
+		$total += $price30;
+	}
 	return $total;
 }
 
@@ -341,7 +361,6 @@ function deviseName() {
 }
 add_filter( 'woocommerce_get_price_html', 'cw_change_product_price_display' );
 function cw_change_product_price_display( $price ) {
-	var_dump($price);
 	/* $price = $cart_item['price']; */
 
 	return $price;
@@ -439,35 +458,179 @@ function add_custom_fields_data_as_custom_cart_item_data( $cart_item_data, $prod
 		$configuration = file_get_contents('php://input');
 		$data = json_decode($configuration);
     if( isset($_GET['image']) && ! empty($_GET['image']) ) {
-				$productName = stripslashes($_GET['image']);
-				$productName = str_replace('"', "'", $productName);
-				file_put_contents($productName . '.txt', print_r($data, true));
-				$cart_item_data['imageToFollow'] = ($productName);
-				$cart_item_data['configuration'] = ($productName . '.txt');
-        $cart_item_data['unique_key'] = md5( microtime().rand() );
-    }
-    return $cart_item_data;
+			$productName = stripslashes($_GET['image']);
+	    $productName = str_replace('"', "'", $productName);
+	    file_put_contents($productName . '.txt', print_r($data, true));
+    	$cart_item_data['imageToFollow'] = ($productName);
+			$cart_item_data['configuration'] = ($productName . '.txt');
+			$cart_item_data['price'] = $_GET['price'];
+			$cart_item_data['link'] =  $_GET['shortLink'];
+			$cart_item_data['unique_key'] = md5( microtime().rand() );
+			$cart_item_data['Helmet-Aeration'] = $data->Helmet->Helmet_aeration === 'true' ? 'Yes' : 'No';
+			$cart_item_data['Helmet-Interior'] = $data->Helmet->Interior;
+			$cart_item_data['Helmet-Logo'] = $data->Helmet->Logo;
+			$cart_item_data['Helmet-MainColor'] = $data->Helmet->Helmet_first_color;
+			$cart_item_data['Helmet-Number-Back'] = $data->Helmet->BackNumber->Apply === 'true' ? $data->Helmet->BackNumber->Configuration->Text : 'None';
+			$cart_item_data['Helmet-Number-Left'] = $data->Helmet->LeftNummber->Apply === 'true' ? $data->Helmet->LeftNummber->Configuration->Text : 'None';
+			$cart_item_data['Helmet-Number-Right'] = $data->Helmet->RightNummber->Apply === 'true' ? $data->Helmet->RightNummber->Configuration->Text : 'None';
+			if($cart_item_data['Helmet-PaintDesign']) {
+					$cart_item_data['Helmet-PaintDesign'] = $data->Helmet->Helmet_design === '' ? ' ' : $data->Helmet->Helmet_design;
+					$cart_item_data['Helmet-PatternColor'] = $data->Helmet->Helmet_design_type;
+			}
+
+			$cart_item_data['Helmet-PullingFlap'] = $data->Helmet->flap;
+			$cart_item_data['Helmet-RearEngraving'] = $data->Helmet->Engraving->Apply === 'true' ? $data->Helmet->Engraving->Configuration->Text : 'None';
+			$cart_item_data['Helmet-Screws'] = $data->Screws->ScrewsPosition . ' ' . $data->Screws->Screws_finition;
+			$cart_item_data['Helmet-Trim'] = $data->Helmet->Trim ? $data->Helmet->Trim : 'None';
+			$cart_item_data['Helmet-Varnish'] = $data->Helmet->Varnish === 'true' ? 'Yes' : 'No';
+			$cart_item_data['Size'] = (($data->Helmet->Size === 'M') ? 'M/L' : (($data->Helmet->Size === 'S') ? 'XS/S' : 'XL/XXL'));
+				$cart_item_data['Chinguard-With'] = $data->Chinguard->With_Chin;
+		// if($cart_item_data['Chinguard-With'] === true){
+			$cart_item_data['Chinguard-Aeration'] = $data->Chinguard->Chinguard_aeration === 'true' ? 'Yes' : 'No';
+			$cart_item_data['Chinguard-MainColor'] = $data->Chinguard->Chinguard_first_color;
+			$cart_item_data['Chinguard-PaintDesign'] = $data->Chinguard->Chinguard_design;
+			$cart_item_data['Chinguard-Trim'] = $data->Chinguard->Trim;
+			$cart_item_data['Chinguard-Varnish'] = $data->Chinguard->Varnish === 'true' ? 'Yes' : 'No';
+	//  }	
+		if($data->Visor->With_Visor === 'true') {
+				$cart_item_data['Visor-With'] = $data->Visor->With_Visor;
+				$cart_item_data['Visor-Type'] = $data->Visor->Visor_type;
+				if($cart_item_data['Visor-Type'] === 'peak_visor'){
+						$cart_item_data['Visor-Peak_Color'] = $data->Visor->Visor_peak_color;
+				}
+				else {
+						$cart_item_data['Visor-Frame'] = $data->Visor->Frame;
+						$cart_item_data['Visor-Color'] = $data->Visor->visor_Color;
+				}
+				
+				
+		}
+	
+	}
+	file_put_contents($productName . 'test.txt', print_r($cart_item_data, true));
+	/* var_dump($cart_item_data); */
+	return $cart_item_data;
 }
+
 
 add_filter( 'woocommerce_get_item_data', 'display_custom_item_data', 10, 2 );
 function display_custom_item_data( $cart_item_data, $cart_item ) {
     if ( isset( $cart_item['imageToFollow'] ) ) {
-        $cart_item_data[] = array(
-            'name' => __( 'ImageUploaded' ),
-            'value' =>  $cart_item['imageToFollow'],
-        );
-				$cart_item_data[] = array(
-					'name' => __( 'Config' ),
-					'value' =>  $cart_item['configuration'],
-				);
-				$cart_item_data[] = array(
-					'name' => __( 'Price' ),
-					'value' =>  $cart_item['price'],
-				);
+		$cart_item_data[] = array(
+			'name' => __( 'Helmet - Aeration' ),
+			'value' =>  $cart_item['Helmet-Aeration'],
+	    );
+		$cart_item_data[] = array(
+			'name' => __( 'Helmet - Interior' ),
+			'value' =>  $cart_item['Helmet-Interior'],
+	    );
+		$cart_item_data[] = array(
+			'name' => __( 'Helmet - Logo' ),
+			'value' =>  $cart_item['Helmet-Logo'],
+	    );
+		$cart_item_data[] = array(
+			'name' => __( 'Helmet - Main color' ),
+			'value' =>  $cart_item['Helmet-MainColor'],
+	    );
+		$cart_item_data[] = array(
+			'name' => __( 'Helmet - Numbering - Back - Your Number' ),
+			'value' =>  $cart_item['Helmet-Number-Back'],
+	    );
+		$cart_item_data[] = array(
+			'name' => __( 'Helmet - Numbering - Left side - Your Number' ),
+			'value' =>  $cart_item['Helmet-Number-Left'],
+	    );
+		$cart_item_data[] = array(
+			'name' => __( 'Helmet - Numbering - Right side - Your Number' ),
+			'value' =>  $cart_item['Helmet-Number-Right'],
+	    );
+			if(isset($cart_item_data['Helmet-PaintDesign'])) {
+     		$cart_item_data[] = array(
+    			'name' => __( 'Helmet - Paint design' ),
+    			'value' =>  $cart_item['Helmet-PaintDesign'],
+    	    );
+    		$cart_item_data[] = array(
+    			'name' => __( 'Helmet - Pattern color' ),
+    			'value' =>  $cart_item['Helmet-PatternColor'],
+    	    );
+			}
+
+		$cart_item_data[] = array(
+			'name' => __( 'Helmet - Pulling flap' ),
+			'value' =>  $cart_item['Helmet-PullingFlap'],
+	    );
+		$cart_item_data[] = array(
+			'name' => __( 'Helmet - Rear engraving' ),
+			'value' =>  $cart_item['Helmet-RearEngraving'],
+	    );
+		$cart_item_data[] = array(
+			'name' => __( 'Helmet - Screws' ),
+			'value' =>  $cart_item['Helmet-Screws'],
+	    );
+		$cart_item_data[] = array(
+			'name' => __( 'Helmet - Trim' ),
+			'value' =>  $cart_item['Helmet-Trim'],
+	    );	    
+		$cart_item_data[] = array(
+			'name' => __( 'Helmet - Varnish' ),
+			'value' =>  $cart_item['Helmet-Varnish'],
+	    );
+		$cart_item_data[] = array(
+			'name' => __( 'Size' ),
+			'value' =>  $cart_item['Size'],
+	    );
+ 	    if($cart_item['Chinguard-With'] === 'true'){
+         	$cart_item_data[] = array(
+    			'name' => __( 'Chinguard - Aeration' ),
+    			'value' =>  $cart_item['Chinguard-Aeration'] ? $cart_item['Chinguard-Aeration'] : 'None',
+    	    );
+    		$cart_item_data[] = array(
+    			'name' => __( 'Chinguard - MainColor' ),
+    			'value' =>  $cart_item['Chinguard-MainColor'] ? $cart_item['Chinguard-MainColor'] : 'None',
+    	    );
+    	    $cart_item_data[] = array(
+    			'name' => __( 'Chinguard - PaintDesign' ),
+    			'value' =>  $cart_item['Chinguard-PaintDesign'] ? $cart_item['Chinguard-PaintDesign'] : 'None',
+    	    );
+       	    $cart_item_data[] = array(
+    			'name' => __( 'Chinguard - Trim' ),
+    			'value' =>  $cart_item['Chinguard-Trim'] ? $cart_item['Chinguard-Trim'] : 'None',
+    	    );
+   	        $cart_item_data[] = array(
+    			'name' => __( 'Chinguard - Varnish' ),
+    			'value' =>  $cart_item['Chinguard-Varnish'] ? $cart_item['Chinguard-Varnish'] : 'None',
+    	    );
+	    }
+	    if(isset($cart_item['Visor-With']) && $cart_item['Visor-With'] == 'true'){
+   	        $cart_item_data[] = array(
+    			'name' => __( 'Visor - Type' ),
+    			'value' =>  $cart_item['Visor-Type'] ? $cart_item['Visor-Type'] : 'None',
+    	    );
+    	    if(isset($cart_item_data['Visor-Type']) && $cart_item_data['Visor-Type'] === 'peak_visor'){
+    	        $cart_item_data[] = array(
+    			'name' => __( 'Visor - Peak Color' ),
+    			'value' =>  $cart_item['Visor-Peak_Color'] ? $cart_item['Visor-Peak_Color'] : 'None',
+    	    );
+    	    }
+    	    else {
+ 	            $cart_item_data[] = array(
+        			'name' => __( 'Visor - Frame' ),
+        			'value' =>  $cart_item['Visor-Frame'] ? $cart_item['Visor-Frame'] : 'None',
+        	    ); 
+ 	            $cart_item_data[] = array(
+        			'name' => __( 'Visor - Color' ),
+        			'value' =>  $cart_item['Visor-Color'] ? $cart_item['Visor-Color'] : 'None',
+        	    ); 
+    	    }
+	    }
+		$cart_item_data[] = array(
+			'name' => __( 'Replay link' ),
+			'value' => $cart_item['link'],
+	    );
     }
+		/* var_dump($cart_item); */
     return $cart_item_data;
 }
-
 // Save Image data as order item meta data
 add_action( 'woocommerce_checkout_create_order_line_item', 'add_custom_note_order_item_meta', 20, 4 );
 function add_custom_note_order_item_meta( $item, $cart_item_key, $values, $order ) {
@@ -475,6 +638,7 @@ function add_custom_note_order_item_meta( $item, $cart_item_key, $values, $order
         $item->update_meta_data( 'ImageUploaded',  $values['imageToFollow'] );
 				$item->update_meta_data( 'Config',  $values['configuration'] );
 				$item->update_meta_data( 'Price',  $values['price'] );
+				$item->update_meta_data( 'Link',  $values['link'] );
     }
 }
 function custom_new_product_image($a, $cart_item, $cart_item_key) {	
@@ -523,6 +687,7 @@ function njengah_email_new_order_custom_meta_data( $order, $sent_to_admin, $plai
 // Set custom cart item price
 add_action( 'woocommerce_before_calculate_totals', 'add_custom_price', 1000, 1);
 function add_custom_price( $cart ) {
+	global $woocommerce;
     // This is necessary for WC 3.0+
     if ( is_admin() && ! defined( 'DOING_AJAX' ) )
         return;
@@ -533,60 +698,1085 @@ function add_custom_price( $cart ) {
 
     // Loop through cart items
     foreach ( $cart->get_cart() as $cart_item ) {
-        $cart_item['data']->set_price( 100 );
+        if($cart_item['product_id'] === 226){
+            if(get_woocommerce_currency_symbol() === '&yen;') {
+
+                $cart_item['data']->set_price(changeDollarToYen($cart_item['price']));
+            }
+            else {
+                $cart_item['data']->set_price($cart_item['price'] );
+            }
+        }
+        
     }
 }
-
-/* add_filter('wcml_client_currency', 'wcmlc');
-
-function change_existing_currency_symbol($currency ) {
-    switch( $currency ) {
-        case 'US': return 'USD'; break;
-        case 'EUR': return 'EUR'; break;
-        case 'zh': return 'CNY'; break;
-    }
-} */
-
-/* add_action( 'wcml_client_currency', 'ironikus_force_currency', 10 );
-function ironikus_force_currency( $current_currency ){
-    //We only want to force it within the frontend
-    if( is_admin() ){
-        return $current_currency;
-    }
-
-    global $woocommerce;
-
-    //This is the current country code we force the currency to
-    //You should get this value dynamically from wherever you want the currency to be forced from
-    $new_country_code = $_GET['wcmlc'];
-
-    //These are the currencies we redirect. In our example, we only have two.
-    //Make sure you map the country to the language code you want to map it to.
-    $multicurrencies = array(
-        'DEFAULT' => 'USD',
-        'EUR' => 'EUR',
-        'ZH' => 'CNY',
-				'US' => 'USD'
-    );
-
-    //Validate the new currency regarding its availability
-    if( isset( $multicurrencies[ $new_country_code ] ) ){
-
-        //To save performance, we only switch the language if the new one is not the current one
-        if( $multicurrencies[ $new_country_code ] !== $current_currency ){
-
-            $current_currency = $multicurrencies[ $new_country_code ]; // Set the current currency to the new one
-
-            //$woocommerce->session->set( 'client_currency', $multicurrencies[ $new_country_code ] );
-            //$woocommerce->session->set('client_currency_switched', true );
-
-            // Other functions that might come handy
-            // WC()->session->set('client_currency', $multicurrencies['DEFAULT']);
-           // #$woocommerce->session->set( 'client_currency_language', $sitepress->get_current_language() );
-
-        }
-
-    }
-
-    return $current_currency;
-} */
+function changeDollarToYen($price) {
+	if($price === '690') { 
+			return '4020';
+	 }
+	if($price === '4020') { 
+			return '4020';
+	 }
+	 if($price === '700') { 
+			return '4080';
+	 }
+	 if($price === '4080') { 
+			return '4080';
+	 }
+	 if($price === '710') { 
+			return '4150';
+	 }
+	 if($price === '4150') { 
+			return '4150';
+	 }
+	 if($price === '720') { 
+			return '4210';
+	 }
+	 if($price === '725') { 
+			return '4260';
+	 }
+	 if($price === '730') { 
+			return '4280';
+	 }
+	 if($price === '735') { 
+			return '4320';
+	 }
+	 if($price === '740') { 
+			return '4350';
+	 }
+	 if($price === '745') { 
+			return '4390';
+	 }
+	 if($price === '750') { 
+			return '4410';
+	 }
+	 if($price === '755') { 
+			return '4450';
+	 }
+	 if($price === '760') { 
+			return '4480';
+	 }
+	 if($price === '765') { 
+			return '4520';
+	 }
+	 if($price === '770') { 
+			return '4540';
+	 }
+	 if($price === '775') { 
+			return '4590';
+	 }
+	 if($price === '780') { 
+			return '4610';
+	 }
+	 if($price === '785') { 
+			return '4680';
+	 }
+	 if($price === '790') { 
+			return '4700';
+	 }
+	 if($price === '795') { 
+			return '4740';
+	 }
+	 if($price === '800') { 
+			return '4760';
+	 }
+	 if($price === '805') { 
+			return '4810';
+	 }
+	 if($price === '810') { 
+			return '4830';
+	 }
+	 if($price === '815') { 
+			return '4870';
+	 }
+	 if($price === '820') { 
+			return '4900';
+	 }
+	 if($price === '825') { 
+			return '4940';
+	 }
+	 if($price === '830') { 
+			return '4960';
+	 }
+	 if($price === '835') { 
+			return '5010';
+	 }
+	 if($price === '840') { 
+			return '5050';
+	 }
+	 if($price === '845') { 
+			return '5070';
+	 }
+	 if($price === '850') { 
+			return '5110';
+	 }
+	 if($price === '855') { 
+			return '5140';
+	 }
+	 if($price === '860') { 
+			return '5180';
+	 }
+	 if($price === '865') { 
+			return '5200';
+	 }
+	 if($price === '870') { 
+			return '5240';
+	 }
+	 if($price === '875') { 
+			return '5270';
+	 }
+	 if($price === '880') { 
+			return '5310';
+	 }
+	 if($price === '885') { 
+			return '5340';
+	 }
+	 if($price === '890') { 
+			return '5380';
+	 }
+	 if($price === '895') { 
+			return '5400';
+	 }
+	 if($price === '900') { 
+			return '5470';
+	 }
+	 if($price === '905') { 
+			return '5500';
+	 }
+	 if($price === '910') { 
+			return '5530';
+	 }
+	 if($price === '915') { 
+			return '5570';
+	 }
+	 if($price === '920') { 
+			return '5600';
+	 }
+	 if($price === '925') { 
+			return '5620';
+	 }
+	 if($price === '930') { 
+			return '5660';
+	 }
+	 if($price === '935') { 
+			return '5680';
+	 }
+	 if($price === '940') { 
+			return '5730';
+	 }
+	 if($price === '945') { 
+			return '5740';
+	 }
+	 if($price === '950') { 
+			return '5800';
+	 }
+	 if($price === '955') { 
+			return '5840';
+	 }
+	 if($price === '960') { 
+			return '5860';
+	 }
+	 if($price === '965') { 
+			return '5900';
+	 }
+	 if($price === '970') { 
+			return '5930';
+	 }
+	 if($price === '975') { 
+			return '5970';
+	 }
+	 if($price === '980') { 
+			return '5990';
+	 }
+	 if($price === '985') { 
+			return '6030';
+	 }
+	 if($price === '990') { 
+			return '6060';
+	 }
+	 if($price === '995') { 
+			return '6100';
+	 }
+	 if($price === '1000') { 
+			return '6130';
+	 }
+	 if($price === '1005') { 
+			return '6170';
+	 }
+	 if($price === '1010') { 
+			return '6190';
+	 }
+	 if($price === '1015') { 
+			return '6260';
+	 }
+	 if($price === '1020') { 
+			return '6290';
+	 }
+	 if($price === '1025') { 
+			return '6320';
+	 }
+	 if($price === '1030') { 
+			return '6350';
+	 }
+	 if($price === '1035') { 
+			return '6390';
+	 }
+	 if($price === '1040') { 
+			return '6410';
+	 }
+	 if($price === '1045') { 
+			return '6450';
+	 }
+	 if($price === '1050') { 
+			return '6470';
+	 }
+	 if($price === '1055') { 
+			return '6520';
+	 }
+	 if($price === '1060') { 
+			return '6530';
+	 }
+	 if($price === '1065') { 
+			return '6590';
+	 }
+	 if($price === '1070') { 
+			return '6600';
+	 }
+	 if($price === '1075') { 
+			return '6650';
+	 }
+	 if($price === '1080') { 
+			return '6660';
+	 }
+	 if($price === '1085') { 
+			return '6720';
+	 }
+	 if($price === '1090') { 
+			return '6730';
+	 }
+	 if($price === '1095') { 
+			return '6780';
+	 }
+	 if($price === '1100') { 
+			return '6800';
+	 }
+	 if($price === '1105') { 
+			return '6850';
+	 }
+	 if($price === '1110') { 
+			return '6860';
+	 }
+	 if($price === '1115') { 
+			return '6920';
+	 }
+	 if($price === '1120') { 
+			return '6930';
+	 }
+	 if($price === '1125') { 
+			return '6980';
+	 }
+	 if($price === '1130') { 
+			return '6990';
+	 }
+	 if($price === '1135') { 
+			return '7050';
+	 }
+	 if($price === '1140') { 
+			return '7060';
+	 }
+	 if($price === '1145') { 
+			return '7110';
+	 }
+	 if($price === '1150') { 
+			return '7130';
+	 }
+	 if($price === '1155') { 
+			return '7180';
+	 }
+	 if($price === '1160') { 
+			return '7190';
+	 }
+	 if($price === '1165') { 
+			return '7260';
+	 }
+	 if($price === '1170') { 
+			return '7280';
+	 }
+	 if($price === '1175') { 
+			return '7320';
+	 }
+	 if($price === '1180') { 
+			return '7340';
+	 }
+	 if($price === '1185') { 
+			return '7390';
+	 }
+	 if($price === '1190') { 
+			return '7400';
+	 }
+	 if($price === '1195') { 
+			return '7450';
+	 }
+	 if($price === '1200') { 
+			return '7470';
+	 }
+	 if($price === '1205') { 
+			return '7520';
+	 }
+	 if($price === '1210') { 
+			return '7530';
+	 }
+	 if($price === '1215') { 
+			return '7590';
+	 }
+	 if($price === '1220') { 
+			return '7600';
+	 }
+	 if($price === '1225') { 
+			return '7650';
+	 }
+	 if($price === '1230') { 
+			return '7660';
+	 }
+	 if($price === '1235') { 
+			return '7720';
+	 }
+	 if($price === '1245') { 
+			return '7780';
+	 }
+	 if($price === '1250') { 
+			return '7800';
+	 }
+	 if($price === '1255') { 
+			return '7850';
+	 }
+	 if($price === '1260') { 
+			return '7860';
+	 }
+	 if($price === '1265') { 
+			return '7920';
+	 }
+	 if($price === '1270') { 
+			return '7930';
+	 }
+	 if($price === '1275') { 
+			return '7980';
+	 }
+	 if($price === '1280') { 
+			return '7990';
+	 }
+	 if($price === '1285') { 
+			return '8050';
+	 }
+	 if($price === '1290') { 
+			return '8060';
+	 }
+	 if($price === '1295') { 
+			return '8110';
+	 }
+	 if($price === '1300') { 
+			return '8130';
+	 }
+	 if($price === '1305') { 
+			return '8180';
+	 }
+	 if($price === '1310') { 
+			return '8190';
+	 }
+	 if($price === '1315') { 
+			return '8250';
+	 }
+	 if($price === '1320') { 
+			return '8260';
+	 }
+	 if($price === '1325') { 
+			return '8310';
+	 }
+	 if($price === '1330') { 
+			return '8320';
+	 }
+	 if($price === '1335') { 
+			return '8380';
+	 }
+	 if($price === '1340') { 
+			return '8390';
+	 }
+	 if($price === '1345') { 
+			return '8440';
+	 }
+	 if($price === '1350') { 
+			return '8460';
+	 }
+	 if($price === '1355') { 
+			return '8510';
+	 }
+	 if($price === '1360') { 
+			return '8520';
+	 }
+	 if($price === '1365') { 
+			return '8570';
+	 }
+	 if($price === '1370') { 
+			return '8590';
+	 }
+	 if($price === '1375') { 
+			return '8640';
+	 }
+	 if($price === '1380') { 
+			return '8650';
+	 }
+	 if($price === '1385') { 
+			return '8710';
+	 }
+	 if($price === '1390') { 
+			return '8720';
+	 }
+	 if($price === '1395') { 
+			return '8770';
+	 }
+	 if($price === '1400') { 
+			return '8780';
+	 }
+	 if($price === '1405') { 
+			return '8840';
+	 }
+	 if($price === '1410') { 
+			return '8850';
+	 }
+	 if($price === '1415') { 
+			return '8900';
+	 }
+	 if($price === '1420') { 
+			return '8920';
+	 }
+	 if($price === '1425') { 
+			return '8970';
+	 }
+	 if($price === '1430') { 
+			return '8980';
+	 }
+	 if($price === '1435') { 
+			return '9030';
+	 }
+	 if($price === '1440') { 
+			return '9050';
+	 }
+	 if($price === '1445') { 
+			return '9100';
+	 }
+	 if($price === '1450') { 
+			return '9110';
+	 }
+	 if($price === '1455') { 
+			return '9170';
+	 }
+	 if($price === '1460') { 
+			return '9180';
+	 }
+	 if($price === '1465') { 
+			return '9230';
+	 }
+	 if($price === '1470') { 
+			return '9240';
+	 }
+	 if($price === '1475') { 
+			return '9300';
+	 }
+	 if($price === '1480') { 
+			return '9310';
+	 }
+	 if($price === '1485') { 
+			return '9360';
+	 }
+	 if($price === '1490') { 
+			return '9380';
+	 }
+	 if($price === '1495') { 
+			return '9430';
+	 }
+	 if($price === '1500') { 
+			return '9440';
+	 }
+	 if($price === '1505') { 
+			return '9490';
+	 }
+	 if($price === '1510') { 
+			return '9510';
+	 }
+	 if($price === '1515') { 
+			return '9530';
+	 }
+	 if($price === '1520') { 
+			return '9570';
+	 }
+	 if($price === '1525') { 
+			return '9630';
+	 }
+	 if($price === '1535') { 
+			return '9690';
+	 }
+	 if($price === '1545') { 
+			return '9760';
+	 }
+	 if($price === '1550') { 
+			return '9790';
+	 }
+	 if($price === '1555') { 
+			return '9820';
+	 }
+	 if($price === '1560') { 
+			return '9840';
+	 }
+	 if($price === '1565') { 
+			return '9860';
+	 }
+	 if($price === '1570') { 
+			return '9900';
+	 }
+	 if($price === '1575') { 
+			return '9910';
+	 }
+	 if($price === '1580') { 
+			return '9970';
+	 }
+	 if($price === '1585') { 
+			return '9990';
+	 }
+	 if($price === '1590') { 
+			return '10030';
+	 }
+	 if($price === '1600') { 
+			return '10050';
+	 }
+	 if($price === '1610') { 
+			return '10120';
+	 }
+	 if($price === '1620') { 
+			return '10180';
+	 }
+	 if($price === '4210') { 
+			return '4210';
+	 }
+	 if($price === '4260') { 
+			return '4260';
+	 }
+	 if($price === '4280') { 
+			return '4280';
+	 }
+	 if($price === '4320') { 
+			return '4320';
+	 }
+	 if($price === '4350') { 
+			return '4350';
+	 }
+	 if($price === '4390') { 
+			return '4390';
+	 }
+	 if($price === '4410') { 
+			return '4410';
+	 }
+	 if($price === '4450') { 
+			return '4450';
+	 }
+	 if($price === '4480') { 
+			return '4480';
+	 }
+	 if($price === '4520') { 
+			return '4520';
+	 }
+	 if($price === '4540') { 
+			return '4540';
+	 }
+	 if($price === '4590') { 
+			return '4590';
+	 }
+	 if($price === '4610') { 
+			return '4610';
+	 }
+	 if($price === '4680') { 
+			return '4680';
+	 }
+	 if($price === '4700') { 
+			return '4700';
+	 }
+	 if($price === '4740') { 
+			return '4740';
+	 }
+	 if($price === '4760') { 
+			return '4760';
+	 }
+	 if($price === '4810') { 
+			return '4810';
+	 }
+	 if($price === '4830') { 
+			return '4830';
+	 }
+	 if($price === '4870') { 
+			return '4870';
+	 }
+	 if($price === '4900') { 
+			return '4900';
+	 }
+	 if($price === '4940') { 
+			return '4940';
+	 }
+	 if($price === '4960') { 
+			return '4960';
+	 }
+	 if($price === '5010') { 
+			return '5010';
+	 }
+	 if($price === '5050') { 
+			return '5050';
+	 }
+	 if($price === '5070') { 
+			return '5070';
+	 }
+	 if($price === '5110') { 
+			return '5110';
+	 }
+	 if($price === '5140') { 
+			return '5140';
+	 }
+	 if($price === '5180') { 
+			return '5180';
+	 }
+	 if($price === '5200') { 
+			return '5200';
+	 }
+	 if($price === '5240') { 
+			return '5240';
+	 }
+	 if($price === '5270') { 
+			return '5270';
+	 }
+	 if($price === '5310') { 
+			return '5310';
+	 }
+	 if($price === '5340') { 
+			return '5340';
+	 }
+	 if($price === '5380') { 
+			return '5380';
+	 }
+	 if($price === '5400') { 
+			return '5400';
+	 }
+	 if($price === '5470') { 
+			return '5470';
+	 }
+	 if($price === '5500') { 
+			return '5500';
+	 }
+	 if($price === '5530') { 
+			return '5530';
+	 }
+	 if($price === '5570') { 
+			return '5570';
+	 }
+	 if($price === '5600') { 
+			return '5600';
+	 }
+	 if($price === '5620') { 
+			return '5620';
+	 }
+	 if($price === '5660') { 
+			return '5660';
+	 }
+	 if($price === '5680') { 
+			return '5680';
+	 }
+	 if($price === '5730') { 
+			return '5730';
+	 }
+	 if($price === '5740') { 
+			return '5740';
+	 }
+	 if($price === '5800') { 
+			return '5800';
+	 }
+	 if($price === '5840') { 
+			return '5840';
+	 }
+	 if($price === '5860') { 
+			return '5860';
+	 }
+	 if($price === '5900') { 
+			return '5900';
+	 }
+	 if($price === '5930') { 
+			return '5930';
+	 }
+	 if($price === '5970') { 
+			return '5970';
+	 }
+	 if($price === '5990') { 
+			return '5990';
+	 }
+	 if($price === '6030') { 
+			return '6030';
+	 }
+	 if($price === '6060') { 
+			return '6060';
+	 }
+	 if($price === '6100') { 
+			return '6100';
+	 }
+	 if($price === '6130') { 
+			return '6130';
+	 }
+	 if($price === '6170') { 
+			return '6170';
+	 }
+	 if($price === '6190') { 
+			return '6190';
+	 }
+	 if($price === '6260') { 
+			return '6260';
+	 }
+	 if($price === '6290') { 
+			return '6290';
+	 }
+	 if($price === '6320') { 
+			return '6320';
+	 }
+	 if($price === '6350') { 
+			return '6350';
+	 }
+	 if($price === '6390') { 
+			return '6390';
+	 }
+	 if($price === '6410') { 
+			return '6410';
+	 }
+	 if($price === '6450') { 
+			return '6450';
+	 }
+	 if($price === '6470') { 
+			return '6470';
+	 }
+	 if($price === '6520') { 
+			return '6520';
+	 }
+	 if($price === '6530') { 
+			return '6530';
+	 }
+	 if($price === '6590') { 
+			return '6590';
+	 }
+	 if($price === '6600') { 
+			return '6600';
+	 }
+	 if($price === '6650') { 
+			return '6650';
+	 }
+	 if($price === '6660') { 
+			return '6660';
+	 }
+	 if($price === '6720') { 
+			return '6720';
+	 }
+	 if($price === '6730') { 
+			return '6730';
+	 }
+	 if($price === '6780') { 
+			return '6780';
+	 }
+	 if($price === '6800') { 
+			return '6800';
+	 }
+	 if($price === '6850') { 
+			return '6850';
+	 }
+	 if($price === '6860') { 
+			return '6860';
+	 }
+	 if($price === '6920') { 
+			return '6920';
+	 }
+	 if($price === '6930') { 
+			return '6930';
+	 }
+	 if($price === '6980') { 
+			return '6980';
+	 }
+	 if($price === '6990') { 
+			return '6990';
+	 }
+	 if($price === '7050') { 
+			return '7050';
+	 }
+	 if($price === '7060') { 
+			return '7060';
+	 }
+	 if($price === '7110') { 
+			return '7110';
+	 }
+	 if($price === '7130') { 
+			return '7130';
+	 }
+	 if($price === '7180') { 
+			return '7180';
+	 }
+	 if($price === '7190') { 
+			return '7190';
+	 }
+	 if($price === '7260') { 
+			return '7260';
+	 }
+	 if($price === '7280') { 
+			return '7280';
+	 }
+	 if($price === '7320') { 
+			return '7320';
+	 }
+	 if($price === '7340') { 
+			return '7340';
+	 }
+	 if($price === '7390') { 
+			return '7390';
+	 }
+	 if($price === '7400') { 
+			return '7400';
+	 }
+	 if($price === '7450') { 
+			return '7450';
+	 }
+	 if($price === '7470') { 
+			return '7470';
+	 }
+	 if($price === '7520') { 
+			return '7520';
+	 }
+	 if($price === '7530') { 
+			return '7530';
+	 }
+	 if($price === '7590') { 
+			return '7590';
+	 }
+	 if($price === '7600') { 
+			return '7600';
+	 }
+	 if($price === '7650') { 
+			return '7650';
+	 }
+	 if($price === '7660') { 
+			return '7660';
+	 }
+	 if($price === '7720') { 
+			return '7720';
+	 }
+	 if($price === '7780') { 
+			return '7780';
+	 }
+	 if($price === '7800') { 
+			return '7800';
+	 }
+	 if($price === '7850') { 
+			return '7850';
+	 }
+	 if($price === '7860') { 
+			return '7860';
+	 }
+	 if($price === '7920') { 
+			return '7920';
+	 }
+	 if($price === '7930') { 
+			return '7930';
+	 }
+	 if($price === '7980') { 
+			return '7980';
+	 }
+	 if($price === '7990') { 
+			return '7990';
+	 }
+	 if($price === '8050') { 
+			return '8050';
+	 }
+	 if($price === '8060') { 
+			return '8060';
+	 }
+	 if($price === '8110') { 
+			return '8110';
+	 }
+	 if($price === '8130') { 
+			return '8130';
+	 }
+	 if($price === '8180') { 
+			return '8180';
+	 }
+	 if($price === '8190') { 
+			return '8190';
+	 }
+	 if($price === '8250') { 
+			return '8250';
+	 }
+	 if($price === '8260') { 
+			return '8260';
+	 }
+	 if($price === '8310') { 
+			return '8310';
+	 }
+	 if($price === '8320') { 
+			return '8320';
+	 }
+	 if($price === '8380') { 
+			return '8380';
+	 }
+	 if($price === '8390') { 
+			return '8390';
+	 }
+	 if($price === '8440') { 
+			return '8440';
+	 }
+	 if($price === '8460') { 
+			return '8460';
+	 }
+	 if($price === '8510') { 
+			return '8510';
+	 }
+	 if($price === '8520') { 
+			return '8520';
+	 }
+	 if($price === '8570') { 
+			return '8570';
+	 }
+	 if($price === '8590') { 
+			return '8590';
+	 }
+	 if($price === '8640') { 
+			return '8640';
+	 }
+	 if($price === '8650') { 
+			return '8650';
+	 }
+	 if($price === '8710') { 
+			return '8710';
+	 }
+	 if($price === '8720') { 
+			return '8720';
+	 }
+	 if($price === '8770') { 
+			return '8770';
+	 }
+	 if($price === '8780') { 
+			return '8780';
+	 }
+	 if($price === '8840') { 
+			return '8840';
+	 }
+	 if($price === '8850') { 
+			return '8850';
+	 }
+	 if($price === '8900') { 
+			return '8900';
+	 }
+	 if($price === '8920') { 
+			return '8920';
+	 }
+	 if($price === '8970') { 
+			return '8970';
+	 }
+	 if($price === '8980') { 
+			return '8980';
+	 }
+	 if($price === '9030') { 
+			return '9030';
+	 }
+	 if($price === '9050') { 
+			return '9050';
+	 }
+	 if($price === '9100') { 
+			return '9100';
+	 }
+	 if($price === '9110') { 
+			return '9110';
+	 }
+	 if($price === '9170') { 
+			return '9170';
+	 }
+	 if($price === '9180') { 
+			return '9180';
+	 }
+	 if($price === '9230') { 
+			return '9230';
+	 }
+	 if($price === '9240') { 
+			return '9240';
+	 }
+	 if($price === '9300') { 
+			return '9300';
+	 }
+	 if($price === '9310') { 
+			return '9310';
+	 }
+	 if($price === '9360') { 
+			return '9360';
+	 }
+	 if($price === '9380') { 
+			return '9380';
+	 }
+	 if($price === '9430') { 
+			return '9430';
+	 }
+	 if($price === '9440') { 
+			return '9440';
+	 }
+	 if($price === '9490') { 
+			return '9490';
+	 }
+	 if($price === '9510') { 
+			return '9510';
+	 }
+	 if($price === '9530') { 
+			return '9530';
+	 }
+	 if($price === '9570') { 
+			return '9570';
+	 }
+	 if($price === '9630') { 
+			return '9630';
+	 }
+	 if($price === '9690') { 
+			return '9690';
+	 }
+	 if($price === '9760') { 
+			return '9760';
+	 }
+	 if($price === '9790') { 
+			return '9790';
+	 }
+	 if($price === '9820') { 
+			return '9820';
+	 }
+	 if($price === '9840') { 
+			return '9840';
+	 }
+	 if($price === '9860') { 
+			return '9860';
+	 }
+	 if($price === '9900') { 
+			return '9900';
+	 }
+	 if($price === '9910') { 
+			return '9910';
+	 }
+	 if($price === '9970') { 
+			return '9970';
+	 }
+	 if($price === '9990') { 
+			return '9990';
+	 }
+	 if($price === '10030') { 
+			return '10030';
+	 }
+	 if($price === '10050') { 
+			return '10050';
+	 }
+	 if($price === '10120') { 
+			return '10120';
+	 }
+	 if($price === '10180') { 
+			return '10180';
+	 }
+}
