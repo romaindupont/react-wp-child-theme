@@ -7,3 +7,4 @@ module.exports = {
     "react-dom": "ReactDOM"
   }
 };
+

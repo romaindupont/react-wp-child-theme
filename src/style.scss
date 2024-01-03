@@ -1,10 +1,131 @@
-.mc0{fill:#233658;}
-.mc1{fill:#FFFFFF;}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-header {
-	background-color: red;
+.mc0{fill:var(--color-principal);}
+.mc1{fill:var(--color-second);}
+
+.lv0{fill:var(--color-principal);}
+.st0{fill:var(--color-second);stroke:#231F20;stroke-width:0.4956;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+.st1{fill:#231F20;stroke:#231F20;stroke-width:0.4956;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	font-family: 'Montserrat', sans-serif;
+}
+html {
+	font-family: 'Montserrat', sans-serif;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a {
+	text-decoration: none;
+}
+#site-content {
+	overflow: hidden;
+ 	width: 100vw;
+}
+.veldtConfig {
+	overflow: hidden;
+}
+.load {
 	width: 100vw;
-	height: 50vh;
+	height: 230px;
+	background: var(--color-second);
+	z-index: 99;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	opacity: 0.7;
+	filter: blur(5rem);
+}
+.loadBuy {
+	z-index: 99;
+	position: absolute;
+	border-radius: 10px;
+	padding: 0.5rem 1.2rem;
+	left: 0;
+	top: 0;
+	background: rgb(35 54 88 / 50%);
+	width: 200px;
+	height: 100%;
+}
+.loaderBuy {
+  border: 8px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 8px solid var(--color-principal);
+  width: 30px;
+  height: 30px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+	margin: auto;
+	z-index: 100;
+}
+input[type=number] {
+	-moz-appearance: textfield;
 }
 
-.lv0{fill:#233658;}
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button { 
+-webkit-appearance: none;
+margin:0;
+}
+input::-o-inner-spin-button,
+input::-o-outer-spin-button { 
+	-o-appearance: none;
+	margin:0
+}
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+@import './components/header/header.scss';
+
+@import './components/body/body.scss';
+
+@import './components/footer/footer.scss';
+@import './components/footer/tabs/svg/svgConfigurator.scss';

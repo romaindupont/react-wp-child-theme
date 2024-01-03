@@ -1,0 +1,60 @@
+.configurator, .configuratorDownContent {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: var(--background-page-config);
+}
+#emersyaIframe, #emersyaContainer {
+	background-color: var(--background-page-config);
+}
+#mainLogoContainer {
+	display: none;
+}
+div#testPanelCtn {
+	display: none;
+}
+
+.scroll-to-top.scroll-show-mobile {
+	display: none;
+}
+.page-template-page-react > .wrapper > .site-footer {
+	display: none;
+}
+
+.wpml-ls-legacy-list-vertical.wpml-ls-statics-footer {
+	display: none;
+}
+.openTabs {
+	max-height: 100% !important; 
+}
+
+@media (min-width : 320px) {
+	#emersyaIframe {
+		max-height: 80%;
+	}
+	.configurator, .configuratorDownContent {
+		height: 90vh;
+	}
+	
+}
+@media (min-width: 576px) {}
+@media (min-width : 768px) {}
+@media (min-width : 1024px) {
+	#emersyaIframe {
+		max-height: 100%;
+	}
+}
+@media (min-width : 1224px) {
+	.configurator {
+		height: 80vh;
+		transition: all 1s ease-in-out;
+	}
+	.configuratorDownContent {
+		height: 95vh;
+		transition: all 1s ease-in-out;
+	}
+}
+@media (min-width : 1400px) {}
+@media only screen 
+and (min-width : 1824px) {}

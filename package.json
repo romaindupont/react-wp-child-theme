@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "My WordPress theme with React",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "dotenv": "^16.0.3"
+  },
   "devDependencies": {
-    "@wordpress/scripts": "^5.1.0"
+    "@wordpress/scripts": "^24.2.0"
   },
   "scripts": {
     "build": "wp-scripts build",
@@ -19,5 +21,5 @@
     "test:unit": "wp-scripts test-unit-js"
   },
   "author": "",
-  "license": "1 GNU V2+, MIT"
+  "license": "UNLICENSED"
 }
