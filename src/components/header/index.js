@@ -30,13 +30,15 @@ const Header = ({
 	deviseChoice,
 	shortLinkCreate,
 	setShortLinkCreate,
-	varnishVisor
+	varnishVisor,
+	setDownMenu
 }) => {
 	const baseUrl = REACT_APP_BASEURL;
 	const orderVariation = ORDER_VARIATION_CODE;
 	const [ buyLoader, setBuyLoader] = useState(false);
 	var _nonce = "<?php echo wp_create_nonce( 'wc_store_api' ); ?>";
 	const screen = async () => {
+		setDownMenu(true);
 		setBuyLoader(true);
 		await Replay();
 		await ScreenShot();

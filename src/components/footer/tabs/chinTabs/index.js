@@ -97,7 +97,7 @@ const ChinTabs = ({
 								<span className={withChin ? 'selectButton' : 'buttonChoice'} onClick={()=>setTabsChoice({...tabsChoice, chin: true}) & setWithChin(true) & setMySku({...mySku, position2: 'ch'}) & CameraPosition('chinguard')}>{traduction.With}</span>
 							</div>
 						</div>
-							<button className="matchButton" onClick={()=>matchToHelmet(standardValue, setStandardValue)}><span>Match all helmet option</span></button></>
+							<button className="matchButton" onClick={()=>matchToHelmet(standardValue, setStandardValue)}><span>{traduction.MatchAllHelmet}</span></button></>
 						:  
 							chinPosition.fileName === 'aeration' ?
 								<Aeration

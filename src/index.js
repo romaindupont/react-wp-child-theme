@@ -192,6 +192,7 @@ const Veldt = () => {
 				shortLinkCreate = {shortLinkCreate}
 				setShortLinkCreate = {setShortLinkCreate}
 				varnishVisor = {varnishVisor}
+				setDownMenu = {setDownMenu}
 			/>
 			<Body
 				aerationHelmet = {aerationHelmet}

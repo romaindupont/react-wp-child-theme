@@ -394,6 +394,7 @@ and (max-device-width : 768px) {
 		order: 3;
 		width: 100%;
     text-align: center;
+		padding: 0rem 0rem;
 	}
 	.header-configurator-select {
     order: 2;
@@ -445,8 +446,9 @@ select#devise {
 		/* margin: 0.5rem 15px; */
 	}
 	.header-configurator-right-priceZone {
-    align-items: flex-end;
-    flex-direction: column;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
 }
 }
 /* iPads (portrait and landscape) ----------- */

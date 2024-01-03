@@ -109,7 +109,7 @@ export default [{
 			VisorChoicePeak: 'peak',
 			TitaniumMetalParts: 'Titanium',
 			BlackMetalParts: 'Black',
-			GoldMetalParts: 'Copper Foil',
+			GoldMetalParts: 'Gold',
 			YourText: 'Your Text',
 			None: 'none',
 			Bottom: 'Bottom',
@@ -122,7 +122,8 @@ export default [{
 			LeatherRed: 'Leather Red',
 			BlueRubber: 'Blue Leather',
 			ChooseSize: 'Choose your size',
-			ChooseCertification: 'Choose your certification'
+			ChooseCertification: 'Choose your certification',
+			MatchAllHelmet: 'Match all helmet option'
 		}
 	],
 	"fr": [
@@ -246,9 +247,10 @@ export default [{
 			TartanRed : 'Tartan Rouge',
 			TartanWhite : 'Tartan denholm',
 			LeatherRed : 'Cuir Rouge',
-			BlueRubber: 'Caoutchouc bleu',
+			BlueRubber: 'Cuir bleu',
 			ChooseSize: 'Choisir une taille',
-			ChooseCertification: 'Choisir une certification'
+			ChooseCertification: 'Choisir une certification',
+			MatchAllHelmet: 'Assortir avec le casque'
 		}
 	],
   "es": [
@@ -372,9 +374,10 @@ export default [{
 			TartanRed: 'Tartán rojo',
 			TartanWhite: 'Tartán blanco',
 			LeatherRed: 'Cuero rojo',
-			BlueRubber: 'Caucho azul',
+			BlueRubber: 'Cuero azul',
 			ChooseSize: 'Elegir tamaño',
-			ChooseCertification: 'Elegir certificación'
+			ChooseCertification: 'Elegir certificación',
+			MatchAllHelmet: 'combinar con el casco'
    }
   ],
 	"cn": [
@@ -500,7 +503,8 @@ export default [{
 			LeatherRed : '红色皮革',
 			BlueRubber: '蓝色橡胶',
 			ChooseSize: '选择尺寸',
-			ChooseCertification: '选择认证'
+			ChooseCertification: '选择认证',
+			MatchAllHelmet: '与头盔相匹配'
 		}
   ]
 }]
