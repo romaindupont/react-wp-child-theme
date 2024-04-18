@@ -1,4 +1,4 @@
-import Noeud from '../../../../assets/json/helmetid';
+import Noeud from '../../../../assets/json/helmetBikeid';
 
 const Aeration = (aerationHelmet, nodesConfiguration, setLoader, standardValue) => {
 	let localIdToRemove = [];

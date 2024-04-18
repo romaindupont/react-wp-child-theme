@@ -1,4 +1,4 @@
-import Noeud from '../../../../assets/json/helmetid';
+import Noeud from '../../../../assets/json/helmetBikeid';
 
 const Varnish = (varnishHelmet, aerationHelmet, nodesConfiguration, setLoader, standardValue) => {
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 

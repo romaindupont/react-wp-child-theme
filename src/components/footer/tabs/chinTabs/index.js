@@ -1,7 +1,7 @@
 const { useState, useEffect } = wp.element;
 import ArrowLeft from '../../../../../assets/images/arrow_left.svg';
 import ArrowRight from '../../../../../assets/images/arrow_right.svg';
-import ElementData from '../../../../../assets/json/elementChin';
+import ElementData from '../../../../../assets/json/elementBikeChin';
 import Aeration from './templates/aeration';
 import MainColor from './templates/main-color';
 import Pattern from './templates/pattern';

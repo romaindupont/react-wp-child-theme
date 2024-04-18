@@ -1,4 +1,4 @@
-import Noeud from '../../../../assets/json/helmetid';
+import Noeud from '../../../../assets/json/helmetBikeid';
 
 const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardValue, tabsChoice) => {
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
@@ -69,39 +69,40 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 		else {
 			typeDesignChin = standardValue.Chinguard_design_type;
 		}
-		let leatherOrRubber = {
+		/* let leatherOrRubber = {
 			parentLocalId: 1,
-			localId: parseInt(`${Noeud[0].chinguard.chinguardTrimRubber.localId}` + Date.now()),
+			localId: parseInt(`${Noeud[0].chinguard.chinguardTrimRubberLayer1.localId}` + Date.now()),
 			matrix: [1, 0, 0, 0,
 			0, 1, 0, 0,
 			0, 0, 1, 0,
 			0, 0, 0, 1],
-			SKU: Noeud[0].chinguard.chinguardTrimRubber.SKU
+			SKU: Noeud[0].chinguard.chinguardTrimRubberLayer1.SKU
 		}
 		if (standardValue.Helmet_trim.includes('leather')) {
 			leatherOrRubber = {
 				parentLocalId: 1,
-				localId: parseInt(`${Noeud[0].chinguard.chinguardTrimLeather.localId}` + Date.now()),
+				localId: parseInt(`${Noeud[0].chinguard.chinguardTrimLeatherLayer1.localId}` + Date.now()),
 				matrix: [1, 0, 0, 0,
 				0, 1, 0, 0,
 				0, 0, 1, 0,
 				0, 0, 0, 1],
-				SKU: Noeud[0].chinguard.chinguardTrimLeather.SKU
+				SKU: Noeud[0].chinguard.chinguardTrimLeatherLayer1.SKU
 			}
 		} else {
 			leatherOrRubber = {
 				parentLocalId: 1,
-				localId: parseInt(`${Noeud[0].chinguard.chinguardTrimRubber.localId}` + Date.now()),
+				localId: parseInt(`${Noeud[0].chinguard.chinguardTrimRubberLayer1.localId}` + Date.now()),
 				matrix: [1, 0, 0, 0,
 				0, 1, 0, 0,
 				0, 0, 1, 0,
 				0, 0, 0, 1],
-				SKU: Noeud[0].chinguard.chinguardTrimRubber.SKU
+				SKU: Noeud[0].chinguard.chinguardTrimRubberLayer1.SKU
 			}
-		}
+		} */
 	if (tabsChoice.chin) {
 		if (!aerationChin) {
 			if (standardValue.Chinguard_design === 'plain' || standardValue.Chinguard_design === '') {
+				console.log('ici')
 				viewerIframe.postMessage(
 					{
 						action : "updateProductNodesInstances",
@@ -109,49 +110,51 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 							[
 								{
 									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].chinguard.chinguardElements.localId}` + Date.now()),
+									localId: parseInt(`${Noeud[0].chinguard.chinguardElementsLayer2.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
 									0, 1, 0, 0,
 									0, 0, 1, 0,
 									0, 0, 0, 1],
-									SKU: Noeud[0].chinguard.chinguardElements.SKU
+									SKU: Noeud[0].chinguard.chinguardElementsLayer2.SKU
 								},
 								{
 									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].chinguard.chinguardNoGroove.localId}` + Date.now()),
+									localId: parseInt(`${Noeud[0].chinguard.chinguardTrimRubberLayer2.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
 									0, 1, 0, 0,
 									0, 0, 1, 0,
 									0, 0, 0, 1],
-									SKU: Noeud[0].chinguard.chinguardNoGroove.SKU
+									SKU: Noeud[0].chinguard.chinguardTrimRubberLayer3.SKU
 								},
 								{
 									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].chinguard.chinguardCoatingNoGroove.localId}` + Date.now()),
+									localId: parseInt(`${Noeud[0].chinguard.chinguardLayer2.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
 									0, 1, 0, 0,
 									0, 0, 1, 0,
 									0, 0, 0, 1],
-									SKU: Noeud[0].chinguard.chinguardCoatingNoGroove.SKU
+									SKU: Noeud[0].chinguard.chinguardLayer2.SKU
 								},
-								leatherOrRubber,
+								/* leatherOrRubber, */
+							/* 	{						Noeud[0].chinguard.chinguardLayer3,
+						Noeud[0].chinguard.chinguardElementsLayer3,
+						Noeud[0].chinguard.chinguardTrimRubberLayer3,
+									parentLocalId: 1,
+									localId: parseInt(`${Noeud[0].screw.backScrewsLayer1Chinguard.localId}` + Date.now()),
+									matrix: [1, 0, 0, 0,
+									0, 1, 0, 0,
+									0, 0, 1, 0,
+									0, 0, 0, 1],
+									SKU: Noeud[0].screw.backScrewsLayer1Chinguard.SKU
+								}, */
 								{
 									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].screw.screwsBaseChinguard.localId}` + Date.now()),
+									localId: parseInt(`${Noeud[0].screw.frontScrewsLayer2Chinguard.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
 									0, 1, 0, 0,
 									0, 0, 1, 0,
 									0, 0, 0, 1],
-									SKU: Noeud[0].screw.screwsBaseChinguard.SKU
-								},
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].screw.screwsSideChinguard.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].screw.screwsSideChinguard.SKU
+									SKU: Noeud[0].screw.frontScrewsLayer2Chinguard.SKU
 								}
 							],
 						localIdsToRemove :
@@ -194,6 +197,7 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 				}, '2000');
 			}
 			else {
+				console.log('here');
 				viewerIframe.postMessage(
 					{
 						action : "updateProductNodesInstances",
@@ -201,23 +205,23 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 							[
 								{
 									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].chinguard.chinguardElements.localId}` + Date.now()),
+									localId: parseInt(`${Noeud[0].chinguard.chinguardElementsLayer1.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
 									0, 1, 0, 0,
 									0, 0, 1, 0,
 									0, 0, 0, 1],
-									SKU: Noeud[0].chinguard.chinguardElements.SKU
+									SKU: Noeud[0].chinguard.chinguardElementsLayer1.SKU
 								},
 								{
 									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].chinguard.chinguardNoGroove.localId}` + Date.now()),
+									localId: parseInt(`${Noeud[0].chinguard.chinguardLayer1.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
 									0, 1, 0, 0,
 									0, 0, 1, 0,
 									0, 0, 0, 1],
-									SKU: Noeud[0].chinguard.chinguardNoGroove.SKU
+									SKU: Noeud[0].chinguard.chinguardLayer1.SKU
 								},
-								{
+								/* {
 									parentLocalId: 1,
 									localId: parseInt(`${Noeud[0].chinguard.chinguardDesignNoGroove.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
@@ -234,18 +238,18 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 									0, 0, 1, 0,
 									0, 0, 0, 1],
 									SKU: Noeud[0].chinguard.chinguardCoatingNoGroove.SKU
-								},
-								leatherOrRubber,
+								}, */
+								/* leatherOrRubber, */
 								{
 									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].screw.screwsBaseChinguard.localId}` + Date.now()),
+									localId: parseInt(`${Noeud[0].screw.backScrewsLayer1Chinguard.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
 									0, 1, 0, 0,
 									0, 0, 1, 0,
 									0, 0, 0, 1],
-									SKU: Noeud[0].screw.screwsBaseChinguard.SKU
+									SKU: Noeud[0].screw.backScrewsLayer1Chinguard.SKU
 								},
-								{
+								/* {
 									parentLocalId: 1,
 									localId: parseInt(`${Noeud[0].screw.screwsSideChinguard.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
@@ -253,7 +257,7 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 									0, 0, 1, 0,
 									0, 0, 0, 1],
 									SKU: Noeud[0].screw.screwsSideChinguard.SKU
-								}
+								} */
 							],
 						localIdsToRemove :
 							localIdToRemove
@@ -305,6 +309,7 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 		}
 		if (aerationChin) {
 			if (standardValue.Chinguard_design === 'plain' || standardValue.Chinguard_design === '') {
+				console.log('eeeee')
 				viewerIframe.postMessage(
 					{
 						action : "updateProductNodesInstances",
@@ -312,49 +317,48 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 							[
 								{
 									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].chinguard.chinguardElements.localId}` + Date.now()),
+									localId: parseInt(`${Noeud[0].chinguard.chinguardElementsLayer2.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
 									0, 1, 0, 0,
 									0, 0, 1, 0,
 									0, 0, 0, 1],
-									SKU: Noeud[0].chinguard.chinguardElements.SKU
+									SKU: Noeud[0].chinguard.chinguardElementsLayer2.SKU
 								},
 								{
 									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].chinguard.chinguardGroove.localId}` + Date.now()),
+									localId: parseInt(`${Noeud[0].chinguard.chinguardLayer2.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
 									0, 1, 0, 0,
 									0, 0, 1, 0,
 									0, 0, 0, 1],
-									SKU: Noeud[0].chinguard.chinguardGroove.SKU
+									SKU: Noeud[0].chinguard.chinguardLayer2.SKU
 								},
 								{
 									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].chinguard.chinguardCoatingGroove.localId}` + Date.now()),
+									localId: parseInt(`${Noeud[0].chinguard.chinguardTrimRubberLayer2.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
 									0, 1, 0, 0,
 									0, 0, 1, 0,
 									0, 0, 0, 1],
-									SKU: Noeud[0].chinguard.chinguardCoatingGroove.SKU
-								},
-								leatherOrRubber,
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].screw.screwsBaseChinguard.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].screw.screwsBaseChinguard.SKU
+									SKU: Noeud[0].chinguard.chinguardTrimRubberLayer2.SKU
 								},
 								{
 									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].screw.screwsSideChinguard.localId}` + Date.now()),
+									localId: parseInt(`${Noeud[0].screw.backScrewsLayer2Chinguard.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
 									0, 1, 0, 0,
 									0, 0, 1, 0,
 									0, 0, 0, 1],
-									SKU: Noeud[0].screw.screwsSideChinguard.SKU
+									SKU: Noeud[0].screw.backScrewsLayer2Chinguard.SKU
+								},
+								{
+									parentLocalId: 1,
+									localId: parseInt(`${Noeud[0].screw.frontScrewsLayer2Chinguard.localId}` + Date.now()),
+									matrix: [1, 0, 0, 0,
+									0, 1, 0, 0,
+									0, 0, 1, 0,
+									0, 0, 0, 1],
+									SKU: Noeud[0].screw.frontScrewsLayer2Chinguard.SKU
 								}
 							],
 						localIdsToRemove :
@@ -404,14 +408,14 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 							[
 								{
 									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].chinguard.chinguardElements.localId}` + Date.now()),
+									localId: parseInt(`${Noeud[0].chinguard.chinguardElementsLayer2.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
 									0, 1, 0, 0,
 									0, 0, 1, 0,
 									0, 0, 0, 1],
-									SKU: Noeud[0].chinguard.chinguardElements.SKU
+									SKU: Noeud[0].chinguard.chinguardElementsLayer2.SKU
 								},
-								{
+								/* {
 									parentLocalId: 1,
 									localId: parseInt(`${Noeud[0].chinguard.chinguardGroove.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
@@ -419,8 +423,8 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 									0, 0, 1, 0,
 									0, 0, 0, 1],
 									SKU: Noeud[0].chinguard.chinguardGroove.SKU
-								},
-								{
+								}, */
+								/* {
 									parentLocalId: 1,
 									localId: parseInt(`${Noeud[0].chinguard.chinguardDesignGroove.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
@@ -437,18 +441,18 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 									0, 0, 1, 0,
 									0, 0, 0, 1],
 									SKU: Noeud[0].chinguard.chinguardCoatingGroove.SKU
-								},
-								leatherOrRubber,
+								}, */
+								/* leatherOrRubber, */
 								{
 									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].screw.screwsBaseChinguard.localId}` + Date.now()),
+									localId: parseInt(`${Noeud[0].screw.backScrewsLayer2Chinguard.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
 									0, 1, 0, 0,
 									0, 0, 1, 0,
 									0, 0, 0, 1],
-									SKU: Noeud[0].screw.screwsBaseChinguard.SKU
+									SKU: Noeud[0].screw.backScrewsLayer2Chinguard.SKU
 								},
-								{
+								/* {
 									parentLocalId: 1,
 									localId: parseInt(`${Noeud[0].screw.screwsSideChinguard.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
@@ -456,7 +460,7 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 									0, 0, 1, 0,
 									0, 0, 0, 1],
 									SKU: Noeud[0].screw.screwsSideChinguard.SKU
-								}
+								} */
 							],
 						localIdsToRemove :
 							localIdToRemove

@@ -1,7 +1,7 @@
 const { useEffect } = wp.element;
 import ArrowLeft from '../../../../../assets/images/arrow_left.svg';
 import ArrowRight from '../../../../../assets/images/arrow_right.svg';
-import ElementData from '../../../../../assets/json/elementHelmet';
+import ElementData from '../../../../../assets/json/elementBikeHelmet';
 import Aeration from './templates/aeration';
 import BackNumber from './templates/back-number';
 import Engraving from './templates/engraving';
@@ -19,6 +19,7 @@ import Trim from './templates/trim';
 import Varnish from './templates/varnish';
 import Zippers from './templates/zippers';
 import CameraPosition from '../../../body/Camera/CameraPosition';
+import Earmuff from './templates/earmuff';
 
 const HelmetTabs = ({
 	aerationHelmet,
@@ -51,7 +52,9 @@ const HelmetTabs = ({
 	withChin,
 	withVisor,
 	mySku,
-	setMySku
+	setMySku,
+	setEarmuffHelmet,
+	earmuffHelmet
 }) => {
 	let language = document.querySelector('html').lang;
 	let elementsOfHelmet = ElementData[0].en;
@@ -193,13 +196,11 @@ const HelmetTabs = ({
 							mySku = {mySku}
 							setMySku = {setMySku}
 						/> :
-					helmetPosition.fileName === 'screw' ?
-						<Screw
-							screwPosition = {screwPosition}
-							setScrewPosition = {setScrewPosition}
+					helmetPosition.fileName === 'earmuff' ?
+						<Earmuff
+							earmuffHelmet = {earmuffHelmet}
+							setEarmuffHelmet = {setEarmuffHelmet}
 							traduction = {traduction}
-							withChin = {withChin}
-							withVisor = {withVisor}
 						/> :
 					helmetPosition.fileName === 'size' ?
 						<Size 

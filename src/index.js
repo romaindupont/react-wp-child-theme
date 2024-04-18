@@ -58,6 +58,7 @@ const Veldt = () => {
 	const [ nodesConfiguration, setNodesConfiguration ] = useState([]);
 	const [ materialVariation, setMaterialVariation ] = useState({});
 	const [ aerationHelmet, setAerationHelmet] = useState(true);
+	const [ earmuffHelmet, setEarmuffHelmet] = useState(false);
 	const [ screwPosition, setScrewPosition ] = useState('all');
 	const [ varnishHelmet, setVarnishHelmet] = useState(true);
 	const [ withChin, setWithChin ] = useState(false);
@@ -225,6 +226,7 @@ const Veldt = () => {
 				shortLinkCreate = {shortLinkCreate}
 				setShortLinkCreate = {setShortLinkCreate}
 				varnishVisor = {varnishVisor}
+				earmuffHelmet = {earmuffHelmet}
 			/>
 			<Footer
 				aerationHelmet = {aerationHelmet}
@@ -277,6 +279,8 @@ const Veldt = () => {
 				setShortLinkCreate = {setShortLinkCreate}
 				setVarnishVisor = {setVarnishVisor}
 				varnishVisor = {varnishVisor}
+				earmuffHelmet = {earmuffHelmet}
+				setEarmuffHelmet = {setEarmuffHelmet}
 			/>
 		</div>
   );

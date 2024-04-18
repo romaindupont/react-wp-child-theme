@@ -1,4 +1,4 @@
-import Noeud from '../../../../assets/json/helmetid';
+import Noeud from '../../../../assets/json/helmetBikeid';
 
 const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varnishHelmet, withChin) => {
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow;
@@ -17,10 +17,22 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 		if (nodes.SKU === 'helmetTrim_leather') {
 			localIdToRemove.push(nodes.localId);
 		}
-		if (nodes.SKU === 'chinguardTrim_rubber') {
+		if (nodes.SKU === 'chinguardTrim_rubber_layer1') {
 			localIdToRemove.push(nodes.localId);
 		}
-		if (nodes.SKU === 'chinguardTrim_leather') {
+		if (nodes.SKU === 'chinguardTrim_leather_layer1') {
+			localIdToRemove.push(nodes.localId);
+		}
+		if (nodes.SKU === 'chinguardTrim_rubber_layer2') {
+			localIdToRemove.push(nodes.localId);
+		}
+		if (nodes.SKU === 'chinguardTrim_leather_layer2') {
+			localIdToRemove.push(nodes.localId);
+		}
+		if (nodes.SKU === 'chinguardTrim_rubber_layer3') {
+			localIdToRemove.push(nodes.localId);
+		}
+		if (nodes.SKU === 'chinguardTrim_leather_layer3') {
 			localIdToRemove.push(nodes.localId);
 		}
 	}) 
@@ -70,12 +82,12 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 							},
 							{
 								parentLocalId: 1,
-								localId: parseInt(`${Noeud[0].chinguard.chinguardTrimRubber.localId}` + Date.now()),
+								localId: parseInt(`${Noeud[0].chinguard.chinguardTrimRubberLayer1.localId}` + Date.now()),
 								matrix: [1, 0, 0, 0,
 								0, 1, 0, 0,
 								0, 0, 1, 0,
 								0, 0, 0, 1],
-								SKU: Noeud[0].chinguard.chinguardTrimRubber.SKU
+								SKU: Noeud[0].chinguard.chinguardTrimRubberLayer1.SKU
 							}
 						],
 					localIdsToRemove :
@@ -373,12 +385,12 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 							},
 							{
 								parentLocalId: 1,
-								localId: parseInt(`${Noeud[0].chinguard.chinguardTrimLeather.localId}` + Date.now()),
+								localId: parseInt(`${Noeud[0].chinguard.chinguardTrimLeatherLayer1.localId}` + Date.now()),
 								matrix: [1, 0, 0, 0,
 								0, 1, 0, 0,
 								0, 0, 1, 0,
 								0, 0, 0, 1],
-								SKU: Noeud[0].chinguard.chinguardTrimLeather.SKU
+								SKU: Noeud[0].chinguard.chinguardTrimLeatherLayer1.SKU
 							}
 						],
 					localIdsToRemove :

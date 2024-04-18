@@ -16,7 +16,7 @@ function my_theme_enqueue_styles() {
 		'20220413'
 	); 
 }
-	if(is_page('configurator')) {
+	if($current_url === 'http://localhost/essai/bike/configurator/') {
 	}
 }
 
@@ -46,8 +46,10 @@ function priceTest($request) {
 	$browserlang = substr($data->devise, 0, 2);
 	$price690 = 690;
 	$price200 = 200;
+	$price180 = 180;
 	$price150 = 150;
 	$price35 = 35;
+	$price45 = 45;
 	$price10 = 10;
 	$price130 = 130;
 	$price125 = 125;
@@ -64,6 +66,7 @@ function priceTest($request) {
 		$set_lang = 'us_US';
 		$price690 = 690;
 		$price200 = 200;
+		$price180 = 180;
 		$price150 = 150;
 		$price130 = 130;
 		$price125 = 125;
@@ -72,6 +75,7 @@ function priceTest($request) {
 		$price80 = 80;
 		$price70 = 70;
 		$price50 = 50;
+		$price45 = 45;
 		$price40 = 40;
 		$price35 = 35;
 		$price30 = 30;
@@ -81,16 +85,18 @@ function priceTest($request) {
 	if( $browserlang == "CNY" ) {
 		$set_lang = 'zh_CN';
 		$price690 = 4020;
-		$price200 = 1400;
+		$price200 = 1500;
+		$price180 = 1350;
 		$price150 = 1000;
-		$price130 = 900;
+		$price130 = 1000;
 		$price125 = 810;
 		$price115 = 790;
 		$price95 = 660;
 		$price80 = 500;
 		$price70 = 460;
-		$price50 = 330;
-		$price40 = 260;
+		$price50 = 350;
+		$price45 = 295;
+		$price40 = 300;
 		$price35 = 240;
 		$price30 = 200;
 		$price20 = 130;
@@ -99,6 +105,7 @@ function priceTest($request) {
 	else {
 		$price690 = 690;
 		$price200 = 200;
+		$price180 = 180;
 		$price150 = 150;
 		$price130 = 130;
 		$price125 = 125;
@@ -107,6 +114,7 @@ function priceTest($request) {
 		$price80 = 80;
 		$price70 = 70;
 		$price50 = 50;
+		$price45 = 45;
 		$price40 = 40;
 		$price35 = 35;
 		$price30 = 30;
@@ -136,7 +144,7 @@ function priceTest($request) {
 		$total += $price35;
 	}
 	if ($position3 === 'vp') {
-		$total += $price10;
+		$total += $price45;
 	}
 	if ($position3 === 'vs') {
 		$total += $price125;
@@ -202,7 +210,10 @@ function priceTest($request) {
 		$total += 0;
 	}
 	if ($position6 === 'htl') {
-		$total += $price80;
+		$total += $price50;
+		if ($position2 !== 'xx') {
+			$total += $price40;
+		}
 	}
 	$position7 = $explode[6];
 	if ($position7 === 'xxx') {
@@ -212,7 +223,7 @@ function priceTest($request) {
 		}
 	}
 	if ($position7 === 'til') {
-		$total += $price150;
+		$total += $price180;
 		if ($position2 !== 'xx') {
 			$total += $price40;
 		}

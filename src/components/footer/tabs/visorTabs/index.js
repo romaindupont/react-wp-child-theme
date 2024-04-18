@@ -4,7 +4,7 @@ import VisorLongPage from "./templates/VisorLongPage";
 import VisorPeakPage from "./templates/VisorPeakPage";
 import VisorShortPage from "./templates/VisorShortPage";
 import VisorTypeChoice from "./templates/VisorTypeChoice";
-import ElementData from '../../../../../assets/json/elementVisor';
+import ElementData from '../../../../../assets/json/elementBikeVisor';
 import ElementDataVisorPeak from '../../../../../assets/json/elementVisorPeak';
 import ArrowLeft from '../../../../../assets/images/arrow_left.svg';
 import ArrowRight from '../../../../../assets/images/arrow_right.svg';

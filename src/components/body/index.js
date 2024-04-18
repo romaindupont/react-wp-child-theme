@@ -1,7 +1,7 @@
 const { useEffect, useRef, useCallback } = wp.element;
-import Noeud from '../../../assets/json/helmetid';
+import Noeud from '../../../assets/json/helmetBikeid';
 import Aeration from './Helmet/aeration';
-import ScrewFunction from './Helmet/screw';
+import Earmuff from './Helmet/earmuff';
 import Pattern from './Helmet/pattern';
 import MainColor from './Helmet/mainColor';
 import Varnish from './Helmet/varnish';
@@ -54,7 +54,8 @@ const Body = ({
 	setMySku,
 	shortLinkCreate,
 	setShortLinkCreate,
-	varnishVisor
+	varnishVisor,
+	earmuffHelmet
 }) => {
 	let viewerIframe = null;
 	let viewerActive = false;
@@ -80,14 +81,14 @@ const Body = ({
 					[
 						Noeud[0].helmet.helmetGroove,
 						Noeud[0].helmet.helmetElements,
-						Noeud[0].helmet.helmetCoatingGroove,
+						Noeud[0].screw.frontScrewsLayer0None,
+						Noeud[0].screw.backScrewsLayer0None,
+
+
+						
 						Noeud[0].helmet.helmetTrimRubber,
-						Noeud[0].helmet.helmetLogoStandard,
-						Noeud[0].flap.pullingFlapNylon,
-						Noeud[0].screw.screwsBaseHelmet,
-						Noeud[0].screw.screwsSideNoChinguard,
-						Noeud[0].screw.screwsTopNoVisor, 
-						Noeud[0].custom.helmetCarbonWindowDOT, 
+						Noeud[0].helmet.helmetLogo,
+						Noeud[0].earmuff.noEarmuff,
 					],
 				localIdsToRemove :
 					[]
@@ -109,13 +110,14 @@ const Body = ({
 						groupName : 'Helmet_color'
 					},
 					{
-						configurationName : standardValue.Metal_pieces,
-						groupName : 'Metal_pieces'
-					},
-					{
 						configurationName :`${standardValue.Logo}|${standardValue.Logo_color}`,
 						groupName : 'Logo'
 					},
+/* 					{
+						configurationName : standardValue.Metal_pieces,
+						groupName : 'Metal_pieces'
+					},
+
 					{
 						configurationName : standardValue.Interior,
 						groupName : 'Interior'
@@ -123,11 +125,11 @@ const Body = ({
 					{
 						configurationName : standardValue.Helmet_trim,
 						groupName : 'Helmet_trim'
-					},
-				 {
+					}, */
+/* 				 {
 						configurationName : `${standardValue.Rear_text_certification}|${standardValue.Rear_text_size}`,
 						groupName : 'Rear_text'
-					},
+					}, */
 				]
 			}, '*');
 			setLoader(true);
@@ -142,6 +144,7 @@ const Body = ({
 		},'*');
 	}
 	const viewerEventListener = async (event) => {
+		console.log('essai', event.data)
 		if(event.data && event.data.action == 'onStateChange'){
 			if(event.data.state.viewerState == 'loaded' || event.data.state.viewerState == 'fallbackloaded'){
 				setLoader(false)
@@ -240,13 +243,14 @@ const Body = ({
 	}, [aerationHelmet]);
 	useEffect(() => {
 		if (notInitialRender.current) {
-			ScrewFunction(screwPosition, nodesConfiguration, withChin, withVisor);
+			Earmuff(earmuffHelmet, nodesConfiguration);
 		} else {
 			notInitialRender.current = true;
 		}
-	}, [screwPosition]);
+	}, [earmuffHelmet]);
 	 useEffect(() => {
 		if (notInitialRender.current) {
+			console.log('truc', nodesConfiguration)
 			Pattern(standardValue, aerationHelmet, nodesConfiguration, setLoader);
 		} else {
 			notInitialRender.current = true;
@@ -389,7 +393,7 @@ const Body = ({
 			ref={setIframeRef}
 				id="emersyaIframe"
 				className={downMenu ? 'openTabs' : ''}
-				src="https://emersya.com/showcase/W3C2GS773F"
+				src="http://emersya.com/showcase/H9HZL7IQSJ"
 				frameBorder="0"
 				width="100%"
 				height="100%"

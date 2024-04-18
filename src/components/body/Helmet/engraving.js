@@ -1,4 +1,4 @@
-import Noeud from '../../../../assets/json/helmetid';
+import Noeud from '../../../../assets/json/helmetBikeid';
 
 const Engraving = async (backEngraving, nodesConfiguration,setLoader, standardValue) => {
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
@@ -18,7 +18,7 @@ const Engraving = async (backEngraving, nodesConfiguration,setLoader, standardVa
 					action : "updateProductNodesInstances",
 					nodesToAdd :
 						[
-							{
+							/* {
 								parentLocalId: 1,
 								localId: parseInt(`${Noeud[0].custom.rearEngravingDOT.localId}` + Date.now()),
 								matrix: [1, 0, 0, 0,
@@ -26,7 +26,7 @@ const Engraving = async (backEngraving, nodesConfiguration,setLoader, standardVa
 								0, 0, 1, 0,
 								0, 0, 0, 1],
 								SKU: Noeud[0].custom.rearEngravingDOT.SKU
-							}
+							} */
 						],
 					localIdsToRemove :
 						localIdToRemove
@@ -38,7 +38,7 @@ const Engraving = async (backEngraving, nodesConfiguration,setLoader, standardVa
 					action : "updateProductNodesInstances",
 					nodesToAdd :
 						[
-							{
+							/* {
 								parentLocalId: 1,
 								localId: parseInt(`${Noeud[0].custom.rearEngravingECE.localId}` + Date.now()),
 								matrix: [1, 0, 0, 0,
@@ -46,7 +46,7 @@ const Engraving = async (backEngraving, nodesConfiguration,setLoader, standardVa
 								0, 0, 1, 0,
 								0, 0, 0, 1],
 								SKU: Noeud[0].custom.rearEngravingECE.SKU
-							}
+							} */
 						],
 					localIdsToRemove :
 						localIdToRemove

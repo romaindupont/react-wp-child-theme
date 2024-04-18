@@ -1,15 +1,15 @@
-import Noeud from '../../../../assets/json/helmetid';
+import Noeud from '../../../../assets/json/helmetBikeid';
 
 const Logo = (standardValue, nodesConfiguration, setLoader) => {
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 	let localIdToRemove = [];
 	nodesConfiguration.find((nodes) => { 
-		if (nodes.SKU === 'logo_standard') {
+		if (nodes.SKU === 'logo') {
 			localIdToRemove.push(nodes.localId);
 		}
-		if (nodes.SKU === 'logo_higher') {
+/* 		if (nodes.SKU === 'logo_higher') {
 			localIdToRemove.push(nodes.localId);
-		}
+		} */
 	}) 
 	if (standardValue.Logo_color === 'none') {
 		viewerIframe.postMessage(
@@ -30,12 +30,12 @@ const Logo = (standardValue, nodesConfiguration, setLoader) => {
 						[
 							{
 								parentLocalId: 1,
-								localId: parseInt(`${Noeud[0].helmet.helmetLogoHigher.localId}` + Date.now()),
+								localId: parseInt(`${Noeud[0].helmet.helmetLogo.localId}` + Date.now()),
 								matrix: [1, 0, 0, 0,
 								0, 1, 0, 0,
 								0, 0, 1, 0,
 								0, 0, 0, 1],
-								SKU: Noeud[0].helmet.helmetLogoHigher.SKU
+								SKU: Noeud[0].helmet.helmetLogo.SKU
 							}
 						],
 					localIdsToRemove :
@@ -65,12 +65,12 @@ const Logo = (standardValue, nodesConfiguration, setLoader) => {
 						[
 							{
 								parentLocalId: 1,
-								localId: parseInt(`${Noeud[0].helmet.helmetLogoStandard.localId}` + Date.now()),
+								localId: parseInt(`${Noeud[0].helmet.helmetLogo.localId}` + Date.now()),
 								matrix: [1, 0, 0, 0,
 								0, 1, 0, 0,
 								0, 0, 1, 0,
 								0, 0, 0, 1],
-								SKU: Noeud[0].helmet.helmetLogoStandard.SKU
+								SKU: Noeud[0].helmet.helmetLogo.SKU
 							}
 						],
 					localIdsToRemove :
