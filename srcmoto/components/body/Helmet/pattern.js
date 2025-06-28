@@ -307,6 +307,7 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 					}, "*");
 				localIdToRemove = [];
 				setLoader(false);
+				
 				setTimeout(() => {
 					viewerIframe.postMessage({
 						action : 'setMaterialsGroups',

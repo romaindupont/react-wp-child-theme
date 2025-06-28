@@ -53,7 +53,9 @@ const Tabs = ({
 	setVarnishVisor,
 	varnishVisor,
 	setEarmuffHelmet,
-	earmuffHelmet
+	earmuffHelmet,
+	earmuffInput,
+	setEarmuffInput
 }) => {
 	return (
 		<div className="sd-tabs">
@@ -102,6 +104,8 @@ const Tabs = ({
 				setMySku= {setMySku}
 				setEarmuffHelmet = {setEarmuffHelmet}
 				earmuffHelmet = {earmuffHelmet}
+				earmuffInput = {earmuffInput}
+				setEarmuffInput = {setEarmuffInput}
 			/>
 			<RadioTabs 
 				id = 'tabtwo'

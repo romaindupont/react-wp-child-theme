@@ -23,24 +23,6 @@ const RearText = (standardValue, nodesConfiguration, setLoader) => {
 				action : "updateProductNodesInstances",
 				nodesToAdd :
 					[
-						/* {
-								parentLocalId: 1,
-								localId: parseInt(`${Noeud[0].custom.rearEngravingDOT.localId}` + Date.now()),
-								matrix: [1, 0, 0, 0,
-								0, 1, 0, 0,
-								0, 0, 1, 0,
-								0, 0, 0, 1],
-								SKU: Noeud[0].custom.rearEngravingDOT.SKU
-							},
-						{
-							parentLocalId: 1,
-							localId: parseInt(`${Noeud[0].custom.helmetCarbonWindowDOT.localId}` + Date.now()),
-							matrix: [1, 0, 0, 0,
-							0, 1, 0, 0,
-							0, 0, 1, 0,
-							0, 0, 0, 1],
-							SKU: Noeud[0].custom.helmetCarbonWindowDOT.SKU
-						} */
 					],
 				localIdsToRemove :
 					localIdToRemove
@@ -52,10 +34,10 @@ const RearText = (standardValue, nodesConfiguration, setLoader) => {
 					action : 'setMaterialsGroups',
 					values : 
 						[
-							/* {
-								configurationName : `${standardValue.Rear_text_certification}|${standardValue.Rear_text_size}`,
+							{
+								configurationName : `${standardValue.Rear_text_size}`,
 								groupName : 'Rear_text'
-							} */
+							}
 						]
 				}, '*');
 				setLoader(true);
@@ -66,24 +48,6 @@ const RearText = (standardValue, nodesConfiguration, setLoader) => {
 				action : "updateProductNodesInstances",
 				nodesToAdd :
 					[
-						/* {
-								parentLocalId: 1,
-								localId: parseInt(`${Noeud[0].custom.rearEngravingECE.localId}` + Date.now()),
-								matrix: [1, 0, 0, 0,
-								0, 1, 0, 0,
-								0, 0, 1, 0,
-								0, 0, 0, 1],
-								SKU: Noeud[0].custom.rearEngravingECE.SKU
-							},
-						{
-							parentLocalId: 1,
-							localId: parseInt(`${Noeud[0].custom.helmetCarbonWindowECE.localId}` + Date.now()),
-							matrix: [1, 0, 0, 0,
-							0, 1, 0, 0,
-							0, 0, 1, 0,
-							0, 0, 0, 1],
-							SKU: Noeud[0].custom.helmetCarbonWindowECE.SKU
-						} */
 					],
 				localIdsToRemove :
 					localIdToRemove
@@ -95,10 +59,10 @@ const RearText = (standardValue, nodesConfiguration, setLoader) => {
 					action : 'setMaterialsGroups',
 					values : 
 						[
-							/* {
-								configurationName : `${standardValue.Rear_text_certification}|${standardValue.Rear_text_size}`,
+							{
+								configurationName : `${standardValue.Rear_text_size}`,
 								groupName : 'Rear_text'
-							} */
+							}
 						]
 				}, '*');
 				setLoader(true);

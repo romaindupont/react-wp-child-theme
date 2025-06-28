@@ -6,7 +6,7 @@ function my_theme_enqueue_styles() {
   wp_enqueue_script(
     'my-theme-frontend',
     get_stylesheet_directory_uri() . '/build/index.js',
-    ['wp-element'],
+    [],
     time(), true //For production use wp_get_theme()->get('Version')        
   );
 	wp_enqueue_style(
@@ -360,6 +360,276 @@ function priceTest($request) {
 	}
 	return $total;
 }
+add_action( 'rest_api_init', function () {
+	register_rest_route( '/helmet', '/priceBike', array(
+			'methods' => 'POST',
+			'callback' => 'priceBikeAmount',
+	) );
+} );
+function priceBikeAmount($request) {
+	$json = file_get_contents('php://input');
+	$data = json_decode($json);
+	$explode = explode('-', $data->sku);
+	$server_lang= filter_var($_SERVER['HTTP_ACCEPT_LANGUAGE'], FILTER_SANITIZE_STRING );
+	$browserlang = substr($data->devise, 0, 2);
+	$price590 = 590;
+	$price150 = 150;
+	$price100 = 100;
+	$price80 = 80;
+	$price70 = 70;
+	$price60 = 60;
+	$price50 = 50;
+	$price40 = 40;
+	$price30 = 30;
+	$price20 = 20;
+	$price10 = 10;
+	if( $browserlang == "us" ){
+		$set_lang = 'us_US';
+		$price590 = 590;
+	$price150 = 150;
+	$price100 = 100;
+	$price80 = 80;
+	$price70 = 70;
+	$price60 = 60;
+	$price50 = 50;
+	$price40 = 40;
+	$price30 = 30;
+	$price20 = 20;
+	$price10 = 10;
+	}
+	if( $browserlang == "CNY" ) {
+		$set_lang = 'zh_CN';
+		$price590 = 4000;
+		$price150 = 1000;
+		$price100 = 680;
+		$price80 = 500;
+		$price70 = 460;
+		$price60 = 400;
+		$price50 = 350;
+		$price40 = 300;
+		$price30 = 200;
+		$price20 = 130;
+		$price10 = 60;
+	}
+	else {
+		$price590 = 590;
+		$price150 = 150;
+		$price100 = 100;
+		$price80 = 80;
+		$price70 = 70;
+		$price60 = 60;
+		$price50 = 50;
+		$price40 = 40;
+		$price30 = 30;
+		$price20 = 20;
+		$price10 = 10;
+	}
+	$total = 0;
+	//helmet
+	$position1 = $explode[0];
+	if ($position1 === 'ht') {
+		$total += $price590;
+	}
+	//chinguard
+	$position2 = $explode[1];
+	if ($position2 === 'ch') {
+		$total += $price150;
+	}
+	if ($position2 === 'xx') {
+		$total += 0;
+	}
+	//visor
+	$position3 = $explode[2];
+	if ($position3 === 'xx') {
+		$total += 0;
+	}
+	if ($position3 === 'vs') {
+		$total += $price50;
+	}
+	//main helmet color
+	$position4 = $explode[3];
+	if ($position4 === 'xx') {
+		$total += 0;
+	}
+	if ($position4 === 'hg') {
+		$total += $price60;
+	}
+	//helmet pattern
+	$position5 = $explode[4];
+	if ($position5 === 'xx') {
+		$total += 0;
+	}
+	if ($position5 === 'hk') {
+		$total += $price80;
+	}
+	if ($position5 === 'hr') {
+		$total += $price80;
+	}
+	if ($position5 === 'hc') {
+		$total += $price60;
+	}
+	if ($position5 === 'ht') {
+		$total += $price80;
+	}
+	if ($position5 === 'hd') {
+		$total += $price60;
+	}
+	if ($position5 === 'he') {
+		$total += $price60;
+	}
+	if ($position5 === 'hg') {
+		$total += $price80;
+	}
+	if ($position5 === 'hh') {
+		$total += $price60;
+	}
+	if ($position5 === 'hz') {
+		$total += $price60;
+	}
+	if ($position5 === 'hb') {
+		$total += $price60;
+	}
+	if ($position5 === 'ho') {
+		$total += $price60;
+	}
+	if ($position5 === 'hp') {
+		$total += $price60;
+	}
+	if ($position5 === 'hs') {
+		$total += $price80;
+	}
+	if ($position5 === 'hv') {
+		$total += $price60;
+	}
+	//trim
+	$position6 = $explode[5];
+	if ($position6 === 'xxx') {
+		$total += 0;
+	}
+	if ($position6 === 'htl') {
+		$total += $price40;
+		//a voir si chinguard prix du rubber en plus ?
+		if ($position2 !== 'xx') {
+			$total += $price40;
+		}
+	}
+	//interior
+	$position7 = $explode[6];
+	if ($position7 === 'xxx') {
+		$total += 0;
+		if ($position2 !== 'xx') {
+			$total += $price50;
+		}
+	}
+	if ($position7 === 'til') {
+		$total += $price50;
+		if ($position2 !== 'xx') {
+			$total += $price50;
+		}
+	}
+	if ($position7 === 'hif') {
+		$total += $price50;
+		if ($position2 !== 'xx') {
+			$total += $price50;
+		}
+	}
+	//earmuff interior
+	$position8 = $explode[7];
+	if ($position8 === 'xx') {
+		$total += 0;
+	}
+	if ($position8 === 'lb') {
+		$total += $price30;
+	}
+	//logo front
+	$position9 = $explode[8];
+	if ($position9 === 'xx') {
+		$total += 0;
+	}
+	if ($position9 === 'wl') {
+		$total += $price10;
+	}
+	//left number
+	$position10 = $explode[9];
+	if ($position10 === 'xx') {
+		$total += 0;
+	}
+	if ($position10 === 'ng') {
+		$total += $price50;
+	}
+	//right number
+	$position11 = $explode[10];
+	if ($position11 === 'xx') {
+		$total += 0;
+	}
+	if ($position11 === 'nd') {
+		$total += $price50;
+	}
+	//back number
+	$position12 = $explode[11];
+	if ($position12 === 'xx') {
+		$total += 0;
+	}
+	if ($position12 === 'nb') {
+		$total += $price50;
+	}
+	//engraving
+	$position13 = $explode[12];
+	if ($position13 === 'x') {
+		$total += 0;
+	}
+	if ($position13 === 'e') {
+		$total += $price20;
+	}
+	//chinguard main color
+	$position14 = $explode[13];
+	if ($position14 === 'xx') {
+		$total += 0;
+	}
+	if ($position14 === 'cg') {
+		$total += $price10;
+	}
+	//chinguard trim pas d'infos ??
+	$position15 = $explode[14];
+	if ($position15 === 'xxx') {
+		$total += 0;
+	}
+	if ($position15 === 'ctl') {
+		$total += $price50;
+	}
+	// earmuff exterieur
+	$position16 = $explode[15];
+	if ($position16 === 'xxx') {
+		$total += 0;
+	}
+	if ($position16 === 'xlb') {
+		$total +=  $price30;
+	}
+	// chinguard desing pas de pattern
+	$position17 = $explode[16];
+	if ($position17 === 'xx') {
+		$total += 0;
+	}
+// visor color
+	$position18 = $explode[17];
+	if ($position18 === 'xx') {
+		$total += 0;
+	}
+	$position18 = $explode[17];
+	if ($position18 === 'sv') {
+		$total += $price10;
+	}
+	$position18 = $explode[17];
+	if ($position18 === 'sp') {
+		$total += $price20;
+	}
+	// logo back
+	$position19 = $explode[18];
+	if ($position19 === 'xx') {
+		$total += 0;
+	}
+	return $total;
+}
 
 add_action( 'rest_api_init', function () {
 	register_rest_route( '/helmet', '/devise', array(
@@ -383,6 +653,7 @@ add_action( 'rest_api_init', function () {
 			'callback' => 'uploadImage',
 	) );
 } );
+
 add_action('rest_api_init', function () {
 	//Example: wp-json/woocs/v3/products/eur/
 	register_rest_route('wc/v3', '/products/(?P<currency>.+)', array(
@@ -409,28 +680,6 @@ add_action('rest_api_init', function () {
 						} */
 					return $new_currency;
 				}
-					/* $products_ids = wc_get_products([
-							'return' => 'ids',
-					]);
-					var_dump($currency);
-					//***
-					$res = [];
-					if (!empty($products_ids)) {
-						$_REQUEST['woocs_raw_woocommerce_price_currency'] = $currency;
-						foreach ($products_ids as $product_id) {
-							$product = wc_get_product($product_id);
-								if ($WOOCS->default_currency === $currency) {
-									$res[$product_id] = $product->get_price();
-								} else {
-									$res[$product_id] = $WOOCS->raw_woocommerce_price($product->get_price(), $product);
-								}
-							}
-						}
-						 */
-						
-						/* return 'ok'; */
-			/* },
-			'permission_callback' => '__return_true' */
 	));
 });
 function uploadImage($request) {
@@ -445,6 +694,29 @@ function uploadImage($request) {
 	$imageData = base64_decode($base64Image);
 	file_put_contents( $fileName, $imageData);
 	$newName = 'motorBike' . uniqid() . '.png';
+	copy($fileName, $newName);
+	$src = urldecode($newName);
+	return $src;
+}
+
+add_action( 'rest_api_init', function () {
+	register_rest_route( '/imageHandler/mark2', '/upload', array(
+			'methods' => 'POST',
+			'callback' => 'uploadImageBike',
+	) );
+} );
+function uploadImageBike($request) {
+	$upl_base_url = is_ssl() ? str_replace('http://', 'https://', $_SERVER['SERVER_NAME']. '/essai') : $_SERVER['SERVER_NAME']. '/essai';
+	$upload_dir   = wp_upload_dir();
+	$base64Image = file_get_contents('php://input');
+	$base64Image = str_replace('"', '', $base64Image);
+	list($type, $base64Image) = explode(';', $base64Image);
+	list(,$extension) = explode('/',$type);
+	list(,$base64Image)      = explode(',', $base64Image);
+	$fileName = 'bike.'.$extension;
+	$imageData = base64_decode($base64Image);
+	file_put_contents( $fileName, $imageData);
+	$newName = 'bike' . uniqid() . '.png';
 	copy($fileName, $newName);
 	$src = urldecode($newName);
 	return $src;
@@ -470,13 +742,56 @@ function add_custom_fields_data_as_custom_cart_item_data( $cart_item_data, $prod
 	$data = json_decode($configuration);
 	if( isset($_GET['image']) && ! empty($_GET['image']) ) {
 	$productName = stripslashes($_GET['image']);
-		$productName = str_replace('"', "'", $productName);
-		file_put_contents($productName . 'save.txt', print_r($data, true));
-		$cart_item_data['imageToFollow'] = ($productName);
+	$productName = str_replace('"', "'", $productName);
+	file_put_contents($productName . 'save.txt', print_r($data, true));
+	$cart_item_data['imageToFollow'] = ($productName);
 	$cart_item_data['configuration'] = ($productName . '.txt');
 	$cart_item_data['price'] = $_GET['price'];
 	$cart_item_data['link'] =  $_GET['shortLink'];
-			$cart_item_data['unique_key'] = md5( microtime().rand() );
+	$cart_item_data['unique_key'] = md5( microtime().rand() );
+	if($product_id == 62262) {
+			$cart_item_data['Helmet-Aeration'] = $data->Helmet->Helmet_aeration === 'true' ? 'Yes' : 'No';
+			$cart_item_data['Helmet-Interior'] = $data->Helmet->Interior;
+			$cart_item_data['Helmet-Logo'] = $data->Helmet->Logo;
+			$cart_item_data['Helmet-MainColor'] = $data->Helmet->Helmet_first_color;
+			$cart_item_data['Helmet-Number-Back'] = $data->Helmet->BackNumber->Apply === 'true' ? $data->Helmet->BackNumber->Configuration->Text : 'None';
+			$cart_item_data['Helmet-Number-Left'] = $data->Helmet->LeftNummber->Apply === 'true' ? $data->Helmet->LeftNummber->Configuration->Text : 'None';
+			$cart_item_data['Helmet-Number-Right'] = $data->Helmet->RightNummber->Apply === 'true' ? $data->Helmet->RightNummber->Configuration->Text : 'None';
+			//if($cart_item_data['Helmet-PaintDesign']) {
+					$cart_item_data['Helmet-PaintDesign'] = $data->Helmet->Helmet_design === '' ? ' ' : $data->Helmet->Helmet_design;
+					$cart_item_data['Helmet-PatternColor'] = $data->Helmet->Helmet_design_type;
+		//	}
+	
+			$cart_item_data['Helmet-PullingFlap'] = $data->Helmet->flap;
+			$cart_item_data['Helmet-RearEngraving'] = $data->Helmet->Engraving->Apply === 'true' ? $data->Helmet->Engraving->Configuration->Text : 'None';
+			$cart_item_data['Helmet-Screws'] = $data->Screws->ScrewsPosition . ' ' . $data->Screws->Screws_finition;
+			$cart_item_data['Helmet-Trim'] = $data->Helmet->Trim ? $data->Helmet->Trim : 'None';
+			$cart_item_data['Helmet-Varnish'] = $data->Helmet->Varnish === 'true' ? 'Glossy' : 'Mat';
+			$cart_item_data['Size'] = (($data->Helmet->Size === 'ML') ? 'M/L' : (($data->Helmet->Size === 'S') ? 'XS/S' : 'XL/XXL'));
+				 
+		if($data->Chinguard->With_Chin === 'true'){
+				$cart_item_data['Chinguard-With'] = $data->Chinguard->With_Chin;
+			//$cart_item_data['Chinguard-Aeration'] = $data->Chinguard->Chinguard_aeration === 'true' ? 'Yes' : 'No';
+			$cart_item_data['Chinguard-MainColor'] = $data->Chinguard->Chinguard_first_color;
+			//$cart_item_data['Chinguard-PaintDesign'] = $data->Chinguard->Chinguard_design;
+			$cart_item_data['Chinguard-Trim'] = $data->Chinguard->Trim;
+			$cart_item_data['Chinguard-Varnish'] = $data->Chinguard->Varnish === 'true' ? 'Glossy' : 'Mat';
+		}	
+		if($data->Visor->With_Visor === 'true') {
+				$cart_item_data['Visor-With'] = $data->Visor->With_Visor;
+				$cart_item_data['Visor-Type'] = $data->Visor->Visor_type;
+				if($cart_item_data['Visor-Type'] === 'peak_visor'){
+						$cart_item_data['Visor-Peak_Color'] = $data->Visor->Visor_peak_color;
+				}
+				else {
+						$cart_item_data['Visor-Frame'] = $data->Visor->Frame;
+						$cart_item_data['Visor-Color'] = $data->Visor->visor_Color;
+				}
+				
+				
+		}
+	}
+	if($product_id == 90598) {
 		$cart_item_data['Helmet-Aeration'] = $data->Helmet->Helmet_aeration === 'true' ? 'Yes' : 'No';
 		$cart_item_data['Helmet-Interior'] = $data->Helmet->Interior;
 		$cart_item_data['Helmet-Logo'] = $data->Helmet->Logo;
@@ -484,38 +799,27 @@ function add_custom_fields_data_as_custom_cart_item_data( $cart_item_data, $prod
 		$cart_item_data['Helmet-Number-Back'] = $data->Helmet->BackNumber->Apply === 'true' ? $data->Helmet->BackNumber->Configuration->Text : 'None';
 		$cart_item_data['Helmet-Number-Left'] = $data->Helmet->LeftNummber->Apply === 'true' ? $data->Helmet->LeftNummber->Configuration->Text : 'None';
 		$cart_item_data['Helmet-Number-Right'] = $data->Helmet->RightNummber->Apply === 'true' ? $data->Helmet->RightNummber->Configuration->Text : 'None';
-		//if($cart_item_data['Helmet-PaintDesign']) {
-				$cart_item_data['Helmet-PaintDesign'] = $data->Helmet->Helmet_design === '' ? ' ' : $data->Helmet->Helmet_design;
-				$cart_item_data['Helmet-PatternColor'] = $data->Helmet->Helmet_design_type;
-	//	}
-
-		$cart_item_data['Helmet-PullingFlap'] = $data->Helmet->flap;
+		$cart_item_data['Helmet-PaintDesign'] = $data->Helmet->Helmet_design === '' ? ' ' : $data->Helmet->Helmet_design;
+		$cart_item_data['Helmet-PatternColor'] = $data->Helmet->Helmet_design_type;
 		$cart_item_data['Helmet-RearEngraving'] = $data->Helmet->Engraving->Apply === 'true' ? $data->Helmet->Engraving->Configuration->Text : 'None';
-		$cart_item_data['Helmet-Screws'] = $data->Screws->ScrewsPosition . ' ' . $data->Screws->Screws_finition;
+		$cart_item_data['Helmet-Screws'] = $data->Screws->Screws_finition;
 		$cart_item_data['Helmet-Trim'] = $data->Helmet->Trim ? $data->Helmet->Trim : 'None';
 		$cart_item_data['Helmet-Varnish'] = $data->Helmet->Varnish === 'true' ? 'Glossy' : 'Mat';
-		$cart_item_data['Size'] = (($data->Helmet->Size === 'M') ? 'M/L' : (($data->Helmet->Size === 'S') ? 'XS/S' : 'XL/XXL'));
-			 
-	if($data->Chinguard->With_Chin === 'true'){
+		$cart_item_data['Size'] = $data->Helmet->Size;
+		$cart_item_data['Back-Logo'] = $data->Helmet->BackLogo;
+		$cart_item_data['Strap'] = $data->Helmet->strap;
+		$cart_item_data['Earmuff-inside'] = $data->Earmuff->Earmuff_inside;
+		$cart_item_data['Earmuff-outside'] = $data->Earmuff->Earmuff_outside;
+		if($data->Chinguard->With_Chin === 'true'){
 			$cart_item_data['Chinguard-With'] = $data->Chinguard->With_Chin;
-		$cart_item_data['Chinguard-Aeration'] = $data->Chinguard->Chinguard_aeration === 'true' ? 'Yes' : 'No';
-		$cart_item_data['Chinguard-MainColor'] = $data->Chinguard->Chinguard_first_color;
-		$cart_item_data['Chinguard-PaintDesign'] = $data->Chinguard->Chinguard_design;
-		$cart_item_data['Chinguard-Trim'] = $data->Chinguard->Trim;
-		$cart_item_data['Chinguard-Varnish'] = $data->Chinguard->Varnish === 'true' ? 'Glossy' : 'Mat';
-	}	
-	if($data->Visor->With_Visor === 'true') {
+			$cart_item_data['Chinguard-MainColor'] = $data->Chinguard->Chinguard_first_color;
+			$cart_item_data['Chinguard-Trim'] = $data->Chinguard->Trim;
+			$cart_item_data['Chinguard-Varnish'] = $data->Chinguard->Varnish === 'true' ? 'Glossy' : 'Mat';
+		}
+		if($data->Visor->With_Visor === 'true') {
 			$cart_item_data['Visor-With'] = $data->Visor->With_Visor;
-			$cart_item_data['Visor-Type'] = $data->Visor->Visor_type;
-			if($cart_item_data['Visor-Type'] === 'peak_visor'){
-					$cart_item_data['Visor-Peak_Color'] = $data->Visor->Visor_peak_color;
-			}
-			else {
-					$cart_item_data['Visor-Frame'] = $data->Visor->Frame;
-					$cart_item_data['Visor-Color'] = $data->Visor->visor_Color;
-			}
-			
-			
+			$cart_item_data['Visor-Color'] = $data->Visor->visor_Color;
+		}
 	}
 	
 	}

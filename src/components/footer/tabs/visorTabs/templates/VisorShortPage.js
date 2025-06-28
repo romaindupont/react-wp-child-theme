@@ -3,6 +3,7 @@ import VisorShortBlue from "../../svg/VisorShort/VisorShortBlue";
 import VisorShortChrome from "../../svg/VisorShort/VisorShortChrome";
 import VisorShortSemi from "../../svg/VisorShort/VisorShortSemi";
 import VisorShortTransparent from "../../svg/VisorShort/VisorShortTransparent";
+import VisorShortYellow from "../../svg/VisorShort/VisorShortYellow";
 import { useHorizontalScroll } from "../../../../../../utils/useHorizontalScroll";
 
 const VisorShortPage = ({setStandardValue,	standardValue, traduction, setMySku, mySku}) => {
@@ -40,6 +41,10 @@ const VisorShortPage = ({setStandardValue,	standardValue, traduction, setMySku, 
 		<div className={standardValue.Visor_color === 'smoke' ? 'Select' : 'allScrew'}  onClick={()=>setStandardValue({...standardValue, Visor_color:'smoke'}) & setMySku({...mySku, position18: 'sv'})}>
 			<VisorShortSemi />
 			<span className="textAction">{traduction.Semi}</span>
+		</div>
+		<div className={standardValue.Visor_color === 'yellow' ? 'Select' : 'allScrew'}  onClick={()=>setStandardValue({...standardValue, Visor_color:'yellow'}) & setMySku({...mySku, position18: 'sv'})}>
+			<VisorShortYellow />
+			<span className="textAction">{traduction.Yellow}</span>
 		</div>
 </div>
 	)

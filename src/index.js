@@ -26,6 +26,7 @@ const Veldt = () => {
 		position16: 'xxx',
 		position17: 'xx',
 		position18: 'xx',
+		position19: 'xx',
 	})
 	const [ standardValue, setStandardValue ] = useState({
 		Helmet_color: 'black',
@@ -33,10 +34,11 @@ const Veldt = () => {
 		Metal_pieces: 'titanium',
 		Logo: 'V',
 		Logo_color: 'white',
+		Back_logo: 'white',
 		Interior: 'suede|blue',
 		Helmet_trim: 'rubber|black',
 		Rear_text_certification: 'DOT',
-		Rear_text_size: 'M',
+		Rear_text_size: 'ML',
 		Helmet_design_color: 'white',
 		Helmet_design_type: 'plain',
 		Helmet_design: '',
@@ -50,9 +52,10 @@ const Veldt = () => {
 		Chinguard_interior: 'suede|blue',
 		Visor_peak_color: 'black',
 		Visor_peak_type: 'plain',
-		Visor_color: 'smoke',
+		Visor_color: 'clear',
 		Visor_type: 'short_visor',
-		Visor_frame: 'light'
+		Visor_frame: 'light',
+		Strap_color: "black"
 	});
 	const [ price, setPrice ] = useState(690);
 	const [ nodesConfiguration, setNodesConfiguration ] = useState([]);
@@ -84,6 +87,11 @@ const Veldt = () => {
 		numberStyle: 'none',
 		numberColorType: 'plain',
 		numberColor: 'white'
+	});
+	const [ earmuffInput, setEarmuffInput ] = useState({
+		earmuffSide: 'inside',
+		earmuffInsideStyle: 'suede|blue',
+		earmuffOutsideStyle: 'rubber|black',
 	});
 	const [ backEngraving, setBackEngraving ] = useState(false);
 	const [ engravingInput, setEngravingInput ] = useState({
@@ -142,7 +150,7 @@ const Veldt = () => {
 				'Content-Type': 'application/json',
         'Accept': 'application/json',
 			}
-			let customSku = `${mySku.position1}-${mySku.position2}-${mySku.position3}-${mySku.position4}-${mySku.position5}-${mySku.position6}-${mySku.position7}-${mySku.position8}-${mySku.position9}-${mySku.position10}-${mySku.position11}-${mySku.position12}-${mySku.position13}-${mySku.position14}-${mySku.position15}-${mySku.position16}-${mySku.position17}-${mySku.position18}`
+			let customSku = `${mySku.position1}-${mySku.position2}-${mySku.position3}-${mySku.position4}-${mySku.position5}-${mySku.position6}-${mySku.position7}-${mySku.position8}-${mySku.position9}-${mySku.position10}-${mySku.position11}-${mySku.position12}-${mySku.position13}-${mySku.position14}-${mySku.position15}-${mySku.position16}-${mySku.position17}-${mySku.position18}-${mySku.position19}`
 			let makeData = {
 				'sku': customSku,
 				'devise': deviseChoice.name
@@ -155,7 +163,7 @@ const Veldt = () => {
 				body: JSON.stringify(makeData)
 			};
 			let thePrice;
-			await fetch(`${baseUrl}wp-json/helmet/price`, myInit)
+			await fetch(`${baseUrl}wp-json/helmet/priceBike`, myInit)
 			.then(response => response.text())
 			.then(data => thePrice = data )
 			setPrice(thePrice);
@@ -194,6 +202,7 @@ const Veldt = () => {
 				setShortLinkCreate = {setShortLinkCreate}
 				varnishVisor = {varnishVisor}
 				setDownMenu = {setDownMenu}
+				earmuffInput = {earmuffInput}
 			/>
 			<Body
 				aerationHelmet = {aerationHelmet}
@@ -227,6 +236,7 @@ const Veldt = () => {
 				setShortLinkCreate = {setShortLinkCreate}
 				varnishVisor = {varnishVisor}
 				earmuffHelmet = {earmuffHelmet}
+				earmuffInput = {earmuffInput}
 			/>
 			<Footer
 				aerationHelmet = {aerationHelmet}
@@ -281,6 +291,8 @@ const Veldt = () => {
 				varnishVisor = {varnishVisor}
 				earmuffHelmet = {earmuffHelmet}
 				setEarmuffHelmet = {setEarmuffHelmet}
+				earmuffInput = {earmuffInput}
+				setEarmuffInput = {setEarmuffInput }
 			/>
 		</div>
   );

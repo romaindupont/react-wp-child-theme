@@ -1,9 +1,10 @@
-const { useState } = wp.element;
+const { useState }  = wp.element;
 import VeldtLogo from '../../../assets/images/veldt-logo.svg';
 import { MakeAnObjectToOrder } from '../../../utils/ObjectOrder';
 import ScreenShot from '../body/Camera/ScreenShot';
 import { ORDER_VARIATION_CODE, REACT_APP_BASEURL } from '../../../env';
 import Replay from '../body/Camera/Replay';
+import { MakeAnObjectToOrderBike } from '../../../utils/ObjectOrderBike';
 
 
 const Header = ({
@@ -31,7 +32,8 @@ const Header = ({
 	shortLinkCreate,
 	setShortLinkCreate,
 	varnishVisor,
-	setDownMenu
+	setDownMenu,
+	earmuffInput
 }) => {
 	const baseUrl = REACT_APP_BASEURL;
 	const orderVariation = ORDER_VARIATION_CODE;
@@ -66,7 +68,7 @@ const Header = ({
 			cache: 'default',
 			body: JSON.stringify(imageToUpload)
 		};
-		let configuration = MakeAnObjectToOrder(
+		let configuration = MakeAnObjectToOrderBike(
 			standardValue,
 			aerationHelmet,
 			varnishHelmet,
@@ -83,7 +85,8 @@ const Header = ({
 			aerationChin,
 			varnishChin,
 			withVisor,
-			varnishVisor
+			varnishVisor,
+			earmuffInput
 		);
 		let newConfig = JSON.parse(configuration);
 		let customPrice = {"price": price}
@@ -94,7 +97,7 @@ const Header = ({
 			cache: 'default',
 			body: JSON.stringify(newConfig), customPrice
 		};
-		await fetch(`${baseUrl}wp-json/imageHandler/v1/upload`, myInit)
+		await fetch(`${baseUrl}wp-json/imageHandler/mark2/upload`, myInit)
 			.then(response => response.text())
 			.then(data => image = data )
 		await fetch(`${baseUrl}cart/?add-to-cart=${orderVariation}&image=${image}&price=${price}&shortLink=${srcLink}`, myInit2)

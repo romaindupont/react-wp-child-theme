@@ -4,7 +4,6 @@ module.exports = {
   ...defaults,
   externals: {
     "react": "React",
-    "react-dom": "ReactDOM"
-  }
+    "react-dom": "ReactDom"
+  },
 };
-

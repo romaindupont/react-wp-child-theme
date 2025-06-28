@@ -1,4 +1,4 @@
-const { useEffect } = wp.element;
+const { useEffect }  = wp.element;
 import ArrowLeft from '../../../../../assets/images/arrow_left.svg';
 import ArrowRight from '../../../../../assets/images/arrow_right.svg';
 import ElementData from '../../../../../assets/json/elementBikeHelmet';
@@ -20,6 +20,8 @@ import Varnish from './templates/varnish';
 import Zippers from './templates/zippers';
 import CameraPosition from '../../../body/Camera/CameraPosition';
 import Earmuff from './templates/earmuff';
+import Strap from './templates/strap';
+import RearLogo from './templates/rear-logo';
 
 const HelmetTabs = ({
 	aerationHelmet,
@@ -54,7 +56,9 @@ const HelmetTabs = ({
 	mySku,
 	setMySku,
 	setEarmuffHelmet,
-	earmuffHelmet
+	earmuffHelmet,
+	earmuffInput,
+	setEarmuffInput
 }) => {
 	let language = document.querySelector('html').lang;
 	let elementsOfHelmet = ElementData[0].en;
@@ -155,6 +159,14 @@ const HelmetTabs = ({
 							mySku = {mySku}
 							setMySku = {setMySku}
 						/> :
+					helmetPosition.fileName === 'rear-logo' ?
+						<RearLogo
+							setStandardValue = {setStandardValue}
+							standardValue = {standardValue}
+							traduction = {traduction}
+							mySku = {mySku}
+							setMySku = {setMySku}
+						/> :
 					helmetPosition.fileName === 'main-color' ?
 						<MainColor
 							setStandardValue = {setStandardValue}
@@ -201,6 +213,11 @@ const HelmetTabs = ({
 							earmuffHelmet = {earmuffHelmet}
 							setEarmuffHelmet = {setEarmuffHelmet}
 							traduction = {traduction}
+							earmuffInput = {earmuffInput}
+							setEarmuffInput = {setEarmuffInput}
+							setMySku={setMySku}
+							mySku={mySku}
+							standardValue={standardValue}
 						/> :
 					helmetPosition.fileName === 'size' ?
 						<Size 
@@ -230,7 +247,15 @@ const HelmetTabs = ({
 							traduction = {traduction}
 							mySku = {mySku}
 							setMySku = {setMySku}
-						/> 
+						/> :
+					helmetPosition.fileName === 'strap' ?
+						<Strap
+							setStandardValue = {setStandardValue}
+							standardValue = {standardValue}
+							traduction = {traduction}
+							mySku = {mySku}
+							setMySku = {setMySku}
+						/>  
 					: ''
 				}
 			</div>

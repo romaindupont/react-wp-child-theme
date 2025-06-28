@@ -1,4 +1,4 @@
-const { useEffect, useRef, useCallback } = wp.element;
+const { useEffect, useRef, useCallback }  = wp.element;
 import Noeud from '../../../assets/json/helmetBikeid';
 import Aeration from './Helmet/aeration';
 import Earmuff from './Helmet/earmuff';
@@ -9,12 +9,13 @@ import Logo from './Helmet/logo';
 import Interior from './Helmet/interior';
 import Trim from './Helmet/trim';
 import MetalParts from './Helmet/metalParts';
-import Zippers from './Helmet/zippers';
+import Strap from './Helmet/strap';
 import BackNumber from './Helmet/backNumber';
 import LeftNumber from './Helmet/leftNumber';
 import RightNumber from './Helmet/rightNumber';
 import Engraving from './Helmet/engraving';
 import RearText from './Helmet/rearText';
+import BackLogo from './Helmet/back_logo';
 
 import ChinguardAction from './Chinguard/chinguard';
 import AerationChin from './Chinguard/aeration';
@@ -55,7 +56,8 @@ const Body = ({
 	shortLinkCreate,
 	setShortLinkCreate,
 	varnishVisor,
-	earmuffHelmet
+	earmuffHelmet,
+	earmuffInput
 }) => {
 	let viewerIframe = null;
 	let viewerActive = false;
@@ -80,12 +82,10 @@ const Body = ({
 				nodesToAdd :
 					[
 						Noeud[0].helmet.helmetGroove,
+						Noeud[0].helmet.helmetCoatingGroove,
 						Noeud[0].helmet.helmetElements,
 						Noeud[0].screw.frontScrewsLayer0None,
 						Noeud[0].screw.backScrewsLayer0None,
-
-
-						
 						Noeud[0].helmet.helmetTrimRubber,
 						Noeud[0].helmet.helmetLogo,
 						Noeud[0].earmuff.noEarmuff,
@@ -113,23 +113,14 @@ const Body = ({
 						configurationName :`${standardValue.Logo}|${standardValue.Logo_color}`,
 						groupName : 'Logo'
 					},
-/* 					{
-						configurationName : standardValue.Metal_pieces,
-						groupName : 'Metal_pieces'
-					},
-
 					{
-						configurationName : standardValue.Interior,
+						configurationName : `${standardValue.Rear_text_size}`,
+						groupName : 'Rear_text'
+					},
+					{
+						configurationName : `${standardValue.Interior}`,
 						groupName : 'Interior'
 					},
-					{
-						configurationName : standardValue.Helmet_trim,
-						groupName : 'Helmet_trim'
-					}, */
-/* 				 {
-						configurationName : `${standardValue.Rear_text_certification}|${standardValue.Rear_text_size}`,
-						groupName : 'Rear_text'
-					}, */
 				]
 			}, '*');
 			setLoader(true);
@@ -144,7 +135,13 @@ const Body = ({
 		},'*');
 	}
 	const viewerEventListener = async (event) => {
-		console.log('essai', event.data)
+		
+/* 		if(event.data && event.data.action == 'onEndCameraInteraction') {
+			viewerIframe.postMessage({
+				action : 'getCamera'
+			},'*');
+			console.log('essai', event.data)
+		} */
 		if(event.data && event.data.action == 'onStateChange'){
 			if(event.data.state.viewerState == 'loaded' || event.data.state.viewerState == 'fallbackloaded'){
 				setLoader(false)
@@ -189,9 +186,16 @@ const Body = ({
 		}
 		if(event.data && event.data.action == 'onCurrentProductNodesConfigurationGet'){
 			setNodesConfiguration(event.data.productNodes)
+
 			viewerIframe.postMessage({
 				action : 'getCurrentMaterials'
-			}, '*');
+			}, '*');		
+			viewerIframe.postMessage({
+				action : 'getCurrentMaterialsGroup'
+			}, '*');	
+		}
+		if(event.data && event.data.action == 'onCurrentMaterialsGroupGet') {
+			console.log('getcurrent', event.data)
 		}
 		if(event.data && event.data.action == 'onSuccess') {
 			console.log(event,'succès');
@@ -243,14 +247,13 @@ const Body = ({
 	}, [aerationHelmet]);
 	useEffect(() => {
 		if (notInitialRender.current) {
-			Earmuff(earmuffHelmet, nodesConfiguration);
+			Earmuff(earmuffHelmet, nodesConfiguration, setLoader, earmuffInput);
 		} else {
 			notInitialRender.current = true;
 		}
-	}, [earmuffHelmet]);
+	}, [earmuffHelmet, earmuffInput]);
 	 useEffect(() => {
 		if (notInitialRender.current) {
-			console.log('truc', nodesConfiguration)
 			Pattern(standardValue, aerationHelmet, nodesConfiguration, setLoader);
 		} else {
 			notInitialRender.current = true;
@@ -300,11 +303,11 @@ const Body = ({
 	}, [standardValue.Metal_pieces]);
 	useEffect(() => {
 		if (notInitialRenderSix.current) {
-			Zippers(standardValue, nodesConfiguration, setLoader, aerationHelmet, varnishHelmet);
+			Strap(standardValue);
 		} else {
 			notInitialRenderSix.current = true;
 		}
-	}, [standardValue.flap]);
+	}, [standardValue.Strap_color]);
 	useEffect(() => {
 		if (notInitialRender.current) {
 			BackNumber(backNumberWindow, nodesConfiguration, setLoader);
@@ -376,12 +379,19 @@ const Body = ({
 		}
 	}, [varnishChin]);
 	useEffect(() => {
+		if (notInitialRenderEleven.current) {
+			BackLogo(standardValue, nodesConfiguration, setLoader);
+		} else {
+			notInitialRenderEleven.current = true;
+		}
+	}, [standardValue.Back_logo]);
+	useEffect(() => {
 		if (notInitialRenderTwelve.current) {
 			VisorChoice(standardValue, nodesConfiguration, setLoader, tabsChoice, varnishVisor);
 		} else {
 			notInitialRenderTwelve.current = true;
 		}
-	}, [standardValue.Visor_peak_color, standardValue.Visor_peak_type, standardValue.Visor_color, standardValue.Visor_type, standardValue.Visor_frame, tabsChoice.visor, varnishVisor]);
+	}, [standardValue.Visor_color, standardValue.Visor_type, tabsChoice.visor]);
 	useEffect(() => {
 		console.log(nodesConfiguration)
 	}, [nodesConfiguration]);	

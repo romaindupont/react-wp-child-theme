@@ -132,6 +132,16 @@ export default [
 				0, 0, 1, 0,
 				0, 0, 0, 1],
 				SKU: "custom_numberingBack"
+			}	,
+			customBackEngraving:
+			{
+				parentLocalId: 1,
+				localId: 50,
+				matrix: [1, 0, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1],
+				SKU: "custom_backEngraving"
 			}	
 		},
 		screw: {
@@ -205,7 +215,7 @@ export default [
 				0, 0, 0, 1],
 				SKU: "frontScrews_layer2_chinguard"
 			},
-			frontScrewsLayer3Chinguard:
+/* 			frontScrewsLayer3Chinguard:
 			{
 				parentLocalId: 1,
 				localId: 22,
@@ -214,7 +224,7 @@ export default [
 				0, 0, 1, 0,
 				0, 0, 0, 1],
 				SKU: "frontScrews_layer3_chinguard"
-			},
+			}, */
 			backScrewsLayer1Earmuff:
 			{
 				parentLocalId: 1,
@@ -267,7 +277,7 @@ export default [
 				0, 0, 0, 1],
 				SKU: "chinguard_layer2"
 			},
-			chinguardLayer3:
+		/* 	chinguardLayer3:
 			{
 				parentLocalId: 1,
 				localId: 28,
@@ -276,7 +286,7 @@ export default [
 				0, 0, 1, 0,
 				0, 0, 0, 1],
 				SKU: "chinguard_layer3"
-			},
+			}, */
 			chinguardCoatingLayer1:
 			{
 				parentLocalId: 1,
@@ -297,7 +307,7 @@ export default [
 				0, 0, 0, 1],
 				SKU: "chinguardCoating_layer2"
 			},
-			chinguardCoatingLayer3:
+			/* chinguardCoatingLayer3:
 			{
 				parentLocalId: 1,
 				localId: 31,
@@ -306,7 +316,7 @@ export default [
 				0, 0, 1, 0,
 				0, 0, 0, 1],
 				SKU: "chinguardCoating_layer3"
-			},
+			}, */
 			chinguardElementsLayer1:
 			{
 				parentLocalId: 1,
@@ -327,7 +337,7 @@ export default [
 				0, 0, 0, 1],
 				SKU: "chinguard_elements_layer2"
 			},
-			chinguardElementsLayer3:
+		/* 	chinguardElementsLayer3:
 			{
 				parentLocalId: 1,
 				localId: 34,
@@ -336,7 +346,7 @@ export default [
 				0, 0, 1, 0,
 				0, 0, 0, 1],
 				SKU: "chinguard_elements_layer3"
-			},
+			}, */
 			chinguardTrimRubberLayer1:
 			{
 				parentLocalId: 1,
@@ -377,7 +387,7 @@ export default [
 				0, 0, 0, 1],
 				SKU: "chinguardTrim_leather_layer2"
 			},
-			chinguardTrimRubberLayer3:
+			/* chinguardTrimRubberLayer3:
 			{
 				parentLocalId: 1,
 				localId: 39,
@@ -386,8 +396,8 @@ export default [
 				0, 0, 1, 0,
 				0, 0, 0, 1],
 				SKU: "chinguardTrim_rubber_layer3"
-			},
-			chinguardTrimLeatherLayer3:
+			}, */
+			/* chinguardTrimLeatherLayer3:
 			{
 				parentLocalId: 1,
 				localId: 40,
@@ -396,7 +406,7 @@ export default [
 				0, 0, 1, 0,
 				0, 0, 0, 1],
 				SKU: "chinguardTrim_leather_layer3"
-			},
+			}, */
 
 		},
 		visor: {
@@ -422,7 +432,7 @@ export default [
 				0, 0, 0, 1],
 				SKU: "no_earmuff"
 			},
-			earmuffLayer1: 
+			earmuffLayer: 
 			{
 				parentLocalId: 1,
 				localId: 43,
@@ -430,9 +440,9 @@ export default [
 				0, 1, 0, 0,
 				0, 0, 1, 0,
 				0, 0, 0, 1],
-				SKU: "earmuff_layer1"
+				SKU: "earmuff"
 			},
-			earmuffLayer2: 
+		/* 	earmuffLayer2: 
 			{
 				parentLocalId: 1,
 				localId: 44,
@@ -441,7 +451,7 @@ export default [
 				0, 0, 1, 0,
 				0, 0, 0, 1],
 				SKU: "earmuff_layer2"
-			},
+			}, */
 		}
 	}
 ]

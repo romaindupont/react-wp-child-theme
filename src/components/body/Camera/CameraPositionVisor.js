@@ -4,10 +4,16 @@ const CameraPosition = (fileName) => {
 	let	viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 	switch (fileName) {
 		case 'visorType':
-			viewerIframe.postMessage(CameraPositionChange[0].visor.visor,'*');
+			viewerIframe.postMessage({
+				action : 'setViewpoint',
+				name:'perspective'
+			},'*');
     	break;
 		case 'visor':
-			viewerIframe.postMessage({action : 'resetCamera'},'*');
+			viewerIframe.postMessage({
+				action : 'setViewpoint',
+				name:'perspective'
+			},'*');
 			break;
 		default:		
 	}

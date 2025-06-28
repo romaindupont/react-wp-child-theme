@@ -37,8 +37,13 @@ export default [{
 	},
 	{
 		fileName : 'logo',
-		title: 'logo',
+		title: 'front logo',
 		helpMessage: 'Choose between several Logo your best one and select the color'
+	},
+	{
+		fileName : 'rear-logo',
+		title: 'rear logo',
+		helpMessage: 'Choose between rear color Logo'
 	},
 	{
 		fileName : 'interior',
@@ -56,6 +61,11 @@ export default [{
 		helpMessage: 'Choose the color of the metal parts'
 	},
 	{
+		fileName : 'strap',
+		title: 'strap',
+		helpMessage: 'Choose the strap models'
+	},
+	{
 		fileName : 'earmuff',
 		title: 'earmuff',
 		helpMessage: 'Mark 2 helmet comes with removable ear muffs. It keep your ears warm and cosy.'
@@ -65,11 +75,7 @@ export default [{
 		title: 'aeration',
 		helpMessage: 'Choose if you want aeration or not'
 	},
-	{
-		fileName : 'strap',
-		title: 'strap',
-		helpMessage: 'Choose the strap models'
-	},
+
 	{
 		fileName : 'engraving',
 		title: 'engraving',
@@ -79,7 +85,7 @@ export default [{
 		fileName : 'size',
 		title: 'size',
 		helpMessage: 'Choose the helmet size'
-	},
+	}
 ],
 "fr": [
 		{
@@ -121,36 +127,41 @@ export default [{
 			fileName : 'logo',
 			title: 'logo',
 			helpMessage: 'Choisir entre différente proposition de logo Veldt et sélectionner la couleur'
+		},{
+			fileName : 'rear-logo',
+			title: 'logo arrière',
+			helpMessage: 'Choisir la couleur du logo arrière'
 		},
 		{
 			fileName : 'interior',
 			title: 'interieur',
 			helpMessage: 'Choisir le revêtement de l\'intérieur du casque'
-		},
+		},	
 		{
 			fileName : 'trim',
 			title: 'jonc',
 			helpMessage: 'Choisir la couleur du jonc'
 		},
 		{
+			fileName : 'strap',
+			title: 'sangle',
+			helpMessage: 'Choisir sa sangle'
+		},
+		
+		{
 			fileName : 'metal-parts',
 			title: 'pièces métalliques',
 			helpMessage: 'Choisir la couleur des pièces métalliques'
-		},
-		{
+		},{
 			fileName : 'earmuff',
-			title: 'Casque',
+			title: 'Protection oreilles',
 			helpMessage: 'Casque pour les oreilles, pour garder les oreilles au chaud'
 		},
+
 		{
 			fileName : 'aeration',
 			title: 'aération',
 			helpMessage: 'Choisir d\'ajouter ou d\'enlever les aérations'
-		},
-		{
-			fileName : 'strap',
-			title: 'sangle',
-			helpMessage: 'Choisir sa sangle'
 		},
 		{
 			fileName : 'engraving',

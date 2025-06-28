@@ -84,11 +84,11 @@ const RightNumber = ({
 	return (
 		<>
 			<div className="numberListType">
-				<span className={rightNumberInput.numberStyle === 'none' ? 'selectButton' : 'buttonChoice'} onClick={() => setRightNumberInput({...rightNumberInput, numberStyle:'none'}) & setRightNumberWindow(false) & setOpenWindow(false) & setMySku({...mySku, position11: 'xx'})}>{traduction.None}</span>
-				<span className={rightNumberInput.numberStyle === 'montserrat-bold' ? 'selectButton' : 'buttonChoice'} onClick={() => setRightNumberInput({...rightNumberInput, numberStyle:'montserrat-bold'}) & setRightNumberWindow(true) & setOpenWindow(true) & setMySku({...mySku, position11: 'nd'})}>{traduction.ClassicNumber}</span>
-				<span className={rightNumberInput.numberStyle === 'dirt' ? 'selectButton' : 'buttonChoice'} onClick={() => setRightNumberInput({...rightNumberInput, numberStyle:'dirt'}) & setRightNumberWindow(true) & setOpenWindow(true) & setMySku({...mySku, position11: 'nd'})}>{traduction.DirtNumber}</span>
-				<span className={rightNumberInput.numberStyle === 'PressStart2P-Regular' ? 'selectButton' : 'buttonChoice'} onClick={() => setRightNumberInput({...rightNumberInput, numberStyle:'PressStart2P-Regular'}) & setRightNumberWindow(true) & setOpenWindow(true) & setMySku({...mySku, position11: 'nd'})}>{traduction.PixelNumber}</span>
-				<span className={rightNumberInput.numberStyle === 'racing' ? 'selectButton' : 'buttonChoice'} onClick={() => setRightNumberInput({...rightNumberInput, numberStyle:'racing'}) & setRightNumberWindow(true) & setOpenWindow(true) & setMySku({...mySku, position11: 'nd'})}>{traduction.RacingNumber}</span>
+				<span className={rightNumberInput.numberStyle === 'none' ? 'selectButtonEarmuff' : 'buttonChoiceEarmuff'} onClick={() => setRightNumberInput({...rightNumberInput, numberStyle:'none'}) & setRightNumberWindow(false) & setOpenWindow(false) & setMySku({...mySku, position11: 'xx'})}>{traduction.None}</span>
+				<span className={rightNumberInput.numberStyle === 'montserrat-bold' ? 'selectButtonEarmuff' : 'buttonChoiceEarmuff'} onClick={() => setRightNumberInput({...rightNumberInput, numberStyle:'montserrat-bold'}) & setRightNumberWindow(true) & setOpenWindow(true) & setMySku({...mySku, position11: 'nd'})}>{traduction.ClassicNumber}</span>
+				<span className={rightNumberInput.numberStyle === 'dirt' ? 'selectButtonEarmuff' : 'buttonChoiceEarmuff'} onClick={() => setRightNumberInput({...rightNumberInput, numberStyle:'dirt'}) & setRightNumberWindow(true) & setOpenWindow(true) & setMySku({...mySku, position11: 'nd'})}>{traduction.DirtNumber}</span>
+				<span className={rightNumberInput.numberStyle === 'PressStart2P-Regular' ? 'selectButtonEarmuff' : 'buttonChoiceEarmuff'} onClick={() => setRightNumberInput({...rightNumberInput, numberStyle:'PressStart2P-Regular'}) & setRightNumberWindow(true) & setOpenWindow(true) & setMySku({...mySku, position11: 'nd'})}>{traduction.PixelNumber}</span>
+				<span className={rightNumberInput.numberStyle === 'racing' ? 'selectButtonEarmuff' : 'buttonChoiceEarmuff'} onClick={() => setRightNumberInput({...rightNumberInput, numberStyle:'racing'}) & setRightNumberWindow(true) & setOpenWindow(true) & setMySku({...mySku, position11: 'nd'})}>{traduction.RacingNumber}</span>
 			</div>
 			<div className={!openWindow ? "numberWindows" : "openNumberWindows" }>
 				<p className="infosNumber">{traduction.NumberStyleTitle}</p>
@@ -109,10 +109,10 @@ const RightNumber = ({
 			</div>
 			<div className={rightNumberWindow ? "openColorList" : "openColorClose"}>
 					<div className="colorListType">
-						<span className={rightNumberInput.numberColorType === 'plain' ? 'selectButton' : 'buttonChoice'} onClick={() => setRightNumberInput({...rightNumberInput, numberColorType:'plain'})}>{traduction.Plain}</span>
-						<span className={rightNumberInput.numberColorType === 'metallic' ? 'selectButton' : 'buttonChoice'} onClick={() => setRightNumberInput({...rightNumberInput, numberColorType:'metallic'})}>{traduction.Metallic}</span>
-						<span className={rightNumberInput.numberColorType === 'glitter' ? 'selectButton' : 'buttonChoice'}  onClick={() => setRightNumberInput({...rightNumberInput, numberColorType:'glitter'})}>{traduction.Glitter}</span>
-						<span className={rightNumberInput.numberColorType === 'gilding' ? 'selectButton' : 'buttonChoice'} onClick={() => setRightNumberInput({...rightNumberInput, numberColorType:'gilding', numberColor:'copper foil'})}>{traduction.Gilding}</span>
+						<span className={rightNumberInput.numberColorType === 'plain' ? 'selectButtonEarmuff' : 'buttonChoiceEarmuff'} onClick={() => setRightNumberInput({...rightNumberInput, numberColorType:'plain'})}>{traduction.Plain}</span>
+						<span className={rightNumberInput.numberColorType === 'metallic' ? 'selectButtonEarmuff' : 'buttonChoiceEarmuff'} onClick={() => setRightNumberInput({...rightNumberInput, numberColorType:'metallic'})}>{traduction.Metallic}</span>
+						<span className={rightNumberInput.numberColorType === 'glitter' ? 'selectButtonEarmuff' : 'buttonChoiceEarmuff'}  onClick={() => setRightNumberInput({...rightNumberInput, numberColorType:'glitter'})}>{traduction.Glitter}</span>
+						<span className={rightNumberInput.numberColorType === 'gilding' ? 'selectButtonEarmuff' : 'buttonChoiceEarmuff'} onClick={() => setRightNumberInput({...rightNumberInput, numberColorType:'gilding', numberColor:'copper foil'})}>{traduction.Gilding}</span>
 					</div>
 					<div className="colorList" onScroll={scrollEffect} ref={scrollRef}>
 						{rightNumberInput.numberColorType === 'plain' ? 
@@ -197,9 +197,9 @@ const RightNumber = ({
 						</>
 							: 
 						<>
-							<div className={rightNumberInput.numberColor === 'copper foil' ? 'selectColor' : 'colorP'} onClick={() => setRightNumberInput({...rightNumberInput, numberColor:'copper foil'})}><div className="roundColor copperFoil"></div><span className="textAction">{traduction.CopperFoil}</span></div>
-							<div className={rightNumberInput.numberColor === 'gold foil' ? 'selectColor' : 'colorP'} onClick={() => setRightNumberInput({...rightNumberInput, numberColor:'gold foil'})}><div className="roundColor goldFoil"></div><span className="textAction">{traduction.GoldFoil}</span></div>
-							<div className={rightNumberInput.numberColor === 'silver foil' ? 'selectColor' : 'colorP'} onClick={() => setRightNumberInput({...rightNumberInput, numberColor:'silver foil'})}><div className="roundColor silverFoil"></div><span className="textAction">{traduction.SilverFoil}</span></div>
+							<div className={rightNumberInput.numberColor === 'copper foil' ? 'selectColor special' : 'colorP special'} onClick={() => setRightNumberInput({...rightNumberInput, numberColor:'copper foil'})}><div className="roundColor copperFoil"></div><span className="textAction">{traduction.CopperFoil}</span></div>
+							<div className={rightNumberInput.numberColor === 'gold foil' ? 'selectColor special' : 'colorP special'} onClick={() => setRightNumberInput({...rightNumberInput, numberColor:'gold foil'})}><div className="roundColor goldFoil"></div><span className="textAction">{traduction.GoldFoil}</span></div>
+							<div className={rightNumberInput.numberColor === 'silver foil' ? 'selectColor special' : 'colorP special'} onClick={() => setRightNumberInput({...rightNumberInput, numberColor:'silver foil'})}><div className="roundColor silverFoil"></div><span className="textAction">{traduction.SilverFoil}</span></div>
 						</>
 						}		
 					</div>

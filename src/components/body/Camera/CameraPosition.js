@@ -1,65 +1,105 @@
 import CameraPositionChange from "../../../../assets/json/CameraPosition";
 
 const CameraPosition = (fileName) => {
+
 	let	viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 	switch (fileName) {
+		case 'pattern':
+			viewerIframe.postMessage({
+				action : 'setViewpoint',
+				name:'perspective'
+			},'*');
+			break;
+		case 'main-color':
+			viewerIframe.postMessage({
+				action : 'setViewpoint',
+				name:'perspective'
+			},'*');
+			break;
 		case 'interior':
-			viewerIframe.postMessage(CameraPositionChange[0].helmet.interior,'*');
+			viewerIframe.postMessage({
+				action : 'setViewpoint',
+				name:'perspective'
+			},'*');
     	break;
 		case 'zippers':
-			viewerIframe.postMessage(CameraPositionChange[0].helmet.zippers,'*');
-			setTimeout(
-				() => {
-					viewerIframe.postMessage({
-					action : 'setZoomProportion',
-					value : 0.9,
-					transitionTime : 500
-				},'*');
-			}, 500);
+			viewerIframe.postMessage({
+				action : 'setViewpoint',
+				name:'perspective'
+			},'*');
    		break;	
 		case 'back-number'	:
-			viewerIframe.postMessage(CameraPositionChange[0].helmet.backNumber,'*');
+			viewerIframe.postMessage({
+				action : 'setViewpoint',
+				name:'back_number'
+			},'*');
 			break;
 		case 'left-number'	:
-			viewerIframe.postMessage(CameraPositionChange[0].helmet.leftNumber,'*');
+			viewerIframe.postMessage({
+				action : 'setViewpoint',
+				name:'left_number'
+			},'*');
 			break;
 		case 'right-number'	:
-			viewerIframe.postMessage(CameraPositionChange[0].helmet.rightNumber,'*');
+			viewerIframe.postMessage({
+				action : 'setViewpoint',
+				name:'right_number'
+			},'*');
 			break;
 		case 'size'	:
-			viewerIframe.postMessage(CameraPositionChange[0].helmet.size,'*');
+			viewerIframe.postMessage({
+				action : 'setViewpoint',
+				name:'engraving'
+			},'*');
 			break;
 		case 'engraving' :
-			viewerIframe.postMessage(CameraPositionChange[0].helmet.engraving,'*');
-			setTimeout(
-				function() {
-					viewerIframe.postMessage({
-					action : 'setZoomProportion',
-					value : 0.86,
-					transitionTime : 500
-				},'*');
-			}, 500);
+			viewerIframe.postMessage({
+				action : 'setViewpoint',
+				name:'engraving'
+			},'*');
 			break;
 		case 'logo' :
-			viewerIframe.postMessage(CameraPositionChange[0].helmet.logo,'*');
-			setTimeout(
-				() => {
-					viewerIframe.postMessage({
-					action : 'setZoomProportion',
-					value : 0.83,
-					transitionTime : 500
+			viewerIframe.postMessage({
+				action : 'setViewpoint',
+				name:'front_logo'
+			},'*');
+			break;
+			case 'rear-logo' :
+				viewerIframe.postMessage({
+					action : 'setViewpoint',
+					name:'engraving'
 				},'*');
-			}, 500);
 			break;
 			case 'metal-parts'	:
-				viewerIframe.postMessage({action : 'resetCamera'},'*');
+				viewerIframe.postMessage({
+					action : 'setViewpoint',
+					name:'perspective'
+				},'*');
 			break;
 			case 'trim'	:
-				viewerIframe.postMessage({action : 'resetCamera'},'*');
+				viewerIframe.postMessage({
+					action : 'setViewpoint',
+					name:'perspective'
+				},'*');
 			break;
 			case 'aeration'	:
-				viewerIframe.postMessage({action : 'resetCamera'},'*');
+				viewerIframe.postMessage({
+					action : 'setViewpoint',
+					name:'aeration'
+				},'*');
 			break;
+			case 'earmuff'	:
+				viewerIframe.postMessage({
+					action : 'setViewpoint',
+					name:'earmuff'
+				},'*');
+				break;
+				case 'strap'	:
+					viewerIframe.postMessage({
+						action : 'setViewpoint',
+						name:'earmuff'
+					},'*');
+				break;
 		default:	
 	}
 }

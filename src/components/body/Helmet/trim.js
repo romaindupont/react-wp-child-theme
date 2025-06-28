@@ -64,6 +64,12 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 	else {
 		typeDesignChin = standardValue.Chinguard_design_type;
 	}
+	let helmetTrim = standardValue.Helmet_trim;
+	if (standardValue.Helmet_trim.includes('leather')) {
+		helmetTrim = standardValue.Helmet_trim.replace('leather', 'rubber');
+	} else {
+		helmetTrim = standardValue.Helmet_trim;
+	}
 	if (withChin) {
 		if (standardValue.Helmet_trim.includes('rubber')) {
 			viewerIframe.postMessage(
@@ -82,12 +88,12 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 							},
 							{
 								parentLocalId: 1,
-								localId: parseInt(`${Noeud[0].chinguard.chinguardTrimRubberLayer1.localId}` + Date.now()),
+								localId: parseInt(`${Noeud[0].chinguard.chinguardTrimRubberLayer2.localId}` + Date.now()),
 								matrix: [1, 0, 0, 0,
 								0, 1, 0, 0,
 								0, 0, 1, 0,
 								0, 0, 0, 1],
-								SKU: Noeud[0].chinguard.chinguardTrimRubberLayer1.SKU
+								SKU: Noeud[0].chinguard.chinguardTrimRubberLayer2.SKU
 							}
 						],
 					localIdsToRemove :
@@ -119,7 +125,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 										groupName : 'Helmet_trim'
 									},
 									{
-										configurationName : standardValue.Helmet_trim,
+										configurationName : helmetTrim,
 										groupName : 'Chinguard_trim'
 									}	
 								]
@@ -154,7 +160,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 										groupName : 'Helmet_trim'
 									},
 									{
-										configurationName : standardValue.Helmet_trim,
+										configurationName : helmetTrim,
 										groupName : 'Chinguard_trim'
 									}	
 								]
@@ -187,7 +193,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 										groupName : 'Helmet_trim'
 									},
 									{
-										configurationName : standardValue.Helmet_trim,
+										configurationName : helmetTrim,
 										groupName : 'Chinguard_trim'
 									}			
 								]
@@ -222,7 +228,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 										groupName : 'Helmet_trim'
 									},
 									{
-										configurationName : standardValue.Helmet_trim,
+										configurationName : helmetTrim,
 										groupName : 'Chinguard_trim'
 									}			
 								]
@@ -255,7 +261,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 											groupName : 'Helmet_trim'
 										},
 										{
-											configurationName : standardValue.Helmet_trim,
+											configurationName : helmetTrim,
 											groupName : 'Chinguard_trim'
 										}					
 									]
@@ -290,7 +296,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 										groupName : 'Helmet_trim'
 									},
 									{
-										configurationName : standardValue.Helmet_trim,
+										configurationName : helmetTrim,
 										groupName : 'Chinguard_trim'
 									}					
 								]
@@ -323,7 +329,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 										groupName : 'Helmet_trim'
 									},
 									{
-										configurationName : standardValue.Helmet_trim,
+										configurationName : helmetTrim,
 										groupName : 'Chinguard_trim'
 									}						
 								]
@@ -358,7 +364,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 										groupName : 'Helmet_trim'
 									},
 									{
-										configurationName : standardValue.Helmet_trim,
+										configurationName : helmetTrim,
 										groupName : 'Chinguard_trim'
 									}				
 								]
@@ -385,12 +391,12 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 							},
 							{
 								parentLocalId: 1,
-								localId: parseInt(`${Noeud[0].chinguard.chinguardTrimLeatherLayer1.localId}` + Date.now()),
+								localId: parseInt(`${Noeud[0].chinguard.chinguardTrimRubberLayer2.localId}` + Date.now()),
 								matrix: [1, 0, 0, 0,
 								0, 1, 0, 0,
 								0, 0, 1, 0,
 								0, 0, 0, 1],
-								SKU: Noeud[0].chinguard.chinguardTrimLeatherLayer1.SKU
+								SKU: Noeud[0].chinguard.chinguardTrimRubberLayer2.SKU
 							}
 						],
 					localIdsToRemove :
@@ -422,7 +428,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 										groupName : 'Helmet_trim'
 									},
 									{
-										configurationName : standardValue.Helmet_trim,
+										configurationName : helmetTrim,
 										groupName : 'Chinguard_trim'
 									}	
 								]
@@ -457,7 +463,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 										groupName : 'Helmet_trim'
 									},
 									{
-										configurationName : standardValue.Helmet_trim,
+										configurationName : helmetTrim,
 										groupName : 'Chinguard_trim'
 									}	
 								]
@@ -490,7 +496,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 										groupName : 'Helmet_trim'
 									},
 									{
-										configurationName : standardValue.Helmet_trim,
+										configurationName : helmetTrim,
 										groupName : 'Chinguard_trim'
 									}		
 								]
@@ -525,7 +531,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 										groupName : 'Helmet_trim'
 									},
 									{
-										configurationName : standardValue.Helmet_trim,
+										configurationName : helmetTrim,
 										groupName : 'Chinguard_trim'
 									}		
 								]
@@ -558,7 +564,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 											groupName : 'Helmet_trim'
 										},
 										{
-											configurationName : standardValue.Helmet_trim,
+											configurationName : helmetTrim,
 											groupName : 'Chinguard_trim'
 										}				
 									]
@@ -593,7 +599,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 										groupName : 'Helmet_trim'
 									},
 									{
-										configurationName : standardValue.Helmet_trim,
+										configurationName : helmetTrim,
 										groupName : 'Chinguard_trim'
 									}				
 								]
@@ -626,7 +632,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 										groupName : 'Helmet_trim'
 									},
 									{
-										configurationName : standardValue.Helmet_trim,
+										configurationName : helmetTrim,
 										groupName : 'Chinguard_trim'
 									}					
 								]
@@ -661,7 +667,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 										groupName : 'Helmet_trim'
 									},
 									{
-										configurationName : standardValue.Helmet_trim,
+										configurationName : helmetTrim,
 										groupName : 'Chinguard_trim'
 									}		
 								]

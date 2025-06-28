@@ -55,6 +55,20 @@ const VisorChoice = (standardValue, nodesConfiguration, setLoader, tabsChoice, v
 					localIdToRemove
 			}, "*");
 			localIdToRemove = [];
+			setLoader(false);
+			setTimeout(() => {
+	viewerIframe.postMessage({
+		action : 'setMaterialsGroups',
+		values : 
+			[
+				{
+					configurationName :`${standardValue.Visor_color}`,
+					groupName : 'Visor_color'
+				}
+			]
+	}, '*');
+	setLoader(true);
+			}, '2000');
 		/* switch (standardValue.Visor_type) {
 			case 'peak_visor':
 				if (varnishVisor) {

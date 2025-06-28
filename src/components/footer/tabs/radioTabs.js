@@ -58,7 +58,9 @@ const radioTabs = ({
 	setVarnishVisor,
 	varnishVisor,
 	earmuffHelmet,
-	setEarmuffHelmet
+	setEarmuffHelmet,
+	earmuffInput,
+	setEarmuffInput
 }) => {
 	const changeCheck = (e) => {
 		switch(e.target.value) {
@@ -135,6 +137,8 @@ const radioTabs = ({
 							setMySku = {setMySku}
 							earmuffHelmet = {earmuffHelmet}
 							setEarmuffHelmet = {setEarmuffHelmet}
+							earmuffInput = {earmuffInput}
+							setEarmuffInput = {setEarmuffInput}
 						/> 
 					: title === 'Chinguard' ? 
 						<ChinTabs 

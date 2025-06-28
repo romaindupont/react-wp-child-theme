@@ -87,63 +87,27 @@ const VisorTabs = ({
 					<div className="template">
 					<div className="aerationList">
 						<div className="aerationDisplay">
-							<span className={withVisor ? 'buttonChoice' : 'selectButton'} onClick={()=>setTabsChoice({...tabsChoice, visor: false}) & setWithVisor(false) & setMySku({...mySku, position3: 'xx', position18: 'xx'}) & CameraPosition('visor')}>{traduction.Without}</span>
-							<span className={withVisor ? 'selectButton' : 'buttonChoice'} onClick={()=>setTabsChoice({...tabsChoice, visor: true}) & setWithVisor(true) & setMySku({...mySku, position3: 'vs'}) & CameraPosition('visor')}>{traduction.With}</span>
+							<span className={withVisor ? 'buttonChoiceEarmuff' : 'selectButtonEarmuff'} onClick={()=>setTabsChoice({...tabsChoice, visor: false}) & setWithVisor(false) & setMySku({...mySku, position3: 'xx', position18: 'xx'}) & CameraPosition('visor')}>{traduction.Without}</span>
+							<span className={withVisor ? 'selectButtonEarmuff' : 'buttonChoiceEarmuff'} onClick={()=>setTabsChoice({...tabsChoice, visor: true}) & setWithVisor(true) & setMySku({...mySku, position3: 'vs'}) & CameraPosition('visor')}>{traduction.With}</span>
 						</div>
 					</div>
 					</div>
 				</> :
 				<>
 					<div className="elementChoice">
-							<img className="leftChoice direction" src={ArrowLeft} alt="left direction" onClick={minus}/>
-							<h3 className="elementPicker">{visorPosition.title} <span className="numberStep">{visorPosition.position+1}/{elementsOfVisor.length}</span></h3>	
-							<img className="rightChoice direction" src={ArrowRight} alt="right direction" onClick={plus}/>
+							<img className="leftChoice direction" src={ArrowLeft} alt="left direction"/>
+							<h3 className="elementPicker">{visorPosition.title} <span className="numberStep">1/1</span></h3>	
+							<img className="rightChoice direction" src={ArrowRight} alt="right direction"/>
 					</div>
 					<div className="template">
 						{
 							visorPosition.fileName === 'visor' ?
-								<div className="aerationList">
+								<div className="aerationList visorConfigBike">
 									<div className="aerationDisplay">
-										<span className={withVisor ? 'buttonChoice' : 'selectButton'} onClick={()=>setTabsChoice({...tabsChoice, visor: false}) & setWithVisor(false) & setMySku({...mySku, position3: 'xx', position18: 'xx'}) & CameraPosition('visor')}>{traduction.Without}</span>
-										<span className={withVisor ? 'selectButton' : 'buttonChoice'} onClick={()=>setTabsChoice({...tabsChoice, visor: true}) & setWithVisor(true) & setMySku({...mySku, position3: 'vs'}) & CameraPosition('visor')}>{traduction.With}</span>
+										<span className={withVisor ? 'buttonChoiceEarmuff' : 'selectButtonEarmuff'} onClick={()=>setTabsChoice({...tabsChoice, visor: false}) & setWithVisor(false) & setMySku({...mySku, position3: 'xx', position18: 'xx'}) & CameraPosition('visor')}>{traduction.Without}</span>
+										<span className={withVisor ? 'selectButtonEarmuff' : 'buttonChoiceEarmuff'} onClick={()=>setTabsChoice({...tabsChoice, visor: true}) & setWithVisor(true) & setMySku({...mySku, position3: 'vs'}) & CameraPosition('visor')}>{traduction.With}</span>
 									</div>
-								</div>
-							:  
-							visorPosition.fileName === 'visorType' ?
-								<VisorTypeChoice
-									setTypeChoice={setTypeChoice}
-									setStandardValue={setStandardValue}
-									standardValue={standardValue}
-									traduction = {traduction}
-									withChin = {withChin}
-									mySku = {mySku}
-									setMySku = {setMySku}
-								/> 
-							:
-							visorPosition.fileName === 'visorColor' && typeChoice === 'long_visor' ?
-								<>
-									<VisorFrame 
-										setStandardValue = {setStandardValue}
-										standardValue = {standardValue}
-										traduction = {traduction}
-									/>
-									<VisorLongPage 
-										setStandardValue = {setStandardValue}
-										standardValue = {standardValue}
-										traduction = {traduction}
-										setMySku = {setMySku}
-										mySku = {mySku}
-									/>
 									
-								</>
-							:
-							visorPosition.fileName === 'visorColor' && typeChoice === 'short_visor' ?	
-								<>
-									<VisorFrame 
-										setStandardValue = {setStandardValue}
-										standardValue = {standardValue}
-										traduction = {traduction}
-									/>
 									<VisorShortPage
 										setStandardValue = {setStandardValue}
 										standardValue = {standardValue}
@@ -151,24 +115,13 @@ const VisorTabs = ({
 										setMySku = {setMySku}
 										mySku = {mySku}
 									/>
+								</div>
+							     
+							:
+							visorPosition.fileName === 'visorColor' && typeChoice === 'short_visor' ?	
+								<>
+									
 								</>
-							:
-							visorPosition.fileName === 'visorColor' && typeChoice === 'peak_visor' ?	
-								<VisorPeakPage
-									setStandardValue = {setStandardValue}
-									standardValue = {standardValue}
-									traduction = {traduction}
-									mySku = {mySku}
-									setMySku = {setMySku}
-								/>
-							:
-							visorPosition.fileName === 'varnish' && typeChoice === 'peak_visor' ?	
-								<Varnish
-									setVarnishVisor = {setVarnishVisor}
-									varnishVisor = {varnishVisor}
-									traduction = {traduction}
-								/>
-							
 							:''
 						}
 					</div>

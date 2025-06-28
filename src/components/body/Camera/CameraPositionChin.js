@@ -7,8 +7,23 @@ const CameraPosition = (fileName) => {
 			viewerIframe.postMessage(CameraPositionChange[0].chinguard.aeration,'*');
     	break;
 		case 'chinguard':
-			viewerIframe.postMessage({action : 'resetCamera'},'*');
+			viewerIframe.postMessage({
+				action : 'setViewpoint',
+				name:'perspective'
+			},'*');
 			break;
+			case 'main-color':
+				viewerIframe.postMessage({
+					action : 'setViewpoint',
+					name:'perspective'
+				},'*');
+				break;
+				case 'varnish':
+					viewerIframe.postMessage({
+						action : 'setViewpoint',
+						name:'perspective'
+					},'*');
+					break;
 			case 'pattern':
 				viewerIframe.postMessage({action : 'resetCamera'},'*');
 				break;

@@ -3,56 +3,33 @@ import Noeud from '../../../../assets/json/helmetBikeid';
 const Engraving = async (backEngraving, nodesConfiguration,setLoader, standardValue) => {
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 	let localIdToRemove = [];
+
 	nodesConfiguration.find((nodes) => { 
-		if (nodes.SKU === 'custom_backEngravingECE') {
-			localIdToRemove.push(nodes.localId);
-		}
-		if (nodes.SKU === 'custom_backEngravingDOT') {
+		if (nodes.SKU === 'custom_backEngraving') {
 			localIdToRemove.push(nodes.localId);
 		}
 	}) 
+	
 	if (backEngraving) {
-		if (standardValue.Rear_text_certification === 'DOT') {
-			viewerIframe.postMessage(
+					viewerIframe.postMessage(
 				{
 					action : "updateProductNodesInstances",
 					nodesToAdd :
 						[
-							/* {
+							{
 								parentLocalId: 1,
-								localId: parseInt(`${Noeud[0].custom.rearEngravingDOT.localId}` + Date.now()),
+								localId: parseInt(`${Noeud[0].custom.customBackEngraving.localId}` + Date.now()),
 								matrix: [1, 0, 0, 0,
 								0, 1, 0, 0,
 								0, 0, 1, 0,
 								0, 0, 0, 1],
-								SKU: Noeud[0].custom.rearEngravingDOT.SKU
-							} */
+								SKU: Noeud[0].custom.customBackEngraving.SKU
+							}
 						],
 					localIdsToRemove :
 						localIdToRemove
 				}, "*");
 			localIdToRemove = [];
-		} else {
-			viewerIframe.postMessage(
-				{
-					action : "updateProductNodesInstances",
-					nodesToAdd :
-						[
-							/* {
-								parentLocalId: 1,
-								localId: parseInt(`${Noeud[0].custom.rearEngravingECE.localId}` + Date.now()),
-								matrix: [1, 0, 0, 0,
-								0, 1, 0, 0,
-								0, 0, 1, 0,
-								0, 0, 0, 1],
-								SKU: Noeud[0].custom.rearEngravingECE.SKU
-							} */
-						],
-					localIdsToRemove :
-						localIdToRemove
-				}, "*");
-			localIdToRemove = [];
-		}
 	}
 	if (!backEngraving) {
 		viewerIframe.postMessage(
