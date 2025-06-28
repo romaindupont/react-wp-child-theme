@@ -1,4 +1,4 @@
-import Noeud from '../../../../assets/json/helmetid';
+import Noeud from '../../../../assets/json/helmetBikeid';
 
 const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) => {
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
@@ -16,13 +16,11 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 		if (nodes.SKU === 'helmet_groove') {
 			localIdToRemove.push(nodes.localId);
 		}
-		if (nodes.SKU === 'logo_standard') {
-			localIdToRemove.push(nodes.localId);
-		}
-		if (nodes.SKU === 'logo_higher') {
+		if (nodes.SKU === 'logo') {
 			localIdToRemove.push(nodes.localId);
 		}
 	}) 
+	console.log('test', standardValue)
 	let typeColorChin = standardValue.Chinguard_color_type;
 		if (standardValue.Chinguard_color_type === 'gilding') {
 			typeColorChin = 'metallic'
@@ -69,12 +67,12 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 							},
 							{
 								parentLocalId: 1,
-								localId: parseInt(`${Noeud[0].helmet.helmetLogoStandard.localId}` + Date.now()),
+								localId: parseInt(`${Noeud[0].helmet.helmetLogo.localId}` + Date.now()),
 								matrix: [1, 0, 0, 0,
 								0, 1, 0, 0,
 								0, 0, 1, 0,
 								0, 0, 0, 1],
-								SKU: Noeud[0].helmet.helmetLogoStandard.SKU
+								SKU: Noeud[0].helmet.helmetLogo.SKU
 							}
 						],
 					localIdsToRemove :
@@ -82,6 +80,8 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 				}, "*");
 			localIdToRemove = [];
 			setLoader(false);
+			console.log('helmetplain', `${typeColorHelmet}|${standardValue.Helmet_color}`)
+
 			setTimeout(() => {
 				viewerIframe.postMessage({
 					action : 'setMaterialsGroups',
@@ -139,12 +139,12 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 								},
 								{
 									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].helmet.helmetLogoHigher.localId}` + Date.now()),
+									localId: parseInt(`${Noeud[0].helmet.helmetLogo.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
 									0, 1, 0, 0,
 									0, 0, 1, 0,
 									0, 0, 0, 1],
-									SKU: Noeud[0].helmet.helmetLogoHigher.SKU
+									SKU: Noeud[0].helmet.helmetLogo.SKU
 								}
 							],
 						localIdsToRemove :
@@ -212,12 +212,12 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 									},
 									{
 										parentLocalId: 1,
-										localId: parseInt(`${Noeud[0].helmet.helmetLogoHigher.localId}` + Date.now()),
+										localId: parseInt(`${Noeud[0].helmet.helmetLogo.localId}` + Date.now()),
 										matrix: [1, 0, 0, 0,
 										0, 1, 0, 0,
 										0, 0, 1, 0,
 										0, 0, 0, 1],
-										SKU: Noeud[0].helmet.helmetLogoHigher.SKU
+										SKU: Noeud[0].helmet.helmetLogo.SKU
 									}
 								],
 							localIdsToRemove :
@@ -294,12 +294,12 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 								},
 								{
 									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].helmet.helmetLogoStandard.localId}` + Date.now()),
+									localId: parseInt(`${Noeud[0].helmet.helmetLogo.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
 									0, 1, 0, 0,
 									0, 0, 1, 0,
 									0, 0, 0, 1],
-									SKU: Noeud[0].helmet.helmetLogoStandard.SKU
+									SKU: Noeud[0].helmet.helmetLogo.SKU
 								}
 							],
 						localIdsToRemove :
@@ -307,6 +307,8 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 					}, "*");
 				localIdToRemove = [];
 				setLoader(false);
+				console.log('else',  `${typeColorHelmet}|${standardValue.Helmet_color}`,`${standardValue.Helmet_design}|${typeDesignHelmet}|${standardValue.Helmet_design_color}`);
+
 				setTimeout(() => {
 					viewerIframe.postMessage({
 						action : 'setMaterialsGroups',
@@ -360,12 +362,12 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 						},
 						{
 							parentLocalId: 1,
-							localId: parseInt(`${Noeud[0].helmet.helmetLogoStandard.localId}` + Date.now()),
+							localId: parseInt(`${Noeud[0].helmet.helmetLogo.localId}` + Date.now()),
 							matrix: [1, 0, 0, 0,
 							0, 1, 0, 0,
 							0, 0, 1, 0,
 							0, 0, 0, 1],
-							SKU: Noeud[0].helmet.helmetLogoStandard.SKU
+							SKU: Noeud[0].helmet.helmetLogo.SKU
 						}
 			],
 				localIdsToRemove :
@@ -430,12 +432,12 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 							},
 							{
 								parentLocalId: 1,
-								localId: parseInt(`${Noeud[0].helmet.helmetLogoHigher.localId}` + Date.now()),
+								localId: parseInt(`${Noeud[0].helmet.helmetLogo.localId}` + Date.now()),
 								matrix: [1, 0, 0, 0,
 								0, 1, 0, 0,
 								0, 0, 1, 0,
 								0, 0, 0, 1],
-								SKU: Noeud[0].helmet.helmetLogoHigher.SKU
+								SKU: Noeud[0].helmet.helmetLogo.SKU
 							}
 						],
 					localIdsToRemove :
@@ -503,12 +505,12 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 								},
 								{
 									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].helmet.helmetLogoHigher.localId}` + Date.now()),
+									localId: parseInt(`${Noeud[0].helmet.helmetLogo.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
 									0, 1, 0, 0,
 									0, 0, 1, 0,
 									0, 0, 0, 1],
-									SKU: Noeud[0].helmet.helmetLogoHigher.SKU
+									SKU: Noeud[0].helmet.helmetLogo.SKU
 								}
 							],
 						localIdsToRemove :
@@ -580,12 +582,12 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 								},
 								{
 									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].helmet.helmetLogoStandard.localId}` + Date.now()),
+									localId: parseInt(`${Noeud[0].helmet.helmetLogo.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
 									0, 1, 0, 0,
 									0, 0, 1, 0,
 									0, 0, 0, 1],
-									SKU: Noeud[0].helmet.helmetLogoStandard.SKU
+									SKU: Noeud[0].helmet.helmetLogo.SKU
 								}
 							],
 						localIdsToRemove :
@@ -593,6 +595,8 @@ const Pattern =  (standardValue, aerationHelmet, nodesConfiguration, setLoader) 
 					}, "*");
 				localIdToRemove = [];
 				setLoader(false);
+				console.log('end',  `${typeColorHelmet}|${standardValue.Helmet_color}`, `${standardValue.Helmet_design}|${typeDesignHelmet}|${standardValue.Helmet_design_color}`)
+
 				setTimeout(() => {
 					viewerIframe.postMessage({
 						action : 'setMaterialsGroups',

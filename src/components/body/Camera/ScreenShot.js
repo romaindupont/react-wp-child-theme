@@ -5,7 +5,13 @@ const ScreenShot = async () => {
 		width : 512,
 		takeBackground : false,
 		height : 512,
-		cameras : [
+		viewpoints: [
+			'perspective',
+			'back_number',
+			'left_number',
+			'right_number'
+		]
+		/* cameras : [
 			{
 				position : [4.13, 2.53, 3.96],
 				target:[0,1.171,-0.0731],
@@ -26,7 +32,7 @@ const ScreenShot = async () => {
 				target:[0,1.171,-0.0731],
 				up:[0,1,0]
 			}
-		]
+		] */
 	},'*');
 }
 

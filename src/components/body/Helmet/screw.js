@@ -1,22 +1,37 @@
-import Noeud from '../../../../assets/json/helmetid';
-
+import Noeud from '../../../../assets/json/helmetBikeid';
+// A REVOIR TODO
 const ScrewFunction = (screwPosition, nodesConfiguration, withChin, withVisor) => {
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 	let localIdToRemove = [];
 	nodesConfiguration.find((nodes) => { 
-		if (nodes.SKU === 'screwsSide_chinguard') {
+		if (nodes.SKU === 'frontScrews_layer0_none') {
 			localIdToRemove.push(nodes.localId)
 		}
-		if (nodes.SKU === 'screwsTop_visor') {
+		if (nodes.SKU === 'backScrews_layer0_none') {
 			localIdToRemove.push(nodes.localId)
 		}
-		if (nodes.SKU === 'screwsBase_chinguard') {
+		if (nodes.SKU === 'frontScrews_layer1_visor') {
 			localIdToRemove.push(nodes.localId)
 		}
-		if (nodes.SKU === 'screwsSide_noChinguard') {
+		if (nodes.SKU === 'frontScrews_layer1_earmuff') {
 			localIdToRemove.push(nodes.localId)
 		}
-		if (nodes.SKU === 'screwsTop_noVisor') {
+		if (nodes.SKU === 'frontScrews_layer1_chinguard') {
+			localIdToRemove.push(nodes.localId)
+		}
+		if (nodes.SKU === 'frontScrews_layer2_earmuff') {
+			localIdToRemove.push(nodes.localId)
+		}
+		if (nodes.SKU === 'frontScrews_layer2_chinguard') {
+			localIdToRemove.push(nodes.localId)
+		}
+		if (nodes.SKU === 'frontScrews_layer3_chinguard') {
+			localIdToRemove.push(nodes.localId)
+		}
+		if (nodes.SKU === 'backScrews_layer1_chinguard') {
+			localIdToRemove.push(nodes.localId)
+		}
+		if (nodes.SKU === 'backScrews_layer2_chinguard') {
 			localIdToRemove.push(nodes.localId)
 		}
 	})
@@ -30,21 +45,21 @@ const ScrewFunction = (screwPosition, nodesConfiguration, withChin, withVisor) =
 							[
 								{
 									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].screw.screwsSideChinguard.localId}` + Date.now()),
+									localId: parseInt(`${Noeud[0].screw.frontScrewsLayer0None.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
 									0, 1, 0, 0,
 									0, 0, 1, 0,
 									0, 0, 0, 1],
-									SKU: Noeud[0].screw.screwsSideChinguard.SKU
+									SKU: Noeud[0].screw.frontScrewsLayer0None.SKU
 								},
 								{
 									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].screw.screwsBaseChinguard.localId}` + Date.now()),
+									localId: parseInt(`${Noeud[0].screw.backScrewsLayer0None.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
 									0, 1, 0, 0,
 									0, 0, 1, 0,
 									0, 0, 0, 1],
-									SKU: Noeud[0].screw.screwsBaseChinguard.SKU
+									SKU: Noeud[0].screw.backScrewsLayer0None.SKU
 								}
 							],
 						localIdsToRemove :
@@ -59,7 +74,7 @@ const ScrewFunction = (screwPosition, nodesConfiguration, withChin, withVisor) =
 					action : "updateProductNodesInstances",
 					nodesToAdd :
 						[
-							{
+							/* {
 								parentLocalId: 1,
 								localId: parseInt(`${Noeud[0].screw.screwsSideChinguard.localId}` + Date.now()),
 								matrix: [1, 0, 0, 0,
@@ -76,7 +91,7 @@ const ScrewFunction = (screwPosition, nodesConfiguration, withChin, withVisor) =
 								0, 0, 1, 0,
 								0, 0, 0, 1],
 								SKU: Noeud[0].screw.screwsBaseChinguard.SKU
-							}
+							} */
 						],
 					localIdsToRemove :
 						localIdToRemove
@@ -90,7 +105,7 @@ const ScrewFunction = (screwPosition, nodesConfiguration, withChin, withVisor) =
 					action : "updateProductNodesInstances",
 					nodesToAdd :
 						[
-							{
+							/* {
 								parentLocalId: 1,
 								localId: parseInt(`${Noeud[0].screw.screwsSideChinguard.localId}` + Date.now()),
 								matrix: [1, 0, 0, 0,
@@ -116,7 +131,7 @@ const ScrewFunction = (screwPosition, nodesConfiguration, withChin, withVisor) =
 								0, 0, 1, 0,
 								0, 0, 0, 1],
 								SKU: Noeud[0].screw.screwsBaseChinguard.SKU
-							}
+							} */
 						],
 					localIdsToRemove :
 						localIdToRemove
@@ -137,12 +152,12 @@ const ScrewFunction = (screwPosition, nodesConfiguration, withChin, withVisor) =
 						[
 							{
 								parentLocalId: 1,
-								localId: parseInt(`${Noeud[0].screw.screwsTopVisor.localId}` + Date.now()),
+								localId: parseInt(`${Noeud[0].screw.frontScrewsLayer1Visor.localId}` + Date.now()),
 								matrix: [1, 0, 0, 0,
 								0, 1, 0, 0,
 								0, 0, 1, 0,
 								0, 0, 0, 1],
-								SKU: Noeud[0].screw.screwsTopVisor.SKU
+								SKU: Noeud[0].screw.frontScrewsLayer1Visor.SKU
 							}
 						],
 					localIdsToRemove :
@@ -157,7 +172,7 @@ const ScrewFunction = (screwPosition, nodesConfiguration, withChin, withVisor) =
 					action : "updateProductNodesInstances",
 					nodesToAdd :
 						[
-							{
+							/*  {
 								parentLocalId: 1,
 								localId: parseInt(`${Noeud[0].screw.screwsTopVisor.localId}` + Date.now()),
 								matrix: [1, 0, 0, 0,
@@ -165,25 +180,7 @@ const ScrewFunction = (screwPosition, nodesConfiguration, withChin, withVisor) =
 								0, 0, 1, 0,
 								0, 0, 0, 1],
 								SKU: Noeud[0].screw.screwsTopVisor.SKU
-							},
-							{
-								parentLocalId: 1,
-								localId: parseInt(`${Noeud[0].screw.screwsSideNoChinguard.localId}` + Date.now()),
-								matrix: [1, 0, 0, 0,
-								0, 1, 0, 0,
-								0, 0, 1, 0,
-								0, 0, 0, 1],
-								SKU: Noeud[0].screw.screwsSideNoChinguard.SKU
-							},
-							{
-								parentLocalId: 1,
-								localId: parseInt(`${Noeud[0].screw.screwsBaseChinguard.localId}` + Date.now()),
-								matrix: [1, 0, 0, 0,
-								0, 1, 0, 0,
-								0, 0, 1, 0,
-								0, 0, 0, 1],
-								SKU: Noeud[0].screw.screwsBaseChinguard.SKU
-							}
+							} */
 						],
 					localIdsToRemove :
 						localIdToRemove
@@ -197,7 +194,7 @@ const ScrewFunction = (screwPosition, nodesConfiguration, withChin, withVisor) =
 					action : "updateProductNodesInstances",
 					nodesToAdd :
 						[
-							{
+							/* {
 								parentLocalId: 1,
 								localId: parseInt(`${Noeud[0].screw.screwsTopVisor.localId}` + Date.now()),
 								matrix: [1, 0, 0, 0,
@@ -205,7 +202,7 @@ const ScrewFunction = (screwPosition, nodesConfiguration, withChin, withVisor) =
 								0, 0, 1, 0,
 								0, 0, 0, 1],
 								SKU: Noeud[0].screw.screwsTopVisor.SKU
-							}
+							} */
 						],
 					localIdsToRemove :
 						localIdToRemove
@@ -217,7 +214,34 @@ const ScrewFunction = (screwPosition, nodesConfiguration, withChin, withVisor) =
 		}
 	}
 	if (withChin && withVisor) {// avec chin et avec visiere
-
+		viewerIframe.postMessage(
+			{
+				action : "updateProductNodesInstances",
+				nodesToAdd :
+					[
+						{
+							parentLocalId: 1,
+							localId: parseInt(`${Noeud[0].screw.frontScrewsLayer3Chinguard.localId}` + Date.now()),
+							matrix: [1, 0, 0, 0,
+							0, 1, 0, 0,
+							0, 0, 1, 0,
+							0, 0, 0, 1],
+							SKU: Noeud[0].screw.frontScrewsLayer3Chinguard.SKU
+						},
+						{
+							parentLocalId: 1,
+							localId: parseInt(`${Noeud[0].screw.backScrewsLayer2Chinguard.localId}` + Date.now()),
+							matrix: [1, 0, 0, 0,
+							0, 1, 0, 0,
+							0, 0, 1, 0,
+							0, 0, 0, 1],
+							SKU: Noeud[0].screw.backScrewsLayer2Chinguard.SKU
+						} 
+					],
+				localIdsToRemove :
+					localIdToRemove
+			}, "*");
+		localIdToRemove=[];
 		if (screwPosition === 'none') {
 			// impossible on propse pas
 		}
@@ -252,7 +276,7 @@ const ScrewFunction = (screwPosition, nodesConfiguration, withChin, withVisor) =
 					action : "updateProductNodesInstances",
 					nodesToAdd :
 						[
-							{
+							/* {
 								parentLocalId: 1,
 								localId: parseInt(`${Noeud[0].screw.screwsSideNoChinguard.localId}` + Date.now()),
 								matrix: [1, 0, 0, 0,
@@ -260,7 +284,7 @@ const ScrewFunction = (screwPosition, nodesConfiguration, withChin, withVisor) =
 								0, 0, 1, 0,
 								0, 0, 0, 1],
 								SKU: Noeud[0].screw.screwsSideNoChinguard.SKU
-							}
+							} */
 						],
 					localIdsToRemove :
 						localIdToRemove
@@ -274,7 +298,7 @@ const ScrewFunction = (screwPosition, nodesConfiguration, withChin, withVisor) =
 					action : "updateProductNodesInstances",
 					nodesToAdd :
 					[
-						{
+						/* {
 							parentLocalId: 1,
 							localId: parseInt(`${Noeud[0].screw.screwsTopNoVisor.localId}` + Date.now()),
 							matrix: [1, 0, 0, 0,
@@ -282,7 +306,7 @@ const ScrewFunction = (screwPosition, nodesConfiguration, withChin, withVisor) =
 							0, 0, 1, 0,
 							0, 0, 0, 1],
 							SKU: Noeud[0].screw.screwsTopNoVisor.SKU
-						}
+						} */
 					],
 					localIdsToRemove :
 						localIdToRemove
@@ -296,7 +320,7 @@ const ScrewFunction = (screwPosition, nodesConfiguration, withChin, withVisor) =
 					action : "updateProductNodesInstances",
 					nodesToAdd :
 					[
-						{
+						/* {
 							parentLocalId: 1,
 							localId: parseInt(`${Noeud[0].screw.screwsSideNoChinguard.localId}` + Date.now()),
 							matrix: [1, 0, 0, 0,
@@ -313,7 +337,7 @@ const ScrewFunction = (screwPosition, nodesConfiguration, withChin, withVisor) =
 							0, 0, 1, 0,
 							0, 0, 0, 1],
 							SKU: Noeud[0].screw.screwsTopNoVisor.SKU
-						}
+						} */
 					],
 					localIdsToRemove :
 						localIdToRemove

@@ -18,7 +18,7 @@ const Engraving = ({
 		viewerIframe.postMessage({
 			action : 'updateCustomText',
 			data   : {
-				configurableMaterial : 'Back_engraving',
+				configurableMaterial : 'custom_backEngraving',
 				materialVariation : 'Visible',
 				contents : ['opacity'],
 				color : '#FFFFFF',
@@ -58,7 +58,7 @@ const Engraving = ({
 					<form className="chooseWindows_input">
 						<input type="text" name="textSelection" id="textSelection" placeholder="TEXT" onChange={(e)=>setEngravingInput({...engravingInput, text: e.target.value })}/>
 						<div className="selectButtonNumber">
-								<Wrong windowClose={setOpenWindow} setNumberWindow={setBackEngraving}/>
+								<Wrong windowClose={setOpenWindow} setNumberWindow={setBackEngraving} setMySku={setMySku} mySku={{...mySku, position13:'x'}}/>
 							<div className="selectButtonNumber--right" onClick={okClic}>
 								<Right windowClose={setOpenWindow} setNumberWindow={setBackEngraving} fileNames={fileNames}/>
 							</div>

@@ -20,7 +20,7 @@ export default [{
 			Plain: 'Plain',
 			Metallic: 'Metallic',
 			Glitter: 'Glitter',
-			Gilding: 'Gilding',
+			Gilding: 'Foil',
 			Add: 'Add',
 			Modify: 'Modify',
 			Delete: 'Delete',
@@ -121,9 +121,19 @@ export default [{
 			TartanWhite: 'Tartan White',
 			LeatherRed: 'Leather Red',
 			BlueRubber: 'Blue Leather',
+			BlackRubber: 'Black Rubber',
 			ChooseSize: 'Choose your size',
 			ChooseCertification: 'Choose your certification',
-			MatchAllHelmet: 'Match all helmet option'
+			MatchAllHelmet: 'Match all helmet option',
+			Grey: 'Grey',
+			Brown: 'Brown',
+			Cream: 'Cream',
+			Red: 'Red',
+			Yellow: 'Yellow',
+			Show: 'Show',
+			Hide: 'Hide',
+			Inside: 'Interior material',
+			Outside: 'Exterior material'
 		}
 	],
 	"fr": [
@@ -248,9 +258,19 @@ export default [{
 			TartanWhite : 'Tartan denholm',
 			LeatherRed : 'Cuir Rouge',
 			BlueRubber: 'Cuir bleu',
+			BlackRubber: 'Caoutchouc noir',
 			ChooseSize: 'Choisir une taille',
 			ChooseCertification: 'Choisir une certification',
-			MatchAllHelmet: 'Assortir avec le casque'
+			MatchAllHelmet: 'Assortir avec le casque',
+			Grey: 'Gris',
+			Brown: 'Marron',
+			Cream: 'Crème',
+			Red: 'Rouge',
+			Yellow: 'Jaune',
+			Show: 'Voir',
+			Hide: 'Cacher',
+			Inside: 'Matière Intérieur',
+			Outside: 'Matière Extérieur'
 		}
 	],
   "es": [
@@ -375,10 +395,20 @@ export default [{
 			TartanWhite: 'Tartán blanco',
 			LeatherRed: 'Cuero rojo',
 			BlueRubber: 'Cuero azul',
+			BlackRubber: 'Goma negra',
 			ChooseSize: 'Elegir tamaño',
 			ChooseCertification: 'Elegir certificación',
-			MatchAllHelmet: 'combinar con el casco'
-   }
+			MatchAllHelmet: 'combinar con el casco',
+			Grey: 'Gris',
+			Brown: 'Marrón',
+			Cream: 'Crema',
+			Red: 'Rojo',
+			Yellow: 'Amarillo',
+			Show: 'Mostrar',
+			Hide: 'Ocultar',
+			Inside: 'Materiales interiores',
+			Outside: 'Materiales exteriores'
+		}
   ],
 	"cn": [
     {
@@ -502,9 +532,19 @@ export default [{
 			TartanWhite : '格子白',
 			LeatherRed : '红色皮革',
 			BlueRubber: '蓝色橡胶',
+			BlackRubber: '黑色橡胶',
 			ChooseSize: '选择尺寸',
 			ChooseCertification: '选择认证',
-			MatchAllHelmet: '与头盔相匹配'
+			MatchAllHelmet: '与头盔相匹配',
+			Grey: '灰色的',
+			Brown: '棕色的',
+			Cream: '奶油',
+			Red: '红色的',
+			Yellow: '黄色的',
+			Show: '展示',
+			Hide: '隐藏',
+			Inside: '内饰材料',
+			Outside: '外部材料'
 		}
   ]
 }]

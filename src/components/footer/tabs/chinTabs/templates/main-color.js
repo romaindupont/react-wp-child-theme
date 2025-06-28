@@ -17,10 +17,10 @@ const MainColor = ({setStandardValue, standardValue, traduction, mySku, setMySku
 	return (
 		<>
 		<div className="colorListType">
-			<span className={standardValue.Chinguard_color_type === 'plain' ? 'selectButton' : 'buttonChoice'} onClick={()=>setStandardValue({...standardValue, Chinguard_color_type:'plain'}) & setMySku({...mySku, position14: 'xx'})}>{traduction.Plain}</span>
-			<span className={standardValue.Chinguard_color_type === 'metallic' ? 'selectButton' : 'buttonChoice'} onClick={()=>setStandardValue({...standardValue, Chinguard_color_type:'metallic'}) & setMySku({...mySku, position14: 'xx'})}>{traduction.Metallic}</span>
-			<span className={standardValue.Chinguard_color_type === 'glitter' ? 'selectButton' : 'buttonChoice'} onClick={()=>setStandardValue({...standardValue, Chinguard_color_type:'glitter'}) & setMySku({...mySku, position14: 'cg'})}>{traduction.Glitter}</span>
-			<span className={standardValue.Chinguard_color_type === 'gilding' ? 'selectButton' : 'buttonChoice'} onClick={()=>setStandardValue({...standardValue, Chinguard_color_type:'gilding', Chinguard_color:'copper foil'}) & setMySku({...mySku, position14: 'xx'})}>{traduction.Gilding}</span>
+			<span className={standardValue.Chinguard_color_type === 'plain' ? 'selectButtonEarmuff' : 'buttonChoiceEarmuff'} onClick={()=>setStandardValue({...standardValue, Chinguard_color_type:'plain'}) & setMySku({...mySku, position14: 'xx'})}>{traduction.Plain}</span>
+			<span className={standardValue.Chinguard_color_type === 'metallic' ? 'selectButtonEarmuff' : 'buttonChoiceEarmuff'} onClick={()=>setStandardValue({...standardValue, Chinguard_color_type:'metallic'}) & setMySku({...mySku, position14: 'xx'})}>{traduction.Metallic}</span>
+			<span className={standardValue.Chinguard_color_type === 'glitter' ? 'selectButtonEarmuff' : 'buttonChoiceEarmuff'} onClick={()=>setStandardValue({...standardValue, Chinguard_color_type:'glitter'}) & setMySku({...mySku, position14: 'cg'})}>{traduction.Glitter}</span>
+			<span className={standardValue.Chinguard_color_type === 'gilding' ? 'selectButtonEarmuff' : 'buttonChoiceEarmuff'} onClick={()=>setStandardValue({...standardValue, Chinguard_color_type:'gilding', Chinguard_color:'copper foil'}) & setMySku({...mySku, position14: 'xx'})}>{traduction.Gilding}</span>
 		</div>
 		<div className="colorList" onScroll={scrollEffect} ref={scrollRef}>
 			{standardValue.Chinguard_color_type === 'plain' ? 

@@ -19,12 +19,12 @@ const PatternColor = ({setStandardValue, standardValue, traduction}) => {
 			<div className="colorListType">
 			{standardValue.Helmet_design === 'checker' ? 
 				<>
-				 <span className={standardValue.Helmet_design_type === 'plain' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Helmet_design_type:'plain'})}>{traduction.Plain}</span>
+				 <span className={standardValue.Helmet_design_type === 'plain' ? 'selectButtonEarmuff' : 'buttonChoiceEarmuff'} onClick={() => setStandardValue({...standardValue, Helmet_design_type:'plain'})}>{traduction.Plain}</span>
 				</> : <>
-				<span className={standardValue.Helmet_design_type === 'plain' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Helmet_design_type:'plain'})}>{traduction.Plain}</span>
-				<span className={standardValue.Helmet_design_type === 'metallic' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Helmet_design_type:'metallic'})}>{traduction.Metallic}</span>
-				<span className={standardValue.Helmet_design_type === 'glitter' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Helmet_design_type:'glitter'})}>{traduction.Glitter}</span>
-				<span className={standardValue.Helmet_design_type === 'gilding' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Helmet_design_type:'gilding', Helmet_design_color:'copper foil'})}>{traduction.Gilding}</span>
+				<span className={standardValue.Helmet_design_type === 'plain' ? 'selectButtonEarmuff' : 'buttonChoiceEarmuff'} onClick={() => setStandardValue({...standardValue, Helmet_design_type:'plain'})}>{traduction.Plain}</span>
+				<span className={standardValue.Helmet_design_type === 'metallic' ? 'selectButtonEarmuff' : 'buttonChoiceEarmuff'} onClick={() => setStandardValue({...standardValue, Helmet_design_type:'metallic'})}>{traduction.Metallic}</span>
+				<span className={standardValue.Helmet_design_type === 'glitter' ? 'selectButtonEarmuff' : 'buttonChoiceEarmuff'} onClick={() => setStandardValue({...standardValue, Helmet_design_type:'glitter'})}>{traduction.Glitter}</span>
+				<span className={standardValue.Helmet_design_type === 'gilding' ? 'selectButtonEarmuff' : 'buttonChoiceEarmuff'} onClick={() => setStandardValue({...standardValue, Helmet_design_type:'gilding', Helmet_design_color:'copper foil'})}>{traduction.Gilding}</span>
 				</>}
 			</div>
 			<div className="colorList" onScroll={scrollEffect} ref={scrollRef}>

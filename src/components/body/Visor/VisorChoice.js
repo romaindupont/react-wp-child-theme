@@ -1,14 +1,14 @@
-import Noeud from '../../../../assets/json/helmetid';
+import Noeud from '../../../../assets/json/helmetBikeid';
 
 const VisorChoice = (standardValue, nodesConfiguration, setLoader, tabsChoice, varnishVisor) => {
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 	let localIdToRemove = [];
 	let screwsVisor = false;
 	nodesConfiguration.find((nodes) => { 
-		if (nodes.SKU === 'visor_peak') {
+		if (nodes.SKU === 'visor') {
 			localIdToRemove.push(nodes.localId);
 		}
-		if (nodes.SKU === 'visor_peakCoating') {
+		/* if (nodes.SKU === 'visor_peakCoating') {
 			localIdToRemove.push(nodes.localId);
 		}
 		if (nodes.SKU === 'visor_shortShield') {
@@ -33,10 +33,43 @@ const VisorChoice = (standardValue, nodesConfiguration, setLoader, tabsChoice, v
 		if (nodes.SKU === 'screwsTop_noVisor') {
 			screwsVisor = true;
 			localIdToRemove.push(nodes.localId);
-		}
+		} */
 	}) 
 	if (tabsChoice.visor) {
-		switch (standardValue.Visor_type) {
+		viewerIframe.postMessage(
+			{
+				action : "updateProductNodesInstances",
+				nodesToAdd :
+					[
+						{
+							parentLocalId: 1,
+							localId: parseInt(`${Noeud[0].visor.visor.localId}` + Date.now()),
+							matrix: [1, 0, 0, 0,
+							0, 1, 0, 0,
+							0, 0, 1, 0,
+							0, 0, 0, 1],
+							SKU: Noeud[0].visor.visor.SKU
+						}
+					],
+				localIdsToRemove :
+					localIdToRemove
+			}, "*");
+			localIdToRemove = [];
+			setLoader(false);
+			setTimeout(() => {
+	viewerIframe.postMessage({
+		action : 'setMaterialsGroups',
+		values : 
+			[
+				{
+					configurationName :`${standardValue.Visor_color}`,
+					groupName : 'Visor_color'
+				}
+			]
+	}, '*');
+	setLoader(true);
+			}, '2000');
+		/* switch (standardValue.Visor_type) {
 			case 'peak_visor':
 				if (varnishVisor) {
 					viewerIframe.postMessage(
@@ -320,9 +353,18 @@ const VisorChoice = (standardValue, nodesConfiguration, setLoader, tabsChoice, v
 			}, '*');
 		setLoader(true);
 		}, '2000');
-	}
+	*/} 
 	else {
-		if (screwsVisor){
+		viewerIframe.postMessage(
+			{
+				action : "updateProductNodesInstances",
+				nodesToAdd :
+					[],
+				localIdsToRemove :
+					localIdToRemove
+			}, "*");
+		localIdToRemove = [];
+		/* if (screwsVisor){
 			viewerIframe.postMessage(
 				{
 					action : "updateProductNodesInstances",
@@ -352,7 +394,7 @@ const VisorChoice = (standardValue, nodesConfiguration, setLoader, tabsChoice, v
 						localIdToRemove
 				}, "*");
 			localIdToRemove = [];
-		}
+		} */
 	}
 }
 

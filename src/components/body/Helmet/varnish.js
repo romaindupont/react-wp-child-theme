@@ -1,4 +1,4 @@
-import Noeud from '../../../../assets/json/helmetid';
+import Noeud from '../../../../assets/json/helmetBikeid';
 
 const Varnish = (varnishHelmet, aerationHelmet, nodesConfiguration, setLoader, standardValue) => {
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
@@ -53,6 +53,7 @@ const Varnish = (varnishHelmet, aerationHelmet, nodesConfiguration, setLoader, s
 	}
 	if (varnishHelmet && aerationHelmet) {
 		if (standardValue.Helmet_design === '' || standardValue.Helmet_design === 'plain') {
+			console.log('plain varnish aeration')
 			viewerIframe.postMessage(
 				{
 					action : "updateProductNodesInstances",
@@ -105,6 +106,7 @@ const Varnish = (varnishHelmet, aerationHelmet, nodesConfiguration, setLoader, s
 				}, '2000');
 		}
 		else {
+			console.log('else donc pas plain varnish aeration')
 			viewerIframe.postMessage(
 				{
 					action : "updateProductNodesInstances",
@@ -172,6 +174,7 @@ const Varnish = (varnishHelmet, aerationHelmet, nodesConfiguration, setLoader, s
 	}
 		if (varnishHelmet && !aerationHelmet) {
 			if (standardValue.Helmet_design === '' || standardValue.Helmet_design === 'plain') {
+				console.log('plain varnish !aeration')
 				viewerIframe.postMessage(
 					{
 						action : "updateProductNodesInstances",
@@ -225,6 +228,7 @@ const Varnish = (varnishHelmet, aerationHelmet, nodesConfiguration, setLoader, s
 				}, '2000');
 			}
 			else {
+				console.log('donc pas plain varnish !aeration')
 				viewerIframe.postMessage(
 					{
 						action : "updateProductNodesInstances",
@@ -292,6 +296,7 @@ const Varnish = (varnishHelmet, aerationHelmet, nodesConfiguration, setLoader, s
 		}
 		if (!varnishHelmet && !aerationHelmet) {	
 			if (standardValue.Helmet_design === '' || standardValue.Helmet_design === 'plain') {
+				console.log('plain !varnish !aeration')
 				viewerIframe.postMessage(
 					{
 						action : "updateProductNodesInstances",
@@ -335,6 +340,7 @@ const Varnish = (varnishHelmet, aerationHelmet, nodesConfiguration, setLoader, s
 				}, '2000');
 			}
 				else {
+					console.log('pas plain !varnish !aeration')
 					viewerIframe.postMessage(
 						{
 							action : "updateProductNodesInstances",
@@ -393,6 +399,7 @@ const Varnish = (varnishHelmet, aerationHelmet, nodesConfiguration, setLoader, s
 		}
 		if (!varnishHelmet && aerationHelmet) {
 			if (standardValue.Helmet_design === '' || standardValue.Helmet_design === 'plain') {
+				console.log('plain !varnish aeration')
 				viewerIframe.postMessage(
 					{
 						action : "updateProductNodesInstances",
@@ -436,6 +443,7 @@ const Varnish = (varnishHelmet, aerationHelmet, nodesConfiguration, setLoader, s
 				}, '2000');
 			}
 		else {
+			console.log('pas plain !varnish aeration')
 			viewerIframe.postMessage(
 				{
 					action : "updateProductNodesInstances",

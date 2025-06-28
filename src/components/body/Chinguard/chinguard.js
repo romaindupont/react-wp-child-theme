@@ -1,45 +1,72 @@
-import Noeud from '../../../../assets/json/helmetid';
+import Noeud from '../../../../assets/json/helmetBikeid';
 
 const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardValue, tabsChoice) => {
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 	let localIdToRemove = [];
 	nodesConfiguration.find((nodes) => { 
-		if (nodes.SKU === 'chinguard_groove') {
+		if (nodes.SKU === 'chinguard_layer1') {
 			localIdToRemove.push(nodes.localId);
 		}
-		if (nodes.SKU === 'chinguard_noGroove') {
+		if (nodes.SKU === 'chinguard_layer2') {
 			localIdToRemove.push(nodes.localId);
 		}
-		if (nodes.SKU === 'chinguard_elements') {
+		if (nodes.SKU === 'chinguard_layer3') {
 			 localIdToRemove.push(nodes.localId);
 		}
-		if (nodes.SKU === 'chinguardDesign_groove') {
+		if (nodes.SKU === 'chinguardCoating_layer1') {
 			localIdToRemove.push(nodes.localId);
 		}
-		if (nodes.SKU === 'chinguardDesign_noGroove') {
+		if (nodes.SKU === 'chinguardCoating_layer2') {
 			localIdToRemove.push(nodes.localId);
 		}
-		if (nodes.SKU === 'chinguardCoating_groove') {
+		/* if (nodes.SKU === 'chinguardCoating_layer3') {
+			localIdToRemove.push(nodes.localId);
+		} */
+		if (nodes.SKU === 'chinguard_elements_layer1') {
 			localIdToRemove.push(nodes.localId);
 		}
-		if (nodes.SKU === 'chinguardCoating_noGroove') {
+		if (nodes.SKU === 'chinguard_elements_layer2') {
 			localIdToRemove.push(nodes.localId);
 		}
-		if (nodes.SKU === 'chinguardTrim_rubber') {
+	/* 	if (nodes.SKU === 'chinguard_elements_layer3') {
 			localIdToRemove.push(nodes.localId);
-		}
-		if (nodes.SKU === 'chinguardTrim_leather') {
-			localIdToRemove.push(nodes.localId);
-		}
-		if (nodes.SKU === 'screwsBase_chinguard') {
+		} */
+		if (nodes.SKU === 'chinguardTrim_rubber_layer1') {
 			localIdToRemove.push(nodes.localId)
 		}
-		if (nodes.SKU === 'screwsSide_noChinguard') {
+		if (nodes.SKU === 'chinguardTrim_leather_layer1') {
 			localIdToRemove.push(nodes.localId)
 		}
-		if (nodes.SKU === 'screwsSide_chinguard') {
+		if (nodes.SKU === 'chinguardTrim_rubber_layer2') {
 			localIdToRemove.push(nodes.localId)
 		}
+		if (nodes.SKU === 'chinguardTrim_leather_layer2') {
+			localIdToRemove.push(nodes.localId)
+		}
+		/* if (nodes.SKU === 'chinguardTrim_rubber_layer3') {
+			localIdToRemove.push(nodes.localId)
+		}
+		if (nodes.SKU === 'chinguardTrim_leather_layer3') {
+			localIdToRemove.push(nodes.localId)
+		} */
+		if (nodes.SKU === 'backScrews_layer1_chinguard') {
+			localIdToRemove.push(nodes.localId)
+		}
+		if (nodes.SKU === 'backScrews_layer2_chinguard') {
+			localIdToRemove.push(nodes.localId)
+		}
+		if (nodes.SKU === 'chinguardTrim_leather_layer3') {
+			localIdToRemove.push(nodes.localId)
+		}
+		if (nodes.SKU === 'frontScrews_layer1_chinguard') {
+			localIdToRemove.push(nodes.localId)
+		}
+		if (nodes.SKU === 'frontScrews_layer2_chinguard') {
+			localIdToRemove.push(nodes.localId)
+		}
+		/* if (nodes.SKU === 'frontScrews_layer3_chinguard') {
+			localIdToRemove.push(nodes.localId)
+		} */
 	})
 	let typeColorChin = standardValue.Chinguard_color_type;
 		if (standardValue.Chinguard_color_type === 'gilding') {
@@ -69,39 +96,43 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 		else {
 			typeDesignChin = standardValue.Chinguard_design_type;
 		}
+		let helmetTrim = standardValue.Helmet_trim;
+		if (standardValue.Helmet_trim.includes('leather')) {
+			helmetTrim = standardValue.Helmet_trim.replace('leather', 'rubber');
+		} else {
+			helmetTrim = standardValue.Helmet_trim;
+		}
 		let leatherOrRubber = {
 			parentLocalId: 1,
-			localId: parseInt(`${Noeud[0].chinguard.chinguardTrimRubber.localId}` + Date.now()),
+			localId: parseInt(`${Noeud[0].chinguard.chinguardTrimRubberLayer2.localId}` + Date.now()),
 			matrix: [1, 0, 0, 0,
 			0, 1, 0, 0,
 			0, 0, 1, 0,
 			0, 0, 0, 1],
-			SKU: Noeud[0].chinguard.chinguardTrimRubber.SKU
+			SKU: Noeud[0].chinguard.chinguardTrimRubberLayer1.SKU
 		}
-		if (standardValue.Helmet_trim.includes('leather')) {
+		/* if (standardValue.Helmet_trim.includes('leather')) {
 			leatherOrRubber = {
 				parentLocalId: 1,
-				localId: parseInt(`${Noeud[0].chinguard.chinguardTrimLeather.localId}` + Date.now()),
+				localId: parseInt(`${Noeud[0].chinguard.chinguardTrimLeatherLayer2.localId}` + Date.now()),
 				matrix: [1, 0, 0, 0,
 				0, 1, 0, 0,
 				0, 0, 1, 0,
 				0, 0, 0, 1],
-				SKU: Noeud[0].chinguard.chinguardTrimLeather.SKU
-			}
-		} else {
+				SKU: Noeud[0].chinguard.chinguardTrimLeatherLayer2.SKU
+			} */
+		/* } *//*  else {
 			leatherOrRubber = {
 				parentLocalId: 1,
-				localId: parseInt(`${Noeud[0].chinguard.chinguardTrimRubber.localId}` + Date.now()),
+				localId: parseInt(`${Noeud[0].chinguard.chinguardTrimRubberLayer2.localId}` + Date.now()),
 				matrix: [1, 0, 0, 0,
 				0, 1, 0, 0,
 				0, 0, 1, 0,
 				0, 0, 0, 1],
-				SKU: Noeud[0].chinguard.chinguardTrimRubber.SKU
+				SKU: Noeud[0].chinguard.chinguardTrimRubberLayer2.SKU
 			}
-		}
-	if (tabsChoice.chin) {
-		if (!aerationChin) {
-			if (standardValue.Chinguard_design === 'plain' || standardValue.Chinguard_design === '') {
+		} */
+	if (tabsChoice.chin) {	
 				viewerIframe.postMessage(
 					{
 						action : "updateProductNodesInstances",
@@ -109,49 +140,40 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 							[
 								{
 									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].chinguard.chinguardElements.localId}` + Date.now()),
+									localId: parseInt(`${Noeud[0].chinguard.chinguardElementsLayer2.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
 									0, 1, 0, 0,
 									0, 0, 1, 0,
 									0, 0, 0, 1],
-									SKU: Noeud[0].chinguard.chinguardElements.SKU
+									SKU: Noeud[0].chinguard.chinguardElementsLayer2.SKU
 								},
 								{
 									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].chinguard.chinguardNoGroove.localId}` + Date.now()),
+									localId: parseInt(`${Noeud[0].chinguard.chinguardLayer2.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
 									0, 1, 0, 0,
 									0, 0, 1, 0,
 									0, 0, 0, 1],
-									SKU: Noeud[0].chinguard.chinguardNoGroove.SKU
-								},
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].chinguard.chinguardCoatingNoGroove.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].chinguard.chinguardCoatingNoGroove.SKU
+									SKU: Noeud[0].chinguard.chinguardLayer2.SKU
 								},
 								leatherOrRubber,
-								{
+								{						
 									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].screw.screwsBaseChinguard.localId}` + Date.now()),
+									localId: parseInt(`${Noeud[0].screw.backScrewsLayer2Chinguard.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
 									0, 1, 0, 0,
 									0, 0, 1, 0,
 									0, 0, 0, 1],
-									SKU: Noeud[0].screw.screwsBaseChinguard.SKU
+									SKU: Noeud[0].screw.backScrewsLayer2Chinguard.SKU
 								},
 								{
 									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].screw.screwsSideChinguard.localId}` + Date.now()),
+									localId: parseInt(`${Noeud[0].screw.frontScrewsLayer2Chinguard.localId}` + Date.now()),
 									matrix: [1, 0, 0, 0,
 									0, 1, 0, 0,
 									0, 0, 1, 0,
 									0, 0, 0, 1],
-									SKU: Noeud[0].screw.screwsSideChinguard.SKU
+									SKU: Noeud[0].screw.frontScrewsLayer2Chinguard.SKU
 								}
 							],
 						localIdsToRemove :
@@ -185,328 +207,15 @@ const ChinguardAction = (aerationChin, nodesConfiguration, setLoader, standardVa
 									groupName : 'Chinguard_interior'
 								},
 								{
-									configurationName : standardValue.Helmet_trim,
+									configurationName : helmetTrim,
 									groupName : 'Chinguard_trim'
 								}			
 							]
 					}, '*');
 				setLoader(true);
 				}, '2000');
-			}
-			else {
-				viewerIframe.postMessage(
-					{
-						action : "updateProductNodesInstances",
-						nodesToAdd :
-							[
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].chinguard.chinguardElements.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].chinguard.chinguardElements.SKU
-								},
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].chinguard.chinguardNoGroove.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].chinguard.chinguardNoGroove.SKU
-								},
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].chinguard.chinguardDesignNoGroove.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].chinguard.chinguardDesignNoGroove.SKU
-								},
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].chinguard.chinguardCoatingNoGroove.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].chinguard.chinguardCoatingNoGroove.SKU
-								},
-								leatherOrRubber,
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].screw.screwsBaseChinguard.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].screw.screwsBaseChinguard.SKU
-								},
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].screw.screwsSideChinguard.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].screw.screwsSideChinguard.SKU
-								}
-							],
-						localIdsToRemove :
-							localIdToRemove
-					}, "*");
-				localIdToRemove = [];
-				setLoader(false);
-				setTimeout(() => {
-					viewerIframe.postMessage({
-						action : 'setMaterialsGroups',
-						values : 
-							[
-								{
-									configurationName : `${typeColorHelmet}|${standardValue.Helmet_color}`,
-									groupName : 'Helmet_color'
-								},
-								{
-									configurationName : `${standardValue.Helmet_design}|${typeDesignHelmet}|${standardValue.Helmet_design_color}`,
-									groupName : 'Helmet_design_color'
-								},
-								{
-									configurationName : standardValue.Interior,
-									groupName : 'Interior'
-								},
-								{
-									configurationName : standardValue.Metal_pieces,
-									groupName : 'Metal_pieces'
-								},
-								{
-									configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
-									groupName : 'Chinguard_color'
-								},
-								{
-									configurationName : `${standardValue.Chinguard_design}|${typeDesignChin}|${standardValue.Chinguard_design_color}`,
-									groupName : 'Chinguard_design_color'
-								},
-								{
-									configurationName : standardValue.Interior,
-									groupName : 'Chinguard_interior'
-								},
-								{
-									configurationName : standardValue.Helmet_trim,
-									groupName : 'Chinguard_trim'
-								}								
-							]
-					}, '*');
-				setLoader(true);
-				}, '2000');
-			}
-		}
-		if (aerationChin) {
-			if (standardValue.Chinguard_design === 'plain' || standardValue.Chinguard_design === '') {
-				viewerIframe.postMessage(
-					{
-						action : "updateProductNodesInstances",
-						nodesToAdd :
-							[
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].chinguard.chinguardElements.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].chinguard.chinguardElements.SKU
-								},
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].chinguard.chinguardGroove.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].chinguard.chinguardGroove.SKU
-								},
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].chinguard.chinguardCoatingGroove.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].chinguard.chinguardCoatingGroove.SKU
-								},
-								leatherOrRubber,
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].screw.screwsBaseChinguard.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].screw.screwsBaseChinguard.SKU
-								},
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].screw.screwsSideChinguard.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].screw.screwsSideChinguard.SKU
-								}
-							],
-						localIdsToRemove :
-							localIdToRemove
-					}, "*");
-				localIdToRemove = [];
-				setLoader(false);
-				setTimeout(() => {
-					viewerIframe.postMessage({
-						action : 'setMaterialsGroups',
-						values : 
-							[
-								{
-									configurationName : `${typeColorHelmet}|${standardValue.Helmet_color}`,
-									groupName : 'Helmet_color'
-								},
-								{
-									configurationName : standardValue.Interior,
-									groupName : 'Interior'
-								},
-								{
-									configurationName : standardValue.Metal_pieces,
-									groupName : 'Metal_pieces'
-								},
-								{
-									configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
-									groupName : 'Chinguard_color'
-								},
-								{
-									configurationName : standardValue.Interior,
-									groupName : 'Chinguard_interior'
-								},
-								{
-									configurationName : standardValue.Helmet_trim,
-									groupName : 'Chinguard_trim'
-								}		
-							]
-						}, '*');
-					setLoader(true);
-				}, '2000');
-			}
-			else {
-				viewerIframe.postMessage(
-					{
-						action : "updateProductNodesInstances",
-						nodesToAdd :
-							[
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].chinguard.chinguardElements.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].chinguard.chinguardElements.SKU
-								},
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].chinguard.chinguardGroove.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].chinguard.chinguardGroove.SKU
-								},
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].chinguard.chinguardDesignGroove.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].chinguard.chinguardDesignGroove.SKU
-								},
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].chinguard.chinguardCoatingGroove.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].chinguard.chinguardCoatingGroove.SKU
-								},
-								leatherOrRubber,
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].screw.screwsBaseChinguard.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].screw.screwsBaseChinguard.SKU
-								},
-								{
-									parentLocalId: 1,
-									localId: parseInt(`${Noeud[0].screw.screwsSideChinguard.localId}` + Date.now()),
-									matrix: [1, 0, 0, 0,
-									0, 1, 0, 0,
-									0, 0, 1, 0,
-									0, 0, 0, 1],
-									SKU: Noeud[0].screw.screwsSideChinguard.SKU
-								}
-							],
-						localIdsToRemove :
-							localIdToRemove
-					}, "*");
-				localIdToRemove = [];
-				setLoader(false);
-				setTimeout(() => {
-					viewerIframe.postMessage({
-						action : 'setMaterialsGroups',
-						values : 
-							[
-								{
-									configurationName : `${typeColorHelmet}|${standardValue.Helmet_color}`,
-									groupName : 'Helmet_color'
-								},
-								{
-									configurationName : `${standardValue.Helmet_design}|${typeDesignHelmet}|${standardValue.Helmet_design_color}`,
-									groupName : 'Helmet_design_color'
-								},
-								{
-									configurationName : standardValue.Interior,
-									groupName : 'Interior'
-								},
-								{
-									configurationName : standardValue.Metal_pieces,
-									groupName : 'Metal_pieces'
-								},
-								{
-									configurationName : `${typeColorChin}|${standardValue.Chinguard_color}`,
-									groupName : 'Chinguard_color'
-								},
-								{
-									configurationName : `${standardValue.Chinguard_design}|${typeDesignChin}|${standardValue.Chinguard_design_color}`,
-									groupName : 'Chinguard_design_color'
-								},
-								{
-									configurationName : standardValue.Interior,
-									groupName : 'Chinguard_interior'
-								},
-								{
-									configurationName : standardValue.Helmet_trim,
-									groupName : 'Chinguard_trim'
-								}		
-							]
-						}, '*');
-					setLoader(true);
-				}, '2000');
-			}
-		}
-}
+			
+			}	
 	else {
 		viewerIframe.postMessage(
 			{

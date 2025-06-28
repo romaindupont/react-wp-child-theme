@@ -1,4 +1,4 @@
-import Noeud from '../../../../assets/json/helmetid';
+import Noeud from '../../../../assets/json/helmetBikeid';
 
 const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varnishHelmet, withChin) => {
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow;
@@ -17,10 +17,22 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 		if (nodes.SKU === 'helmetTrim_leather') {
 			localIdToRemove.push(nodes.localId);
 		}
-		if (nodes.SKU === 'chinguardTrim_rubber') {
+		if (nodes.SKU === 'chinguardTrim_rubber_layer1') {
 			localIdToRemove.push(nodes.localId);
 		}
-		if (nodes.SKU === 'chinguardTrim_leather') {
+		if (nodes.SKU === 'chinguardTrim_leather_layer1') {
+			localIdToRemove.push(nodes.localId);
+		}
+		if (nodes.SKU === 'chinguardTrim_rubber_layer2') {
+			localIdToRemove.push(nodes.localId);
+		}
+		if (nodes.SKU === 'chinguardTrim_leather_layer2') {
+			localIdToRemove.push(nodes.localId);
+		}
+		if (nodes.SKU === 'chinguardTrim_rubber_layer3') {
+			localIdToRemove.push(nodes.localId);
+		}
+		if (nodes.SKU === 'chinguardTrim_leather_layer3') {
 			localIdToRemove.push(nodes.localId);
 		}
 	}) 
@@ -52,6 +64,12 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 	else {
 		typeDesignChin = standardValue.Chinguard_design_type;
 	}
+	let helmetTrim = standardValue.Helmet_trim;
+	if (standardValue.Helmet_trim.includes('leather')) {
+		helmetTrim = standardValue.Helmet_trim.replace('leather', 'rubber');
+	} else {
+		helmetTrim = standardValue.Helmet_trim;
+	}
 	if (withChin) {
 		if (standardValue.Helmet_trim.includes('rubber')) {
 			viewerIframe.postMessage(
@@ -70,12 +88,12 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 							},
 							{
 								parentLocalId: 1,
-								localId: parseInt(`${Noeud[0].chinguard.chinguardTrimRubber.localId}` + Date.now()),
+								localId: parseInt(`${Noeud[0].chinguard.chinguardTrimRubberLayer2.localId}` + Date.now()),
 								matrix: [1, 0, 0, 0,
 								0, 1, 0, 0,
 								0, 0, 1, 0,
 								0, 0, 0, 1],
-								SKU: Noeud[0].chinguard.chinguardTrimRubber.SKU
+								SKU: Noeud[0].chinguard.chinguardTrimRubberLayer2.SKU
 							}
 						],
 					localIdsToRemove :
@@ -107,7 +125,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 										groupName : 'Helmet_trim'
 									},
 									{
-										configurationName : standardValue.Helmet_trim,
+										configurationName : helmetTrim,
 										groupName : 'Chinguard_trim'
 									}	
 								]
@@ -142,7 +160,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 										groupName : 'Helmet_trim'
 									},
 									{
-										configurationName : standardValue.Helmet_trim,
+										configurationName : helmetTrim,
 										groupName : 'Chinguard_trim'
 									}	
 								]
@@ -175,7 +193,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 										groupName : 'Helmet_trim'
 									},
 									{
-										configurationName : standardValue.Helmet_trim,
+										configurationName : helmetTrim,
 										groupName : 'Chinguard_trim'
 									}			
 								]
@@ -210,7 +228,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 										groupName : 'Helmet_trim'
 									},
 									{
-										configurationName : standardValue.Helmet_trim,
+										configurationName : helmetTrim,
 										groupName : 'Chinguard_trim'
 									}			
 								]
@@ -243,7 +261,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 											groupName : 'Helmet_trim'
 										},
 										{
-											configurationName : standardValue.Helmet_trim,
+											configurationName : helmetTrim,
 											groupName : 'Chinguard_trim'
 										}					
 									]
@@ -278,7 +296,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 										groupName : 'Helmet_trim'
 									},
 									{
-										configurationName : standardValue.Helmet_trim,
+										configurationName : helmetTrim,
 										groupName : 'Chinguard_trim'
 									}					
 								]
@@ -311,7 +329,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 										groupName : 'Helmet_trim'
 									},
 									{
-										configurationName : standardValue.Helmet_trim,
+										configurationName : helmetTrim,
 										groupName : 'Chinguard_trim'
 									}						
 								]
@@ -346,7 +364,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 										groupName : 'Helmet_trim'
 									},
 									{
-										configurationName : standardValue.Helmet_trim,
+										configurationName : helmetTrim,
 										groupName : 'Chinguard_trim'
 									}				
 								]
@@ -373,12 +391,12 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 							},
 							{
 								parentLocalId: 1,
-								localId: parseInt(`${Noeud[0].chinguard.chinguardTrimLeather.localId}` + Date.now()),
+								localId: parseInt(`${Noeud[0].chinguard.chinguardTrimRubberLayer2.localId}` + Date.now()),
 								matrix: [1, 0, 0, 0,
 								0, 1, 0, 0,
 								0, 0, 1, 0,
 								0, 0, 0, 1],
-								SKU: Noeud[0].chinguard.chinguardTrimLeather.SKU
+								SKU: Noeud[0].chinguard.chinguardTrimRubberLayer2.SKU
 							}
 						],
 					localIdsToRemove :
@@ -410,7 +428,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 										groupName : 'Helmet_trim'
 									},
 									{
-										configurationName : standardValue.Helmet_trim,
+										configurationName : helmetTrim,
 										groupName : 'Chinguard_trim'
 									}	
 								]
@@ -445,7 +463,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 										groupName : 'Helmet_trim'
 									},
 									{
-										configurationName : standardValue.Helmet_trim,
+										configurationName : helmetTrim,
 										groupName : 'Chinguard_trim'
 									}	
 								]
@@ -478,7 +496,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 										groupName : 'Helmet_trim'
 									},
 									{
-										configurationName : standardValue.Helmet_trim,
+										configurationName : helmetTrim,
 										groupName : 'Chinguard_trim'
 									}		
 								]
@@ -513,7 +531,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 										groupName : 'Helmet_trim'
 									},
 									{
-										configurationName : standardValue.Helmet_trim,
+										configurationName : helmetTrim,
 										groupName : 'Chinguard_trim'
 									}		
 								]
@@ -546,7 +564,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 											groupName : 'Helmet_trim'
 										},
 										{
-											configurationName : standardValue.Helmet_trim,
+											configurationName : helmetTrim,
 											groupName : 'Chinguard_trim'
 										}				
 									]
@@ -581,7 +599,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 										groupName : 'Helmet_trim'
 									},
 									{
-										configurationName : standardValue.Helmet_trim,
+										configurationName : helmetTrim,
 										groupName : 'Chinguard_trim'
 									}				
 								]
@@ -614,7 +632,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 										groupName : 'Helmet_trim'
 									},
 									{
-										configurationName : standardValue.Helmet_trim,
+										configurationName : helmetTrim,
 										groupName : 'Chinguard_trim'
 									}					
 								]
@@ -649,7 +667,7 @@ const Trim = (standardValue, nodesConfiguration, setLoader, aerationHelmet, varn
 										groupName : 'Helmet_trim'
 									},
 									{
-										configurationName : standardValue.Helmet_trim,
+										configurationName : helmetTrim,
 										groupName : 'Chinguard_trim'
 									}		
 								]

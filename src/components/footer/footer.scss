@@ -298,10 +298,57 @@ svg#menu_option {
   color: var(--color-principal);
 	border: 2px solid var(--color-principal);
 }
+.buttonChoiceEarmuff:hover {
+	position: relative;
+/*   background:var(--color-second);
+  color: var(--color-principal);
+	border-bottom: 2px solid var(--color-principal); */
+}
+.buttonChoiceEarmuff:hover::after {
+	content:'';
+	position:absolute;
+	width: auto;
+	height:2px;
+	background:var(--color-principal);
+	bottom:0;
+	left:0;
+	right:0;
+	margin:auto;
+}
 .selectButton {
 	background:var(--color-second);
   color: var(--color-principal);
 	border: 2px solid var(--color-principal);
+}
+.selectButtonEarmuff {
+	position: relative;
+	color: var(--color-principal);
+	/* background:var(--color-second);
+  color: var(--color-principal);
+	border-bottom: 2px solid var(--color-principal); */
+}
+.selectButtonEarmuff::after {
+	content:'';
+	position:absolute;
+	width: auto;
+	height:2px;
+	background:var(--color-principal);
+	bottom:0;
+	left:0;
+	right:0;
+	margin:auto;
+}
+.buttonChoiceEarmuff, .selectButtonEarmuff {	
+	padding: 5px 0rem;
+	text-align: center;
+	cursor: pointer;
+	text-transform: uppercase;
+	font-weight: 500;
+	font-family: var(--font-family);
+}
+.buttonChoiceEarmuff {
+  
+	font-family: var(--font-family);
 }
 .buttonChoice, .buttonAdd, .SizebuttonChoice, .selectButton {	
 	border-radius: 25px;
@@ -310,6 +357,10 @@ svg#menu_option {
 	cursor: pointer;
 	text-transform: uppercase;
 	font-weight: 500;
+	font-family: var(--font-family);
+}
+.buttonChoiceEarmuff {
+  color: #a5a4a4;
 	font-family: var(--font-family);
 }
 .buttonChoice, .SizebuttonChoice {
@@ -546,6 +597,9 @@ background: #000;
 	height: 70px;
 	margin-top: 0.5rem;
 	margin-right: 0.5rem;
+}
+.special {
+	margin-left: 2rem;
 }
 .selectColor::after {
 	content: '';
@@ -933,6 +987,9 @@ svg#link, svg#download {
 		overflow-y: hidden;
 		width: 100vw;
 	}
+	.colorListEarmuff {
+		transform: translate3d(0%, 0px, 0px) !important;
+	}
 	.colorListType {
 		transform: translate3d(0%, 0px, 0px);
 		max-width: 100%;
@@ -975,6 +1032,7 @@ svg#link, svg#download {
 		width: 90%;
 		justify-content: flex-start;
 	}
+
 	.visorPage {
 		width: 90%;
 		justify-content: flex-start;
@@ -1025,7 +1083,7 @@ svg#link, svg#download {
 	.sd-tabs > .sd-tab-label .sd-tab-desc {
 		font-size: 0.8rem;
 	}
-	.buttonChoice, .buttonAdd, .SizebuttonChoice, .selectButton {	
+	.buttonChoice, .buttonAdd, .SizebuttonChoice, .selectButton,.buttonChoiceEarmuff, .selectButtonEarmuff {	
 		width: 100px;
 		font-size: 0.7rem;
 		margin: auto 5px;
@@ -1179,9 +1237,10 @@ svg#link, svg#download {
 	.sd-tabs > .sd-tab-label .sd-tab-desc {
 		font-size: 1rem;
 	}
-	.buttonChoice, .buttonAdd, .SizebuttonChoice, .selectButton {	
+	.buttonChoice, .buttonAdd, .SizebuttonChoice, .selectButton,.buttonChoiceEarmuff,.selectButtonEarmuff {	
 		width: 100px;
-		font-size: 0.7rem;
+		font-size: 1rem;
+		margin: 0 1rem;
 	}
 	.colorListType, .sizeChoice, .certifChoice {
 		max-width: 70%;
@@ -1325,6 +1384,9 @@ svg#link, svg#download {
 		width: 150px;
 		font-size: 0.8rem;
 	}
+	.buttonChoiceEarmuff, .selectButtonEarmuff {
+		width: auto;
+	}
 	.helmet, .chinguard, .visor {
 		margin-top: 0px;
 	}
@@ -1380,4 +1442,10 @@ and (min-width : 1824px) {
 		width: 500px;
 	}
 }
-
+.visorConfigBike {
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+}

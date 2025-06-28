@@ -1,7 +1,7 @@
-const { useState, useEffect } = wp.element;
+const { useState, useEffect }  = wp.element;
 import ArrowLeft from '../../../../../assets/images/arrow_left.svg';
 import ArrowRight from '../../../../../assets/images/arrow_right.svg';
-import ElementData from '../../../../../assets/json/elementChin';
+import ElementData from '../../../../../assets/json/elementBikeChin';
 import Aeration from './templates/aeration';
 import MainColor from './templates/main-color';
 import Pattern from './templates/pattern';
@@ -75,8 +75,8 @@ const ChinTabs = ({
 						<div className="template">
 						<div className="aerationList">
 							<div className="aerationDisplay">
-								<span className={withChin ? 'buttonChoice' : 'selectButton'} onClick={()=>setTabsChoice({...tabsChoice, chin: false}) & setWithChin(false) & setMySku({...mySku, position2: 'xx'}) & CameraPosition('chinguard')}>{traduction.Without}</span>
-								<span className={withChin ? 'selectButton' : 'buttonChoice'} onClick={()=>setTabsChoice({...tabsChoice, chin: true}) & setWithChin(true) & setMySku({...mySku, position2: 'ch'}) & CameraPosition('chinguard')}>{traduction.With}</span>
+								<span className={withChin ? 'buttonChoiceEarmuff' : 'selectButtonEarmuff'} onClick={()=>setTabsChoice({...tabsChoice, chin: false}) & setWithChin(false) & setMySku({...mySku, position2: 'xx'}) & CameraPosition('chinguard')}>{traduction.Without}</span>
+								<span className={withChin ? 'selectButtonEarmuff' : 'buttonChoiceEarmuff'} onClick={()=>setTabsChoice({...tabsChoice, chin: true}) & setWithChin(true) & setMySku({...mySku, position2: 'ch'}) & CameraPosition('chinguard')}>{traduction.With}</span>
 							</div>
 						</div>
 						</div>
@@ -93,8 +93,8 @@ const ChinTabs = ({
 							<>
 							<div className="aerationList">
 							<div className="aerationDisplay">
-								<span className={withChin ? 'buttonChoice' : 'selectButton'} onClick={()=>setTabsChoice({...tabsChoice, chin: false}) & setWithChin(false) & setMySku({...mySku, position2: 'xx'}) & CameraPosition('chinguard')}>{traduction.Without}</span>
-								<span className={withChin ? 'selectButton' : 'buttonChoice'} onClick={()=>setTabsChoice({...tabsChoice, chin: true}) & setWithChin(true) & setMySku({...mySku, position2: 'ch'}) & CameraPosition('chinguard')}>{traduction.With}</span>
+								<span className={withChin ? 'buttonChoiceEarmuff' : 'selectButtonEarmuff'} onClick={()=>setTabsChoice({...tabsChoice, chin: false}) & setWithChin(false) & setMySku({...mySku, position2: 'xx'}) & CameraPosition('chinguard')}>{traduction.Without}</span>
+								<span className={withChin ? 'selectButtonEarmuff' : 'buttonChoiceEarmuff'} onClick={()=>setTabsChoice({...tabsChoice, chin: true}) & setWithChin(true) & setMySku({...mySku, position2: 'ch'}) & CameraPosition('chinguard')}>{traduction.With}</span>
 							</div>
 						</div>
 							<button className="matchButton" onClick={()=>matchToHelmet(standardValue, setStandardValue)}><span>{traduction.MatchAllHelmet}</span></button></>

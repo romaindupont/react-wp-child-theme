@@ -28,9 +28,9 @@ const Logo = ({setStandardValue, standardValue, traduction, mySku, setMySku}) =>
 	return (
 		<>
 		<div className="sizeChoice">
-			<span className={standardValue.Logo_color === 'none' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Logo_color:'none'}) & setMySku({...mySku, position9: 'wl'})}>{traduction.None}</span>
-			<span className={standardValue.Logo_color === 'white' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Logo_color:'white'}) & setMySku({...mySku, position9: 'xx'})}>{traduction.White}</span>
-			<span className={standardValue.Logo_color === 'black' ? 'selectButton' : 'buttonChoice'} onClick={() => setStandardValue({...standardValue, Logo_color:'black'}) & setMySku({...mySku, position9: 'xx'})}>{traduction.Black}</span>
+			<span className={standardValue.Logo_color === 'none' ? 'selectButtonEarmuff' : 'buttonChoiceEarmuff'} onClick={() => setStandardValue({...standardValue, Logo_color:'none'}) & setMySku({...mySku, position9: 'wl'})}>{traduction.None}</span>
+			<span className={standardValue.Logo_color === 'white' ? 'selectButtonEarmuff' : 'buttonChoiceEarmuff'} onClick={() => setStandardValue({...standardValue, Logo_color:'white'}) & setMySku({...mySku, position9: 'xx'})}>{traduction.White}</span>
+			<span className={standardValue.Logo_color === 'black' ? 'selectButtonEarmuff' : 'buttonChoiceEarmuff'} onClick={() => setStandardValue({...standardValue, Logo_color:'black'}) & setMySku({...mySku, position9: 'xx'})}>{traduction.Black}</span>
 		</div>
 		{standardValue.Logo_color === 'none' ? <></> : 
 			<div className="pickerScrew" onScroll={scrollEffect} ref={scrollRef}>

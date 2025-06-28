@@ -4,9 +4,9 @@ import Tabs from './tabs';
 import MenuOption from './menuOption';
 import PopupHelp from './popupHelp';
 import ExportWindows from './exportWindows';
-import ElementData from '../../../assets/json/elementHelmet';
-import ElementDataChin from '../../../assets/json/elementChin';
-import ElementDataVisor from '../../../assets/json/elementVisor';
+import ElementData from '../../../assets/json/elementBikeHelmet';
+import ElementDataChin from '../../../assets/json/elementBikeChin';
+import ElementDataVisor from '../../../assets/json/elementBikeVisor';
 import ElementDataVisorPeak from '../../../assets/json/elementVisorPeak';
 
 const Footer = ({
@@ -59,7 +59,11 @@ const Footer = ({
 	shortLinkCreate,
 	setShortLinkCreate,
 	setVarnishVisor,
-	varnishVisor
+	varnishVisor,
+	earmuffHelmet,
+	setEarmuffHelmet,
+	earmuffInput,
+	setEarmuffInput
 }) => {
 	const [ openOptionMenu, setOpenOptionMenu ] = useState({
 			name: '',
@@ -69,32 +73,17 @@ const Footer = ({
 	let elementsOfChin = ElementDataChin[0].en;
 	let elementsOfHelmet = ElementData[0].en;
 	let elementsOfVisor = ElementDataVisor[0].en;
-	if (standardValue.Visor_type !== 'peak_visor') {
-		elementsOfVisor = ElementDataVisor[0].en;
-		if (language.includes('fr')) {
-			elementsOfVisor = ElementDataVisor[0].fr;
-		}
-		if (language.includes('es')) {
-			elementsOfVisor = ElementDataVisor[0].en;
-		}
-	} else {
-		elementsOfVisor = ElementDataVisorPeak[0].en;
-		if (language.includes('fr')) {
-			elementsOfVisor = ElementDataVisorPeak[0].fr;
-		}
-		if (language.includes('es')) {
-			elementsOfVisor = ElementDataVisorPeak[0].en;
-		}
-	}
 
 	if (language.includes('fr')) {
 		elementsOfChin = ElementDataChin[0].fr;
 		elementsOfHelmet = ElementData[0].fr;
+		elementsOfVisor = ElementDataVisor[0].fr;
 		/* elementsOfVisor = ElementDataVisor[0].fr; */
 	}
 	if (language.includes('es')) {
 		elementsOfChin = ElementDataChin[0].en;
 		elementsOfHelmet = ElementData[0].en;
+		elementsOfVisor = ElementDataVisorPeak[0].en
 		/* elementsOfVisor = ElementDataVisor[0].en; */
 	}
 	const [ helmetPosition, setHelmetPosition ] = useState({
@@ -170,6 +159,10 @@ const Footer = ({
 				setMySku = {setMySku}
 				setVarnishVisor = {setVarnishVisor}
 				varnishVisor = {varnishVisor}
+				earmuffHelmet = {earmuffHelmet}
+				setEarmuffHelmet = {setEarmuffHelmet}
+				earmuffInput = {earmuffInput}
+				setEarmuffInput = {setEarmuffInput}
 			/>
 			{openOptionMenu.open && openOptionMenu.name === 'menuOption' && 
 				<MenuOption 
