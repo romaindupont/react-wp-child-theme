@@ -6,7 +6,7 @@ function my_theme_enqueue_styles() {
   wp_enqueue_script(
     'my-theme-frontend',
     get_stylesheet_directory_uri() . '/build/index.js',
-    [],
+    ['wp-element'],
     time(), true //For production use wp_get_theme()->get('Version')        
   );
 	wp_enqueue_style(
