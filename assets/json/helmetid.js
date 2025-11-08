@@ -430,6 +430,16 @@ export default [
 				0, 0, 1, 0,
 				0, 0, 0, 1],
 				SKU: "visor_lightFrame"
+			},
+			visorPeakLeather:
+			{
+				parentLocalId: 1,
+				localId: 39,
+				matrix: [1, 0, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1],
+				SKU: "visor_peak_leather"
 			}
 		}
 	}

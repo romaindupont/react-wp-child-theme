@@ -4,8 +4,18 @@ const VisorChoice = (standardValue, nodesConfiguration, setLoader, tabsChoice, v
 	let viewerIframe = document.getElementById('emersyaIframe').contentWindow; 
 	let localIdToRemove = [];
 	let screwsVisor = false;
+	let typeColor = standardValue.Visor_peak_type;
+		if (standardValue.Visor_peak_type === 'gilding') {
+			typeColor = 'metallic'
+		}
+		else {
+			typeColor = standardValue.Visor_peak_type;
+		}
 	nodesConfiguration.find((nodes) => { 
 		if (nodes.SKU === 'visor_peak') {
+			localIdToRemove.push(nodes.localId);
+		}
+		if (nodes.SKU === 'visor_peak_leather') {
 			localIdToRemove.push(nodes.localId);
 		}
 		if (nodes.SKU === 'visor_peakCoating') {
@@ -101,6 +111,37 @@ const VisorChoice = (standardValue, nodesConfiguration, setLoader, tabsChoice, v
 				}
 
 			break;
+			case 'peak_visor_leather':
+				viewerIframe.postMessage(
+						{
+							action : "updateProductNodesInstances",
+							nodesToAdd :
+								[
+									{
+										parentLocalId: 1,
+										localId: parseInt(`${Noeud[0].visor.visorPeakLeather.localId}` + Date.now()),
+										matrix: [1, 0, 0, 0,
+										0, 1, 0, 0,
+										0, 0, 1, 0,
+										0, 0, 0, 1],
+										SKU: Noeud[0].visor.visorPeakLeather.SKU
+									},
+									{
+										parentLocalId: 1,
+										localId: parseInt(`${Noeud[0].screw.screwsTopVisor.localId}` + Date.now()),
+										matrix: [1, 0, 0, 0,
+										0, 1, 0, 0,
+										0, 0, 1, 0,
+										0, 0, 0, 1],
+										SKU: Noeud[0].screw.screwsTopVisor.SKU
+									}
+								],
+							localIdsToRemove :
+								localIdToRemove
+						}, "*");
+						localIdToRemove = [];
+						setLoader(false);
+				break;
 			case 'short_visor':
 				if (standardValue.Visor_frame === 'full') {
 					viewerIframe.postMessage(
@@ -303,23 +344,40 @@ const VisorChoice = (standardValue, nodesConfiguration, setLoader, tabsChoice, v
 			break;
 			default:
 		}
-		setTimeout(() => {
+		if(standardValue.Visor_type === 'peak_visor_leather'){		
+			setTimeout(() => {
 			viewerIframe.postMessage({
 				action : 'setMaterialsGroups',
 				values : 
 					[
 						{
-							configurationName : `${standardValue.Visor_peak_type}|${standardValue.Visor_peak_color}`,
-							groupName : 'Peak_color'
-						},
-						{
-							configurationName : `${standardValue.Visor_color}`,
-							groupName : 'Visor_color'
+							configurationName : `${standardValue.Visor_peak_color}`,
+							groupName : 'Peak_leather_color'
 						}		
 					]
 			}, '*');
 		setLoader(true);
 		}, '2000');
+		} else {
+			setTimeout(() => {
+				viewerIframe.postMessage({
+					action : 'setMaterialsGroups',
+					values : 
+						[
+							{
+								configurationName : `${typeColor}|${standardValue.Visor_peak_color}`,
+								groupName : 'Peak_color'
+							},
+							{
+								configurationName : `${standardValue.Visor_color}`,
+								groupName : 'Visor_color'
+							}		
+						]
+				}, '*');
+				setLoader(true);
+			}, '2000');
+		}
+		
 	}
 	else {
 		if (screwsVisor){
@@ -357,4 +415,3 @@ const VisorChoice = (standardValue, nodesConfiguration, setLoader, tabsChoice, v
 }
 
 export default VisorChoice;
-

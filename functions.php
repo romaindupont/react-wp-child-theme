@@ -446,6 +446,9 @@ function priceBikeAmount($request) {
 	if ($position3 === 'vs') {
 		$total += $price50;
 	}
+	if ($position3 === 'vd') {
+		$total += $price100;
+	}
 	//main helmet color
 	$position4 = $explode[3];
 	if ($position4 === 'xx') {

@@ -100,7 +100,7 @@ export default [{
 			Leather: 'Leather',
 			VisorFrameFull: 'Full frame',
 			VisorFrameLight: 'Light frame',
-			Transparant: 'Transparant',
+			Transparant: 'Clear',
 			Blue: 'Blue',
 			Chrome: 'Chrome',
 			Semi: 'Semi',
@@ -133,7 +133,12 @@ export default [{
 			Show: 'Show',
 			Hide: 'Hide',
 			Inside: 'Interior material',
-			Outside: 'Exterior material'
+			Outside: 'Exterior material',
+			Leopard: 'Leopard',
+			Houndstooth: 'Houndstooth',
+			BlueFoil: 'Blue',
+			TinFoil: 'Pewter'
+
 		}
 	],
 	"fr": [
@@ -270,7 +275,11 @@ export default [{
 			Show: 'Voir',
 			Hide: 'Cacher',
 			Inside: 'Matière Intérieur',
-			Outside: 'Matière Extérieur'
+			Outside: 'Matière Extérieur',
+			Leopard: 'Leopard',
+			Houndstooth: 'Pied-de-poule',
+			BlueFoil: 'Bleu métallisé',
+			TinFoil: 'Etain'
 		}
 	],
   "es": [
@@ -407,7 +416,11 @@ export default [{
 			Show: 'Mostrar',
 			Hide: 'Ocultar',
 			Inside: 'Materiales interiores',
-			Outside: 'Materiales exteriores'
+			Outside: 'Materiales exteriores',
+			Leopard: 'Leopardo',
+			Houndstooth: 'Pata de gallo',
+			BlueFoil: 'Azul metalizado',
+			TinFoil: 'Estaño'
 		}
   ],
 	"cn": [
@@ -544,7 +557,11 @@ export default [{
 			Show: '展示',
 			Hide: '隐藏',
 			Inside: '内饰材料',
-			Outside: '外部材料'
+			Outside: '外部材料',
+			Leopard: '豹',
+			Houndstooth: '千鸟格',
+			BlueFoil: '锡纸',
+			TinFoil: '白镴'
 		}
   ]
 }]

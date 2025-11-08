@@ -17,14 +17,16 @@ const VisorPeakPage = ({setStandardValue,	standardValue, traduction, mySku, setM
 	return (
 		<>
 			<div className="colorListType">
-				<input className="inputVisor_peak" type="radio" name="peak_visor" id="plain" value="plain" onClick={()=>setStandardValue({...standardValue, Visor_peak_type:'plain'})}/>
+				<input className="inputVisor_peak" type="radio" name="peak_visor" id="plain" value="plain" onClick={()=>setStandardValue({...standardValue,Visor_type: 'peak_visor', Visor_peak_type:'plain'})}/>
 				<label className={standardValue.Visor_peak_type === 'plain' ? 'selectButton' : 'buttonChoice'} htmlFor="plain">{traduction.Plain}</label>
-				<input className="inputVisor_peak" type="radio" name="peak_visor" id="metallic" value="metallic" onClick={()=>setStandardValue({...standardValue, Visor_peak_type:'metallic'})}/>
+				<input className="inputVisor_peak" type="radio" name="peak_visor" id="metallic" value="metallic" onClick={()=>setStandardValue({...standardValue,Visor_type: 'peak_visor', Visor_peak_type:'metallic'})}/>
 				<label className={standardValue.Visor_peak_type === 'metallic' ? 'selectButton' : 'buttonChoice'} htmlFor="metallic">{traduction.Metallic}</label>
-				<input className="inputVisor_peak" type="radio" name="peak_visor" id="glitter" value="glitter" onClick={()=>setStandardValue({...standardValue, Visor_peak_type:'glitter'})}/>
+				<input className="inputVisor_peak" type="radio" name="peak_visor" id="glitter" value="glitter" onClick={()=>setStandardValue({...standardValue,Visor_type: 'peak_visor', Visor_peak_type:'glitter'})}/>
 				<label className={standardValue.Visor_peak_type === 'glitter' ? 'selectButton' : 'buttonChoice'} htmlFor="glitter">{traduction.Glitter}</label>
-				<input className="inputVisor_peak" type="radio" name="peak_visor" id="gilding" value="gilding" onClick={()=>setStandardValue({...standardValue, Visor_peak_type:'gilding', Visor_peak_color:'copper foil'})}/>
+				<input className="inputVisor_peak" type="radio" name="peak_visor" id="gilding" value="gilding" onClick={()=>setStandardValue({...standardValue,Visor_type: 'peak_visor', Visor_peak_type:'gilding', Visor_peak_color:'copper foil'})}/>
 				<label className={standardValue.Visor_peak_type === 'gilding' ? 'selectButton' : 'buttonChoice'} htmlFor="gilding">{traduction.Gilding}</label>
+				<input className="inputVisor_peak" type="radio" name="peak_visor" id="peak_visor_leather" value="leather" onClick={()=>setStandardValue({...standardValue, Visor_type: 'peak_visor_leather', Visor_peak_type:'leather', Visor_peak_color:'black'})}/>
+				<label className={standardValue.Visor_peak_type === 'leather' ? 'selectButton' : 'buttonChoice'} htmlFor="peak_visor_leather">{traduction.Leather}</label>			
 			</div>
 			<div className="colorList" onScroll={scrollEffect} ref={scrollRef}>
 			{standardValue.Visor_peak_type === 'plain' ? 
@@ -64,11 +66,18 @@ const VisorPeakPage = ({setStandardValue,	standardValue, traduction, mySku, setM
 					<div className={standardValue.Visor_peak_color === 'brown stone' ? 'selectColor' : 'colorP'} onClick={()=>setStandardValue({...standardValue, Visor_peak_color:'brown stone'}) & setMySku({...mySku, position3: 'vp'})}><div className="roundColor brownStone"></div><span className="textAction">{traduction.BrownStone}</span></div>
 					<div className={standardValue.Visor_peak_color === 'cayenne red' ? 'selectColor' : 'colorP'} onClick={()=>setStandardValue({...standardValue, Visor_peak_color:'cayenne red'}) & setMySku({...mySku, position3: 'vp'})}><div className="roundColor cayenneRed"></div><span className="textAction">{traduction.CayenneRed}</span></div>
 					<div className={standardValue.Visor_peak_color === 'chinese red' ? 'selectColor' : 'colorP'} onClick={()=>setStandardValue({...standardValue, Visor_peak_color:'chinese red'}) & setMySku({...mySku, position3: 'vp'})}><div className="roundColor chinesesRed"></div><span className="textAction">{traduction.ChinesesRed}</span></div>
-				</>: 
+				</>: standardValue.Visor_peak_type === 'leather' ? 
 				<>
-					<div className={standardValue.Visor_peak_color === 'copper foil' ? 'selectColor' : 'colorP'} onClick={()=>setStandardValue({...standardValue, Visor_peak_color:'copper foil'}) & setMySku({...mySku, position3: 'vp'})}><div className="roundColor copperFoil"></div><span className="textAction">{traduction.CopperFoil}</span></div>
-					<div className={standardValue.Visor_peak_color === 'gold foil' ? 'selectColor' : 'colorP'} onClick={()=>setStandardValue({...standardValue, Visor_peak_color:'gold foil'}) & setMySku({...mySku, position3: 'vp'})}><div className="roundColor goldFoil"></div><span className="textAction">{traduction.GoldFoil}</span></div>
-					<div className={standardValue.Visor_peak_color === 'silver foil' ? 'selectColor' : 'colorP'} onClick={()=>setStandardValue({...standardValue, Visor_peak_color:'silver foil'}) & setMySku({...mySku, position3: 'vp'})}><div className="roundColor silverFoil"></div><span className="textAction">{traduction.SilverFoil}</span></div>
+					<div className={standardValue.Visor_peak_color === 'black' ? 'selectColor' : 'colorP'} onClick={()=>setStandardValue({...standardValue, Visor_peak_color:'black'}) & setMySku({...mySku, position3: 'vp'})}><div className="roundColor black"></div><span className="textAction">{traduction.Black}</span></div>
+					<div className={standardValue.Visor_peak_color === 'gold' ? 'selectColor' : 'colorP'} onClick={()=>setStandardValue({...standardValue, Visor_peak_color:'gold'}) & setMySku({...mySku, position3: 'vp'})}><div className="roundColor brownStone"></div><span className="textAction">{traduction.Brown}</span></div>
+
+				</> :
+				<>
+					<div className={standardValue.Visor_peak_color === 'copper foil' ? 'selectColor' : 'colorP'} onClick={()=>setStandardValue({...standardValue, Visor_peak_color:'copper foil'}) & setMySku({...mySku, position3: 'vd'})}><div className="roundColor copperFoil"></div><span className="textAction">{traduction.CopperFoil}</span></div>
+					<div className={standardValue.Visor_peak_color === 'gold foil' ? 'selectColor' : 'colorP'} onClick={()=>setStandardValue({...standardValue, Visor_peak_color:'gold foil'}) & setMySku({...mySku, position3: 'vd'})}><div className="roundColor goldFoil"></div><span className="textAction">{traduction.GoldFoil}</span></div>
+					<div className={standardValue.Visor_peak_color === 'silver foil' ? 'selectColor' : 'colorP'} onClick={()=>setStandardValue({...standardValue, Visor_peak_color:'silver foil'}) & setMySku({...mySku, position3: 'vd'})}><div className="roundColor silverFoil"></div><span className="textAction">{traduction.SilverFoil}</span></div>
+					<div className={standardValue.Visor_peak_color === 'blue foil' ? 'selectColor' : 'colorP'} onClick={()=>setStandardValue({...standardValue, Visor_peak_color:'blue foil'}) & setMySku({...mySku, position3: 'vd'})}><div className="roundColor EstateBlue"></div><span className="textAction">{traduction.BlueFoil}</span></div>
+					<div className={standardValue.Visor_peak_color === 'tin foil' ? 'selectColor' : 'colorP'} onClick={()=>setStandardValue({...standardValue, Visor_peak_color:'tin foil'}) & setMySku({...mySku, position3: 'vd'})}><div className="roundColor silverFoil"></div><span className="textAction">{traduction.TinFoil}</span></div>
 				</>
 			}
 			</div>

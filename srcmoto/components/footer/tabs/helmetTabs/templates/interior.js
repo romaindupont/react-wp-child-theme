@@ -56,6 +56,14 @@ const Interior = ({setStandardValue, standardValue, traduction, mySku, setMySku}
 				<InteriorFabricTartanWhite />
 				<span className="textAction">{traduction.TartanWhite}</span>
 			</div>
+			<div className={standardValue.Interior === 'leopard' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Interior:'leopard'}) & setMySku({...mySku, position7: 'hif'})}>
+				<InteriorFabricTartanWhite />
+				<span className="textAction">{traduction.Leopard}</span>
+			</div>
+			<div className={standardValue.Interior === 'houndstooth' ? 'Select' : 'allScrew'} onClick={() => setStandardValue({...standardValue, Interior:'houndstooth'}) & setMySku({...mySku, position7: 'hif'})}>
+				<InteriorFabricTartanWhite />
+				<span className="textAction">{traduction.Houndstooth}</span>
+			</div>
 		</div>
 	)
 }
